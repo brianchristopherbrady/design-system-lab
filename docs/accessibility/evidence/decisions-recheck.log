@@ -1,0 +1,20 @@
+light 1280 /decisions  ovf 0 skips  noOutline 0
+light 1280 /decisions/planning  ovf 0 skips  noOutline 0
+light 1280 /decisions/sharing  ovf 0 skips  noOutline 0
+light 1280 /decisions/implementation  ovf 0 skips  noOutline 0
+light 1280 /decisions/operating  ovf 0 skips  noOutline 0
+light 320 /decisions  ovf 0 skips  noOutline 
+light 320 /decisions/planning  ovf 0 skips  noOutline 
+light 320 /decisions/sharing  ovf 0 skips  noOutline 
+light 320 /decisions/implementation  ovf 0 skips  noOutline 
+light 320 /decisions/operating  ovf 0 skips  noOutline 
+dark 1280 /decisions  ovf 0 skips  noOutline 0
+dark 1280 /decisions/planning  ovf 0 skips  noOutline 0
+dark 1280 /decisions/sharing  ovf 0 skips  noOutline 0
+dark 1280 /decisions/implementation  ovf 0 skips  noOutline 0
+dark 1280 /decisions/operating  ovf 0 skips  noOutline 0
+dark 320 /decisions  ovf 0 skips  noOutline 
+dark 320 /decisions/planning  ovf 0 skips  noOutline 
+dark 320 /decisions/sharing  ovf 0 skips  noOutline 
+dark 320 /decisions/implementation  ovf 0 skips  noOutline 
+dark 320 /decisions/operating  ovf 0 skips  noOutline 

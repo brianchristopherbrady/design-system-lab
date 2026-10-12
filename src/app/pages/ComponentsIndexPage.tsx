@@ -2,7 +2,7 @@ import { EmptyState } from '@/design-system/composites';
 import { Grid, Stack } from '@/design-system/layout';
 import { Button, Heading, Text } from '@/design-system/primitives';
 import { componentLayers, EntryCard, entriesOfKind, type ComponentLayer } from '@/domain/system';
-import { defaultFilters, DirectoryFilters, filterEntries, useUrlDirectoryFilters } from '@/features/directory';
+import { DirectoryFilters, filterEntries, useClearDirectoryFilters, useUrlDirectoryFilters } from '@/features/directory';
 import { paths } from '../paths';
 import { DocPage } from './DocPage';
 
@@ -18,6 +18,7 @@ export function ComponentsIndexPage() {
   // Every entry here is a component, so a resource type from the URL has no control and must not hide results.
   const filters = { ...urlFilters, type: 'all' as const };
   const results = filterEntries(components, filters);
+  const { searchRef, clear } = useClearDirectoryFilters(setFilters);
 
   return (
     <DocPage
@@ -33,12 +34,13 @@ export function ComponentsIndexPage() {
           resultCount={results.length}
           totalCount={components.length}
           label="Filter components"
+          searchRef={searchRef}
         />
         {results.length === 0 ? (
           <EmptyState
             title="No components match these filters"
             description="Try a broader search term, or clear the filters to see all components."
-            action={<Button onClick={() => setFilters(defaultFilters)}>Clear filters</Button>}
+            action={<Button onClick={clear}>Clear filters</Button>}
           />
         ) : (
           componentLayers.map((layer) => {

@@ -1,0 +1,276 @@
+{
+ "date": "2026-10-12T19:31:41.905Z",
+ "browser": "155.0.4283.45",
+ "results": [
+  {
+   "theme": "light",
+   "viewport": "1280",
+   "route": "/decisions",
+   "structure": {
+    "title": "Design decisions · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 5,
+   "noOutline": []
+  },
+  {
+   "theme": "light",
+   "viewport": "1280",
+   "route": "/decisions/planning",
+   "structure": {
+    "title": "Planning a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 53,
+   "noOutline": []
+  },
+  {
+   "theme": "light",
+   "viewport": "1280",
+   "route": "/decisions/sharing",
+   "structure": {
+    "title": "Sharing across products · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 24,
+   "noOutline": []
+  },
+  {
+   "theme": "light",
+   "viewport": "1280",
+   "route": "/decisions/implementation",
+   "structure": {
+    "title": "Choosing an implementation approach · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 20,
+   "noOutline": []
+  },
+  {
+   "theme": "light",
+   "viewport": "1280",
+   "route": "/decisions/operating",
+   "structure": {
+    "title": "Operating and measuring a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 21,
+   "noOutline": []
+  },
+  {
+   "theme": "light",
+   "viewport": "320",
+   "route": "/decisions",
+   "structure": {
+    "title": "Design decisions · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "light",
+   "viewport": "320",
+   "route": "/decisions/planning",
+   "structure": {
+    "title": "Planning a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "light",
+   "viewport": "320",
+   "route": "/decisions/sharing",
+   "structure": {
+    "title": "Sharing across products · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "light",
+   "viewport": "320",
+   "route": "/decisions/implementation",
+   "structure": {
+    "title": "Choosing an implementation approach · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "light",
+   "viewport": "320",
+   "route": "/decisions/operating",
+   "structure": {
+    "title": "Operating and measuring a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "dark",
+   "viewport": "1280",
+   "route": "/decisions",
+   "structure": {
+    "title": "Design decisions · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 5,
+   "noOutline": []
+  },
+  {
+   "theme": "dark",
+   "viewport": "1280",
+   "route": "/decisions/planning",
+   "structure": {
+    "title": "Planning a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 53,
+   "noOutline": []
+  },
+  {
+   "theme": "dark",
+   "viewport": "1280",
+   "route": "/decisions/sharing",
+   "structure": {
+    "title": "Sharing across products · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 24,
+   "noOutline": []
+  },
+  {
+   "theme": "dark",
+   "viewport": "1280",
+   "route": "/decisions/implementation",
+   "structure": {
+    "title": "Choosing an implementation approach · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 20,
+   "noOutline": []
+  },
+  {
+   "theme": "dark",
+   "viewport": "1280",
+   "route": "/decisions/operating",
+   "structure": {
+    "title": "Operating and measuring a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   },
+   "violations": [],
+   "focusStops": 21,
+   "noOutline": []
+  },
+  {
+   "theme": "dark",
+   "viewport": "320",
+   "route": "/decisions",
+   "structure": {
+    "title": "Design decisions · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "dark",
+   "viewport": "320",
+   "route": "/decisions/planning",
+   "structure": {
+    "title": "Planning a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "dark",
+   "viewport": "320",
+   "route": "/decisions/sharing",
+   "structure": {
+    "title": "Sharing across products · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "dark",
+   "viewport": "320",
+   "route": "/decisions/implementation",
+   "structure": {
+    "title": "Choosing an implementation approach · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  },
+  {
+   "theme": "dark",
+   "viewport": "320",
+   "route": "/decisions/operating",
+   "structure": {
+    "title": "Operating and measuring a system · Design System Lab",
+    "h1": 1,
+    "pageOverflow": 0,
+    "skips": [],
+    "noOutline": 0
+   }
+  }
+ ]
+}

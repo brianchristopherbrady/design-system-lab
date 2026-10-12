@@ -14,7 +14,7 @@ import {
   type ActivityEvent,
   type ActivityKind,
 } from '@/domain/system';
-import { useRequest, type DemoScenario } from '@/features/scenarios';
+import { useRequest, useScenarioStatus, type DemoScenario } from '@/features/scenarios';
 import { fetchActivity, noResultsQuery } from './fixtures';
 
 /** Summary metrics and a filterable change feed, all derived from the catalog and changelog. */
@@ -38,6 +38,7 @@ export function ActivityDashboard({ scenario }: { scenario: DemoScenario }) {
   };
 
   const pending = state.status === 'idle' || state.status === 'pending';
+  useScenarioStatus(pending ? 'Loading activity…' : state.status === 'success' && state.data.length === 0 ? 'No activity yet.' : '');
 
   return (
     <section aria-labelledby={headingId} aria-busy={pending}>
@@ -47,7 +48,7 @@ export function ActivityDashboard({ scenario }: { scenario: DemoScenario }) {
         </Heading>
         {pending && (
           <>
-            <Text role="status" variant="bodySmall" tone="muted">
+            <Text variant="bodySmall" tone="muted">
               Loading activity…
             </Text>
             <Grid minColumnWidth="extraSmall" gap="medium" aria-hidden="true">

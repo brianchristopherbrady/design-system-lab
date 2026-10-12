@@ -1,0 +1,15 @@
+
+> system-lab@0.1.0 lint
+> eslint . && npm run lint:architecture
+
+
+> system-lab@0.1.0 lint:architecture
+> npm run tokens:check && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-styles.mjs
+
+
+> system-lab@0.1.0 tokens:check
+> node scripts/tokens/build-tokens.mjs --check
+
+Token outputs are up to date.
+Dependency boundaries OK: 675 internal imports across 262 files, no cycles.
+Style check OK: 58 stylesheets use known semantic tokens and declare their layers.

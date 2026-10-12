@@ -218,3 +218,56 @@ test.describe('form validation', () => {
     await expect(page.getByText('Button already exists. Propose a change to it instead.').first()).toBeVisible();
   });
 });
+
+test.describe('focus and status after a state change (A11Y-001, A11Y-002)', () => {
+  test('every Clear filters button hands focus to the Search input', async ({ page }) => {
+    const search = page.getByRole('searchbox', { name: 'Search' });
+    for (const [index, key] of [[0, 'Enter'], [1, 'Space']] as const) {
+      await page.goto('/components?q=zzzz');
+      await page.getByRole('main').getByRole('button', { name: 'Clear filters' }).nth(index).focus();
+      await page.keyboard.press(key);
+      await expect(search).toBeFocused();
+      await expect(search).toHaveValue('');
+      expect(await search.evaluate((element) => getComputedStyle(element).outlineStyle)).not.toBe('none');
+      await expect(page.getByRole('status').filter({ hasText: 'Showing 29 of 29' })).toBeVisible();
+    }
+
+    await page.goto('/patterns/resource-directory');
+    await page.getByRole('combobox', { name: 'Demo scenario' }).selectOption('noResults');
+    await expect(page.getByRole('heading', { name: 'No entries match “tooltip”' })).toBeVisible();
+    await page.getByRole('main').getByRole('button', { name: 'Clear filters' }).last().focus();
+    await page.keyboard.press('Enter');
+    await expect(search).toBeFocused();
+    await expect(page.getByRole('status').filter({ hasText: /^Showing 12 of \d+ entries$/ })).toBeVisible();
+
+    await search.fill('zzzz');
+    await page.getByRole('main').getByRole('button', { name: 'Clear filters' }).first().focus();
+    await page.keyboard.press('Enter');
+    await expect(search).toBeFocused();
+    expect(await page.evaluate(() => document.activeElement === document.body)).toBe(false);
+  });
+
+  for (const { path, scenario, outcome } of [
+    { path: '/patterns/resource-directory', scenario: 'empty', outcome: 'No entries yet.' },
+    { path: '/patterns/activity-dashboard', scenario: 'empty', outcome: 'No activity yet.' },
+    { path: '/patterns/resource-detail', scenario: 'empty', outcome: 'Button entry loaded. No recorded changes.' },
+  ]) {
+    test(`${path} ${scenario} reports its outcome in the persistent demo status`, async ({ page }) => {
+      await page.goto(path);
+      const select = page.getByRole('combobox', { name: 'Demo scenario' });
+      const status = page.locator('[data-scenario] + [role="status"]');
+      await expect(status).toHaveCount(1);
+      const before = await status.elementHandle();
+      await select.focus();
+      await select.selectOption(scenario);
+      await expect(status).toHaveText(outcome);
+      expect(await status.evaluate((element, original) => element === original, before)).toBe(true);
+      await expect(select).toBeFocused();
+    });
+  }
+
+  test('resource detail success reports that the entry loaded', async ({ page }) => {
+    await page.goto('/patterns/resource-detail');
+    await expect(page.locator('[data-scenario] + [role="status"]')).toHaveText('Button entry loaded.');
+  });
+});

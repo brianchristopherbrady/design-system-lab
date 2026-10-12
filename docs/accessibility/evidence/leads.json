@@ -1,0 +1,1572 @@
+{
+ "base": "http://localhost:5173",
+ "date": "2026-10-12T18:45:46.206Z",
+ "browser": "155.0.4283.45",
+ "checks": {
+  "stickyFocus": {
+   "1280x900:button": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 11,
+    "fullyCovered": 1,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 140,
+      "bottom": 176,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1280x900:card": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 12,
+    "fullyCovered": 2,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 255,
+      "bottom": 291,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 255,
+      "bottom": 291,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1280x900:dialog": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 14,
+    "fullyCovered": 1,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 130,
+      "bottom": 166,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1280x720:button": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 13,
+    "fullyCovered": 2,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 139,
+      "bottom": 175,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 168,
+      "bottom": 200,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 0.72,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 140,
+      "bottom": 176,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1280x720:card": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 15,
+    "fullyCovered": 5,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 260,
+      "bottom": 296,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.elevation (low)non",
+      "top": 129,
+      "bottom": 173,
+      "panelTop": -117,
+      "panelBottom": 201,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.border (subtle)non",
+      "top": 215,
+      "bottom": 259,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.radius (large)none",
+      "top": 267,
+      "bottom": 311,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 253,
+      "bottom": 289,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1280x720:dialog": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 14,
+    "fullyCovered": 3,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 118,
+      "bottom": 154,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 133,
+      "bottom": 165,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 129,
+      "bottom": 165,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1440x600:button": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 13,
+    "fullyCovered": 3,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 97,
+      "bottom": 133,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 164,
+      "bottom": 196,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 0.82,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 155,
+      "bottom": 187,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 139,
+      "bottom": 175,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1440x600:card": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 12,
+    "fullyCovered": 8,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Unset: card.elevation (low)non",
+      "top": 248,
+      "bottom": 292,
+      "panelTop": 0,
+      "panelBottom": 305,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.border (subtle)non",
+      "top": 249,
+      "bottom": 293,
+      "panelTop": 0,
+      "panelBottom": 305,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 240,
+      "bottom": 276,
+      "panelTop": 0,
+      "panelBottom": 305,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.elevation (low)non",
+      "top": 130,
+      "bottom": 174,
+      "panelTop": -103,
+      "panelBottom": 202,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.border (subtle)non",
+      "top": 157,
+      "bottom": 201,
+      "panelTop": 0,
+      "panelBottom": 305,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: card.radius (large)none",
+      "top": 183,
+      "bottom": 227,
+      "panelTop": 0,
+      "panelBottom": 305,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1440x600:dialog": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 12,
+    "fullyCovered": 5,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 94,
+      "bottom": 130,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 64,
+      "bottom": 96,
+      "panelTop": -63,
+      "panelBottom": 130,
+      "covered": 1,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: dialog.elevation (high)",
+      "top": 73,
+      "bottom": 117,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Unset: dialog.border (subtle)n",
+      "top": 139,
+      "bottom": 183,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 130,
+      "bottom": 166,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1024x768:button": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 10,
+    "fullyCovered": 1,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 139,
+      "bottom": 175,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1024x768:card": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 14,
+    "fullyCovered": 2,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 256,
+      "bottom": 292,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 255,
+      "bottom": 291,
+      "panelTop": 0,
+      "panelBottom": 318,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   },
+   "1024x768:dialog": {
+    "sticky": "sticky",
+    "steps": 90,
+    "partial": 14,
+    "fullyCovered": 2,
+    "examples": [
+     {
+      "dir": "rev",
+      "t": "false",
+      "top": 132,
+      "bottom": 164,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": false,
+      "inPanel": false
+     },
+     {
+      "dir": "rev",
+      "t": "Preview settingsDesign System ",
+      "top": 127,
+      "bottom": 163,
+      "panelTop": 0,
+      "panelBottom": 193,
+      "covered": 1,
+      "centreHitsFocused": true,
+      "inPanel": false
+     }
+    ]
+   }
+  },
+  "targets": {
+   "320 /components/radio-group": [
+    {
+     "el": "input[radio] Email",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      172,
+      28
+     ],
+     "distToNearestTarget": 106,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] Text message",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      172,
+      28
+     ],
+     "distToNearestTarget": 83,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] Phone call",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      172,
+      28
+     ],
+     "distToNearestTarget": 83,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 8:00 to 12:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      206,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 12:00 to 17:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      206,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 17:00 to 20:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      206,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "320 /components/checkbox": [
+    {
+     "el": "input[checkbox] Comments",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      177,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mentions",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      177,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Weekly digest",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      177,
+      28
+     ],
+     "distToNearestTarget": 72,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "320 /patterns/form-validation": [
+    {
+     "el": "input[checkbox] I searched the directory ",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      256,
+      56
+     ],
+     "distToNearestTarget": 52,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "320 /foundations/products": [
+    {
+     "el": "input[checkbox] Notify the requester",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      106,
+      56
+     ],
+     "distToNearestTarget": 44,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mark as reviewed",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      222,
+      28
+     ],
+     "distToNearestTarget": 30,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mark as reviewed",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      230,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "320 /components/button": [],
+   "320 /playground?component=button": [],
+   "320 /components/dialog": [],
+   "320 /components/tabs": [],
+   "1280-compact /components/radio-group": [
+    {
+     "el": "input[radio] Email",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      168,
+      28
+     ],
+     "distToNearestTarget": 87,
+     "nearest": "button Continue",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] Text message",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      168,
+      28
+     ],
+     "distToNearestTarget": 156,
+     "nearest": "summary Source",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] Phone call",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      168,
+      28
+     ],
+     "distToNearestTarget": 156,
+     "nearest": "summary Source",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 8:00 to 12:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      654,
+      28
+     ],
+     "distToNearestTarget": 22,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 12:00 to 17:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      654,
+      28
+     ],
+     "distToNearestTarget": 22,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[radio] 17:00 to 20:00",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      654,
+      28
+     ],
+     "distToNearestTarget": 22,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "1280-compact /components/checkbox": [
+    {
+     "el": "input[checkbox] Comments",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      625,
+      28
+     ],
+     "distToNearestTarget": 22,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mentions",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      625,
+      28
+     ],
+     "distToNearestTarget": 22,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Weekly digest",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      625,
+      28
+     ],
+     "distToNearestTarget": 45,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "1280-compact /patterns/form-validation": [
+    {
+     "el": "input[checkbox] I searched the directory ",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      704,
+      28
+     ],
+     "distToNearestTarget": 30,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "1280-compact /foundations/products": [
+    {
+     "el": "input[checkbox] Notify the requester",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      602,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mark as reviewed",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      296,
+      28
+     ],
+     "distToNearestTarget": 30,
+     "nearest": "input ",
+     "spacingOk": true
+    },
+    {
+     "el": "input[checkbox] Mark as reviewed",
+     "w": 20,
+     "h": 20,
+     "labelBox": [
+      304,
+      28
+     ],
+     "distToNearestTarget": 26,
+     "nearest": "input ",
+     "spacingOk": true
+    }
+   ],
+   "1280-compact /components/button": [],
+   "1280-compact /playground?component=button": [],
+   "1280-compact /components/dialog": [],
+   "1280-compact /components/tabs": []
+  },
+  "contrast": {
+   "system-lab-light": {
+    "canvas": "rgb(248, 249, 250)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 4.66,
+     "vsInputBg": 4.91
+    },
+    "selectBorder": 4.66,
+    "checkboxBorder": {
+     "css": "rgb(11, 12, 14)",
+     "accent": "rgb(6, 7, 8)"
+    },
+    "focusRingVsCanvas": 19.13,
+    "mutedTextVsCanvas": 7.02,
+    "inputBorderToken": 4.66,
+    "_unused": false,
+    "productApplied": "system-lab",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 4.66,
+     "borderVsSurround": 4.66,
+     "thumbVsTrack": 4.91
+    }
+   },
+   "system-lab-dark": {
+    "canvas": "rgb(11, 12, 14)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 3.98,
+     "vsInputBg": 3.72
+    },
+    "selectBorder": 3.98,
+    "checkboxBorder": {
+     "css": "rgb(238, 240, 242)",
+     "accent": "rgb(248, 249, 250)"
+    },
+    "focusRingVsCanvas": 18.56,
+    "mutedTextVsCanvas": 7.52,
+    "inputBorderToken": 3.98,
+    "_unused": false,
+    "productApplied": "system-lab",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 3.98,
+     "borderVsSurround": 3.98,
+     "thumbVsTrack": 3.72
+    }
+   },
+   "harbor-light": {
+    "canvas": "rgb(248, 249, 250)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 4.66,
+     "vsInputBg": 4.91
+    },
+    "selectBorder": 4.66,
+    "checkboxBorder": {
+     "css": "rgb(11, 12, 14)",
+     "accent": "rgb(15, 118, 110)"
+    },
+    "focusRingVsCanvas": 3.55,
+    "mutedTextVsCanvas": 7.02,
+    "inputBorderToken": 4.66,
+    "_unused": false,
+    "productApplied": "harbor",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 4.66,
+     "borderVsSurround": 4.66,
+     "thumbVsTrack": 4.91
+    }
+   },
+   "harbor-dark": {
+    "canvas": "rgb(11, 12, 14)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 3.98,
+     "vsInputBg": 3.72
+    },
+    "selectBorder": 3.98,
+    "checkboxBorder": {
+     "css": "rgb(238, 240, 242)",
+     "accent": "rgb(94, 234, 212)"
+    },
+    "focusRingVsCanvas": 7.86,
+    "mutedTextVsCanvas": 7.52,
+    "inputBorderToken": 3.98,
+    "_unused": false,
+    "productApplied": "harbor",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 3.98,
+     "borderVsSurround": 3.98,
+     "thumbVsTrack": 3.72
+    }
+   },
+   "meadow-light": {
+    "canvas": "rgb(248, 249, 250)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 4.66,
+     "vsInputBg": 4.91
+    },
+    "selectBorder": 4.66,
+    "checkboxBorder": {
+     "css": "rgb(11, 12, 14)",
+     "accent": "rgb(124, 58, 237)"
+    },
+    "focusRingVsCanvas": 4.02,
+    "mutedTextVsCanvas": 7.02,
+    "inputBorderToken": 4.66,
+    "_unused": false,
+    "productApplied": "meadow",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 4.66,
+     "borderVsSurround": 4.66,
+     "thumbVsTrack": 4.91
+    }
+   },
+   "meadow-dark": {
+    "canvas": "rgb(11, 12, 14)",
+    "inputBorder": {
+     "color": "rgb(107, 113, 123)",
+     "vsBg": 3.98,
+     "vsInputBg": 3.72
+    },
+    "selectBorder": 3.98,
+    "checkboxBorder": {
+     "css": "rgb(238, 240, 242)",
+     "accent": "rgb(196, 181, 253)"
+    },
+    "focusRingVsCanvas": 7.19,
+    "mutedTextVsCanvas": 7.52,
+    "inputBorderToken": 3.98,
+    "_unused": false,
+    "productApplied": "meadow",
+    "switchTrackOff": {
+     "checked": false,
+     "trackBg": "rgb(107, 113, 123)",
+     "border": "rgb(107, 113, 123) 1px",
+     "trackBgVsSurround": 3.98,
+     "borderVsSurround": 3.98,
+     "thumbVsTrack": 3.72
+    }
+   }
+  },
+  "axeIncomplete": {
+   "/": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#about > ._stack_1jurl_3 > ._prose_10r1g_11 > p:nth-child(3)",
+     "why": "Element's background color could not be determined because it is overlapped by another element",
+     "data": {
+      "ratio": 0,
+      "reason": "bgOverlap"
+     }
+    },
+    {
+     "target": "#about > ._stack_1jurl_3 > ._prose_10r1g_11 > p:nth-child(4)",
+     "why": "Element's background color could not be determined because it is overlapped by another element",
+     "data": {
+      "ratio": 0,
+      "reason": "bgOverlap"
+     }
+    },
+    {
+     "target": "._readout_1mj1k_225:nth-child(1) > ._value_1mj1k_279",
+     "why": "Element's background color could not be determined because it is overlapped by another element",
+     "data": {
+      "ratio": 0,
+      "reason": "bgOverlap"
+     }
+    },
+    {
+     "target": "._readout_1mj1k_225:nth-child(2) > ._value_1mj1k_279",
+     "why": "Element's background color could not be determined because it is overlapped by another element",
+     "data": {
+      "ratio": 0,
+      "reason": "bgOverlap"
+     }
+    },
+    {
+     "target": "._readout_1mj1k_225:nth-child(3) > ._value_1mj1k_279",
+     "why": "Element's background color could not be determined because it is overlapped by another element",
+     "data": {
+      "ratio": 0,
+      "reason": "bgOverlap"
+     }
+    },
+    {
+     "target": "._readout_1mj1k_225:nth-child(4) > ._value_1mj1k_279",
+     "why": "Element content is too short to determine if it is actual text content",
+     "data": {
+      "ratio": 0,
+      "reason": "shortTextContent"
+     }
+    },
+    {
+     "target": "._card_1rc1z_11:nth-child(1) > ._body_1rc1z_47 > ._stack_1jurl_3 > ._facts_ucoc4_147 > div:nth-child(2) > dd > span > span[aria-hidden=\"true\"]",
+     "why": "Element content contains only non-text characters",
+     "data": {
+      "reason": "nonBmp"
+     }
+    },
+    {
+     "target": "div:nth-child(1) > dd > span > span[aria-hidden=\"true\"]:nth-child(2)",
+     "why": "Element content contains only non-text characters",
+     "data": {
+      "reason": "nonBmp"
+     }
+    },
+    {
+     "target": "div:nth-child(1) > dd > span > span[aria-hidden=\"true\"]:nth-child(5)",
+     "why": "Element content contains only non-text characters",
+     "data": {
+      "reason": "nonBmp"
+     }
+    },
+    {
+     "target": "._card_1rc1z_11:nth-child(2) > ._body_1rc1z_47 > ._stack_1jurl_3 > ._facts_ucoc4_147 > div:nth-child(2) > dd > span > span[aria-hidden=\"true\"]:nth-child(2)",
+     "why": "Element content contains only non-text characters",
+     "data": {
+      "reason": "nonBmp"
+     }
+    },
+    {
+     "target": "div:nth-child(2) > dd > span > span[aria-hidden=\"true\"]:nth-child(5)",
+     "why": "Element content contains only non-text characters",
+     "data": {
+      "reason": "nonBmp"
+     }
+    }
+   ],
+   "/components/button": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/components/badge": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/foundations/color": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/foundations/theme-studio": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/patterns/resource-directory": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_7_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/playground?component=badge": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_5_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_6_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "select[aria-labelledby=\"_r_h_-name\"]",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "select[aria-labelledby=\"_r_i_-name\"]",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "select[aria-labelledby=\"_r_j_-name\"]",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "select[aria-labelledby=\"_r_k_-name\"]",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "select[aria-labelledby=\"_r_l_-name\"]",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ],
+   "/components/radio-group": [
+    {
+     "target": "#_r_2_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_3_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    },
+    {
+     "target": "#_r_4_",
+     "why": "Element's background color could not be determined due to a background gradient",
+     "data": {
+      "ratio": 0,
+      "reason": "bgGradient"
+     }
+    }
+   ]
+  },
+  "textSpacing": {
+   "themeStudioStrip": {
+    "before": {
+     "text": "L 97%",
+     "sw": 61,
+     "cw": 61,
+     "list": "Clavius ramp, 12 steps"
+    },
+    "truncatedAfter": 12,
+    "total": 24,
+    "sample": [
+     {
+      "text": "L 97%",
+      "sw": 61,
+      "cw": 61,
+      "truncated": false
+     },
+     {
+      "text": "C 0.012",
+      "sw": 63,
+      "cw": 61,
+      "truncated": true
+     },
+     {
+      "text": "L 95%",
+      "sw": 61,
+      "cw": 61,
+      "truncated": false
+     },
+     {
+      "text": "C 0.026",
+      "sw": 63,
+      "cw": 61,
+      "truncated": true
+     }
+    ],
+    "valueElsewhereCount": 0,
+    "stripAria": {
+     "liText": "50#f4f6ffL 97%C 0.012",
+     "ariaLabel": null,
+     "hiddenParts": 0
+    }
+   },
+   "spacing320 /": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   },
+   "spacing320 /components/button": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   },
+   "spacing320 /playground?component=button": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   },
+   "spacing320 /patterns/form-validation": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   },
+   "spacing320 /components/tabs": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   },
+   "spacing320 /components/dialog": {
+    "pageOverflow": 0,
+    "settingsSummary": {
+     "text": "Design System Lab · System · Comfortable",
+     "truncated": true
+    }
+   }
+  },
+  "clearFilters": {
+   "/components?q=zzzz summary": {
+    "buttons": 2,
+    "focusAfterActivate": "body",
+    "nextTab": "A Box",
+    "status": "Showing 29 of 29"
+   },
+   "/components?q=zzzz empty": {
+    "buttons": 2,
+    "focusAfterActivate": "body",
+    "nextTab": "A Box",
+    "status": "Showing 29 of 29"
+   },
+   "/components?q=but summary": {
+    "buttons": 1,
+    "focusAfterActivate": "body",
+    "nextTab": "A Box",
+    "status": "Showing 29 of 29"
+   },
+   "directoryNoResults": {
+    "focusAfterActivate": "body",
+    "nextTab": "A Activity dashboard"
+   }
+  },
+  "formCheckbox": {
+   "before": {
+    "label": "I searched the directory and nothing existing fits",
+    "required": false,
+    "ariaRequired": null,
+    "describedby": null
+   },
+   "otherLabels": [
+    "Component name (required)",
+    "Component layer (required)",
+    "Summary (required)",
+    "Contact email (required)",
+    "I searched the directory and nothing existing fits"
+   ],
+   "after": {
+    "invalid": "true",
+    "desc": "Error: Confirm that you searched the directory first."
+   }
+  },
+  "regions": {
+   "/playground?component=button": [
+    "- region \"Preview\":",
+    "- region \"Button preview\":",
+    "- region \"Component props\":",
+    "- region \"Usage\":",
+    "- region \"Usage\":"
+   ],
+   "/components/scroll-region": [
+    "- paragraph: Lets wide tables and code scroll inside the page, as a named region keyboard users can scroll.",
+    "- navigation \"On this page\":",
+    "- paragraph: ScrollRegion lets content that cannot reflow — data tables, code, wide matrices — scroll inside the page so the page itself never scrolls sideways. It is always a focusable, named region, so keyboard users can scroll it and screen-reader users know what it holds.",
+    "- text: Recommended usage The table keeps its columns and scrolls on its own; the page never scrolls sideways. Tab to the region and use the arrow keys to scroll it. Narrow container (18rem)",
+    "- region \"Release history\":",
+    "- region \"Release history\":",
+    "- region \"ScrollRegion props\":",
+    "- paragraph: Other global HTML attributes, className and style go to the element. role and tabIndex are fixed; a name is required by the type, so an unnamed scroll region does not compile.",
+    "- region \"2 tokens read, resolved for Design System Lab · light · comfortable\":",
+    "- listitem: \"role=\\\"region\\\" with tabIndex 0 and a required name: reachable and scrollable with the arrow keys (WCAG 2.1.1).\""
+   ]
+  },
+  "productsHeadings": [
+   "H1 Products and modes",
+   "H2 Three independent modifiers",
+   "H3 Design System Lab",
+   "H3 Harbor",
+   "H3 Meadow",
+   "H2 Compose a mode",
+   "H3 Invoice INV-2041",
+   "H2 What a product changes",
+   "H2 Nested scopes",
+   "H2 Dependency-minimal CSS",
+   "H3 Where a token is declared",
+   "H2 Products × themes",
+   "H4 Pending approvals",
+   "H4 Pending approvals",
+   "H4 Pending approvals",
+   "H4 Pending approvals",
+   "H4 Pending approvals",
+   "H4 Pending approvals",
+   "H2 Density",
+   "H2 Adding a product",
+   "H2 Source"
+  ],
+  "radioDisabled": {
+   "system-lab-light": [
+    2.51
+   ],
+   "system-lab-light-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   },
+   "system-lab-dark": [
+    3
+   ],
+   "system-lab-dark-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   },
+   "harbor-light": [
+    2.51
+   ],
+   "harbor-light-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   },
+   "harbor-dark": [
+    3
+   ],
+   "harbor-dark-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   },
+   "meadow-light": [
+    2.51
+   ],
+   "meadow-light-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   },
+   "meadow-dark": [
+    3
+   ],
+   "meadow-dark-label": {
+    "text": "Fully booked this week.",
+    "opacity": "0.55",
+    "radioDisabled": true,
+    "labelText": "17:00 to 20:00"
+   }
+  }
+ }
+}

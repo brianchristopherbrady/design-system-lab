@@ -1,0 +1,1776 @@
+{
+ "base": "http://localhost:5173",
+ "date": "2026-10-12T18:27:05.056Z",
+ "browser": "155.0.4283.45",
+ "checks": {
+  "tabOrder.componentsButton.forward": [
+   {
+    "el": "a",
+    "name": "Skip to main content",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     0,
+     0,
+     1280,
+     44
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Design System Lab",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     32,
+     0,
+     220,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Overview",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     284,
+     0,
+     99,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Foundations",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     387,
+     0,
+     128,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Components",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     519,
+     0,
+     125,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Playground",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     648,
+     0,
+     121,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Patterns",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     773,
+     0,
+     93,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Design decisions",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     869,
+     0,
+     168,
+     64
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "select#_r_2_",
+    "name": "Product",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     701,
+     73,
+     158,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "select#_r_3_",
+    "name": "Theme",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     943,
+     73,
+     87,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "select#_r_4_",
+    "name": "Density",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     1128,
+     73,
+     120,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Box",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     170,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Stack",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     202,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Inline",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     234,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Grid",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     266,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Container",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     298,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "ThemeScope",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     330,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "ScrollRegion",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     362,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Text",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     434,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Heading",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     466,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Button",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     498,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Badge",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     530,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Icon",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     562,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Link",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     594,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Input",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     626,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Select",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     658,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Checkbox",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     690,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Switch",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     722,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Progress",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     754,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Skeleton",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     786,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "VisuallyHidden",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     818,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Card",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     889,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Dialog",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     921,
+     215,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "a",
+    "name": "Alert",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     953,
+     215,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "a",
+    "name": "Tabs",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     982,
+     215,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "a",
+    "name": "Disclosure",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     820,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "Field",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     852,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "PageHeader",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     884,
+     215,
+     32
+    ],
+    "inViewport": true
+   },
+   {
+    "el": "a",
+    "name": "EmptyState",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     914,
+     215,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "a",
+    "name": "RadioGroup",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     24,
+     946,
+     215,
+     32
+    ],
+    "inViewport": false
+   }
+  ],
+  "tabOrder.componentsButton.reverseFromFooter": [
+   {
+    "el": "summary",
+    "name": "src/design-system/tokens/source/component.tokens.jsonToken s",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     8428,
+     734,
+     71
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "src/design-system/primitives/Button/Button.module.cssStyles:",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     8344,
+     734,
+     71
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "src/design-system/primitives/Button/Button.tsxImplementation",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     8266,
+     734,
+     71
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "div[role=region]",
+    "name": "46 tokens read, resolved for Design System Lab · light · com",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     288,
+     4594,
+     736,
+     2470
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "disabled background-color button.disabled.background",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4390,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "radius unset border-radius button.radius",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4344,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "border=\"thick\" border-width border-width.thick",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4300,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "size=\"large\" min-block-size button.height.large",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4258,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "appearance=\"danger\" color button.danger.foreground",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4214,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "appearance=\"primary\" (hover) background-color button.primary",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4170,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "appearance=\"primary\" background-color button.primary.backgro",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     4126,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "div[role=region]",
+    "name": "Button propsPropTypeDefaultDescriptionappearance\"primary\" | ",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     288,
+     2655,
+     736,
+     729
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "Rendered HTML",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     2522,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "Source",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     2487,
+     734,
+     32
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "A button with a long label that wraps onto a second line ins",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2399,
+     668,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Save changes",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2337,
+     668,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Refresh",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     578,
+     2285,
+     54,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Next",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     474,
+     2283,
+     96,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Add entry",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2281,
+     144,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "A button with a long label that wraps onto a second line ins",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2138,
+     270,
+     78
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Save changes",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2076,
+     270,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Refresh",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     2022,
+     54,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Next",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     474,
+     1970,
+     96,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "button",
+    "name": "Add entry",
+    "outline": "solid 2px rgb(6, 7, 8) off 0px",
+    "focusVisible": true,
+    "box": [
+     322,
+     1968,
+     144,
+     44
+    ],
+    "inViewport": false
+   },
+   {
+    "el": "summary",
+    "name": "Rendered HTML",
+    "outline": "solid 2px rgb(6, 7, 8) off -2px",
+    "focusVisible": true,
+    "box": [
+     289,
+     1737,
+     734,
+     32
+    ],
+    "inViewport": false
+   }
+  ],
+  "focus.noOutline": [],
+  "routeFocus": {
+   "afterNav": {
+    "el": "h1",
+    "name": "Patterns",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     288,
+     203,
+     960,
+     49
+    ],
+    "inViewport": true
+   },
+   "title": "Patterns · Design System Lab",
+   "afterBack": {
+    "el": "body"
+   },
+   "titleBack": "Design System Lab",
+   "afterSidebar": {
+    "el": "h1",
+    "name": "Tabs",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     288,
+     200,
+     736,
+     49
+    ],
+    "inViewport": true
+   },
+   "notFound": {
+    "title": "Page not found · Design System Lab",
+    "h1": "Page not found"
+   }
+  },
+  "dialog": {
+   "openInitial": {
+    "el": "button",
+    "name": "Close",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     767,
+     350,
+     40,
+     32
+    ],
+    "inViewport": true
+   },
+   "dialogAttrs": {
+    "modal": true,
+    "labelledby": "Keyboard shortcuts"
+   },
+   "tabSeq": [
+    {
+     "t": "Done",
+     "inDialog": true
+    },
+    {
+     "t": "Close",
+     "inDialog": true
+    },
+    {
+     "t": "Done",
+     "inDialog": true
+    },
+    {
+     "t": "Close",
+     "inDialog": true
+    },
+    {
+     "t": "Done",
+     "inDialog": true
+    }
+   ],
+   "shiftTabSeq": [
+    {
+     "t": "Close",
+     "inDialog": true
+    },
+    {
+     "t": "Done",
+     "inDialog": true
+    },
+    {
+     "t": "Close",
+     "inDialog": true
+    },
+    {
+     "t": "Done",
+     "inDialog": true
+    },
+    {
+     "t": "Close",
+     "inDialog": true
+    }
+   ],
+   "afterEscape": {
+    "open": 0,
+    "focus": {
+     "el": "button",
+     "name": "Show keyboard shortcuts",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      313,
+      428,
+      266,
+      44
+     ],
+     "inViewport": true
+    }
+   },
+   "confirmInitial": {
+    "el": "button",
+    "name": "Cancel",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     600,
+     482,
+     96,
+     44
+    ],
+    "inViewport": true
+   },
+   "confirmAfter": {
+    "focus": {
+     "el": "button",
+     "name": "Restore Button entry",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      313,
+      734,
+      245,
+      44
+     ],
+     "inViewport": true
+    },
+    "status": 1
+   },
+   "failInitial": {
+    "el": "button",
+    "name": "Close",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     833,
+     374,
+     37,
+     32
+    ],
+    "inViewport": true
+   },
+   "failError": {
+    "alert": "The token set was not deleted\n\nThe server responded with 503 Service Unavailable. Nothing was changed. Try again.",
+    "focus": {
+     "el": "button",
+     "name": "Try again",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      753,
+      546,
+      118,
+      44
+     ],
+     "inViewport": true
+    }
+   },
+   "failRecovered": {
+    "focus": {
+     "el": "button",
+     "name": "Reset example",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      313,
+      428,
+      177,
+      44
+     ],
+     "inViewport": true
+    },
+    "status": 1
+   },
+   "dialog320": {
+    "w": 288,
+    "h": 224,
+    "scrollH": 309,
+    "clientH": 222,
+    "overflowY": "auto",
+    "docOverflow": 0
+   }
+  },
+  "tabs": [
+   {
+    "key": "ArrowRight",
+    "focus": "Tokens",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "ArrowRight",
+    "focus": "Changes",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "ArrowRight",
+    "focus": "Usage",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "ArrowLeft",
+    "focus": "Changes",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "Home",
+    "focus": "Usage",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "End",
+    "focus": "Changes",
+    "selected": "true",
+    "tabindex": 0,
+    "outline": "solid 2px"
+   },
+   {
+    "key": "Tab",
+    "focus": "tabpanel",
+    "name": "Changes"
+   },
+   {
+    "key": "Shift+Tab",
+    "focus": "Changes"
+   }
+  ],
+  "switch": {
+   "before": {
+    "checked": false,
+    "name": "Compact rows",
+    "desc": null,
+    "track": "solid 2px rgb(6, 7, 8)",
+    "inputOutline": "solid"
+   },
+   "afterSpace": true,
+   "afterEnter": true,
+   "controlBox": [
+    50,
+    30
+   ],
+   "total": 1
+  },
+  "form": {
+   "afterSubmit": {
+    "el": "div",
+    "name": "Fix 5 problems to continueComponent name: Enter a component ",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     288,
+     -2,
+     736,
+     182
+    ],
+    "inViewport": true
+   },
+   "summaryRole": {
+    "role": null,
+    "text": "Fix 5 problems to continueComponent name: Enter a component name.Component layer: Choose a component layer.Summary: Desc"
+   },
+   "firstLink": {
+    "el": "a",
+    "name": "Component name: Enter a component name.",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     374,
+     48,
+     266,
+     20
+    ],
+    "inViewport": true
+   },
+   "afterLink": {
+    "el": "INPUT",
+    "invalid": "true",
+    "describedby": "PascalCase, as it would be imported. | Enter a component name.",
+    "required": true,
+    "labelText": "Component name (required)"
+   },
+   "checkbox": {
+    "invalid": null,
+    "desc": "Outline each container this pattern's components query, with its live width. Resize the window to watch them respond.",
+    "required": false
+   },
+   "summaryAfterFix": 0,
+   "success": {
+    "status": [
+     "Demo submission complete. Nothing was sent."
+    ],
+    "focus": {
+     "el": "button",
+     "name": "Submit proposal",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      288,
+      569,
+      177,
+      44
+     ],
+     "inViewport": true
+    }
+   },
+   "requiredMarks": [
+    "text:true",
+    "select-one:true",
+    "text:true",
+    "email:true",
+    "checkbox:false"
+   ]
+  },
+  "filters": {
+   "componentsIndex": {
+    "liveTexts": [
+     "Showing 21 of 29",
+     "Showing 2 of 29",
+     "Showing 1 of 29"
+    ],
+    "url": "http://localhost:5173/components?q=but",
+    "focus": {
+     "el": "input#_r_5_",
+     "name": "Search",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      288,
+      429,
+      472,
+      44
+     ],
+     "inViewport": true
+    },
+    "none": {
+     "live": [
+      "Showing 1 of 29",
+      "Showing 0 of 29"
+     ],
+     "empty": [
+      "No components match these filters"
+     ]
+    },
+    "afterClear": {
+     "el": "body"
+    }
+   },
+   "directory": {
+    "afterType": [
+     "Showing 12 of 29 matches, 48 in total"
+    ],
+    "afterShowMore": {
+     "focus": {
+      "el": "a",
+      "name": "Heading",
+      "outline": "solid 2px rgb(6, 7, 8) off 2px",
+      "focusVisible": true,
+      "box": [
+       322,
+       772,
+       75,
+       29
+      ],
+      "inViewport": true
+     },
+     "live": [
+      "Showing 12 of 29 matches, 48 in total",
+      "Showing 24 of 29 matches, 48 in total"
+     ]
+    },
+    "pin": {
+     "before": "PIN\nALERT",
+     "after": {
+      "name": "Pin Alert",
+      "pressed": "true"
+     }
+    }
+   }
+  },
+  "scenarios": {
+   "options": [
+    "success",
+    "loading",
+    "empty",
+    "noResults",
+    "error"
+   ],
+   "states": {
+    "success": {
+     "live": [
+      "ADDED status: Showing 12 of 48 entries"
+     ],
+     "busy": "false",
+     "focus": {
+      "el": "body"
+     }
+    },
+    "loading": {
+     "live": [
+      "ADDED status: Loading entries…"
+     ],
+     "busy": "true",
+     "focus": {
+      "el": "body"
+     }
+    },
+    "empty": {
+     "live": [
+      "ADDED status: Loading entries…"
+     ],
+     "busy": "false",
+     "focus": {
+      "el": "body"
+     }
+    },
+    "noResults": {
+     "live": [
+      "ADDED status: Loading entries…",
+      "ADDED status: Showing 0 of 48"
+     ],
+     "busy": "false",
+     "focus": {
+      "el": "body"
+     }
+    },
+    "error": {
+     "live": [
+      "ADDED status: Loading entries…",
+      "ADDED alert: Entries could not be loadedThe directory service responded with 503 Service Unav"
+     ],
+     "busy": "false",
+     "focus": {
+      "el": "body"
+     }
+    }
+   },
+   "retry": {
+    "focusImmediately": {
+     "el": "body"
+    },
+    "after": {
+     "focus": {
+      "el": "h3#_r_i_",
+      "name": "System directory",
+      "outline": "solid 2px rgb(6, 7, 8) off 2px",
+      "focusVisible": true,
+      "box": [
+       305,
+       656,
+       167,
+       32
+      ],
+      "inViewport": true
+     },
+     "live": [
+      "ADDED status: Loading entries…",
+      "ADDED status: Showing 12 of 48 entries"
+     ]
+    }
+   },
+   "reset": {
+    "focus": {
+     "el": "button",
+     "name": "Reset demo",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      440,
+      559,
+      131,
+      32
+     ],
+     "inViewport": true
+    }
+   },
+   "otherPages": {
+    "/patterns/resource-detail": {
+     "opts": [
+      "success",
+      "loading",
+      "empty",
+      "error"
+     ],
+     "states": {
+      "success": {
+       "live": [
+        "ADDED status: "
+       ]
+      },
+      "loading": {
+       "live": [
+        "ADDED status: Loading the Button entry…"
+       ]
+      },
+      "empty": {
+       "live": [
+        "ADDED status: Loading the Button entry…",
+        "ADDED status: "
+       ]
+      },
+      "error": {
+       "live": [
+        "ADDED status: Loading the Button entry…",
+        "ADDED alert: The entry could not be loadedThe entry could not be loaded: 503 Service Unavaila"
+       ],
+       "afterRetry": {
+        "focus": {
+         "el": "h3#_r_h_",
+         "name": "Button",
+         "outline": "solid 2px rgb(6, 7, 8) off 2px",
+         "focusVisible": true,
+         "box": [
+          305,
+          728,
+          82,
+          36
+         ],
+         "inViewport": true
+        },
+        "live": [
+         "ADDED alert: The entry could not be loadedThe entry could not be loaded: 503 Service Unavaila",
+         "ADDED status: Loading the Button entry…",
+         "ADDED status: "
+        ]
+       }
+      }
+     }
+    },
+    "/patterns/activity-dashboard": {
+     "opts": [
+      "success",
+      "loading",
+      "empty",
+      "noResults",
+      "error"
+     ],
+     "states": {
+      "success": {
+       "live": [
+        "ADDED status: Showing 23 of 23 changes"
+       ]
+      },
+      "loading": {
+       "live": [
+        "ADDED status: Loading activity…"
+       ]
+      },
+      "empty": {
+       "live": [
+        "ADDED status: Loading activity…"
+       ]
+      },
+      "noResults": {
+       "live": [
+        "ADDED status: Loading activity…",
+        "ADDED status: Showing 0 of 23 changes"
+       ]
+      },
+      "error": {
+       "live": [
+        "ADDED status: Loading activity…",
+        "ADDED alert: Activity could not be loadedThe activity feed responded with 503 Service Unavail"
+       ],
+       "afterRetry": {
+        "focus": {
+         "el": "h3#_r_i_",
+         "name": "System activity",
+         "outline": "solid 2px rgb(6, 7, 8) off 2px",
+         "focusVisible": true,
+         "box": [
+          305,
+          656,
+          702,
+          32
+         ],
+         "inViewport": true
+        },
+        "live": [
+         "ADDED alert: Activity could not be loadedThe activity feed responded with 503 Service Unavail",
+         "ADDED status: Loading activity…",
+         "ADDED status: Showing 23 of 23 changes"
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "playground": {
+   "table": {
+    "name": "Component props",
+    "rows": 10,
+    "controls": [
+     "input:text name=\"children\"",
+     "select:select-one name=\"appearance\"",
+     "select:select-one name=\"size\"",
+     "select:select-one name=\"border\"",
+     "select:select-one name=\"radius\"",
+     "select:select-one name=\"iconStart\"",
+     "select:select-one name=\"iconEnd\"",
+     "input:radio name=\"fullWidth false\"",
+     "input:radio name=\"fullWidth true\"",
+     "input:radio name=\"loading false\"",
+     "input:radio name=\"loading true\"",
+     "input:radio name=\"disabled false\""
+    ]
+   },
+   "selectEdit": {
+    "changed": true,
+    "focus": {
+     "el": "select",
+     "name": "primarysecondaryghostdanger",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      597,
+      529,
+      416,
+      44
+     ],
+     "inViewport": true
+    },
+    "url": "http://localhost:5173/playground?component=button&v=1&p.appearance=ghost"
+   },
+   "textEdit": {
+    "snippetHas": true,
+    "focus": {
+     "el": "input",
+     "name": "",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      597,
+      455,
+      416,
+      44
+     ],
+     "inViewport": true
+    }
+   },
+   "radioEdit": {
+    "before": {
+     "el": "input",
+     "name": "false",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      603,
+      1035,
+      75,
+      32
+     ],
+     "inViewport": false
+    },
+    "after": {
+     "value": "true",
+     "checked": true,
+     "labelOutline": "solid 2px rgb(6, 7, 8)"
+    }
+   },
+   "stickyFocusCheck": [
+    {
+     "t": "primarysecondaryghostdang",
+     "top": 158,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "true",
+     "top": 184,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "NoneplusarrowRightarrowLe",
+     "top": 189,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "NoneplusarrowRightarrowLe",
+     "top": 182,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "Unset: button.radius toke",
+     "top": 182,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "nonethinthick",
+     "top": 190,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "smallmediumlarge",
+     "top": 190,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    },
+    {
+     "t": "primarysecondaryghostdang",
+     "top": 191,
+     "panelBottom": 193,
+     "sticky": true,
+     "overlap": true,
+     "fullyHidden": false
+    }
+   ],
+   "stickyPanelSticky": true,
+   "share": {
+    "status": "Example link copied.",
+    "focus": {
+     "el": "button",
+     "name": "Copy example link",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      1083,
+      8,
+      165,
+      32
+     ],
+     "inViewport": true
+    },
+    "link": "http://localhost:5173/playground?component=button&v=1&p.children=Save+draft&p.appearance=ghost&p.fullWidth=true&preview.product=system-lab&preview.theme=light&preview.density=comfortable"
+   },
+   "resume": {
+    "snippetHas": true,
+    "title": "Playground · Design System Lab",
+    "focus": {
+     "el": "body"
+    }
+   },
+   "shareFail": {
+    "status": "The link could not be copied automatically. Select it below and copy it.",
+    "focus": {
+     "el": "input#_r_t_",
+     "name": "Example link",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      32,
+      621,
+      1216,
+      44
+     ],
+     "inViewport": true
+    }
+   },
+   "componentSwitch": {
+    "url": "http://localhost:5173/playground?component=badge&v=1",
+    "focus": {
+     "el": "select#_r_5_",
+     "name": "Component",
+     "outline": "solid 2px rgb(6, 7, 8) off 2px",
+     "focusVisible": true,
+     "box": [
+      32,
+      396,
+      288,
+      44
+     ],
+     "inViewport": true
+    },
+    "title": "Playground · Design System Lab"
+   },
+   "range": {
+    "name": "Preview width",
+    "valuetext": "Fill available width"
+   },
+   "presets": [
+    "Narrow (320px):false",
+    "Medium (600px):false",
+    "Wide (960px):false",
+    "Fill:true"
+   ]
+  },
+  "shellSettings": {
+   "toggleName": "DISPLAY\nDesign System Lab · System · Comfortable",
+   "expanded": "false",
+   "afterOpen": {
+    "expanded": "true",
+    "selectsVisible": true
+   },
+   "nextFocus": {
+    "el": "select#_r_2_",
+    "name": "Product",
+    "outline": "solid 2px rgb(6, 7, 8) off 2px",
+    "focusVisible": true,
+    "box": [
+     112,
+     163,
+     247,
+     32
+    ],
+    "inViewport": true
+   },
+   "storage": {
+    "t": "dark",
+    "p": "harbor",
+    "d": "compact"
+   },
+   "afterReload": {
+    "theme": "dark",
+    "product": "harbor",
+    "density": "compact"
+   },
+   "sectionToggle": {
+    "visible": true,
+    "expanded": "false",
+    "after": {
+     "name": "Hide components",
+     "expanded": "true"
+    },
+    "next": {
+     "el": "a",
+     "name": "Box",
+     "outline": "solid 2px rgb(20, 184, 166) off 2px",
+     "focusVisible": true,
+     "box": [
+      16,
+      208,
+      343,
+      28
+     ],
+     "inViewport": true
+    }
+   }
+  },
+  "forcedColorsReducedMotion": {
+   "/components/switch": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/components/tabs": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/components/button": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/playground?component=button": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/patterns/resource-directory": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/components/progress": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "/components/badge": {
+    "forced": true,
+    "reduced": true,
+    "longMotionElements": 0
+   },
+   "switchForced": {
+    "trackBorder": "solid 1px rgb(0, 0, 0)",
+    "trackBg": "rgb(255, 255, 255)",
+    "thumbBg": "rgb(255, 255, 255)",
+    "outline": "solid 2px rgb(6, 7, 8)"
+   },
+   "radioForced": {
+    "outline": "solid 2px rgb(6, 7, 8)",
+    "border": "solid rgb(55, 0, 110)",
+    "bg": "rgb(55, 0, 110)"
+   }
+  }
+ }
+}

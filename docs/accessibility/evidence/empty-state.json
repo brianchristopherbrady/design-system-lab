@@ -1,0 +1,16 @@
+{
+ "/patterns/resource-directory": {
+  "ariaBusy": "false",
+  "liveInSection": [],
+  "emptyHeading": "No entries yet",
+  "emptyAncestorsLive": false,
+  "snapshot": "- region \"System directory\":\n  - heading \"System directory\" [level=3]\n  - heading \"No entries yet\" [level=4]\n  - paragraph: The catalog has nothing published yet. Entries appear here as soon as a component, foundation, pattern or design decision is added to the catalog.\n  - link \"Read how entries are added\":\n    - /url: /#contributing"
+ },
+ "/patterns/activity-dashboard": {
+  "ariaBusy": "false",
+  "liveInSection": [],
+  "emptyHeading": "No activity yet",
+  "emptyAncestorsLive": false,
+  "snapshot": "- region \"System activity\":\n  - heading \"System activity\" [level=3]\n  - heading \"No activity yet\" [level=4]\n  - paragraph: Nothing has changed since the catalog was created. Changes appear here when entries are added, changed or documented.\n  - link \"Browse components\":\n    - /url: /components"
+ }
+}

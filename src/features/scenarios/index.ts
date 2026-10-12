@@ -1,4 +1,4 @@
-export { ScenarioDemo, type ScenarioDemoProps } from './ScenarioDemo';
+export { ScenarioDemo, useScenarioStatus, type ScenarioDemoProps } from './ScenarioDemo';
 export {
   defaultScenarioOptions,
   demoScenarios,

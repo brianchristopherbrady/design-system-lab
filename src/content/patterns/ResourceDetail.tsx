@@ -3,7 +3,7 @@ import { Alert, Card, Dialog, EmptyState, Tabs } from '@/design-system/composite
 import { Grid, Inline, Stack } from '@/design-system/layout';
 import { Badge, Button, Heading, Icon, Link, Skeleton, Text } from '@/design-system/primitives';
 import { ActivityList, classificationOf, findEntry, formatDate, MaturityBadge } from '@/domain/system';
-import { useRequest, type DemoScenario } from '@/features/scenarios';
+import { useRequest, useScenarioStatus, type DemoScenario } from '@/features/scenarios';
 import { archiveEntry, fetchEntryDetail, type ScenarioRequest } from './fixtures';
 
 const entryId = 'button';
@@ -30,6 +30,13 @@ export function ResourceDetail({ scenario, initialTab = 'overview' }: { scenario
   };
 
   const pending = state.status === 'idle' || state.status === 'pending';
+  useScenarioStatus(
+    pending
+      ? 'Loading the Button entry…'
+      : state.status === 'success'
+        ? `${state.data.entry.name} entry loaded.${state.data.history.length === 0 ? ' No recorded changes.' : ''}`
+        : '',
+  );
 
   return (
     <section aria-labelledby={headingId} aria-busy={pending}>
@@ -42,7 +49,7 @@ export function ResourceDetail({ scenario, initialTab = 'overview' }: { scenario
             <Heading level={3} size="medium" id={headingId}>
               Loading entry
             </Heading>
-            <Text role="status" variant="bodySmall" tone="muted">
+            <Text variant="bodySmall" tone="muted">
               Loading the Button entry…
             </Text>
             <Skeleton lines={2} />

@@ -1,0 +1,54 @@
+{
+ "date": "2026-10-12T19:13:29.789Z",
+ "browser": "155.0.4283.45",
+ "retry": {
+  "/patterns/resource-directory": {
+   "Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "div \"What each demo scenario render\" in main"
+   },
+   "Shift+Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "button \"Reset demo\" in main"
+   }
+  },
+  "/patterns/activity-dashboard": {
+   "Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "div \"What each demo scenario render\" in main"
+   },
+   "Shift+Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "button \"Reset demo\" in main"
+   }
+  },
+  "/patterns/resource-detail": {
+   "Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "div \"What each demo scenario render\" in main"
+   },
+   "Shift+Tab": {
+    "focusDuringLoading": "BODY",
+    "afterKeyDuringLoading": "a \"Directory\" in main"
+   }
+  }
+ },
+ "clear": {
+  "/components?q=zzzz first Tab": {
+   "focusAfterActivate": "BODY",
+   "nextFocus": "a \"Box\" in main"
+  },
+  "/components?q=zzzz first Shift+Tab": {
+   "focusAfterActivate": "BODY",
+   "nextFocus": "select \"Any maturityExperimentalBetaSt\" in main"
+  },
+  "/components?q=zzzz last Tab": {
+   "focusAfterActivate": "BODY",
+   "nextFocus": "a \"Box\" in main"
+  },
+  "/components?q=zzzz last Shift+Tab": {
+   "focusAfterActivate": "BODY",
+   "nextFocus": "select \"Any maturityExperimentalBetaSt\" in main"
+  }
+ }
+}

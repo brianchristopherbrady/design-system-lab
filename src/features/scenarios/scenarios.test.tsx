@@ -2,7 +2,7 @@ import { act, render, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { ScenarioDemo } from './ScenarioDemo';
+import { ScenarioDemo, useScenarioStatus } from './ScenarioDemo';
 import { outcomeFor } from './scenarios';
 import { simulateRequest } from './simulateRequest';
 import { useRequest } from './useRequest';
@@ -86,6 +86,26 @@ describe('ScenarioDemo', () => {
     await user.selectOptions(select, 'error');
     expect(screen.getByText('Scenario: error')).toBeInTheDocument();
     expect(select).toHaveAccessibleDescription(/first request fails/i);
+  });
+
+  it('announces each demo state through one status message that persists across scenario changes (A11Y-002)', async () => {
+    const user = userEvent.setup();
+    function Reporter({ scenario }: { scenario: string }) {
+      useScenarioStatus(scenario === 'empty' ? 'No entries yet.' : '');
+      return <p>Scenario: {scenario}</p>;
+    }
+    render(<ScenarioDemo>{(scenario) => <Reporter scenario={scenario} />}</ScenarioDemo>);
+    const status = screen.getByRole('status');
+    expect(status).toHaveTextContent('');
+
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Demo scenario' }), 'empty');
+    expect(screen.getByRole('status')).toBe(status);
+    expect(status).toHaveTextContent('No entries yet.');
+    expect(screen.getByRole('combobox', { name: 'Demo scenario' })).toHaveFocus();
+
+    await user.click(screen.getByRole('button', { name: 'Reset demo' }));
+    expect(screen.getByRole('status')).toBe(status);
+    expect(status).toHaveTextContent('No entries yet.');
   });
 
   it('offers only the scenarios a demo lists, in its own words', async () => {

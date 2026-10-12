@@ -3,8 +3,8 @@ import { Alert, Card, EmptyState } from '@/design-system/composites';
 import { Grid, Inline, Stack } from '@/design-system/layout';
 import { Button, Heading, Icon, Link, Skeleton, Text } from '@/design-system/primitives';
 import { componentLayers, EntryCard, type CatalogEntry, type EntryKind } from '@/domain/system';
-import { defaultFilters, DirectoryFilters, filterEntries, type DirectoryFilterValues } from '@/features/directory';
-import { useRequest, type DemoScenario } from '@/features/scenarios';
+import { defaultFilters, DirectoryFilters, filterEntries, useClearDirectoryFilters, type DirectoryFilterValues } from '@/features/directory';
+import { useRequest, useScenarioStatus, type DemoScenario } from '@/features/scenarios';
 import { fetchEntries, noResultsQuery } from './fixtures';
 import { entryHref } from './hrefs';
 
@@ -50,6 +50,7 @@ export function ResourceDirectory({ scenario }: { scenario: DemoScenario }) {
     });
 
   const pending = state.status === 'idle' || state.status === 'pending';
+  useScenarioStatus(pending ? 'Loading entries…' : state.status === 'success' && state.data.length === 0 ? 'No entries yet.' : '');
   const entries = useMemo(
     () => (state.status === 'success' ? [...state.data].sort((a, b) => a.name.localeCompare(b.name)) : []),
     [state],
@@ -106,7 +107,7 @@ export function ResourceDirectory({ scenario }: { scenario: DemoScenario }) {
 function LoadingEntries() {
   return (
     <>
-      <Text role="status" variant="bodySmall" tone="muted">
+      <Text variant="bodySmall" tone="muted">
         Loading entries…
       </Text>
       <Grid minColumnWidth="medium" gap="medium" aria-hidden="true">
@@ -154,6 +155,7 @@ function Results({
     setRevealFrom(null);
     onFiltersChange(next);
   };
+  const { searchRef, clear } = useClearDirectoryFilters(changeFilters);
 
   return (
     <Stack gap="medium">
@@ -166,13 +168,14 @@ function Results({
         shownCount={visible.length}
         totalCount={entries.length}
         label="Filter the directory"
+        searchRef={searchRef}
       />
       {results.length === 0 ? (
         <EmptyState
           headingLevel={4}
           title={filters.query ? `No entries match “${filters.query}”` : 'No entries match these filters'}
           description="The directory has entries, but none fit the current search and filters. Check the spelling, try a broader term, or clear the filters."
-          action={<Button onClick={() => changeFilters(defaultFilters)}>Clear filters</Button>}
+          action={<Button onClick={clear}>Clear filters</Button>}
         />
       ) : (
         <>

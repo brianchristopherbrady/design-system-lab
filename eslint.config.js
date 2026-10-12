@@ -7,7 +7,7 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   {
-    ignores: ['dist', 'playwright-report', 'test-results', 'src/design-system/tokens/generated'],
+    ignores: ['dist', 'playwright-report', 'test-results', 'docs/accessibility/evidence', 'src/design-system/tokens/generated'],
   },
   {
     files: ['**/*.{ts,tsx}'],

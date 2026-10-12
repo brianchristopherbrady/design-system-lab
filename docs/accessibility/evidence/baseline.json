@@ -1,0 +1,6751 @@
+{
+ "base": "http://localhost:5173",
+ "date": "2026-10-12T18:22:35.374Z",
+ "routes": [
+  "/",
+  "/foundations",
+  "/components",
+  "/playground",
+  "/patterns",
+  "/decisions",
+  "/no-such-page",
+  "/foundations/tokens",
+  "/foundations/color",
+  "/foundations/typography",
+  "/foundations/spacing",
+  "/foundations/borders-and-radii",
+  "/foundations/elevation",
+  "/foundations/motion",
+  "/foundations/themes",
+  "/foundations/responsive",
+  "/foundations/products",
+  "/foundations/theme-studio",
+  "/components/box",
+  "/components/stack",
+  "/components/inline",
+  "/components/grid",
+  "/components/container",
+  "/components/theme-scope",
+  "/components/scroll-region",
+  "/components/text",
+  "/components/heading",
+  "/components/button",
+  "/components/badge",
+  "/components/icon",
+  "/components/link",
+  "/components/input",
+  "/components/select",
+  "/components/checkbox",
+  "/components/switch",
+  "/components/progress",
+  "/components/skeleton",
+  "/components/visually-hidden",
+  "/components/card",
+  "/components/dialog",
+  "/components/alert",
+  "/components/tabs",
+  "/components/disclosure",
+  "/components/field",
+  "/components/page-header",
+  "/components/empty-state",
+  "/components/radio-group",
+  "/patterns/resource-directory",
+  "/patterns/resource-detail",
+  "/patterns/activity-dashboard",
+  "/patterns/form-validation",
+  "/decisions/planning",
+  "/decisions/sharing",
+  "/decisions/implementation",
+  "/decisions/operating"
+ ],
+ "pages": [
+  {
+   "route": "/",
+   "structure": {
+    "title": "Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Design System Lab",
+     "H2:Review the work",
+     "H3:Component Playground",
+     "H3:Theme studio",
+     "H3:Form validation",
+     "H2:About this project",
+     "H2:From a design decision to a working interface",
+     "H3:A design decision sets the primary action’s color",
+     "H3:Button reads that decision",
+     "H3:A pattern combines Button with fields, validation and focus",
+     "H3:A product profile changes the presentation, not the behavior",
+     "H2:How this site is built",
+     "H3:Behind the scenes",
+     "H2:Principles",
+     "H2:Implementation architecture",
+     "H2:Contributing"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region[Elements of this page and where they come from]",
+     "aside[Try it]",
+     "region[Implementation layers and what they may import]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"PageHeader\"",
+     "w": 72,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Typography\"",
+     "w": 69,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Card\"",
+     "w": 29,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Grid\"",
+     "w": 27,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Spacing\"",
+     "w": 48,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Heading\"",
+     "w": 51,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Link\"",
+     "w": 24,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Color\"",
+     "w": 33,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Button\"",
+     "w": 37,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [
+     "circle.[object SVGAnimatedString] right=1677",
+     "circle.[object SVGAnimatedString] right=1677"
+    ],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [
+     "circle.[object SVGAnimatedString] right=1677",
+     "circle.[object SVGAnimatedString] right=1677"
+    ],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [
+     "circle.[object SVGAnimatedString] right=1102",
+     "circle.[object SVGAnimatedString] right=1102"
+    ],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [
+     "g.[object SVGAnimatedString] right=322",
+     "circle.[object SVGAnimatedString] right=322",
+     "circle.[object SVGAnimatedString] right=608",
+     "circle.[object SVGAnimatedString] right=608"
+    ],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [
+     "g.[object SVGAnimatedString] right=322",
+     "circle.[object SVGAnimatedString] right=322",
+     "circle.[object SVGAnimatedString] right=608",
+     "circle.[object SVGAnimatedString] right=608"
+    ],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations",
+   "structure": {
+    "title": "Foundations · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Foundations",
+     "H2:Token architecture",
+     "H2:Color",
+     "H2:Typography",
+     "H2:Spacing",
+     "H2:Borders and radii",
+     "H2:Elevation",
+     "H2:Motion",
+     "H2:Themes",
+     "H2:Responsive behavior",
+     "H2:Products and modes",
+     "H2:Theme studio"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components",
+   "structure": {
+    "title": "Components · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Components",
+     "H2:Layout (7)",
+     "H3:Box",
+     "H3:Stack",
+     "H3:Inline",
+     "H3:Grid",
+     "H3:Container",
+     "H3:ThemeScope",
+     "H3:ScrollRegion",
+     "H2:Primitive (13)",
+     "H3:Text",
+     "H3:Heading",
+     "H3:Button",
+     "H3:Badge",
+     "H3:Icon",
+     "H3:Link",
+     "H3:Input",
+     "H3:Select",
+     "H3:Checkbox",
+     "H3:Switch",
+     "H3:Progress",
+     "H3:Skeleton",
+     "H3:VisuallyHidden",
+     "H2:Composite (9)",
+     "H3:Card",
+     "H3:Dialog",
+     "H3:Alert",
+     "H3:Tabs",
+     "H3:Disclosure",
+     "H3:Field",
+     "H3:PageHeader",
+     "H3:EmptyState",
+     "H3:RadioGroup"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "search[Filter components]",
+     "section",
+     "section",
+     "section",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/playground",
+   "structure": {
+    "title": "Playground · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Playground",
+     "H2:Preview",
+     "H2:Component props",
+     "H2:Usage"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "main",
+     "header",
+     "section",
+     "region[Button preview]",
+     "section",
+     "section",
+     "region",
+     "region[Button controlled props]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/patterns",
+   "structure": {
+    "title": "Patterns · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Patterns",
+     "H2:Resource directory",
+     "H2:Resource detail",
+     "H2:Activity dashboard",
+     "H2:Form validation"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Patterns]",
+     "main",
+     "header",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/decisions",
+   "structure": {
+    "title": "Design decisions · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Design decisions",
+     "H2:Planning a system",
+     "H2:Sharing across products",
+     "H2:Choosing an implementation approach",
+     "H2:Operating and measuring a system"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Design decisions]",
+     "main",
+     "header",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/no-such-page",
+   "structure": {
+    "title": "Page not found · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Page not found"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "main",
+     "header",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/tokens",
+   "structure": {
+    "title": "Token architecture · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Token architecture",
+     "H2:Three tiers",
+     "H3:Reference (153)",
+     "H3:Semantic (136)",
+     "H3:Component (72)",
+     "H2:From source file to CSS",
+     "H2:Trace a token",
+     "H3:Alias chain in this context",
+     "H2:Dependency policy",
+     "H3:Declared lanes, families and exceptions",
+     "H3:Direct reference reads, by scale",
+     "H2:Every token",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "aside[Which path a value takes]",
+     "region",
+     "region",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/color",
+   "structure": {
+    "title": "Color · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Color",
+     "H2:Reference palettes",
+     "H3:neutral",
+     "H3:green",
+     "H3:red",
+     "H3:amber",
+     "H3:cyan",
+     "H3:harbor",
+     "H3:meadow",
+     "H2:Semantic roles",
+     "H2:Tones",
+     "H2:Verified contrast"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region",
+     "region",
+     "region[Contrast ratios]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/typography",
+   "structure": {
+    "title": "Typography · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Typography",
+     "H2:Families and scale",
+     "H2:Typefaces by product",
+     "H3:Jost",
+     "H3:IBM Plex Sans",
+     "H3:Fraunces",
+     "H2:Text styles",
+     "H3:Heading size display",
+     "H3:Heading size extraLarge · heading-1",
+     "H3:Heading size large · heading-2",
+     "H3:Heading size medium · heading-3",
+     "H3:Heading size small · heading-4"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region",
+     "section[Design System Lab typefaces]",
+     "section[Harbor typefaces]",
+     "section[Meadow typefaces]",
+     "aside[Loading]",
+     "aside[Reading measure]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/spacing",
+   "structure": {
+    "title": "Spacing · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Spacing",
+     "H2:Space scale",
+     "H2:The gap vocabulary",
+     "H2:Gap precedence",
+     "H3:rowGap overrides gap on one axis"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[Spacing vocabulary]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/borders-and-radii",
+   "structure": {
+    "title": "Borders and radii · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Borders and radii",
+     "H2:Border widths and strengths",
+     "H2:Corner radii"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/elevation",
+   "structure": {
+    "title": "Elevation · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Elevation",
+     "H2:Levels",
+     "H2:Usage"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/motion",
+   "structure": {
+    "title": "Motion · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Motion",
+     "H2:Durations and easing",
+     "H2:Try a duration",
+     "H3:Same movement, three durations",
+     "H2:Reduced motion"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/themes",
+   "structure": {
+    "title": "Themes · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Themes",
+     "H2:Same roles, different mappings",
+     "H2:Scoping and selection"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section[light theme preview]",
+     "section[dark theme preview]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/responsive",
+   "structure": {
+    "title": "Responsive behavior · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Responsive behavior",
+     "H2:Which query to use",
+     "H2:Resize a container",
+     "H3:Components respond to their container",
+     "H3:Grid",
+     "H3:Card",
+     "H3:Dialog",
+     "H2:Every query in the system",
+     "H2:Reflow and overflow"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region[Queries in the codebase]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/products",
+   "structure": {
+    "title": "Products and modes · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [
+     "2->4 at #12"
+    ],
+    "headings": [
+     "H1:Products and modes",
+     "H2:Three independent modifiers",
+     "H3:Design System Lab",
+     "H3:Harbor",
+     "H3:Meadow",
+     "H2:Compose a mode",
+     "H3:Invoice INV-2041",
+     "H2:What a product changes",
+     "H2:Nested scopes",
+     "H2:Dependency-minimal CSS",
+     "H3:Where a token is declared",
+     "H2:Products × themes",
+     "H4:Pending approvals",
+     "H4:Pending approvals",
+     "H4:Pending approvals",
+     "H4:Pending approvals",
+     "H4:Pending approvals",
+     "H4:Pending approvals",
+     "H2:Density",
+     "H2:Adding a product",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region",
+     "region",
+     "region",
+     "region[Nested scope markup]",
+     "region[Tokens by dependency]",
+     "region[button.primary.background by modifier combination]",
+     "aside[Why scopes set every attribute]",
+     "section[Design System Lab, light theme]",
+     "section[Design System Lab, dark theme]",
+     "section[Harbor, light theme]",
+     "section[Harbor, dark theme]",
+     "section[Meadow, light theme]",
+     "section[Meadow, dark theme]",
+     "section[Comfortable density]",
+     "section[Compact density]",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"View history\"",
+     "w": 73,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 75,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 75,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 68,
+     "h": 16,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 68,
+     "h": 16,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 73,
+     "h": 18,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Open queue\"",
+     "w": 73,
+     "h": 18,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "a \"theme studio\"",
+     "w": 75,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    }
+   ]
+  },
+  {
+   "route": "/foundations/theme-studio",
+   "structure": {
+    "title": "Theme studio · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Theme studio",
+     "H2:Generate a product theme",
+     "H2:Ramp and roles",
+     "H2:Live preview",
+     "H3:Quarterly report",
+     "H3:Quarterly report",
+     "H2:Contrast",
+     "H2:Status colors and color vision",
+     "H2:Token files",
+     "H2:Method and limits"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Foundations]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "section[Clavius, light theme]",
+     "section[Clavius, dark theme]",
+     "region",
+     "region",
+     "aside[How roles are chosen]",
+     "region",
+     "region",
+     "region",
+     "region",
+     "region",
+     "region",
+     "region",
+     "aside[Shipping the product]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All foundations\"",
+     "w": 89,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._stripMeta_11bnc_885 \"C 0.012\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.026\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.051\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.091\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.144\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.194\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.230\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.216\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.193\" sw=63/61 sh=18/18",
+     "span._stripMeta_11bnc_885 \"C 0.169\" sw=63/61 sh=18/18"
+    ]
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/box",
+   "structure": {
+    "title": "Box · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Box",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Surfaces, borders and radii",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[19 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/stack",
+   "structure": {
+    "title": "Stack · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Stack",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Gap vocabulary",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[6 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/inline",
+   "structure": {
+    "title": "Inline · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Inline",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Wrapping clusters and toolbars",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[6 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/grid",
+   "structure": {
+    "title": "Grid · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Grid",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Three column modes",
+     "H3:Row and column gaps",
+     "H3:Container-relative wrapping",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[10 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/container",
+   "structure": {
+    "title": "Container · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Container",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Readable width with fluid gutters",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[5 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/theme-scope",
+   "structure": {
+    "title": "ThemeScope · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:ThemeScope",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Override one modifier, inherit the rest",
+     "H3:Nested scopes",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/scroll-region",
+   "structure": {
+    "title": "ScrollRegion · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:ScrollRegion",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:A wide table inside a narrow column",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region[Release history]",
+     "region[Release history]",
+     "region",
+     "region[2 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/text",
+   "structure": {
+    "title": "Text · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Text",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Typography variants",
+     "H3:Tones",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[13 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/heading",
+   "structure": {
+    "title": "Heading · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Heading",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Level and size are independent",
+     "H2:level 2, size display",
+     "H2:level 2, default size (large)",
+     "H2:level 2, size small, tone muted",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[12 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/button",
+   "structure": {
+    "title": "Button · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Button",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Appearances and states",
+     "H3:Sizes, borders and radii",
+     "H3:Icons, loading and full width",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[46 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/badge",
+   "structure": {
+    "title": "Badge · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Badge",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Tones and appearances",
+     "H3:Sizes, radii and icons",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[49 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/icon",
+   "structure": {
+    "title": "Icon · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Icon",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:The icon set",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[3 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/link",
+   "structure": {
+    "title": "Link · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Link",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Inline and standalone links",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[7 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/input",
+   "structure": {
+    "title": "Input · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Input",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:With Field",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region[15 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/select",
+   "structure": {
+    "title": "Select · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Select",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:With Field",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region[15 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/checkbox",
+   "structure": {
+    "title": "Checkbox · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Checkbox",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Multiple independent choices",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[7 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/switch",
+   "structure": {
+    "title": "Switch · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Switch",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:A setting that applies immediately",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[21 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/progress",
+   "structure": {
+    "title": "Progress · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Progress",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Determinate progress",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[11 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/skeleton",
+   "structure": {
+    "title": "Skeleton · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Skeleton",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Loading placeholder with an announced status",
+     "H3:Recent changes",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region",
+     "region[12 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/visually-hidden",
+   "structure": {
+    "title": "VisuallyHidden · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:VisuallyHidden",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Context for repeated controls",
+     "H2:Props",
+     "H2:Tokens",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/card",
+   "structure": {
+    "title": "Card · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Card",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Header, body and footer with real actions",
+     "H3:Token architecture",
+     "H3:Token architecture",
+     "H3:Elevation, surface and padding",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[28 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/dialog",
+   "structure": {
+    "title": "Dialog · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Dialog",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Open and close",
+     "H3:Confirm an action",
+     "H3:Operation error and recovery",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[36 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/alert",
+   "structure": {
+    "title": "Alert · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Alert",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Tones with titles that state the meaning",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[21 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/tabs",
+   "structure": {
+    "title": "Tabs · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Tabs",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Related views of one entry",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[19 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/disclosure",
+   "structure": {
+    "title": "Disclosure · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Disclosure",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Secondary detail, on request",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[13 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/field",
+   "structure": {
+    "title": "Field · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Field",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Label, description and error",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[8 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/page-header",
+   "structure": {
+    "title": "PageHeader · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:PageHeader",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:This page's own header",
+     "H2:Props",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[2 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/empty-state",
+   "structure": {
+    "title": "EmptyState · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:EmptyState",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Explain and offer a next step",
+     "H3:No pinned entries yet",
+     "H2:Props",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[4 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/components/radio-group",
+   "structure": {
+    "title": "RadioGroup · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:RadioGroup",
+     "H2:Overview",
+     "H3:Use it for",
+     "H3:Not for",
+     "H2:Examples",
+     "H3:Cards for options that need explaining",
+     "H3:A plain list for short labels",
+     "H2:Props",
+     "H3:Defaults, combinations and precedence",
+     "H2:Tokens",
+     "H3:From prop to token",
+     "H3:Every token read",
+     "H2:Behavior and accessibility",
+     "H3:States",
+     "H3:Accessibility and keyboard",
+     "H3:Responsive behavior",
+     "H2:Guidance",
+     "H3:Composition",
+     "H3:Common mistakes",
+     "H3:Tradeoffs",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Components]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "region",
+     "region[28 tokens read, resolved for Design System Lab · light · comfortable]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All components\"",
+     "w": 92,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    },
+    {
+     "el": "input[radio] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_radio_1ab88_95"
+    }
+   ]
+  },
+  {
+   "route": "/patterns/resource-directory",
+   "structure": {
+    "title": "Resource directory · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Resource directory",
+     "H2:Demo",
+     "H3:System directory",
+     "H2:States and transitions",
+     "H2:Architecture",
+     "H2:Accessibility",
+     "H2:Responsive behavior",
+     "H2:Tradeoffs and mistakes",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Patterns]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[What each demo scenario renders]",
+     "aside[Same filters, two state owners]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All patterns\"",
+     "w": 66,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/patterns/resource-detail",
+   "structure": {
+    "title": "Resource detail · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Resource detail",
+     "H2:Demo",
+     "H3:Loading entry",
+     "H2:States and transitions",
+     "H3:Archive flow",
+     "H2:Architecture",
+     "H2:Accessibility",
+     "H2:Responsive behavior",
+     "H2:Tradeoffs and mistakes",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Patterns]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[What each demo scenario renders]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All patterns\"",
+     "w": 66,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Directory\"",
+     "w": 54,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/patterns/activity-dashboard",
+   "structure": {
+    "title": "Activity dashboard · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Activity dashboard",
+     "H2:Demo",
+     "H3:System activity",
+     "H2:States and transitions",
+     "H2:Architecture",
+     "H2:Accessibility",
+     "H2:Responsive behavior",
+     "H2:Tradeoffs and mistakes",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Patterns]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[What each demo scenario renders]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All patterns\"",
+     "w": 66,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/patterns/form-validation",
+   "structure": {
+    "title": "Form validation · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Form validation",
+     "H2:Demo",
+     "H2:States and transitions",
+     "H2:Architecture",
+     "H2:Accessibility",
+     "H2:Responsive behavior",
+     "H2:Tradeoffs and mistakes",
+     "H2:Source"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Patterns]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "form[Propose a component (demonstration)]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"All patterns\"",
+     "w": 66,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "input[checkbox] \"\"",
+     "w": 20,
+     "h": 20,
+     "inline": false,
+     "cls": "_input_fca64_19"
+    }
+   ]
+  },
+  {
+   "route": "/decisions/planning",
+   "structure": {
+    "title": "Planning a system · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Planning a system",
+     "H2:The process",
+     "H2:Principles that settle trade-offs",
+     "H2:Worked example: from principle to validation",
+     "H2:What the plan produces",
+     "H2:See it on this site"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Design decisions]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[Tensions, and the principles this system uses to resolve them]",
+     "region[Requirements, with acceptance criteria]",
+     "region[A one-page system brief]",
+     "region[A pilot plan]",
+     "region[A measurement plan]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"interface inventory\"",
+     "w": 109,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"token tiers\"",
+     "w": 60,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"dependency policy\"",
+     "w": 112,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Interface Inventory\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Atomic Design, chapter 4: The \"",
+     "w": 286,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Contribution criteria\"",
+     "w": 119,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/decisions/sharing",
+   "structure": {
+    "title": "Sharing across products · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Sharing across products",
+     "H2:The scenario",
+     "H2:Questions to answer first",
+     "H2:Four approaches",
+     "H2:Change the constraints",
+     "H3:Layer by layer",
+     "H3:How each approach holds up",
+     "H3:What the pilot must answer",
+     "H2:What this site’s product modes show"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Design decisions]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[Two products with different people, tasks and devices]",
+     "region[Questions, and why each one changes the answer]",
+     "region[Trade-offs of each approach]",
+     "section",
+     "section",
+     "section",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"Team Models for Scaling a Desi\"",
+     "w": 247,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Contribution criteria\"",
+     "w": 119,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/decisions/implementation",
+   "structure": {
+    "title": "Choosing an implementation approach · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Choosing an implementation approach",
+     "H2:What this project implements",
+     "H2:Four approaches",
+     "H2:What Web Components require",
+     "H2:A conceptual example",
+     "H2:How I would decide"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Design decisions]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[Ways to support more than one framework]",
+     "region[Decisions, and what to weigh for each]",
+     "region[A sketch to make the decisions above concrete. It omits disabled and read-only states, styling, server rendering and tests, and nothing like it ships in this project.]",
+     "region[Because it is form-associated, a native `<label>` names it and the form submits its value, in any framework or none.]",
+     "aside[Scope]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"HTML Standard: Custom elements\"",
+     "w": 200,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"ARIA Authoring Practices Guide\"",
+     "w": 189,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Web Content Accessibility Guid\"",
+     "w": 303,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  },
+  {
+   "route": "/decisions/operating",
+   "structure": {
+    "title": "Operating and measuring a system · Design System Lab",
+    "lang": "en",
+    "h1": 1,
+    "headingSkips": [],
+    "headings": [
+     "H1:Operating and measuring a system",
+     "H2:Ownership and contribution",
+     "H2:Versions, maturity and retirement",
+     "H2:Migrating existing products",
+     "H2:A few measures",
+     "H2:What this project checks, and what it does not"
+    ],
+    "landmarks": [
+     "header",
+     "nav[Sections]",
+     "nav[Design decisions]",
+     "main",
+     "header",
+     "nav[On this page]",
+     "section",
+     "region[Three team models]",
+     "aside[When the system lacks something]",
+     "region[Practices, in this project and in a multi-product system]",
+     "region[Ways to make the switch]",
+     "region[Technical checks in this repository, and outcomes that have not been measured]",
+     "footer"
+    ],
+    "skipLink": "Skip to main content"
+   },
+   "targets": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    },
+    {
+     "el": "a \"activity dashboard\"",
+     "w": 107,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Dependency policy\"",
+     "w": 114,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Implementation architecture\"",
+     "w": 163,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Contrast\"",
+     "w": 48,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Team Models for Scaling a Desi\"",
+     "w": 247,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Contribution criteria\"",
+     "w": 119,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Component lifecycle statuses\"",
+     "w": 170,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Semantic Versioning 2.0.0\"",
+     "w": 159,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Interface Inventory\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Brian Brady\"",
+     "w": 67,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Case study\"",
+     "w": 64,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    },
+    {
+     "el": "a \"Source on GitHub\"",
+     "w": 108,
+     "h": 20,
+     "inline": true,
+     "cls": "_link_bg8tc_3 _inline_bg8tc_21"
+    }
+   ],
+   "overflow_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "spacing_1280": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_640-200pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": []
+   },
+   "overflow_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=251/191 sh=23/23"
+    ]
+   },
+   "spacing_320-400pct": {
+    "pageOverflow": 0,
+    "offenders": [],
+    "clipped": [
+     "span._settingsSummary_1w0ue_449 \"Design System Lab · System · C\" sw=332/199 sh=21/21"
+    ]
+   },
+   "targets320": [
+    {
+     "el": "a \"Skip to main content\"",
+     "w": 1,
+     "h": 1,
+     "inline": false,
+     "cls": "_skipLink_1w0ue_19"
+    }
+   ]
+  }
+ ]
+}

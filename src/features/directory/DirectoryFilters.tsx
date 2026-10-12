@@ -1,3 +1,4 @@
+import { useCallback, useRef, type RefObject } from 'react';
 import { Button, Input, Select } from '@/design-system/primitives';
 import { Field } from '@/design-system/composites';
 import { kindLabels, maturities, maturityLabels, type ComponentLayer, type EntryKind } from '@/domain/system';
@@ -17,6 +18,22 @@ export interface DirectoryFiltersProps {
   totalCount: number;
   /** Accessible name of the search region. */
   label?: string;
+  /** Ref to the Search input from useClearDirectoryFilters, so Clear filters buttons outside this component can hand focus to it. */
+  searchRef?: RefObject<HTMLInputElement | null>;
+}
+
+/**
+ * Clears every filter and moves focus to the Search input first. Clear filters buttons disappear once
+ * nothing is filtered, so without this focus would fall back to the document body.
+ * Pass `searchRef` to DirectoryFilters and use `clear` for every other Clear filters button.
+ */
+export function useClearDirectoryFilters(onChange: (filters: Filters) => void) {
+  const searchRef = useRef<HTMLInputElement>(null);
+  const clear = useCallback(() => {
+    searchRef.current?.focus();
+    onChange(defaultFilters);
+  }, [onChange]);
+  return { searchRef, clear };
 }
 
 /** The count line: how many are listed, how many match, and how many exist. */
@@ -29,7 +46,9 @@ export function countSummary(shown: number, matching: number, total: number): st
  * Search and filter controls. Controlled, so the same UI works with URL state (the
  * Components index) or local state (the directory pattern demo).
  */
-export function DirectoryFilters({ filters, onChange, types, layers, resultCount, shownCount, totalCount, label = 'Filter entries' }: DirectoryFiltersProps) {
+export function DirectoryFilters({ filters, onChange, types, layers, resultCount, shownCount, totalCount, label = 'Filter entries', searchRef }: DirectoryFiltersProps) {
+  const ownSearchRef = useRef<HTMLInputElement>(null);
+  const inputRef = searchRef ?? ownSearchRef;
   const offerTypes = types !== undefined && types.length > 1;
   const offerLayers = layers.length > 1 && (!offerTypes || filters.type === 'component');
   return (
@@ -39,6 +58,7 @@ export function DirectoryFilters({ filters, onChange, types, layers, resultCount
           {(control) => (
             <Input
               {...control}
+              ref={inputRef}
               type="search"
               value={filters.query}
               placeholder="Name, summary or tag"
@@ -104,7 +124,15 @@ export function DirectoryFilters({ filters, onChange, types, layers, resultCount
           {countSummary(shownCount ?? resultCount, resultCount, totalCount)}
         </p>
         {hasActiveFilters(filters) && (
-          <Button size="small" appearance="ghost" onClick={() => onChange(defaultFilters)}>
+          <Button
+            size="small"
+            appearance="ghost"
+            onClick={() => {
+              // This button unmounts once nothing is filtered; hand focus to Search first.
+              inputRef.current?.focus();
+              onChange(defaultFilters);
+            }}
+          >
             Clear filters
           </Button>
         )}

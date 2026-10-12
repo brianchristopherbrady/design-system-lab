@@ -1,0 +1,1409 @@
+{
+ "base": "http://localhost:5173",
+ "date": "2026-10-12T18:17:46.757Z",
+ "routes": [
+  "/",
+  "/foundations",
+  "/components",
+  "/playground",
+  "/patterns",
+  "/decisions",
+  "/no-such-page",
+  "/foundations/tokens",
+  "/foundations/color",
+  "/foundations/typography",
+  "/foundations/spacing",
+  "/foundations/borders-and-radii",
+  "/foundations/elevation",
+  "/foundations/motion",
+  "/foundations/themes",
+  "/foundations/responsive",
+  "/foundations/products",
+  "/foundations/theme-studio",
+  "/components/box",
+  "/components/stack",
+  "/components/inline",
+  "/components/grid",
+  "/components/container",
+  "/components/theme-scope",
+  "/components/scroll-region",
+  "/components/text",
+  "/components/heading",
+  "/components/button",
+  "/components/badge",
+  "/components/icon",
+  "/components/link",
+  "/components/input",
+  "/components/select",
+  "/components/checkbox",
+  "/components/switch",
+  "/components/progress",
+  "/components/skeleton",
+  "/components/visually-hidden",
+  "/components/card",
+  "/components/dialog",
+  "/components/alert",
+  "/components/tabs",
+  "/components/disclosure",
+  "/components/field",
+  "/components/page-header",
+  "/components/empty-state",
+  "/components/radio-group",
+  "/patterns/resource-directory",
+  "/patterns/resource-detail",
+  "/patterns/activity-dashboard",
+  "/patterns/form-validation",
+  "/decisions/planning",
+  "/decisions/sharing",
+  "/decisions/implementation",
+  "/decisions/operating"
+ ],
+ "results": [
+  {
+   "combo": "lab-light",
+   "route": "/",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:14",
+    "th-has-data-cells:1"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/playground",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._usagePanel_6tqew_89"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:11"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/patterns",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/decisions",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/no-such-page",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/tokens",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:6"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/color",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/typography",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/spacing",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/borders-and-radii",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/elevation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/motion",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/themes",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/responsive",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/products",
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "section[aria-label=\"Design System Lab, light theme\"] > ._stack_1jurl_3 > ._card_1rc1z_11 > ._header_1rc1z_45 > ._inline_az3g3_3 > h4"
+     ],
+     "summary": "Fix any of the following:\n  Heading order invalid"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/foundations/theme-studio",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/box",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/stack",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/inline",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/grid",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/container",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/theme-scope",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/scroll-region",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._narrow_7o43x_63 > ._region_1dre8_3._inline_1dre8_15[aria-label=\"Release history\"]"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/text",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/heading",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/button",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/badge",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/icon",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/link",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/input",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/select",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/checkbox",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/switch",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/progress",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/skeleton",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/visually-hidden",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/card",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/dialog",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/alert",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/tabs",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/disclosure",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/field",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/page-header",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/empty-state",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/components/radio-group",
+   "violations": [
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "tags": [
+      "wcag2aa",
+      "wcag143"
+     ],
+     "n": 1,
+     "targets": [
+      "#_r_6_-evening-description"
+     ],
+     "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.51 (foreground color: #9c9fa5, background color: #f8f9fa, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/patterns/resource-directory",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/patterns/resource-detail",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/patterns/activity-dashboard",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/patterns/form-validation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/decisions/planning",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/decisions/sharing",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:9"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/decisions/implementation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-light",
+   "route": "/decisions/operating",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:14",
+    "th-has-data-cells:1"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:5"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/playground",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._usagePanel_6tqew_89"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:11"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/patterns",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/decisions",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/no-such-page",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/tokens",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:6"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/color",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/typography",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/spacing",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/borders-and-radii",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/elevation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/motion",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/themes",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/responsive",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/products",
+   "violations": [
+    {
+     "id": "heading-order",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "section[aria-label=\"Design System Lab, light theme\"] > ._stack_1jurl_3 > ._card_1rc1z_11 > ._header_1rc1z_45 > ._inline_az3g3_3 > h4"
+     ],
+     "summary": "Fix any of the following:\n  Heading order invalid"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/foundations/theme-studio",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/box",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/stack",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/inline",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/grid",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/container",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/theme-scope",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/scroll-region",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._narrow_7o43x_63 > ._region_1dre8_3._inline_1dre8_15[aria-label=\"Release history\"]"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/text",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/heading",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/button",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/badge",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/icon",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/link",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/input",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/select",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/checkbox",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/switch",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/progress",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/skeleton",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/visually-hidden",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/card",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/dialog",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/alert",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/tabs",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/disclosure",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/field",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/page-header",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/empty-state",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/components/radio-group",
+   "violations": [
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "tags": [
+      "wcag2aa",
+      "wcag143"
+     ],
+     "n": 1,
+     "targets": [
+      "#_r_6_-evening-description"
+     ],
+     "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3 (foreground color: #5a5e64, background color: #0b0c0e, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/patterns/resource-directory",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/patterns/resource-detail",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/patterns/activity-dashboard",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/patterns/form-validation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/decisions/planning",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/decisions/sharing",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:9"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/decisions/implementation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "lab-dark",
+   "route": "/decisions/operating",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:20",
+    "th-has-data-cells:1"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/playground",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._usagePanel_6tqew_89"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:11"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/no-such-page",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/foundations/typography",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/foundations/elevation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/foundations/responsive",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/box",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/grid",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/scroll-region",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._narrow_7o43x_63 > ._region_1dre8_3._inline_1dre8_15[aria-label=\"Release history\"]"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/button",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/link",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/checkbox",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/skeleton",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/dialog",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/disclosure",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/components/empty-state",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/patterns/resource-detail",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/decisions/planning",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "harbor-dark-compact",
+   "route": "/decisions/operating",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:16",
+    "th-has-data-cells:1"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/playground",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._usagePanel_6tqew_89"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:11"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/no-such-page",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/foundations/typography",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/foundations/elevation",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/foundations/responsive",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/box",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/grid",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/scroll-region",
+   "violations": [
+    {
+     "id": "landmark-unique",
+     "impact": "moderate",
+     "tags": [
+      "best-practice"
+     ],
+     "n": 1,
+     "targets": [
+      "._narrow_7o43x_63 > ._region_1dre8_3._inline_1dre8_15[aria-label=\"Release history\"]"
+     ],
+     "summary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+    }
+   ],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/button",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/link",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/checkbox",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/skeleton",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/dialog",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/disclosure",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/components/empty-state",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/patterns/resource-detail",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:4"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/decisions/planning",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  },
+  {
+   "combo": "meadow-light",
+   "route": "/decisions/operating",
+   "violations": [],
+   "incomplete": [
+    "color-contrast:3"
+   ]
+  }
+ ]
+}

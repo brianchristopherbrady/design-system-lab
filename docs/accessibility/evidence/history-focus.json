@@ -1,0 +1,121 @@
+{
+ "date": "2026-10-12T19:26:03.840Z",
+ "browser": "155.0.4283.45",
+ "history": {
+  "afterComponentsLink": "h1 \"Components\"",
+  "afterPatternsLink": "h1 \"Patterns\"",
+  "backToComponents": {
+   "url": "http://localhost:5173/components",
+   "focus": "h1 \"Components\""
+  },
+  "backToInitial": {
+   "url": "http://localhost:5173/",
+   "focus": "BODY",
+   "nextTab": "a \"Brian Brady\""
+  },
+  "forward": {
+   "url": "http://localhost:5173/components",
+   "focus": "h1 \"Components\""
+  }
+ },
+ "readouts": [
+  {
+   "text": "Tokens",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "361",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Components",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "29",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Foundations",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "11",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Patterns",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "4",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Tokens",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "361",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Components",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "29",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  },
+  {
+   "text": "Foundations",
+   "color": "rgb(155, 161, 170)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "12px",
+   "ratio": 7.52
+  },
+  {
+   "text": "11",
+   "color": "rgb(238, 240, 242)",
+   "bg": "rgb(11, 12, 14)",
+   "size": "32px",
+   "ratio": 17.13
+  }
+ ]
+}

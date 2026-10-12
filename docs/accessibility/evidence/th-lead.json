@@ -1,0 +1,12 @@
+{
+ "n": [
+  {
+   "target": "#architecture > ._stack_1jurl_3 > ._prose_10r1g_11 > ._region_1dre8_3._inline_1dre8_15[role=\"region\"] > table",
+   "msg": "Table data cells are missing or empty"
+  }
+ ],
+ "t": {
+  "caption": "Implementation layers and what they may import",
+  "outer": "<table><caption>Implementation layers and what they may import</caption><thead><tr><th scope=\"col\">Implementation layer</th><th scope=\"col\">Holds</th><th scope=\"col\">May import</th></tr></thead><tbody><tr ><th scope=\"rowgroup\" colspan=\"3\">Reusable design system</th></tr><tr><th scope=\"row\">Tokens</th><td>Reference, semantic and component tokens; prop vocabularies</td><td>Nothing</td></tr><tr><th scope=\"row\">Layout</th><td>Box, Stack, Inline, Grid, Container, ThemeScope, ScrollRegion</td><td>Tokens</td></tr><tr><th scope=\"row\">Primitives</th><td>Text, Heading, Button, Badge, Icon, Link, Input, Select, Checkbox, Switch, Progress, Skeleton, VisuallyHidden</td><td>Tokens, layout</td></tr><tr><th scope=\"row\">Composites</th><td>Card, Dialog, Alert, Tabs, Disclosure, Field, PageHeader, EmptyState, RadioGroup</td><td>Tokens, layout, primitives</td></tr></tbody><tbody><tr ><th scope=\"rowgroup\" co"
+ }
+}

@@ -1,0 +1,1875 @@
+{
+ "date": "2026-10-12T18:52:20.318Z",
+ "browser": "155.0.4283.45",
+ "runs": [
+  {
+   "viewport": {
+    "width": 1440,
+    "height": 600
+   },
+   "component": "dialog",
+   "fully": [],
+   "partial": [],
+   "steps": [
+    {
+     "t": "dismissOnBackdrop = false",
+     "tag": "input",
+     "box": [
+      384,
+      418
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "elevation",
+     "tag": "select",
+     "box": [
+      295,
+      339
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "border",
+     "tag": "select",
+     "box": [
+      212,
+      256
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "radius",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "padding",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "surface",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "size",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "footer",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "header",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "children",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "description",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "title",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preview settingsDesign System Lab · Ligh",
+     "tag": "summary",
+     "box": [
+      201,
+      237
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "inPanel": true,
+     "t": "Open dialog"
+    },
+    {
+     "inPanel": true,
+     "t": "Open dialog"
+    },
+    {
+     "inPanel": true,
+     "t": "Copy example link"
+    },
+    {
+     "t": "Source",
+     "tag": "a",
+     "box": [
+      286,
+      314
+     ],
+     "panel": [
+      377,
+      570
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Dialog documentation",
+     "tag": "a",
+     "box": [
+      286,
+      314
+     ],
+     "panel": [
+      377,
+      570
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Reset component props",
+     "tag": "button",
+     "box": [
+      278,
+      322
+     ],
+     "panel": [
+      377,
+      570
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preset",
+     "tag": "select",
+     "box": [
+      278,
+      322
+     ],
+     "panel": [
+      377,
+      570
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Component",
+     "tag": "select",
+     "box": [
+      278,
+      322
+     ],
+     "panel": [
+      377,
+      570
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Density",
+     "tag": "select",
+     "box": [
+      72,
+      104
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Theme",
+     "tag": "select",
+     "box": [
+      72,
+      104
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Product",
+     "tag": "select",
+     "box": [
+      72,
+      104
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Design decisions",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Patterns",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Playground",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Components",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Foundations",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Overview",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      494,
+      687
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    }
+   ]
+  },
+  {
+   "viewport": {
+    "width": 1280,
+    "height": 720
+   },
+   "component": "card",
+   "fully": [],
+   "partial": [],
+   "steps": [
+    {
+     "t": "elevation",
+     "tag": "select",
+     "box": [
+      501,
+      545
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "border",
+     "tag": "select",
+     "box": [
+      418,
+      462
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "radius",
+     "tag": "select",
+     "box": [
+      334,
+      378
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "padding",
+     "tag": "select",
+     "box": [
+      327,
+      371
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "surface",
+     "tag": "select",
+     "box": [
+      327,
+      371
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "footer",
+     "tag": "input",
+     "box": [
+      327,
+      371
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "children",
+     "tag": "input",
+     "box": [
+      327,
+      371
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "header",
+     "tag": "input",
+     "box": [
+      327,
+      371
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preview settingsDesign System Lab · Ligh",
+     "tag": "summary",
+     "box": [
+      327,
+      363
+     ],
+     "panel": [
+      0,
+      318
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "inPanel": true,
+     "t": "Release 4.2Adds Dialog and Tab"
+    },
+    {
+     "inPanel": true,
+     "t": "Copy example link"
+    },
+    {
+     "t": "Source",
+     "tag": "a",
+     "box": [
+      346,
+      374
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Card documentation",
+     "tag": "a",
+     "box": [
+      346,
+      374
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Reset component props",
+     "tag": "button",
+     "box": [
+      338,
+      382
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preset",
+     "tag": "select",
+     "box": [
+      338,
+      382
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Component",
+     "tag": "select",
+     "box": [
+      338,
+      382
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Density",
+     "tag": "select",
+     "box": [
+      15,
+      47
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Theme",
+     "tag": "select",
+     "box": [
+      15,
+      47
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Product",
+     "tag": "select",
+     "box": [
+      15,
+      47
+     ],
+     "panel": [
+      437,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Design decisions",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Patterns",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Playground",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Components",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Foundations",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Overview",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Design System Lab",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Skip to main content",
+     "tag": "a",
+     "box": [
+      0,
+      44
+     ],
+     "panel": [
+      539,
+      858
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "offscreen",
+      "bottomRight": "offscreen"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Skip to main contentDesign System LabOve",
+     "tag": "body",
+     "box": [
+      0,
+      2296
+     ],
+     "panel": [
+      495,
+      814
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "offscreen",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "offscreen",
+      "bottomRight": "offscreen"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Source on GitHub",
+     "tag": "a",
+     "box": [
+      674,
+      694
+     ],
+     "panel": [
+      -239,
+      79
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Case study",
+     "tag": "a",
+     "box": [
+      674,
+      694
+     ],
+     "panel": [
+      -239,
+      79
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    }
+   ]
+  },
+  {
+   "viewport": {
+    "width": 1280,
+    "height": 900
+   },
+   "component": "button",
+   "fully": [],
+   "partial": [],
+   "steps": [
+    {
+     "t": "disabled = false",
+     "tag": "input",
+     "box": [
+      534,
+      568
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "loading = false",
+     "tag": "input",
+     "box": [
+      450,
+      484
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "fullWidth = false",
+     "tag": "input",
+     "box": [
+      367,
+      401
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "iconEnd",
+     "tag": "select",
+     "box": [
+      279,
+      323
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "iconStart",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "radius",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "border",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "size",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "appearance",
+     "tag": "select",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "children",
+     "tag": "input",
+     "box": [
+      201,
+      245
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preview settingsDesign System Lab · Ligh",
+     "tag": "summary",
+     "box": [
+      201,
+      237
+     ],
+     "panel": [
+      0,
+      193
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "inPanel": true,
+     "t": "Save changes"
+    },
+    {
+     "inPanel": true,
+     "t": "Save changes"
+    },
+    {
+     "inPanel": true,
+     "t": "Copy example link"
+    },
+    {
+     "t": "Source",
+     "tag": "a",
+     "box": [
+      404,
+      432
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Button documentation",
+     "tag": "a",
+     "box": [
+      404,
+      432
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Reset component props",
+     "tag": "button",
+     "box": [
+      396,
+      440
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Preset",
+     "tag": "select",
+     "box": [
+      396,
+      440
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Component",
+     "tag": "select",
+     "box": [
+      396,
+      440
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Density",
+     "tag": "select",
+     "box": [
+      73,
+      105
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Theme",
+     "tag": "select",
+     "box": [
+      73,
+      105
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Product",
+     "tag": "select",
+     "box": [
+      73,
+      105
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "self",
+      "topRight": "self",
+      "bottomLeft": "self",
+      "bottomRight": "self"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Design decisions",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Patterns",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Playground",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Components",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Foundations",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Overview",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "other",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Design System Lab",
+     "tag": "a",
+     "box": [
+      0,
+      64
+     ],
+     "panel": [
+      519,
+      712
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "self",
+      "bottomRight": "other"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    },
+    {
+     "t": "Skip to main content",
+     "tag": "a",
+     "box": [
+      0,
+      44
+     ],
+     "panel": [
+      563,
+      756
+     ],
+     "panelPosition": "sticky",
+     "hits": {
+      "centre": "self",
+      "topLeft": "offscreen",
+      "topRight": "offscreen",
+      "bottomLeft": "offscreen",
+      "bottomRight": "offscreen"
+     },
+     "fullyObscured": false,
+     "partiallyObscured": false
+    }
+   ]
+  }
+ ]
+}

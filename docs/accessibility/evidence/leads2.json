@@ -1,0 +1,630 @@
+{
+ "date": "2026-10-12T19:00:03.593Z",
+ "browser": "155.0.4283.45",
+ "checks": {
+  "system-lab-light": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Density",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    }
+   ],
+   "headerSelectScreenshotBytes": 2202,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "harbor-light": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Density",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    }
+   ],
+   "headerSelectScreenshotBytes": 736,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "meadow-light": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    },
+    {
+     "name": "Density",
+     "color": "rgb(11, 12, 14)",
+     "bg": "rgb(255, 255, 255)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(11, 12, 14) calc",
+     "ratio": 19.57
+    }
+   ],
+   "headerSelectScreenshotBytes": 1692,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(11, 12, 14)",
+     "bg": "rgb(248,249,250)",
+     "ratio": 18.56,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "system-lab-dark": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Density",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    }
+   ],
+   "headerSelectScreenshotBytes": 2329,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "harbor-dark": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Density",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    }
+   ],
+   "headerSelectScreenshotBytes": 720,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "meadow-dark": {
+   "header": [
+    {
+     "name": "Product",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Theme",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    },
+    {
+     "name": "Density",
+     "color": "rgb(238, 240, 242)",
+     "bg": "rgb(20, 21, 24)",
+     "bgImage": "linear-gradient(45deg, rgba(0, 0, 0, 0) calc(50% - 0.75px), rgb(238, 240, 242) c",
+     "ratio": 15.98
+    }
+   ],
+   "headerSelectScreenshotBytes": 1845,
+   "readouts": [
+    {
+     "text": "A design system connects share",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Design System Lab is a small w",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "Foundations, Components, the P",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "What the system contains today",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "17px"
+    },
+    {
+     "text": "361",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "29",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "11",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    },
+    {
+     "text": "4",
+     "fg": "rgb(238, 240, 242)",
+     "bg": "rgb(11,12,14)",
+     "ratio": 17.13,
+     "fontSize": "32px"
+    }
+   ]
+  },
+  "themeStudioStrip": {
+   "320": {
+    "total": 24,
+    "truncated": [],
+    "chromaValueAlsoInPageText": [
+     {
+      "v": "97%",
+      "occurrences": 1
+     },
+     {
+      "v": "0.012",
+      "occurrences": 1
+     },
+     {
+      "v": "95%",
+      "occurrences": 1
+     }
+    ],
+    "exportHasOklch": false,
+    "bodyIncludesHexOnly": 9059,
+    "overflowRegion": null
+   },
+   "1280": {
+    "total": 24,
+    "truncated": [],
+    "chromaValueAlsoInPageText": [
+     {
+      "v": "97%",
+      "occurrences": 1
+     },
+     {
+      "v": "0.012",
+      "occurrences": 1
+     },
+     {
+      "v": "95%",
+      "occurrences": 1
+     }
+    ],
+    "exportHasOklch": false,
+    "bodyIncludesHexOnly": 9223,
+    "overflowRegion": null
+   },
+   "1280-spacing": {
+    "total": 24,
+    "truncated": [
+     "C 0.012",
+     "C 0.026",
+     "C 0.051",
+     "C 0.091",
+     "C 0.144",
+     "C 0.194",
+     "C 0.230",
+     "C 0.216",
+     "C 0.193",
+     "C 0.169",
+     "C 0.133",
+     "C 0.115"
+    ],
+    "chromaValueAlsoInPageText": [
+     {
+      "v": "97%",
+      "occurrences": 1
+     },
+     {
+      "v": "0.012",
+      "occurrences": 1
+     },
+     {
+      "v": "95%",
+      "occurrences": 1
+     }
+    ],
+    "exportHasOklch": false,
+    "bodyIncludesHexOnly": 9223,
+    "overflowRegion": null
+   },
+   "320-spacing": {
+    "total": 24,
+    "truncated": [],
+    "chromaValueAlsoInPageText": [
+     {
+      "v": "97%",
+      "occurrences": 1
+     },
+     {
+      "v": "0.012",
+      "occurrences": 1
+     },
+     {
+      "v": "95%",
+      "occurrences": 1
+     }
+    ],
+    "exportHasOklch": false,
+    "bodyIncludesHexOnly": 9059,
+    "overflowRegion": null
+   },
+   "640-200pct-spacing": {
+    "total": 24,
+    "truncated": [],
+    "chromaValueAlsoInPageText": [
+     {
+      "v": "97%",
+      "occurrences": 1
+     },
+     {
+      "v": "0.012",
+      "occurrences": 1
+     },
+     {
+      "v": "95%",
+      "occurrences": 1
+     }
+    ],
+    "exportHasOklch": false,
+    "bodyIncludesHexOnly": 9059,
+    "overflowRegion": null
+   }
+  }
+ }
+}

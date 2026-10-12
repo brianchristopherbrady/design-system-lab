@@ -1,0 +1,1556 @@
+{
+  "schemaVersion": "1.0",
+  "target": "WCAG 2.2 Level AA",
+  "scope": {
+    "application": "Design System Lab (React 19 + Vite + react-router 7 SPA), dev server http://localhost:5173",
+    "routes": [
+      "/",
+      "/foundations",
+      "/foundations/:topicId",
+      "/components",
+      "/components/:componentId",
+      "/playground",
+      "/patterns",
+      "/patterns/:patternId",
+      "/decisions",
+      "/decisions/:decisionId",
+      "404"
+    ],
+    "workflows": [
+      "Shell navigation (skip link, section nav, on-this-page nav, theme/product/density selects)",
+      "Component docs incl. live demos (dialog, tabs, switch, form)",
+      "Playground: choose component, edit props via Controls table, share/resume",
+      "Pattern demos: resource directory filters, resource detail, activity dashboard, scenario states (loading/empty/error/retry)",
+      "Design decisions reading"
+    ],
+    "exclusions": [
+      "External links (portfolio, GitHub)",
+      "Third-party fonts beyond rendering"
+    ],
+    "environments": [
+      {
+        "id": "env-edge-desktop",
+        "os": "Microsoft Windows NT 10.0.26300.0",
+        "browser": "Microsoft Edge 155.0.4283.45 (Chromium), driven by Playwright 1.64.0 with chromium.launch({ channel: 'msedge' })",
+        "runtime": "Node.js v24.19.0",
+        "server": "Vite 7.3.7 dev server at http://localhost:5173 (pre-existing, not restarted)",
+        "app": "react 19.3.0, react-dom 19.3.0, react-router 7.18.4, typescript 5.9.3",
+        "automatedTools": [
+          "axe-core 4.13.0 via @axe-core/playwright 4.13.0 (tags wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa, best-practice)",
+          "eslint-plugin-jsx-a11y 6.10.2 through `npm run lint`"
+        ],
+        "viewports": [
+          "1280x900",
+          "1280x720",
+          "1440x600",
+          "1024x768",
+          "640x450 (200% zoom equivalent of 1280x900)",
+          "375x700",
+          "320x256 and 320x640 (400% zoom equivalent)"
+        ],
+        "emulation": [
+          "forcedColors: 'active'",
+          "reducedMotion: 'reduce'",
+          "WCAG 1.4.12 text-spacing CSS injected with !important",
+          "localStorage system-lab:theme light|dark, system-lab:product system-lab|harbor|meadow, system-lab:density comfortable|compact"
+        ],
+        "assistiveTechnology": "None available. No screen reader, voice control or switch testing was performed; announcements were inferred from live-region DOM mutations and Playwright ARIA snapshots only.",
+        "repositoryState": "Audit started on a working tree with uncommitted user changes on top of ca160ae; the user committed them during the audit as 42d9d01, then added 260b98f and f71814a (decisions content). Findings were re-read against HEAD f71814a; /decisions routes were re-swept after those commits."
+      }
+    ]
+  },
+  "handoff": {
+    "acceptedBy": "accessibility-orchestrator (Agent 0), approved by user",
+    "acceptedAt": "2026-10-12T13:05:00-07:00",
+    "approvedIssueIds": [
+      "A11Y-001",
+      "A11Y-002",
+      "A11Y-003",
+      "A11Y-004",
+      "A11Y-005",
+      "A11Y-006",
+      "A11Y-007",
+      "A11Y-008"
+    ],
+    "artifactIdentifiers": [
+      "HEAD f71814a",
+      "accessibility-audit.md sha256:F739A5089C6600AB",
+      "accessibility-pattern-matrix.md sha256:BD6954BCCE8BFB61",
+      "accessibility-test-plan.md sha256:0A8D1F7211D2EA54",
+      "accessibility-issues.json sha256:37D37569E5EAF8D6"
+    ],
+    "decisions": [
+      "User approved remediation of all 8 issues.",
+      "User accepted DOM/accessibility-tree verification as the limit for BLK-001; screen-reader gaps remain disclosed, not claimed as passed.",
+      "Best-practice classifications of A11Y-001, A11Y-004, A11Y-006 accepted as audited.",
+      "Uncommitted user edits to src/content/decisions/SharingExplorer.tsx, decisions.module.css, src/domain/decisions/* are out of remediation scope and must not be modified."
+    ]
+  },
+  "programBlockers": [
+    {
+      "id": "BLK-001",
+      "title": "No screen reader available for announcement and focus-loss verification",
+      "impact": "Partial. The audit can proceed, but A11Y-001, A11Y-002 and A11Y-004 acceptance criteria that concern what assistive technology announces, and unconfirmed leads LEAD-001 to LEAD-004, can only be checked at the DOM / accessibility-tree level (live-region mutations, ARIA snapshots). No screen-reader result is claimed anywhere in these artifacts.",
+      "owner": "Program owner (user)",
+      "nextAction": "Provide NVDA + Edge/Firefox or JAWS, Narrator or VoiceOver for the verifier, or explicitly accept DOM-level verification as the limit for these items.",
+      "recordedBy": "accessibility-auditor (Agent 1)",
+      "recordedAt": "2026-10-12T12:45:00-07:00"
+    }
+  ],
+  "unconfirmedLeads": [
+    {
+      "id": "LEAD-001",
+      "summary": "Live regions are mounted already populated (\"Loading entries…\", \"Loading activity…\", \"Loading the Button entry…\", the DirectoryFilters count on first mount, and role=\"alert\" Alerts). Some browser and screen-reader combinations do not announce a live region inserted with its content.",
+      "source": "Manual code and DOM review; MutationObserver log shows 'ADDED status: …' insertions (evidence/interactions.json checks.scenarios).",
+      "locations": [
+        "src/content/patterns/ResourceDirectory.tsx:109 (LoadingEntries)",
+        "src/content/patterns/ActivityDashboard.tsx:50",
+        "src/content/patterns/ResourceDetail.tsx:45",
+        "src/features/directory/DirectoryFilters.tsx (role=status count, mounted with Results)"
+      ],
+      "whyUnconfirmed": "Needs a real screen reader; Playwright cannot observe speech.",
+      "nextStep": "With NVDA + Edge and Narrator + Edge, change Demo scenario to each value and record what is spoken.",
+      "relatedIssue": "A11Y-002"
+    },
+    {
+      "id": "LEAD-002",
+      "summary": "Status messages ('Loading entries…') sit inside section[aria-busy=\"true\"]. Some assistive technologies suppress or defer updates inside a busy region until aria-busy becomes false.",
+      "source": "DOM review (evidence/interactions.json checks.scenarios: busy=\"true\" while loading).",
+      "locations": [
+        "src/content/patterns/ResourceDirectory.tsx:62",
+        "src/content/patterns/ActivityDashboard.tsx:43",
+        "src/content/patterns/ResourceDetail.tsx:33"
+      ],
+      "whyUnconfirmed": "Behaviour is assistive-technology specific; no screen reader available.",
+      "nextStep": "Screen-reader test of the loading scenario; if suppressed, move the status outside the busy section.",
+      "relatedIssue": "A11Y-002"
+    },
+    {
+      "id": "LEAD-003",
+      "summary": "The form error summary receives focus on a plain div (tabIndex=-1, no role or accessible name). What a screen reader speaks on focus (whole text, nothing, or only 'group') is not verifiable here.",
+      "source": "Keyboard probe: focus lands on div 'Fix 5 problems to continue…' with role null (evidence/interactions.json checks.form.summaryRole).",
+      "locations": [
+        "src/content/patterns/FormValidation.tsx (summaryRef div)"
+      ],
+      "whyUnconfirmed": "Requires screen-reader output; visually and by keyboard the summary works (focus, visible ring, links move focus to fields).",
+      "nextStep": "NVDA/Narrator: submit empty form and record the announcement."
+    },
+    {
+      "id": "LEAD-004",
+      "summary": "Playground Controls table restyles rows as blocks below a 36rem container width and relies on explicit role=table/row/rowheader/columnheader with a visually hidden header row. Table navigation announcements in narrow layouts are unverified.",
+      "source": "Code review of ControlsTable.tsx and ControlsTable.module.css; DOM shows roles retained.",
+      "locations": [
+        "src/features/playground/ControlsTable.tsx",
+        "src/features/playground/ControlsTable.module.css"
+      ],
+      "whyUnconfirmed": "Requires screen-reader table navigation at a narrow viewport.",
+      "nextStep": "NVDA table mode (Ctrl+Alt+arrows) at 375px width."
+    }
+  ],
+  "dismissedLeads": [
+    {
+      "id": "DL-001",
+      "lead": "Focus obscured by the sticky Playground preview panel (WCAG 2.4.11)",
+      "origin": "First keyboard probe (60-120 ms after Tab) reported focused controls under the sticky panel.",
+      "disposition": "Dismissed. The first readings were taken during smooth scrolling. With a 900 ms settle, reverse and forward Tab through every Controls-table row at 1440x600, 1280x720 and 1280x900 left the centre and four ring corners of each focused control painted by the control itself, never by the panel. scroll-margin-block-start in Playground.module.css:176 works.",
+      "evidence": [
+        "evidence/obscured.json",
+        "evidence/leads.json checks.stickyFocus (superseded mid-scroll readings)"
+      ]
+    },
+    {
+      "id": "DL-002",
+      "lead": "axe color-contrast 'incomplete' (bgGradient) on the header selects and elsewhere",
+      "origin": "axe incomplete results",
+      "disposition": "Dismissed. The gradient draws only the chevron; computed text vs background is 19.57:1 (light) and 15.98:1 (dark) in all three products.",
+      "evidence": [
+        "evidence/leads.json checks.axeIncomplete",
+        "evidence/leads2.json"
+      ]
+    },
+    {
+      "id": "DL-003",
+      "lead": "axe color-contrast 'incomplete' (bgOverlap) on Overview readouts and About prose",
+      "origin": "axe incomplete results",
+      "disposition": "Dismissed. Measured 7.52:1 (12px labels) and 17.13:1 (32px values) on rgb(11,12,14); prose 18.56:1 / 17.13:1.",
+      "evidence": [
+        "evidence/history-focus.json readouts",
+        "evidence/leads2.json",
+        "evidence/screenshots/overview-readouts-light.png"
+      ]
+    },
+    {
+      "id": "DL-004",
+      "lead": "axe th-has-data-cells 'incomplete' on the Overview architecture table",
+      "origin": "axe incomplete results",
+      "disposition": "Dismissed. The flagged headers are th scope=\"rowgroup\" colspan=\"3\" group headings in separate tbody elements, a valid structure; every other row has data cells.",
+      "evidence": [
+        "evidence/th-lead.json"
+      ]
+    },
+    {
+      "id": "DL-005",
+      "lead": "Header 'Display' summary text is truncated with an ellipsis at 320px",
+      "origin": "baseline clipped-text scan",
+      "disposition": "Not a failure. The truncated summary repeats the values of the Product, Theme and Density selects, which the same button reveals (aria-expanded) in full. Understanding 1.4.12 accepts ellipses where a mechanism reveals the content.",
+      "evidence": [
+        "evidence/baseline.json",
+        "evidence/leads.json checks.textSpacing",
+        "evidence/screenshots/home-320-text-spacing.png"
+      ]
+    },
+    {
+      "id": "DL-006",
+      "lead": "Checkbox and radio inputs are 20x20 CSS px (< 24) at 320px and in compact density",
+      "origin": "baseline target scan",
+      "disposition": "Pass. The label is part of the activation target (label box at least 28px tall, full row width) and the nearest other target is at least 22px from each undersized centre, so both the size and spacing tests of 2.5.8 are met.",
+      "evidence": [
+        "evidence/leads.json checks.targets"
+      ]
+    },
+    {
+      "id": "DL-007",
+      "lead": "Browser Back to the initial history entry leaves focus on body while other history moves focus the h1",
+      "origin": "history probe",
+      "disposition": "Observation only. The initial entry behaves like a fresh page load (title updates, next Tab enters the main content). Recorded for product decision, not as a defect.",
+      "evidence": [
+        "evidence/history-focus.json"
+      ]
+    },
+    {
+      "id": "DL-008",
+      "lead": "Changing the Playground Component select rerenders the workbench (possible 3.2.2 change of context)",
+      "origin": "keyboard probe",
+      "disposition": "Dismissed. Focus stays on the select, the URL query and content update and title is unchanged; this is a change of content, not of context.",
+      "evidence": [
+        "evidence/interactions.json checks.playground.componentSwitch"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "id": "A11Y-001",
+      "title": "Activating \"Clear filters\" removes the focused button and drops keyboard focus to the document body",
+      "status": "fixed-pending-verification",
+      "severity": "medium",
+      "priority": {
+        "rank": 1,
+        "rationale": "Components index is a primary navigation workflow (section landing page) and the same DirectoryFilters plus EmptyState pairing is reused in the Resource directory pattern, so one shared fix reaches every instance. Every keyboard and screen-reader user who filters hits it. Low effort, no product dependency."
+      },
+      "affectedUsers": [
+        "Blind and low-vision screen-reader users (focus position lost; virtual cursor may reset)",
+        "Sighted keyboard-only users (no visible focus indicator after activation)",
+        "Screen-magnifier users (magnifier loses the focus point)",
+        "Switch and voice-control users who rely on focus position"
+      ],
+      "locations": [
+        {
+          "route": "/components?q=<no match>",
+          "workflow": "Components index search and filter",
+          "component": "DirectoryFilters (summary 'Clear filters' button)",
+          "file": "src/features/directory/DirectoryFilters.tsx",
+          "line": 106,
+          "selector": "[role=search] button:has-text('Clear filters')"
+        },
+        {
+          "route": "/components?q=<no match>",
+          "workflow": "Components index empty result",
+          "component": "EmptyState action",
+          "file": "src/app/pages/ComponentsIndexPage.tsx",
+          "line": 41,
+          "selector": "main button:has-text('Clear filters') (last)"
+        },
+        {
+          "route": "/patterns/resource-directory (scenario No results, or any filter)",
+          "workflow": "Directory pattern demo",
+          "component": "EmptyState action and DirectoryFilters summary button",
+          "file": "src/content/patterns/ResourceDirectory.tsx",
+          "line": 175,
+          "selector": "section[aria-labelledby] button:has-text('Clear filters')"
+        }
+      ],
+      "pattern": "Filter reset command (button) inside a search landmark and as the empty-state recovery action. See pattern matrix row P-08 'Directory filters and result count' and P-10 'Empty state'.",
+      "observedBehavior": "After Enter on either Clear filters button, the button is unmounted (filters return to default, hasActiveFilters is false and the empty state disappears) and document.activeElement is <body>. No focus indicator is visible anywhere. In Edge the next Tab reaches the first result link ('Box') and Shift+Tab reaches the Maturity select, because the browser keeps a sequential-navigation starting point. Reproduced on all 4 combinations tested (summary/empty-state button x Tab/Shift+Tab) and in the directory demo.",
+      "expectedBehavior": "After filters are cleared, focus is placed on a logical, visible, still-present element, for example the Search input or the result-count status/results heading. The cleared state stays announced through the existing role=status count ('Showing 29 of 29').",
+      "reproductionSteps": [
+        "Start: Edge 155 at 1280x900, fresh profile, open http://localhost:5173/components?q=zzzz.",
+        "Press Tab until 'Clear filters' (either the one beside 'Showing 0 of 29' or the one in the 'No components match these filters' empty state) is focused; observe the focus ring.",
+        "Press Enter.",
+        "Observe: the list returns to 29 items, the button disappears, no focus ring is visible; in DevTools document.activeElement is <body>.",
+        "Repeat on /patterns/resource-directory with Demo scenario 'No results' and the empty-state 'Clear filters' button."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/focus-loss.json",
+          "method": "Playwright keyboard focus + Enter, then read document.activeElement; then Tab / Shift+Tab",
+          "environment": "env-edge-desktop, 1280x900",
+          "observation": "focusAfterActivate 'BODY' for both buttons; next Tab 'a \"Box\" in main'; Shift+Tab 'select \"Any maturity…\" in main'."
+        },
+        {
+          "path": "evidence/leads.json (checks.clearFilters)",
+          "method": "Same, including directory No results scenario",
+          "environment": "env-edge-desktop",
+          "observation": "directoryNoResults.focusAfterActivate 'body'."
+        },
+        {
+          "path": "evidence/interactions.json (checks.filters.componentsIndex.afterClear)",
+          "method": "Keyboard probe",
+          "environment": "env-edge-desktop",
+          "observation": "{\"el\":\"body\"}"
+        }
+      ],
+      "classification": "accessibility best practice",
+      "wcag": [],
+      "bestPracticeRationale": "Losing focus to the body forces keyboard and screen-reader users to re-find their place and removes the visible focus indicator. It is not recorded as a 2.4.3 Focus Order failure because Edge kept a sequential-navigation starting point and the next Tab and Shift+Tab destinations were logical (evidence/focus-loss.json), so the order itself was not impeded in the tested browser. Screen-reader behaviour after focus loss (some reset the virtual cursor to the top of the document) could not be tested (BLK-001). APG guidance that focus moves to a logical element when the invoking element no longer exists supports the expected behaviour.",
+      "sources": [
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
+          "title": "Understanding SC 2.4.3 Focus Order",
+          "authority": "informative (W3C WAI Understanding)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Failure only when focus order impedes meaning or operation; 'focus returns to the button or the element following the button' example for dialogs.",
+          "caveats": "Does not explicitly address focus lost to body; used to justify the best-practice classification."
+        },
+        {
+          "url": "https://www.w3.org/TR/WCAG22/#focus-order",
+          "title": "WCAG 2.2 SC 2.4.3 Focus Order (Level A)",
+          "authority": "normative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Focusable components receive focus in an order that preserves meaning and operability.",
+          "caveats": "Opened to decide applicability; not cited as failed."
+        },
+        {
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "title": "ARIA APG Dialog (Modal) Pattern",
+          "authority": "informative (APG)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Note 2: when the invoking element no longer exists, focus is set on another element that provides logical work flow.",
+          "caveats": "Dialog-specific guidance applied by analogy to a self-removing control."
+        },
+        {
+          "url": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+          "title": "ARIA APG Developing a Keyboard Interface",
+          "authority": "informative (APG)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Discernible and predictable keyboard focus: users need to discover where focus landed after a key press.",
+          "caveats": "Section is marked as work in progress (APG issue 217)."
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "When the element that had focus is removed, place focus on another element that continues the workflow.",
+          "source": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "authority": "informative"
+        },
+        {
+          "requirement": "Focus location must remain discernible after a keyboard action.",
+          "source": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+          "authority": "informative"
+        }
+      ],
+      "engineeringJudgment": [
+        "Search input is the most useful target: the user cleared filters to start a new search, and the role=status count already reports the result. Moving focus to the status text instead would need tabIndex=-1 on a live region, which some AT announce twice.",
+        "Both buttons call the same onChange(defaultFilters) path; DirectoryFilters can own the handoff for its own button, and the two EmptyState call sites need the same behaviour, so a small shared helper (for example a ref to the search input exposed by DirectoryFilters or a 'clear' callback that focuses it) avoids duplicate code.",
+        "Severity medium (not high): a logical next Tab destination exists in Edge, and the action is non-destructive."
+      ],
+      "likelyRootCause": "DirectoryFilters renders Clear filters only while hasActiveFilters(filters) (DirectoryFilters.tsx:106), and EmptyState renders its action only while results.length === 0 (ComponentsIndexPage.tsx:38-41, ResourceDirectory.tsx:171-175). Activation makes the condition false and React unmounts the focused button; no code moves focus first.",
+      "remediationLayer": "composite component",
+      "proposedFix": "Give DirectoryFilters a ref to its Search input (forwarded from Field/Input) and a clear handler that calls onChange(defaultFilters) and then focuses the Search input after render (requestAnimationFrame or a layout effect keyed on the clear). Expose that handler (or the ref) so ComponentsIndexPage and ResourceDirectory empty-state 'Clear filters' buttons use the same path. Keep the role=status count unchanged so the new count is still announced. Do not keep the button mounted as a disabled control (that would leave an inert stop in the tab order).",
+      "risksAndDependencies": "Touches the shared DirectoryFilters (Components index with URL state, directory demo with local state). Focusing the input must not trigger the 'query changes do not move focus' route logic in usePageTitle; the URL change from ?q=… to no query is a query-only change and should keep the input focus. Existing e2e tests in e2e/patterns.spec.ts and e2e/accessibility.spec.ts may assert on the current state.",
+      "acceptanceCriteria": [
+        "On /components?q=zzzz, activating either Clear filters with Enter or Space leaves document.activeElement on a visible, connected element inside main (expected: the Search input), with a visible focus outline (computed outline-style not 'none').",
+        "Same on /patterns/resource-directory for the summary button and the No results empty-state button.",
+        "After activation the role=status count text reads 'Showing 29 of 29' (Components) / 'Showing 12 of 48 entries' (directory), unchanged in wording.",
+        "document.activeElement is never <body> after activating any 'Clear filters' button (automated check)."
+      ],
+      "manualVerification": [
+        "Edge, keyboard only, 1280x900: open /components?q=zzzz, Tab to the summary Clear filters, press Enter; confirm the visible focus ring is on the Search input and the input is empty.",
+        "Reload, Tab to the empty-state Clear filters, press Space; same expectation.",
+        "On /patterns/resource-directory choose Demo scenario 'No results', activate Clear filters in the empty state; same expectation.",
+        "Repeat at 320x640 to confirm the focused input is scrolled into view.",
+        "If a screen reader becomes available (BLK-001): confirm the input is announced and the count status is spoken."
+      ],
+      "candidateAutomatedTest": "Playwright e2e in e2e/patterns.spec.ts (or accessibility.spec.ts): goto /components?q=zzzz, focus each Clear filters button, press Enter, expect(page.getByRole('searchbox', { name: 'Search' })).toBeFocused(). A Vitest + Testing Library test on DirectoryFilters with a stateful wrapper can assert toHaveFocus() after userEvent.click. Limits: does not cover AT announcement.",
+      "remediation": {
+        "notes": "Shared fix in the owning feature: DirectoryFilters forwards a ref to its Search input, and its own Clear filters button focuses that input before calling onChange(defaultFilters), so focus moves before the button unmounts. New exported hook useClearDirectoryFilters(onChange) returns { searchRef, clear }; ComponentsIndexPage and ResourceDirectory pass searchRef to DirectoryFilters and use clear for their EmptyState Clear filters buttons. The role=status count is unchanged. The URL change from ?q= to none is query-only, so usePageTitle leaves focus on the input. Baseline before any change (same session): npm run lint exit 1 with 206 errors, all in untracked docs/accessibility/evidence/scripts/*.mjs (audit probe scripts using browser globals under the Node eslint config); npm run typecheck exit 0; npm test 31 files / 901 tests passed; e2e baseline run aborted environmentally (trace ENOENT, then ERR_CONNECTION_REFUSED on :4173) with 125 passed / 32 failed, none related to assertions.",
+        "filesChanged": [
+          "src/features/directory/DirectoryFilters.tsx",
+          "src/features/directory/index.ts",
+          "src/app/pages/ComponentsIndexPage.tsx",
+          "src/content/patterns/ResourceDirectory.tsx",
+          "docs/accessibility.md"
+        ],
+        "testsAdded": [
+          "src/features/directory/DirectoryFilters.test.tsx (2 tests: summary button; empty-state button with Enter and Space; asserts Search toHaveFocus, activeElement not body, count text)",
+          "e2e/patterns.spec.ts 'every Clear filters button hands focus to the Search input' (/components?q=zzzz both buttons with Enter/Space, outline-style not none, 'Showing 29 of 29'; /patterns/resource-directory No results empty-state button and summary button, 'Showing 12 of N entries', activeElement not body)"
+        ],
+        "automatedResults": [
+          "npm run lint: exit 1, 206 errors, all pre-existing in docs/accessibility/evidence/scripts/*.mjs (unchanged count from baseline; no errors in src, e2e or scripts)",
+          "npx eslint src e2e scripts: exit 0",
+          "npm run lint:architecture: exit 0 (tokens up to date; boundaries OK, 697 imports / 266 files, no cycles; style check OK, 58 stylesheets)",
+          "npm run typecheck: exit 0",
+          "npm test: 32 files, 904 tests passed, 0 failed",
+          "$env:PLAYWRIGHT_CHANNEL='msedge'; npm run test:e2e: 159 passed, 3 failed (the 3 new A11Y-002 status tests: test-script defect, select not focused before selectOption). After focusing the select in the test: npx playwright test e2e/patterns.spec.ts 20 passed, 0 failed. The full suite was not re-run after that test-only change (user time limit)."
+        ],
+        "manualResults": [
+          "Playwright script against the dev server http://localhost:5173 (Edge 155 channel msedge, 1280x720 default): /components?q=zzzz, focus empty-state Clear filters, Enter; document.activeElement was the Search <input type=search>. Not run: 320x640 scroll-into-view check; screen reader (BLK-001)."
+        ],
+        "remainingDependencies": [
+          "Independent verification by Agent 3.",
+          "BLK-001: screen-reader announcement of the focused input and count status remains untested; DOM-level only."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Design system maintainer (features/directory)",
+        "blockedReason": null,
+        "nextAction": "Independent verification (Agent 3)",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "Confirmed by keyboard reproduction in rendered UI",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/focus-loss.json",
+            "evidence/leads.json"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Fix implemented in the owning shared code with regression tests; awaiting independent verification.",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": [
+            "src/features/directory/DirectoryFilters.test.tsx",
+            "e2e/patterns.spec.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A11Y-002",
+      "title": "Completion of a demo load is not announced when it ends in an empty result or in the resource detail view",
+      "status": "fixed-pending-verification",
+      "severity": "medium",
+      "priority": {
+        "rank": 2,
+        "rationale": "Async status feedback is a core teaching point of the three pattern pages and appears in five scenario outcomes. Screen-reader users hear 'Loading…' and then nothing. One shared approach (a persistent status region per demo) fixes all instances; no product decision needed."
+      },
+      "affectedUsers": [
+        "Blind and low-vision screen-reader users",
+        "Users of AT that surfaces status messages for cognitive support"
+      ],
+      "locations": [
+        {
+          "route": "/patterns/resource-directory",
+          "workflow": "Demo scenario 'Empty'",
+          "component": "ResourceDirectory / LoadingEntries / EmptyState",
+          "file": "src/content/patterns/ResourceDirectory.tsx",
+          "line": 90,
+          "selector": "section[aria-labelledby] h4 'No entries yet'"
+        },
+        {
+          "route": "/patterns/activity-dashboard",
+          "workflow": "Demo scenario 'Empty'",
+          "component": "ActivityDashboard / EmptyState",
+          "file": "src/content/patterns/ActivityDashboard.tsx",
+          "line": 78,
+          "selector": "section[aria-labelledby] h4 'No activity yet'"
+        },
+        {
+          "route": "/patterns/resource-detail",
+          "workflow": "Demo scenarios 'Success' and 'Empty' (also Reset demo)",
+          "component": "ResourceDetail / Detail",
+          "file": "src/content/patterns/ResourceDetail.tsx",
+          "line": 45,
+          "selector": "section[aria-labelledby] h3 (changes from 'Loading entry' to 'Button')"
+        }
+      ],
+      "pattern": "Async request status (loading, success, empty, error) in pattern demos. See pattern matrix row P-11 'Scenario loading / empty / error / retry'.",
+      "observedBehavior": "Each demo mounts <Text role=\"status\">Loading …</Text> while pending and unmounts it on completion. Success in the directory and dashboard announces through the DirectoryFilters/Dashboard count status ('Showing 12 of 48 entries', 'Showing 23 of 23 changes'), and errors through role=\"alert\". But: Directory 'Empty' and Dashboard 'Empty' add only an EmptyState heading and paragraph with no live region (MutationObserver log: only 'ADDED status: Loading entries…'). Resource detail 'Success' and 'Empty' insert only an empty role=status ('ADDED status: ') and replace the heading text. Focus stays on the Demo scenario select (or body), so nothing tells a non-sighted user that loading finished or what the result was.",
+      "expectedBehavior": "When a demo request finishes, a status message that is programmatically exposed (role=status / polite live region that persists across states) states the outcome, for example 'No entries yet.', 'No activity yet.', 'Button entry loaded.', 'Button entry loaded. No recorded changes.', without moving focus.",
+      "reproductionSteps": [
+        "Start: Edge 155, 1280x900, open http://localhost:5173/patterns/resource-directory and wait for the list.",
+        "In DevTools, observe live regions (or run the MutationObserver in evidence/scripts/interactions.mjs section 8).",
+        "With the keyboard, focus 'Demo scenario' and choose 'Empty' (Alt+Down, arrows, Enter).",
+        "Observe: 'Loading entries…' status appears then is removed; 'No entries yet' heading appears with no role=status/alert/aria-live ancestor and no live-region text change.",
+        "Repeat on /patterns/activity-dashboard (Empty) and /patterns/resource-detail (Success, then Empty)."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/interactions.json (checks.scenarios.states.empty, otherPages)",
+          "method": "MutationObserver recording live-region insertions and text changes during scenario changes",
+          "environment": "env-edge-desktop",
+          "observation": "directory empty: ['ADDED status: Loading entries…'] only; dashboard empty: ['ADDED status: Loading activity…'] only; resource-detail success: ['ADDED status: '] and empty: ['ADDED status: Loading the Button entry…','ADDED status: ']."
+        },
+        {
+          "path": "evidence/empty-state.json",
+          "method": "Playwright ariaSnapshot of the demo section after the Empty scenario settles",
+          "environment": "env-edge-desktop",
+          "observation": "liveInSection [] and emptyAncestorsLive false for both directory and dashboard; snapshot shows region > heading 'No entries yet' [level=4] > paragraph > link."
+        }
+      ],
+      "classification": "WCAG conformance failure",
+      "wcag": [
+        {
+          "criterion": "4.1.3",
+          "title": "Status Messages",
+          "level": "AA",
+          "url": "https://www.w3.org/TR/WCAG22/#status-messages"
+        }
+      ],
+      "bestPracticeRationale": null,
+      "sources": [
+        {
+          "url": "https://www.w3.org/TR/WCAG22/#status-messages",
+          "title": "WCAG 2.2 SC 4.1.3 Status Messages",
+          "authority": "normative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Status messages can be programmatically determined through role or properties so AT can present them without focus.",
+          "caveats": "Excerpt saved in evidence/wcag22-normative-excerpts.txt."
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+          "title": "Understanding SC 4.1.3 Status Messages",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Status message definition includes results of an action and waiting state; 'Removal of status text' section: when a busy/waiting message disappears, non-sighted users are unaware unless an equivalent status such as 'system available' is provided.",
+          "caveats": "Search result lists themselves are not status messages; the outcome summary is."
+        },
+        {
+          "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/status_role",
+          "title": "MDN ARIA: status role",
+          "authority": "informative (MDN)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "status is a polite live region; do not move focus to it when it updates.",
+          "caveats": "AT support for regions inserted already populated varies (see LEAD-001)."
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "The outcome of the load (result of an action) must be exposed through role or properties without receiving focus.",
+          "source": "https://www.w3.org/TR/WCAG22/#status-messages",
+          "authority": "normative"
+        },
+        {
+          "requirement": "When a waiting message is removed, provide an equivalent status that the wait has ended.",
+          "source": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+          "authority": "informative"
+        }
+      ],
+      "engineeringJudgment": [
+        "Prefer one persistent role=status element rendered for the life of each demo (outside the aria-busy section if LEAD-002 is confirmed) whose text changes per state; this also addresses LEAD-001 (populated insertion).",
+        "Success states that already announce a count can keep that count; avoid double announcements by keeping the outcome text brief or empty when the count status speaks.",
+        "Resource detail success could announce '<name> entry loaded.'; the focus move after Retry stays as is."
+      ],
+      "likelyRootCause": "The loading status is a conditionally mounted live region inside each demo (ResourceDirectory.tsx:109, ActivityDashboard.tsx:50, ResourceDetail.tsx:45). It is removed on completion, and only some outcome branches render their own status (DirectoryFilters count, Dashboard count, role=alert). EmptyState (src/design-system/composites/EmptyState/EmptyState.tsx) is static by design and the empty/detail branches add no status.",
+      "remediationLayer": "template",
+      "proposedFix": "In each demo, render one persistent <Text role=\"status\"> (or a small shared useRequest-aware StatusMessage in features/scenarios) that is present in every state, with text derived from state: pending → 'Loading entries…'; success with data → '' (count status speaks) or a short 'Entries loaded.'; success empty → 'No entries yet.'; error → '' (role=alert speaks). Resource detail: success → 'Button entry loaded.' (plus 'No recorded changes.' for the empty history). Keep EmptyState static. Keep skeletons aria-hidden.",
+      "risksAndDependencies": "Must not produce duplicate announcements with the existing count status and alerts. Verification of actual speech depends on BLK-001; DOM-level verification is possible.",
+      "acceptanceCriteria": [
+        "For each of: directory Empty, dashboard Empty, detail Success, detail Empty, a single element with role=status (or aria-live=polite) that existed before the scenario change has its text changed to a non-empty outcome message after loading completes.",
+        "No outcome produces an empty-text status insertion as its only change.",
+        "Focus does not move as a result of loading completion (stays on the Demo scenario select).",
+        "Existing success counts and error alerts still appear exactly once."
+      ],
+      "manualVerification": [
+        "Edge, keyboard only: on each pattern page, operate Demo scenario through every option; after each settles, inspect the persistent status element text in DevTools Accessibility pane.",
+        "Run evidence/scripts/interactions.mjs section 8 and confirm each state logs a 'TEXT' change on a persistent status with outcome wording.",
+        "If BLK-001 is resolved: NVDA + Edge, confirm 'No entries yet', 'No activity yet' and 'Button entry loaded' are spoken without focus moving."
+      ],
+      "candidateAutomatedTest": "Vitest + Testing Library in src/features/scenarios/scenarios.test.tsx or a pattern test: render ResourceDirectory with scenario 'empty', await findByRole('status') to have text 'No entries yet.' and assert the same status node persisted from the loading state. Playwright e2e for each page asserting getByRole('status').filter({ hasText: … }). Limits: cannot assert speech.",
+      "remediation": {
+        "notes": "Persistent status owned by ScenarioDemo (features/scenarios), because ScenarioDemo remounts the demo on every scenario change and reset, so a status inside the demo could not persist. ScenarioDemo renders one VisuallyHidden role=status after the stage (outside the keyed demo and outside the aria-busy section, which also addresses LEAD-002's risk) and provides a setter through context; new hook useScenarioStatus(message). Demos report: directory 'Loading entries…' / 'No entries yet.' / '' (count status or alert speaks); dashboard 'Loading activity…' / 'No activity yet.' / ''; detail 'Loading the Button entry…' / 'Button entry loaded.' plus ' No recorded changes.' when history is empty / '' on error. The visible loading text keeps its wording but no longer has role=status, to avoid a duplicate announcement. Success counts and alerts unchanged. Focus is not moved. Baseline before any change (same session): npm run lint exit 1 with 206 errors, all in untracked docs/accessibility/evidence/scripts/*.mjs (audit probe scripts using browser globals under the Node eslint config); npm run typecheck exit 0; npm test 31 files / 901 tests passed; e2e baseline run aborted environmentally (trace ENOENT, then ERR_CONNECTION_REFUSED on :4173) with 125 passed / 32 failed, none related to assertions.",
+        "filesChanged": [
+          "src/features/scenarios/ScenarioDemo.tsx",
+          "src/features/scenarios/index.ts",
+          "src/content/patterns/ResourceDirectory.tsx",
+          "src/content/patterns/ActivityDashboard.tsx",
+          "src/content/patterns/ResourceDetail.tsx",
+          "docs/accessibility.md"
+        ],
+        "testsAdded": [
+          "src/features/scenarios/scenarios.test.tsx 'announces each demo state through one status message that persists across scenario changes (A11Y-002)' (same status node before/after scenario change and Reset, text 'No entries yet.', select keeps focus)",
+          "e2e/patterns.spec.ts '<path> empty reports its outcome in the persistent demo status' x3 (directory, dashboard, detail Empty history; same node identity before and after, select stays focused)",
+          "e2e/patterns.spec.ts 'resource detail success reports that the entry loaded'"
+        ],
+        "automatedResults": [
+          "npm run lint: exit 1, 206 errors, all pre-existing in docs/accessibility/evidence/scripts/*.mjs (unchanged count from baseline; no errors in src, e2e or scripts)",
+          "npx eslint src e2e scripts: exit 0",
+          "npm run lint:architecture: exit 0 (tokens up to date; boundaries OK, 697 imports / 266 files, no cycles; style check OK, 58 stylesheets)",
+          "npm run typecheck: exit 0",
+          "npm test: 32 files, 904 tests passed, 0 failed",
+          "$env:PLAYWRIGHT_CHANNEL='msedge'; npm run test:e2e: 159 passed, 3 failed (the 3 new A11Y-002 status tests: test-script defect, select not focused before selectOption). After focusing the select in the test: npx playwright test e2e/patterns.spec.ts 20 passed, 0 failed. The full suite was not re-run after that test-only change (user time limit)."
+        ],
+        "manualResults": [
+          "Playwright script against the dev server (Edge 155): /patterns/resource-directory, select Empty; persistent status text 'No entries yet.' and exactly 1 role=status on the page. Not run: MutationObserver re-run of interactions.mjs section 8; screen reader (BLK-001)."
+        ],
+        "remainingDependencies": [
+          "Independent verification by Agent 3, including that existing counts and alerts still appear exactly once (criterion 4) across all scenarios.",
+          "BLK-001: speech output untested; LEAD-001/LEAD-002 remain unconfirmed.",
+          "Full e2e suite should be re-run once after the final test-only fix (patterns.spec.ts passed 20/20)."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Content/pattern maintainer (src/content/patterns, src/features/scenarios)",
+        "blockedReason": null,
+        "nextAction": "Independent verification (Agent 3)",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "Confirmed through live-region mutation log and ARIA snapshot in rendered UI",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/interactions.json",
+            "evidence/empty-state.json"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Fix implemented in the owning shared code with regression tests; awaiting independent verification.",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": [
+            "src/features/scenarios/scenarios.test.tsx",
+            "e2e/patterns.spec.ts",
+            "e2e/patterns.spec.ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A11Y-003",
+      "title": "Required confirmation checkbox in the proposal form is not identified as required",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 3,
+        "rationale": "Quick win in the only multi-field form. The submit-time error and summary recover it, so impact is limited, but the inconsistency with four fields marked '(required)' misleads users before they submit."
+      },
+      "affectedUsers": [
+        "Users with cognitive, language and learning disabilities",
+        "Screen-reader users (no required state exposed)",
+        "All users relying on the visible '(required)' convention"
+      ],
+      "locations": [
+        {
+          "route": "/patterns/form-validation",
+          "workflow": "Propose a component (demonstration form)",
+          "component": "FormValidation checkbox (Checkbox primitive)",
+          "file": "src/content/patterns/FormValidation.tsx",
+          "line": 130,
+          "selector": "form[aria-label='Propose a component (demonstration)'] input[type=checkbox]"
+        }
+      ],
+      "pattern": "Form field with required state and submit-time validation. See pattern matrix rows P-06 'Field' and P-07 'Form validation with error summary'.",
+      "observedBehavior": "Labels for the other four fields read 'Component name (required)', 'Component layer (required)', 'Summary (required)', 'Contact email (required)' and their controls have required=true. The checkbox label reads 'I searched the directory and nothing existing fits' with no visible required marker, required=false and no aria-required, yet validateProposal rejects an unchecked box ('Confirm that you searched the directory first.'). The requirement becomes known only after a failed submit.",
+      "expectedBehavior": "The checkbox shows the same '(required)' cue as the other fields (or the form states that all fields are required) and exposes the required state programmatically (required attribute or aria-required=\"true\").",
+      "reproductionSteps": [
+        "Start: Edge 155, 1280x900, open http://localhost:5173/patterns/form-validation.",
+        "Read the five field labels; note four show '(required)' and the checkbox does not.",
+        "Inspect the checkbox in DevTools Accessibility pane: Required is false.",
+        "Press Tab to 'Submit proposal' and press Enter with the checkbox unchecked.",
+        "Observe the error 'Confirm that you searched the directory first.' for the checkbox."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/leads.json (checks.formCheckbox)",
+          "method": "DOM inspection before and after submit",
+          "environment": "env-edge-desktop",
+          "observation": "before: required false, ariaRequired null; otherLabels show '(required)' on the four other fields only; after submit: aria-invalid true and error description associated."
+        },
+        {
+          "path": "evidence/interactions.json (checks.form.requiredMarks)",
+          "method": "DOM inspection",
+          "environment": "env-edge-desktop",
+          "observation": "['text:true','select-one:true','text:true','email:true','checkbox:false']"
+        },
+        {
+          "path": "evidence/screenshots/form-checkbox-error.png",
+          "method": "Screenshot after submit",
+          "environment": "env-edge-desktop",
+          "observation": "Checkbox with no required marker and the error text below."
+        },
+        {
+          "path": "evidence/screenshots/form-errors-full.png",
+          "method": "Screenshot of the whole form after submit",
+          "environment": "env-edge-desktop",
+          "observation": "Four labels with '(required)', the checkbox without."
+        }
+      ],
+      "classification": "WCAG conformance failure",
+      "wcag": [
+        {
+          "criterion": "3.3.2",
+          "title": "Labels or Instructions",
+          "level": "A",
+          "url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions"
+        }
+      ],
+      "bestPracticeRationale": null,
+      "sources": [
+        {
+          "url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions",
+          "title": "WCAG 2.2 SC 3.3.2 Labels or Instructions",
+          "authority": "normative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Labels or instructions are provided when content requires user input.",
+          "caveats": ""
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+          "title": "Understanding SC 3.3.2 Labels or Instructions",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Benefits: providing labels and instructions, including identification of required fields, prevents incomplete submissions. Techniques H90 (indicating required form controls using label or legend) and G83.",
+          "caveats": "Programmatic exposure of required state is better covered by 1.3.1 / 4.1.2; the primary failure recorded is the missing visible instruction given the form's own convention."
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+          "title": "Understanding SC 3.3.1 Error Identification",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Required-but-omitted input is an input error; programmatic required information may be covered by 4.1.2.",
+          "caveats": "3.3.1 itself passes: the error is identified and described in text."
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "Identify required inputs in the label or instructions before submission.",
+          "source": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+          "authority": "informative (technique H90 for normative SC 3.3.2)"
+        }
+      ],
+      "engineeringJudgment": [
+        "Field already renders a visual '(required)' (aria-hidden) plus the native required attribute; Checkbox lacks an equivalent prop, so the fix belongs in the Checkbox primitive (optional `required` cue) or at the call site.",
+        "Native required on a checkbox inside a noValidate form exposes 'required' to AT without triggering browser validation bubbles.",
+        "Severity low: post-submit error and summary give a clear recovery path."
+      ],
+      "likelyRootCause": "FormValidation.tsx renders the confirmation with the Checkbox primitive, which has no required cue, and does not pass required; the other fields use Field, which adds both the visual note and required.",
+      "remediationLayer": "primitive",
+      "proposedFix": "Add required support to Checkbox (pass `required` to the native input and render the same aria-hidden ' (required)' note used by Field and RadioGroup in its label), then pass required at FormValidation.tsx:130. Keep the existing aria-invalid and error association.",
+      "risksAndDependencies": "Checkbox is a shared primitive used on /components/checkbox, /foundations/products and the theme studio; the new prop must default to off. Documentation for Checkbox (content/components/docs) may need the prop listed.",
+      "acceptanceCriteria": [
+        "The checkbox label visibly includes '(required)' in the same style as the other four fields before any submission.",
+        "The checkbox exposes required state: input.required === true or aria-required='true' (Accessibility pane shows Required: true).",
+        "Submitting unchecked still shows the existing error and summary entry; submitting checked with other fields valid still succeeds.",
+        "Other Checkbox instances on /components/checkbox and /foundations/products are unchanged."
+      ],
+      "manualVerification": [
+        "Edge 1280x900: open /patterns/form-validation, read labels; confirm '(required)' on the checkbox.",
+        "DevTools Accessibility pane on the checkbox: Required true.",
+        "Keyboard: Tab to Submit proposal, Enter with checkbox unchecked; summary lists the checkbox; activate its link, focus lands on the checkbox.",
+        "Check /components/checkbox renders as before."
+      ],
+      "candidateAutomatedTest": "Vitest in src/content/patterns/FormValidation.test.ts or a component test: render FormValidation, expect(getByRole('checkbox', { name: /I searched the directory/ })).toBeRequired() and label text contains '(required)'. Playwright: same assertion via toBeRequired().",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Design system maintainer (Checkbox primitive) with pattern content owner",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "Confirmed in rendered UI and accessibility properties",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/leads.json",
+            "evidence/screenshots/form-errors-full.png"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "A11Y-004",
+      "title": "After Retry the focused button disappears and focus sits on the body until loading succeeds",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 4,
+        "rationale": "Same three pattern demos as A11Y-002 and fixable in the same change. Focus is restored to the heading after ~1.5 s, so the window is short, but a Tab pressed in that window skips past the demo."
+      },
+      "affectedUsers": [
+        "Screen-reader users",
+        "Sighted keyboard-only users",
+        "Screen-magnifier users"
+      ],
+      "locations": [
+        {
+          "route": "/patterns/resource-directory",
+          "workflow": "Demo scenario 'Error' → Retry",
+          "component": "ResourceDirectory error Alert action",
+          "file": "src/content/patterns/ResourceDirectory.tsx",
+          "line": 80,
+          "selector": "[role=alert] button:has-text('Retry')"
+        },
+        {
+          "route": "/patterns/activity-dashboard",
+          "workflow": "Demo scenario 'Error' → Retry",
+          "component": "ActivityDashboard error Alert action",
+          "file": "src/content/patterns/ActivityDashboard.tsx",
+          "line": 69,
+          "selector": "[role=alert] button:has-text('Retry')"
+        },
+        {
+          "route": "/patterns/resource-detail",
+          "workflow": "Demo scenario 'Error' → Retry",
+          "component": "ResourceDetail error Alert action",
+          "file": "src/content/patterns/ResourceDetail.tsx",
+          "line": 62,
+          "selector": "[role=alert] button:has-text('Retry')"
+        }
+      ],
+      "pattern": "Recovery action inside an error alert for an async request. See pattern matrix row P-11.",
+      "observedBehavior": "Pressing Enter on Retry sets state to pending, which unmounts the Alert and its Retry button; 150 ms later document.activeElement is <body>. Tab during loading moves to the region after the demo ('What each demo scenario renders'), Shift+Tab to 'Reset demo' (or the 'Directory' link on resource detail). When loading succeeds (about 1.5-3 s) focus is moved to the demo heading, as documented.",
+      "expectedBehavior": "Focus is never left on the body during the retry: it is moved immediately to a stable element (for example the demo heading, which already has tabIndex=-1) when Retry is activated, and remains there through success or a repeat error.",
+      "reproductionSteps": [
+        "Start: Edge 155, 1280x900, open http://localhost:5173/patterns/resource-directory.",
+        "Choose Demo scenario 'Error' and wait for 'Entries could not be loaded'.",
+        "Tab to Retry, press Enter.",
+        "Within one second, check document.activeElement (body) and press Tab: focus jumps to the region after the demo.",
+        "Repeat on /patterns/activity-dashboard and /patterns/resource-detail."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/focus-loss.json (retry)",
+          "method": "Playwright: focus Retry, Enter, wait 150 ms, read activeElement, then Tab or Shift+Tab",
+          "environment": "env-edge-desktop, 1280x900",
+          "observation": "focusDuringLoading 'BODY' on all three pages; Tab → 'div \"What each demo scenario render…\" in main'; Shift+Tab → 'button \"Reset demo\"' (detail: 'a \"Directory\"')."
+        },
+        {
+          "path": "evidence/interactions.json (checks.scenarios.retry)",
+          "method": "Keyboard probe without intermediate keys",
+          "environment": "env-edge-desktop",
+          "observation": "focusImmediately body; after ~3 s focus on h3 'System directory' with visible outline."
+        }
+      ],
+      "classification": "accessibility best practice",
+      "wcag": [],
+      "bestPracticeRationale": "Focus loss is transient and is repaired automatically when loading ends, and the sequence a user reaches is still logical, so this is not recorded as a 2.4.3 failure. It still removes the focus indicator during the wait and can send a quick Tab past the demo; screen-reader effects of the body focus are untested (BLK-001).",
+      "sources": [
+        {
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "title": "ARIA APG Dialog (Modal) Pattern",
+          "authority": "informative (APG)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "If the invoking element no longer exists, focus is set on another element that provides logical work flow.",
+          "caveats": "Applied by analogy."
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
+          "title": "Understanding SC 2.4.3 Focus Order",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Order must preserve meaning and operability; used to justify the best-practice classification.",
+          "caveats": ""
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "Move focus to a logical element when the focused control is removed.",
+          "source": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "authority": "informative"
+        }
+      ],
+      "engineeringJudgment": [
+        "The demo headings already have tabIndex=-1 and a focus-visible style, so focusing them on Retry (instead of only after success) is the minimal change and keeps the existing success behaviour.",
+        "Alternative: keep the Alert mounted with Retry in a loading state (Button loading uses aria-disabled to keep focus); this changes the visual design, so it needs product agreement."
+      ],
+      "likelyRootCause": "retry() sets the request state to pending; the error branch (and its Retry button) unmounts immediately, and the focus effect only runs on state.status === 'success' (ResourceDirectory.tsx effect after useEffect load; ActivityDashboard.tsx:32; ResourceDetail Detail focusOnMount).",
+      "remediationLayer": "template",
+      "proposedFix": "In each demo's retry handler, focus the demo heading (headingRef) synchronously before calling load(), and keep the existing success-time focus as a no-op if already focused. For ResourceDetail, keep a stable heading element across pending/error/success (currently three different h3 elements share headingId) so a ref can be focused while pending.",
+      "risksAndDependencies": "Must stay consistent with A11Y-002 so the outcome status is still announced after focus moves. ResourceDetail renders different heading elements per state, which complicates the ref.",
+      "acceptanceCriteria": [
+        "On all three pattern pages, 150 ms after pressing Enter on Retry, document.activeElement is the demo heading (or another visible in-demo element), not body.",
+        "After success, focus is on the demo heading with visible outline (unchanged behaviour).",
+        "Tab pressed during loading moves to the first focusable element after the heading inside the demo region, not beyond the demo."
+      ],
+      "manualVerification": [
+        "Edge keyboard: each pattern page, scenario Error, Retry with Enter, immediately press Tab; focus stays inside the demo.",
+        "Confirm visible focus ring on the heading during loading at 1280x900 and 320x640."
+      ],
+      "candidateAutomatedTest": "Playwright e2e in e2e/patterns.spec.ts: select 'error', press Enter on Retry, expect(heading).toBeFocused() before the success state (use a short timeout). Vitest with fake timers on simulateRequest can assert toHaveFocus() during pending.",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Content/pattern maintainer (src/content/patterns)",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "Confirmed by keyboard reproduction in rendered UI",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/focus-loss.json"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "A11Y-005",
+      "title": "Theme studio ramp chroma values are cut off with an ellipsis under WCAG text-spacing overrides",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 5,
+        "rationale": "Single tool page, single list; values are still in the DOM for AT, but sighted users who need increased spacing lose all 12 chroma values with no way to reveal them. Small CSS fix."
+      },
+      "affectedUsers": [
+        "Users with dyslexia or low vision who apply text-spacing user styles",
+        "Users with cognitive disabilities who increase letter and word spacing"
+      ],
+      "locations": [
+        {
+          "route": "/foundations/theme-studio",
+          "workflow": "Theme studio, 'Ramp and roles' strip",
+          "component": "RampPanel strip (.stripMeta)",
+          "file": "src/features/theming/ThemeStudio.module.css",
+          "line": 443,
+          "selector": "ol[aria-label='Clavius ramp, 12 steps'] [class*=stripMeta]"
+        },
+        {
+          "file": "src/features/theming/RampPanel.tsx",
+          "line": 104,
+          "component": "RampPanel"
+        }
+      ],
+      "pattern": "Static data list of color ramp steps (content, not a widget). See pattern matrix row P-17 'Theme studio'.",
+      "observedBehavior": "At 1280x900 with the 1.4.12 values injected (line-height 1.5, letter-spacing 0.12em, word-spacing 0.16em, paragraph spacing 2em), all 12 'C 0.0xx' chroma labels render as 'C 0.0…' / 'C 0.1…' (scrollWidth 63 > clientWidth 61) because .stripMeta sets overflow:hidden; text-overflow:ellipsis; white-space:nowrap. The chroma value appears nowhere else on the page (occurrence count 1; export has no OKLCH values). Without overrides nothing is truncated; at 320 and 640 px the strip switches to four columns and does not truncate.",
+      "expectedBehavior": "With the 1.4.12 spacing applied, every ramp label is fully visible (wraps or the column grows), or a mechanism reveals the full value.",
+      "reproductionSteps": [
+        "Start: Edge 155, viewport 1280x900, open http://localhost:5173/foundations/theme-studio.",
+        "Inject the CSS: * { line-height:1.5!important; letter-spacing:0.12em!important; word-spacing:0.16em!important } p { margin-bottom:2em!important } (bookmarklet or DevTools).",
+        "Scroll to the ramp strip under 'Ramp and roles'.",
+        "Observe the 'C' values end in an ellipsis; there is no hover/focus/expand way to read them."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/leads2.json (checks.themeStudioStrip)",
+          "method": "Computed scrollWidth/clientWidth per label with and without spacing at 1280, 640 and 320",
+          "environment": "env-edge-desktop",
+          "observation": "1280: 0/24 truncated; 1280-spacing: 12/24 truncated (all C values); 320, 320-spacing, 640-spacing: 0 truncated."
+        },
+        {
+          "path": "evidence/leads.json (checks.textSpacing.themeStudioStrip)",
+          "method": "Same plus page-text search",
+          "environment": "env-edge-desktop",
+          "observation": "valueElsewhereCount 0; li text '50#f4f6ffL 97%C 0.012' (values exist in DOM)."
+        },
+        {
+          "path": "evidence/screenshots/theme-studio-ramp-before-spacing.png",
+          "method": "Screenshot",
+          "environment": "env-edge-desktop",
+          "observation": "Full 'C 0.012' labels."
+        },
+        {
+          "path": "evidence/screenshots/theme-studio-ramp-after-spacing.png",
+          "method": "Screenshot after spacing injection",
+          "environment": "env-edge-desktop",
+          "observation": "'C 0.0…', 'C 0.1…' truncation."
+        }
+      ],
+      "classification": "WCAG conformance failure",
+      "wcag": [
+        {
+          "criterion": "1.4.12",
+          "title": "Text Spacing",
+          "level": "AA",
+          "url": "https://www.w3.org/TR/WCAG22/#text-spacing"
+        }
+      ],
+      "bestPracticeRationale": null,
+      "sources": [
+        {
+          "url": "https://www.w3.org/TR/WCAG22/#text-spacing",
+          "title": "WCAG 2.2 SC 1.4.12 Text Spacing",
+          "authority": "normative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "No loss of content or functionality when line height, paragraph, letter and word spacing are set to the listed values.",
+          "caveats": ""
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+          "title": "Understanding SC 1.4.12 Text Spacing",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "'Use of ellipses': text that is not truncated normally but is truncated when spaced, with no mechanism to show it, fails this criterion.",
+          "caveats": ""
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "Spaced text must not be lost; ellipsis truncation is acceptable only with a reveal mechanism.",
+          "source": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+          "authority": "informative (for normative SC 1.4.12)"
+        }
+      ],
+      "engineeringJudgment": [
+        "Allowing the meta labels to wrap (remove nowrap/ellipsis, keep tabular numerals) is the least intrusive fix; the strip already reflows to four columns in narrow containers, so a container-query step to 6 columns at medium widths is an alternative."
+      ],
+      "likelyRootCause": ".stripMeta in ThemeStudio.module.css:443-449 combines overflow:hidden, text-overflow:ellipsis and white-space:nowrap inside a 12-column grid whose columns are only ~61px wide at 1280.",
+      "remediationLayer": "page",
+      "proposedFix": "Remove the ellipsis truncation from .stripMeta (allow wrapping with overflow-wrap:anywhere, or drop white-space:nowrap) or switch the strip to fewer columns when its container is narrow relative to the text (container query on the panel). Do not hide the value; do not rely on a title tooltip.",
+      "risksAndDependencies": "Visual change to the strip height in the studio; uses only existing tokens so lint:architecture style checks stay green.",
+      "acceptanceCriteria": [
+        "With the 1.4.12 CSS injected at 1280x900, 640x450 and 320x640, 0 of 24 .stripMeta labels have scrollWidth > clientWidth and every label's full text is visible.",
+        "Without overrides the strip still renders all 12 steps without page-level horizontal scrolling at 320px."
+      ],
+      "manualVerification": [
+        "Edge 1280x900: open /foundations/theme-studio, apply text-spacing bookmarklet, visually read all 'L' and 'C' values.",
+        "Repeat at 320x640 and in dark theme."
+      ],
+      "candidateAutomatedTest": "Playwright e2e (responsive.spec.ts): addStyleTag with the 1.4.12 CSS and assert every [class*=stripMeta] has scrollWidth <= clientWidth + 1. Limits: only catches overflow-type truncation.",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Theming feature maintainer (src/features/theming)",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "Confirmed in rendered UI with text-spacing override",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/leads2.json",
+            "evidence/screenshots/theme-studio-ramp-after-spacing.png"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "A11Y-006",
+      "title": "Reason text for an unavailable RadioGroup option is dimmed to 2.5:1 contrast",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 6,
+        "rationale": "Shared composite (RadioGroup) so the dimming applies wherever an option is disabled with a description; currently one documented instance. Explanations for unavailable choices are information users need. Small CSS change."
+      },
+      "affectedUsers": [
+        "Low-vision users",
+        "Users with reduced contrast sensitivity",
+        "Older users"
+      ],
+      "locations": [
+        {
+          "route": "/components/radio-group",
+          "workflow": "RadioGroup docs live example 'Delivery window'",
+          "component": "RadioGroup option description",
+          "file": "src/design-system/composites/RadioGroup/RadioGroup.module.css",
+          "line": 66,
+          "selector": "[id$='-evening-description']"
+        },
+        {
+          "file": "src/content/components/examples/CompositeExamples.tsx",
+          "line": 464,
+          "component": "RadioGroup example data (disabled: true, description: 'Fully booked this week.')"
+        }
+      ],
+      "pattern": "Unavailable option with explanation in a native radio group. See pattern matrix row P-05 'Radio group'.",
+      "observedBehavior": "The disabled option '17:00 to 20:00' and its description 'Fully booked this week.' are dimmed together with opacity 0.55. axe and computed values give 2.51:1 (light, #9c9fa5 on #f8f9fa, 14px) and 3.0:1 (dark, #5a5e64 on #0b0c0e) in all three products.",
+      "expectedBehavior": "The explanation of why the option is unavailable meets 4.5:1 so the reason can be read, while the disabled control itself may stay dimmed.",
+      "reproductionSteps": [
+        "Start: Edge 155, 1280x900, open http://localhost:5173/components/radio-group.",
+        "Find 'Delivery window'; read 'Fully booked this week.' under the disabled '17:00 to 20:00' option.",
+        "Measure contrast (DevTools color picker or axe): 2.51:1 light, 3.0:1 dark."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/axe-sweep.json",
+          "method": "axe color-contrast",
+          "environment": "env-edge-desktop lab-light and lab-dark",
+          "observation": "serious color-contrast on #_r_6_-evening-description, 2.51 and 3."
+        },
+        {
+          "path": "evidence/leads.json (checks.radioDisabled)",
+          "method": "axe scoped to the element in all 6 product x theme combinations + computed opacity",
+          "environment": "env-edge-desktop",
+          "observation": "light 2.51, dark 3 in system-lab, harbor and meadow; opacity 0.55 on the option; radio disabled true."
+        },
+        {
+          "path": "evidence/screenshots/radio-group-disabled-description.png",
+          "method": "Screenshot",
+          "environment": "env-edge-desktop",
+          "observation": "Faint description under the disabled option."
+        }
+      ],
+      "classification": "accessibility best practice",
+      "wcag": [],
+      "bestPracticeRationale": "WCAG 1.4.3 exempts text that is part of an inactive user interface component, and the description is associated with the disabled radio (aria-describedby) and dimmed with it, so this is not recorded as a conformance failure despite axe's 'serious' rating. The text is the only explanation of why the choice is unavailable, so low-vision users lose that information.",
+      "sources": [
+        {
+          "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
+          "title": "WCAG 2.2 SC 1.4.3 Contrast (Minimum)",
+          "authority": "normative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Incidental exception covers text that is part of an inactive user interface component.",
+          "caveats": "Basis for the best-practice classification."
+        },
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+          "title": "Understanding SC 1.4.3 Contrast (Minimum)",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "'Inactive User Interface Components' are not required to meet contrast requirements.",
+          "caveats": ""
+        },
+        {
+          "url": "https://www.w3.org/WAI/ARIA/apg/patterns/radio/",
+          "title": "ARIA APG Radio Group Pattern",
+          "authority": "informative (APG)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Radio group keyboard model (checked by native implementation).",
+          "caveats": "Implementation is native; APG consulted for the pattern contract only."
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "None normative (exempt). Best practice: keep explanatory text readable.",
+          "source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+          "authority": "informative"
+        }
+      ],
+      "engineeringJudgment": [
+        "Checkbox and Switch dim only the input and label (description excluded), so restricting RadioGroup's opacity to the radio and label aligns the three primitives."
+      ],
+      "likelyRootCause": "RadioGroup.module.css:66-68 applies opacity: var(--control-disabled-opacity) to the whole .option container, which includes .optionDescription.",
+      "remediationLayer": "composite component",
+      "proposedFix": "Apply the disabled opacity to .radio and .label only (like Checkbox.module.css:18-20) and keep .optionDescription at the muted text token, which passes contrast in every product and theme (text-muted measured 7.02:1 light, 7.52:1 dark).",
+      "risksAndDependencies": "Visual change to the disabled option; card appearance must still clearly read as unavailable (label dimmed and cursor not-allowed).",
+      "acceptanceCriteria": [
+        "On /components/radio-group, the 'Fully booked this week.' description has contrast >= 4.5:1 in system-lab, harbor and meadow, light and dark (axe color-contrast shows no violation).",
+        "The disabled radio and its label remain visually dimmed and the radio stays disabled.",
+        "Cards appearance (if a disabled card option exists) keeps the same rule."
+      ],
+      "manualVerification": [
+        "Edge 1280x900: open /components/radio-group in each product/theme, read and measure the description contrast; confirm the option still looks unavailable."
+      ],
+      "candidateAutomatedTest": "Extend e2e axe scan to /components/radio-group (already in the axe sweep) and add contrast.test.ts coverage for the disabled description pair if the token approach is used.",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Design system maintainer (RadioGroup composite)",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "axe lead confirmed in rendered UI; classified as best practice",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/leads.json",
+            "evidence/screenshots/radio-group-disabled-description.png"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "A11Y-007",
+      "title": "Two regions share the same accessible name (Playground 'Usage', ScrollRegion demo 'Release history')",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 7,
+        "rationale": "Affects landmark/region navigation only; two instances; trivial fixes."
+      },
+      "affectedUsers": [
+        "Screen-reader users navigating by landmark or region"
+      ],
+      "locations": [
+        {
+          "route": "/playground",
+          "workflow": "Playground Usage panel",
+          "component": "Workbench usage section and code ScrollRegion",
+          "file": "src/features/playground/Playground.tsx",
+          "line": 324,
+          "selector": "section[aria-labelledby] > pre[role=region][aria-labelledby] (both named 'Usage')"
+        },
+        {
+          "route": "/components/scroll-region",
+          "workflow": "ScrollRegion docs live example",
+          "component": "NarrowAndWide demo renders the same ScrollRegion twice",
+          "file": "src/content/components/examples/LayoutExamples.tsx",
+          "line": 184,
+          "selector": "[role=region][aria-label='Release history']"
+        }
+      ],
+      "pattern": "Named region (section with aria-labelledby; ScrollRegion role=region). See pattern matrix row P-16 'Scrollable regions and data tables'.",
+      "observedBehavior": "Playwright ARIA snapshot of /playground shows 'region \"Usage\"' twice: the section is labelled by the Usage heading and the nested code ScrollRegion is labelled by the same heading (Playground.tsx:324 and :341). On /components/scroll-region the narrow and wide copies of the demo both expose 'region \"Release history\"'. axe best-practice rule landmark-unique flags both in every product/theme combination.",
+      "expectedBehavior": "Each region has a distinct name, for example 'Usage' and 'Usage code', and 'Release history (narrow container)' / '(wide container)'.",
+      "reproductionSteps": [
+        "Open /playground?component=button in Edge.",
+        "Inspect the accessibility tree (or run Playwright ariaSnapshot on main).",
+        "Observe two regions named 'Usage', one nested in the other.",
+        "Open /components/scroll-region and observe two 'Release history' regions."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/leads.json (checks.regions)",
+          "method": "Playwright ariaSnapshot on main",
+          "environment": "env-edge-desktop",
+          "observation": "'- region \"Usage\":' twice on /playground; '- region \"Release history\":' twice on /components/scroll-region."
+        },
+        {
+          "path": "evidence/axe-sweep.json",
+          "method": "axe best-practice landmark-unique",
+          "environment": "env-edge-desktop, all four combos",
+          "observation": "landmark-unique n=1 on /playground and /components/scroll-region."
+        }
+      ],
+      "classification": "accessibility best practice",
+      "wcag": [],
+      "bestPracticeRationale": "Each region has a name and a role, so 1.3.1 and 4.1.2 are met; identical names make region navigation lists ambiguous. APG landmark guidance asks for unique labels when a role repeats.",
+      "sources": [
+        {
+          "url": "https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/",
+          "title": "ARIA APG Landmark Regions",
+          "authority": "informative (APG)",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "If a page includes more than one landmark of the same role, each should have a unique label.",
+          "caveats": "region with a name is a landmark role."
+        }
+      ],
+      "sourceRequirements": [
+        {
+          "requirement": "Repeated landmark roles have unique labels.",
+          "source": "https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/",
+          "authority": "informative"
+        }
+      ],
+      "engineeringJudgment": [
+        "ScrollRegion requires a name by type, so the Playground code region can use aria-label='Usage code' (or 'Usage snippet') instead of reusing the heading id."
+      ],
+      "likelyRootCause": "Playground.tsx:341 passes aria-labelledby={ids.usage} to the code ScrollRegion, the same id that names the enclosing section (line 324). LayoutExamples.tsx:184 uses a fixed aria-label inside a component that renders it twice.",
+      "remediationLayer": "page",
+      "proposedFix": "Give the Playground code ScrollRegion its own name (aria-label 'Usage code'). In NarrowAndWide (LayoutExamples.tsx), pass a width-specific suffix into the example's aria-label.",
+      "risksAndDependencies": "e2e/playground*.spec.ts may locate the snippet by region name; update selectors if so.",
+      "acceptanceCriteria": [
+        "axe landmark-unique reports no violation on /playground and /components/scroll-region in all four sweep combos.",
+        "ARIA snapshot shows distinct names for every region on both pages."
+      ],
+      "manualVerification": [
+        "Edge: inspect the accessibility tree on both pages; confirm unique region names."
+      ],
+      "candidateAutomatedTest": "Already covered once axe best-practice tags are included in e2e/axe.ts; or add a Playwright assertion on getByRole('region', { name: 'Usage' }) count = 1.",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Playground feature and docs content maintainers",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "axe best-practice lead confirmed in accessibility tree",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/leads.json",
+            "evidence/axe-sweep.json"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "A11Y-008",
+      "title": "Products foundation skips from h2 to h4 in the 'Products × themes' specimens",
+      "status": "open",
+      "severity": "low",
+      "priority": {
+        "rank": 8,
+        "rationale": "Single page, minor navigation friction; one-line fix."
+      },
+      "affectedUsers": [
+        "Screen-reader users navigating by heading level"
+      ],
+      "locations": [
+        {
+          "route": "/foundations/products",
+          "workflow": "Products × themes matrix",
+          "component": "Specimen card heading",
+          "file": "src/content/foundations/products.tsx",
+          "line": 130,
+          "selector": "section[aria-label$='theme'] h4 'Pending approvals'"
+        }
+      ],
+      "pattern": "Document heading outline. See pattern matrix row P-02 'Page structure'.",
+      "observedBehavior": "Outline: H2 'Products × themes' followed directly by six H4 'Pending approvals' specimen headings (no H3). axe heading-order (best practice) flags it in light and dark.",
+      "expectedBehavior": "Specimen headings are H3 under the H2 (or the scope sections get an H3 such as 'Design System Lab, light theme').",
+      "reproductionSteps": [
+        "Open /foundations/products.",
+        "List headings (DevTools or Playwright).",
+        "Observe H2 'Products × themes' followed by H4 'Pending approvals'."
+      ],
+      "evidence": [
+        {
+          "path": "evidence/leads.json (checks.productsHeadings)",
+          "method": "Heading outline from DOM",
+          "environment": "env-edge-desktop",
+          "observation": "'H2 Products × themes','H4 Pending approvals' x6."
+        },
+        {
+          "path": "evidence/baseline.json",
+          "method": "Heading-skip scan",
+          "environment": "env-edge-desktop",
+          "observation": "skips ['2->4 at #12']."
+        }
+      ],
+      "classification": "accessibility best practice",
+      "wcag": [],
+      "bestPracticeRationale": "WCAG 2.2 does not require sequential heading levels; the headings exist and are programmatic (1.3.1 met). Skipped levels can suggest missing content to heading-level navigators.",
+      "sources": [
+        {
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html",
+          "title": "Understanding SC 1.3.1 Info and Relationships",
+          "authority": "informative",
+          "accessed": "2026-10-12",
+          "relevantGuidance": "Structure conveyed visually is programmatically determinable; heading techniques (ARIA12, G141).",
+          "caveats": "Level order is not mandated; basis for best-practice classification."
+        }
+      ],
+      "sourceRequirements": [],
+      "engineeringJudgment": [
+        "Specimen takes a fixed level 4; making the level a prop (as EmptyState does with headingLevel) lets each context choose."
+      ],
+      "likelyRootCause": "Specimen in products.tsx:130 hard-codes <Heading level={4}> and is rendered directly under an H2.",
+      "remediationLayer": "content",
+      "proposedFix": "Change the Specimen heading to level 3 in the Products × themes context (or add a headingLevel prop).",
+      "risksAndDependencies": "None significant; check other Specimen uses keep a valid outline.",
+      "acceptanceCriteria": [
+        "On /foundations/products no heading level is skipped (baseline heading-skip scan returns []).",
+        "axe heading-order reports no violation."
+      ],
+      "manualVerification": [
+        "Inspect the heading list on /foundations/products."
+      ],
+      "candidateAutomatedTest": "Covered by axe best-practice heading-order in the sweep; or a Playwright check of consecutive heading levels.",
+      "remediation": {
+        "notes": "deferred: time",
+        "filesChanged": [],
+        "testsAdded": [],
+        "automatedResults": [],
+        "manualResults": [],
+        "remainingDependencies": [
+          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+        ]
+      },
+      "verification": {
+        "verifier": null,
+        "date": null,
+        "environment": null,
+        "criteriaResults": [],
+        "evidence": [],
+        "regressionResults": [],
+        "failures": []
+      },
+      "ownership": {
+        "owner": "Foundations content maintainer",
+        "blockedReason": null,
+        "nextAction": "Remediate in a later pass",
+        "acceptedRiskRationale": null,
+        "acceptedRiskAuthorization": null
+      },
+      "history": [
+        {
+          "actor": "accessibility-auditor (Agent 1)",
+          "previousStatus": null,
+          "newStatus": "open",
+          "reason": "axe best-practice lead confirmed in DOM outline",
+          "timestamp": "2026-10-12T12:45:00-07:00",
+          "evidence": [
+            "evidence/leads.json"
+          ]
+        },
+        {
+          "actor": "accessibility-remediation-engineer",
+          "previousStatus": "open",
+          "newStatus": "open",
+          "reason": "deferred: time (user-directed wrap-up; no edits made)",
+          "timestamp": "2026-10-12T13:30:00-07:00",
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

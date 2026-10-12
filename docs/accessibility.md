@@ -12,6 +12,7 @@ was actually done, and the gaps are listed.
 - Skip link first. After client-side navigation, focus moves to the new `h1` (or to a URL
   fragment's target) and `document.title` updates; query changes do not move focus.
 - Focus is handed on deliberately: after a successful Retry the demo heading receives focus;
+  every Clear filters button moves focus to the Search input before it disappears;
   dialog openers stay enabled after confirmation (Archive becomes Restore) so focus restoration
   always has a target; the form error summary receives focus and links to each field.
 - Dialog: native `showModal()` (inert background, top layer), labelled by its title and described
@@ -34,7 +35,9 @@ was actually done, and the gaps are listed.
   in the comfortable density; the compact density brings them to 36px and 44px, and small controls
   to 28px (all above the 24px minimum).
 - Scrollable tables and code blocks are focusable regions with accessible names.
-- Skeletons are `aria-hidden`; loading is announced by a status message and `aria-busy`.
+- Skeletons are `aria-hidden`; loading is shown with `aria-busy`. Each pattern demo has one persistent status
+  message (in ScenarioDemo, outside the busy section) that reports loading and then the outcome
+  (for example "No entries yet." or "Button entry loaded."); success counts and error alerts report the rest.
 
 ## Verification performed
 
