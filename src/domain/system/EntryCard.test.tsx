@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { activity, summarizeCatalog } from './activity';
-import { catalog } from './catalog';
+import { activity, catalogBreakdown, summarizeCatalog } from './activity';
+import { catalog, entryKinds } from './catalog';
 import { EntryCard } from './EntryCard';
 
 const button = catalog.find((entry) => entry.id === 'button')!;
@@ -38,5 +38,20 @@ describe('catalog data', () => {
     expect(summary.total).toBe(catalog.length);
     expect(Object.values(summary.byKind).reduce((total, count) => total + count, 0)).toBe(catalog.length);
     expect(Object.values(summary.byMaturity).reduce((total, count) => total + count, 0)).toBe(catalog.length);
+  });
+
+  it('breaks the catalog total down by every resource type, design decisions included', () => {
+    const summary = summarizeCatalog(catalog);
+    const parts = catalogBreakdown(summary);
+    expect(parts.reduce((total, part) => total + part.count, 0)).toBe(summary.total);
+    expect(parts.map((part) => part.kind).sort()).toEqual(entryKinds.filter((kind) => summary.byKind[kind] > 0).sort());
+    const decisions = catalog.filter((entry) => entry.kind === 'decision').length;
+    expect(parts.find((part) => part.kind === 'decision')?.text).toBe(`${decisions} design decision${decisions === 1 ? '' : 's'}`);
+    expect(parts.map((part) => part.count)).toEqual([...parts.map((part) => part.count)].sort((a, b) => b - a));
+  });
+
+  it('words single entries in the singular and leaves out empty resource types', () => {
+    const summary = summarizeCatalog(catalog.filter((entry) => entry.kind === 'pattern').slice(0, 1));
+    expect(catalogBreakdown(summary)).toEqual([{ kind: 'pattern', count: 1, text: '1 pattern' }]);
   });
 });

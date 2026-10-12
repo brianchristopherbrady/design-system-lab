@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { Disclosure, Field } from '@/design-system/composites';
 import { ScrollRegion, ThemeScope, useThemeScope } from '@/design-system/layout';
 import { Button, Heading, Input, Select, Switch, Text } from '@/design-system/primitives';
@@ -120,9 +120,11 @@ function Workbench({
   const overrides = config.preview;
   const { width } = overrides;
   const [measured, setMeasured] = useState<number | null>(null);
+  const [previewSize, setPreviewSize] = useState(0);
   const [copiedSnippet, setCopiedSnippet] = useState<string | null>(null);
   const [share, setShare] = useState<Share>(null);
   const frameRef = useRef<HTMLDivElement>(null);
+  const previewRef = useRef<HTMLElement>(null);
   const manualLinkRef = useRef<HTMLInputElement>(null);
   const ids = { preview: useId(), controls: useId(), usage: useId(), shareHelp: useId() };
 
@@ -133,6 +135,17 @@ function Workbench({
       if (entry) setMeasured(Math.round(entry.borderBoxSize[0]?.inlineSize ?? entry.contentRect.width));
     });
     observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
+
+  // Where the preview stays in view, controls scrolled into view by focus stop below it, not under it.
+  useEffect(() => {
+    const panel = previewRef.current;
+    if (!panel || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry) setPreviewSize(Math.ceil(entry.borderBoxSize[0]?.blockSize ?? entry.contentRect.height));
+    });
+    observer.observe(panel);
     return () => observer.disconnect();
   }, []);
 
@@ -175,133 +188,138 @@ function Workbench({
 
   return (
     <div className={styles.workbench}>
-      <section aria-labelledby={ids.preview} className={styles.previewPanel}>
-        <div className={styles.previewHeader}>
-          <Heading level={2} size="small" id={ids.preview}>
-            Preview
-          </Heading>
-          <Button size="small" aria-describedby={ids.shareHelp} onClick={copyLink}>
-            Copy example link
-          </Button>
-        </div>
-        <Text variant="bodySmall" tone="muted" id={ids.shareHelp}>
-          Copies this example’s props and current preview appearance.
-        </Text>
-        <Text variant="bodySmall" role="status">
-          {shareFeedback?.status === 'copied' ? 'Example link copied.' : ''}
-          {shareFeedback?.status === 'failed' ? 'The link could not be copied automatically. Select it below and copy it.' : ''}
-        </Text>
-        {shareFeedback?.status === 'failed' && (
-          <Field label="Example link">
-            {(control) => (
-              <Input {...control} ref={manualLinkRef} readOnly value={shareFeedback.url} onFocus={(event) => event.currentTarget.select()} />
-            )}
-          </Field>
-        )}
-        <div className={styles.stage}>
-          <ContainerInspector enabled={overrides.outlines}>
-            <ThemeScope
-              ref={frameRef}
-              className={styles.frame}
-              theme={overrides.theme === inherit ? undefined : overrides.theme}
-              product={overrides.product === inherit ? undefined : overrides.product}
-              density={overrides.density === inherit ? undefined : overrides.density}
-              data-testid="playground-preview"
-              // A fixed width never exceeds the stage, so a wide request cannot overflow a narrow screen.
-              style={{ inlineSize: width === null ? '100%' : `min(${width}px, 100%)` }}
-            >
-              {story.render(props)}
-            </ThemeScope>
-          </ContainerInspector>
-        </div>
-        {story.previewNote && (
-          <Text variant="bodySmall" tone="muted">
-            {story.previewNote}
+      <div className={styles.editor} style={{ '--_preview-size': `${previewSize}px` } as CSSProperties}>
+        <section aria-labelledby={ids.preview} className={styles.previewPanel} ref={previewRef} data-testid="preview-panel">
+          <div className={styles.previewHeader}>
+            <Heading level={2} size="small" id={ids.preview}>
+              Preview
+            </Heading>
+            <Text variant="bodySmall" tone="muted" id={ids.shareHelp} className={styles.shareHelp}>
+              Copies this example’s props and current preview appearance.
+            </Text>
+            <Button size="small" aria-describedby={ids.shareHelp} onClick={copyLink}>
+              Copy example link
+            </Button>
+          </div>
+          <Text variant="bodySmall" role="status">
+            {shareFeedback?.status === 'copied' ? 'Example link copied.' : ''}
+            {shareFeedback?.status === 'failed' ? 'The link could not be copied automatically. Select it below and copy it.' : ''}
           </Text>
-        )}
+          {shareFeedback?.status === 'failed' && (
+            <Field label="Example link">
+              {(control) => (
+                <Input {...control} ref={manualLinkRef} readOnly value={shareFeedback.url} onFocus={(event) => event.currentTarget.select()} />
+              )}
+            </Field>
+          )}
+          <ScrollRegion axis="both" className={styles.stage} aria-label={`${story.component} preview`}>
+            <ContainerInspector enabled={overrides.outlines}>
+              <ThemeScope
+                ref={frameRef}
+                className={styles.frame}
+                theme={overrides.theme === inherit ? undefined : overrides.theme}
+                product={overrides.product === inherit ? undefined : overrides.product}
+                density={overrides.density === inherit ? undefined : overrides.density}
+                data-testid="playground-preview"
+                // A fixed width never exceeds the stage, so a wide request cannot overflow a narrow screen.
+                style={{ inlineSize: width === null ? '100%' : `min(${width}px, 100%)` }}
+              >
+                {story.render(props)}
+              </ThemeScope>
+            </ContainerInspector>
+          </ScrollRegion>
+        </section>
 
-        <Disclosure
-          className={styles.settings}
-          summary={
-            <span className={styles.settingsSummary}>
-              <span>Preview settings</span>
-              <span className={styles.context} data-testid="preview-context">
-                {context}
-                <span className={styles.contextSource}>
-                  {overridden.length === 0 ? 'Same as site' : `Overrides ${overridden.join(', ')}`}
+        <div className={styles.previewOptions}>
+          {story.previewNote && (
+            <Text variant="bodySmall" tone="muted">
+              {story.previewNote}
+            </Text>
+          )}
+
+          <Disclosure
+            className={styles.settings}
+            summary={
+              <span className={styles.settingsSummary}>
+                <span>Preview settings</span>
+                <span className={styles.context} data-testid="preview-context">
+                  {context}
+                  <span className={styles.contextSource}>
+                    {overridden.length === 0 ? 'Same as site' : `Overrides ${overridden.join(', ')}`}
+                  </span>
                 </span>
               </span>
-            </span>
-          }
-        >
-          <div className={styles.toolbar}>
-            <div className={styles.scopeGroup}>
-              <ScopeSelect
-                label="Preview product"
-                value={overrides.product}
-                options={productNames.map((name) => [name, productProfiles[name].name] as const)}
-                onChange={(product) => setPreview({ product })}
-              />
-              <ScopeSelect
-                label="Preview theme"
-                value={overrides.theme}
-                options={themeNames.map((name) => [name, themeLabels[name]] as const)}
-                onChange={(theme) => setPreview({ theme })}
-              />
-              <ScopeSelect
-                label="Preview density"
-                value={overrides.density}
-                options={densityNames.map((name) => [name, densityLabels[name]] as const)}
-                onChange={(density) => setPreview({ density })}
-              />
-              <Field
-                label="Preview width"
-                description={measured === null ? undefined : `${measured}px`}
-                className={styles.widthField}
-              >
-                {(control) => (
-                  <input
-                    {...control}
-                    type="range"
-                    className={styles.range}
-                    min={previewWidth.min}
-                    max={previewWidth.max}
-                    step={8}
-                    value={width ?? previewWidth.max}
-                    aria-valuetext={width === null ? 'Fill available width' : `${width} pixels`}
-                    onChange={(event) => setPreview({ width: Number(event.target.value) })}
-                  />
-                )}
-              </Field>
-            </div>
-            <div className={styles.segmented} role="group" aria-label="Preview width presets">
-              {widthPresets.map((preset) => (
-                <Button key={preset.label} size="small" aria-pressed={width === preset.px} onClick={() => setPreview({ width: preset.px })}>
-                  {preset.label} ({preset.px}px)
+            }
+          >
+            <div className={styles.toolbar}>
+              <div className={styles.scopeGroup}>
+                <ScopeSelect
+                  label="Preview product"
+                  value={overrides.product}
+                  options={productNames.map((name) => [name, productProfiles[name].name] as const)}
+                  onChange={(product) => setPreview({ product })}
+                />
+                <ScopeSelect
+                  label="Preview theme"
+                  value={overrides.theme}
+                  options={themeNames.map((name) => [name, themeLabels[name]] as const)}
+                  onChange={(theme) => setPreview({ theme })}
+                />
+                <ScopeSelect
+                  label="Preview density"
+                  value={overrides.density}
+                  options={densityNames.map((name) => [name, densityLabels[name]] as const)}
+                  onChange={(density) => setPreview({ density })}
+                />
+                <Field
+                  label="Preview width"
+                  description={measured === null ? undefined : `${measured}px`}
+                  className={styles.widthField}
+                >
+                  {(control) => (
+                    <input
+                      {...control}
+                      type="range"
+                      className={styles.range}
+                      min={previewWidth.min}
+                      max={previewWidth.max}
+                      step={8}
+                      value={width ?? previewWidth.max}
+                      aria-valuetext={width === null ? 'Fill available width' : `${width} pixels`}
+                      onChange={(event) => setPreview({ width: Number(event.target.value) })}
+                    />
+                  )}
+                </Field>
+              </div>
+              <div className={styles.segmented} role="group" aria-label="Preview width presets">
+                {widthPresets.map((preset) => (
+                  <Button key={preset.label} size="small" aria-pressed={width === preset.px} onClick={() => setPreview({ width: preset.px })}>
+                    {preset.label} ({preset.px}px)
+                  </Button>
+                ))}
+                <Button size="small" aria-pressed={width === null} onClick={() => setPreview({ width: null })}>
+                  Fill
                 </Button>
-              ))}
-              <Button size="small" aria-pressed={width === null} onClick={() => setPreview({ width: null })}>
-                Fill
-              </Button>
+              </div>
+              <Switch
+                label="Show query containers"
+                description="Outline every container the preview's components query, with its live width."
+                checked={overrides.outlines}
+                onChange={(event) => setPreview({ outlines: event.target.checked })}
+              />
             </div>
-            <Switch
-              label="Show query containers"
-              description="Outline every container the preview's components query, with its live width."
-              checked={overrides.outlines}
-              onChange={(event) => setPreview({ outlines: event.target.checked })}
-            />
-          </div>
-        </Disclosure>
+          </Disclosure>
 
-        {story.inheritsScope && <ScopeChain story={story} site={site} preview={preview} overrides={overrides} values={values} />}
-      </section>
+          {story.inheritsScope && <ScopeChain story={story} site={site} preview={preview} overrides={overrides} values={values} />}
+        </div>
 
-      <section aria-labelledby={ids.controls} className={styles.controlsPanel}>
-        <Heading level={2} size="small" id={ids.controls}>
-          Component props
-        </Heading>
-        <ControlsTable story={story} values={values} api={api} onChange={setValue} labelledBy={ids.controls} />
-      </section>
+        <section aria-labelledby={ids.controls} className={styles.controlsPanel}>
+          <Heading level={2} size="small" id={ids.controls}>
+            Component props
+          </Heading>
+          <ControlsTable story={story} values={values} api={api} onChange={setValue} labelledBy={ids.controls} />
+        </section>
+      </div>
 
       <section aria-labelledby={ids.usage} className={styles.usagePanel}>
         <div className={styles.usageHeader}>

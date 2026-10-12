@@ -1,4 +1,4 @@
-export { DirectoryFilters, type DirectoryFiltersProps } from './DirectoryFilters';
+export { countSummary, DirectoryFilters, type DirectoryFiltersProps } from './DirectoryFilters';
 export {
   defaultFilters,
   filterEntries,

@@ -43,12 +43,35 @@ test.describe('overview', () => {
     });
   }
 
-  test('the review path stops lead to their destinations in order', async ({ page }) => {
+  test('the review path comes first and its stops lead to their destinations in order', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
+    const sections = await page.getByRole('main').getByRole('heading', { level: 2 }).allTextContents();
+    expect(sections[0]).toBe('Review the work');
     const stops = page.getByRole('list', { name: 'Suggested review path' }).locator(':scope > li');
-    await expect(stops).toHaveCount(5);
+    await expect(stops).toHaveCount(3);
+    await expect(stops.first()).toBeInViewport();
     const destinations = await stops.evaluateAll((items) => items.map((item) => item.querySelector('a')?.getAttribute('href')));
-    expect(destinations).toEqual(['/playground?component=button', '/foundations/tokens', '/foundations/products', '/patterns/form-validation', '/decisions']);
+    expect(destinations).toEqual(['/playground?component=button', '/foundations/theme-studio', '/patterns/form-validation']);
+    const more = await page
+      .getByRole('list', { name: 'More to review' })
+      .getByRole('link')
+      .evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+    expect(more).toEqual(['/foundations/tokens', '/decisions']);
+
+    await stops.nth(1).getByRole('link').click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Theme studio' })).toBeFocused();
+  });
+
+  test('the introduction states authorship and links the source and the case study', async ({ page }) => {
+    await page.goto('/');
+    const header = page.locator('main header').first();
+    await expect(header.getByRole('link', { name: 'Brian Brady' })).toHaveAttribute('href', 'https://brianbrady.dev');
+    await expect(header.getByRole('link', { name: 'Source on GitHub' })).toHaveAttribute(
+      'href',
+      'https://github.com/brianchristopherbrady/design-system-lab',
+    );
+    await expect(header.getByRole('link', { name: 'Case study' })).toHaveAttribute('href', 'https://brianbrady.dev/projects/system-lab.html');
   });
 
   test('the demonstration reports what the live Button paints in every product, theme and density', async ({ page }) => {

@@ -37,6 +37,48 @@ test.describe('resource directory scenarios', () => {
     await expect(page.getByRole('heading', { level: 4, name: 'Button' })).toBeVisible();
   });
 
+  test('the first page is short, Show more continues it and moves focus to the first new entry', async ({ page }) => {
+    await page.goto('/patterns/resource-directory');
+    const entries = page.locator('[data-scenario] ul > li');
+    const showMore = page.getByRole('button', { name: /^Show \d+ more$/ });
+    await expect(entries).toHaveCount(12);
+    await expect(page.getByRole('status').filter({ hasText: /^Showing 12 of \d+ entries$/ })).toBeVisible();
+
+    await showMore.click();
+    await expect(entries).toHaveCount(24);
+    await expect(entries.nth(12).getByRole('link').first()).toBeFocused();
+    await expect(page.getByRole('status').filter({ hasText: /^Showing 24 of \d+ entries$/ })).toBeVisible();
+
+    while (await showMore.count()) await showMore.click();
+    const total = Number((await page.getByRole('status').filter({ hasText: /^Showing/ }).textContent())?.match(/of (\d+)/)?.[1]);
+    await expect(entries).toHaveCount(total);
+    await expect(page.getByRole('status').filter({ hasText: new RegExp(`^Showing ${total} of ${total}$`) })).toBeVisible();
+  });
+
+  test('search and filters cover every entry, not only the listed page, and start again from the first page', async ({ page }) => {
+    await page.goto('/patterns/resource-directory');
+    await expect(page.getByRole('heading', { level: 4, name: 'Button' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 4, name: 'Skeleton' })).toHaveCount(0);
+    await page.getByRole('searchbox', { name: 'Search' }).fill('skeleton');
+    await expect(page.getByRole('heading', { level: 4, name: 'Skeleton' })).toBeVisible();
+    await page.getByRole('searchbox', { name: 'Search' }).fill('');
+
+    await page.getByRole('button', { name: /^Show \d+ more$/ }).click();
+    await expect(page.locator('[data-scenario] ul > li')).toHaveCount(24);
+    await page.getByRole('combobox', { name: 'Resource type' }).selectOption('component');
+    await expect(page.locator('[data-scenario] ul > li')).toHaveCount(12);
+    await expect(page.getByRole('status').filter({ hasText: /^Showing 12 of \d+ matches, \d+ in total$/ })).toBeVisible();
+
+    // A pin made on a later page survives filtering and paging.
+    await page.getByRole('combobox', { name: 'Resource type' }).selectOption('all');
+    await page.getByRole('searchbox', { name: 'Search' }).fill('typography');
+    await page.getByRole('button', { name: /^Pin\s+Typography$/ }).click();
+    await page.getByRole('searchbox', { name: 'Search' }).fill('');
+    await expect(page.getByText('1 pinned')).toBeVisible();
+    await page.getByRole('searchbox', { name: 'Search' }).fill('typography');
+    await expect(page.getByRole('button', { name: /^Pin\s+Typography$/ })).toHaveAttribute('aria-pressed', 'true');
+  });
+
   test('loading stays pending and is announced', async ({ page }) => {
     await page.goto('/patterns/resource-directory');
     await page.getByRole('combobox', { name: 'Demo scenario' }).selectOption('loading');
@@ -90,15 +132,63 @@ test.describe('resource detail', () => {
     await expect(page.getByText('Button was archived. Use Restore to undo.')).toBeVisible();
   });
 
-  test('empty shows an explained empty history', async ({ page }) => {
+  test('Empty history opens on the History tab, and Reset demo returns there', async ({ page }) => {
+    await page.goto('/patterns/resource-detail');
+    const scenario = page.getByRole('combobox', { name: 'Demo scenario' });
+    await expect(scenario.locator('option')).toHaveText(['Success', 'Loading', 'Empty history', 'Error']);
+    await expect(page.getByRole('tab', { name: /^Overview/ })).toHaveAttribute('aria-selected', 'true');
+
+    await scenario.selectOption('empty');
+    await expect(scenario.locator('option:checked')).toHaveText('Empty history');
+    const history = page.getByRole('tab', { name: 'History (0)' });
+    await expect(history).toHaveAttribute('aria-selected', 'true');
+    await expect(page.getByRole('heading', { name: 'No recorded changes' })).toBeVisible();
+
+    // Tabs keep their keyboard behavior.
+    await history.focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.getByRole('tab', { name: /^Overview/ })).toBeFocused();
+    await expect(page.getByRole('tab', { name: /^Overview/ })).toHaveAttribute('aria-selected', 'true');
+
+    await page.getByRole('button', { name: 'Reset demo' }).click();
+    await expect(page.getByRole('tab', { name: 'History (0)' })).toHaveAttribute('aria-selected', 'true');
+    await expect(page.getByRole('heading', { name: 'No recorded changes' })).toBeVisible();
+
+    await scenario.selectOption('success');
+    await expect(page.getByRole('tab', { name: /^Overview/ })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('archive still fails once, retries and restores in Empty history', async ({ page }) => {
     await page.goto('/patterns/resource-detail');
     await page.getByRole('combobox', { name: 'Demo scenario' }).selectOption('empty');
-    await page.getByRole('tab', { name: 'History (0)' }).click();
-    await expect(page.getByRole('heading', { name: 'No recorded changes' })).toBeVisible();
+    await page.getByRole('button', { name: 'Archive', exact: true }).click();
+    const dialog = page.getByRole('dialog', { name: 'Archive Button?' });
+    await dialog.getByRole('button', { name: 'Archive' }).click();
+    await expect(dialog.getByRole('alert')).toContainText('Button was not archived');
+    await dialog.getByRole('button', { name: 'Try again' }).click();
+    await expect(dialog).toBeHidden();
+    const restore = page.getByRole('button', { name: 'Restore' });
+    await expect(restore).toBeFocused();
+    await restore.click();
+    await expect(page.getByRole('button', { name: 'Archive', exact: true })).toBeVisible();
   });
 });
 
 test.describe('activity dashboard', () => {
+  test('the catalog metric counts every resource type and its parts add up to the total', async ({ page }) => {
+    await page.goto('/patterns/activity-dashboard');
+    const card = page
+      .locator('[data-scenario] div')
+      .filter({ has: page.getByText('Catalog entries', { exact: true }) })
+      .last();
+    const breakdown = card.getByText(/ · /);
+    await expect(breakdown).toContainText('design decisions');
+    const parts = ((await breakdown.textContent()) ?? '').split(' · ');
+    expect(parts.map((part) => part.replace(/^\d+ /, ''))).toEqual(expect.arrayContaining(['components', 'foundations', 'patterns', 'design decisions']));
+    const sum = parts.reduce((total, part) => total + Number(part.match(/^\d+/)?.[0]), 0);
+    await expect(card.locator('strong')).toHaveText(String(sum));
+  });
+
   test('no results and recovery', async ({ page }) => {
     await page.goto('/patterns/activity-dashboard');
     await page.getByRole('combobox', { name: 'Demo scenario' }).selectOption('noResults');

@@ -7,6 +7,7 @@ import {
   activityKinds,
   ActivityList,
   catalog,
+  catalogBreakdown,
   countActivityByKind,
   findEntry,
   summarizeCatalog,
@@ -122,7 +123,9 @@ function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[];
       <Grid minColumnWidth="extraSmall" gap="medium">
         <Metric label="Catalog entries" value={String(summary.total)}>
           <Text variant="bodySmall" tone="muted">
-            {summary.byKind.component} components · {summary.byKind.foundation} foundations · {summary.byKind.pattern} patterns
+            {catalogBreakdown(summary)
+              .map((part) => part.text)
+              .join(' · ')}
           </Text>
         </Metric>
         <Metric label="Stable" value={`${summary.byMaturity.stable} of ${summary.total}`}>

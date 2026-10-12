@@ -1,1 +1,1 @@
-export { ExploreButtonLink, OverviewContent, overviewSections } from './Overview';
+export { OverviewActions, OverviewContent, overviewSections } from './Overview';

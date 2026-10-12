@@ -3,6 +3,7 @@ export {
   activityFor,
   activityKindLabels,
   activityKinds,
+  catalogBreakdown,
   countActivityByKind,
   formatDate,
   summarizeCatalog,

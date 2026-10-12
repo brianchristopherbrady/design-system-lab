@@ -87,4 +87,24 @@ describe('ScenarioDemo', () => {
     expect(screen.getByText('Scenario: error')).toBeInTheDocument();
     expect(select).toHaveAccessibleDescription(/first request fails/i);
   });
+
+  it('offers only the scenarios a demo lists, in its own words', async () => {
+    const user = userEvent.setup();
+    render(
+      <ScenarioDemo
+        scenarios={[
+          { scenario: 'success', label: 'Success', description: 'Everything loads.' },
+          { scenario: 'empty', label: 'Empty history', description: 'The entry has no recorded changes.' },
+        ]}
+      >
+        {(scenario) => <p>Scenario: {scenario}</p>}
+      </ScenarioDemo>,
+    );
+    const select = screen.getByRole('combobox', { name: 'Demo scenario' });
+    expect(screen.getAllByRole('option').map((option) => option.textContent)).toEqual(['Success', 'Empty history']);
+    expect(select).toHaveAccessibleDescription('Everything loads.');
+    await user.selectOptions(select, 'Empty history');
+    expect(screen.getByText('Scenario: empty')).toBeInTheDocument();
+    expect(select).toHaveAccessibleDescription('The entry has no recorded changes.');
+  });
 });

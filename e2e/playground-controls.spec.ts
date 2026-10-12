@@ -153,3 +153,82 @@ test.describe('Controls table', () => {
     expect(narrow.overflow).toBe(0);
   });
 });
+
+test.describe('Desktop workbench', () => {
+  const panel = (page: Page) => page.getByTestId('preview-panel');
+
+  test('the preview stays in view while the lowest props change it', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/playground?component=button');
+    for (const prop of ['loading', 'disabled']) {
+      await option(page, prop, 'true').click();
+      await expect(previewButton(page)).toBeInViewport({ ratio: 1 });
+      await expect(radio(page, prop, 'true')).toBeInViewport({ ratio: 1 });
+      await option(page, prop, 'false').click();
+    }
+    await option(page, 'disabled', 'true').click();
+    await expect(previewButton(page)).toBeDisabled();
+    await expect(previewButton(page)).toBeInViewport({ ratio: 1 });
+    await expect(snippet(page)).toContainText('disabled={true}');
+    await expect(page).toHaveURL(/p\.disabled=true/);
+  });
+
+  test('focus moving back up through the props is never hidden under the preview', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/playground?component=button');
+    await page.getByRole('table').first().locator('input, select').last().focus();
+    const read = () =>
+      page.evaluate(() => {
+        const preview = document.querySelector('[data-testid="preview-panel"]')!;
+        const active = document.activeElement!;
+        const a = active.getBoundingClientRect();
+        const p = preview.getBoundingClientRect();
+        return { inPreview: preview.contains(active), clear: a.top >= p.bottom - 1 && a.bottom <= innerHeight + 1, name: active.outerHTML.slice(0, 60) };
+      });
+    for (let step = 0; step < 30; step += 1) {
+      if ((await read()).inPreview) break;
+      // Scrolling is smooth, so wait for focus scrolling to bring the control fully into view below the preview.
+      await expect.poll(async () => (await read()).clear, { message: `step ${step}: ${(await read()).name}` }).toBe(true);
+      await page.keyboard.press('Shift+Tab');
+    }
+    expect((await read()).inPreview).toBe(true);
+  });
+
+  test('a tall preview scrolls inside its own capped, keyboard-reachable stage', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 600 });
+    await page.goto('/playground?component=stack');
+    const stage = page.getByRole('region', { name: 'Stack preview' });
+    const size = await stage.evaluate((element) => ({ client: element.clientHeight, scroll: element.scrollHeight, tab: element.tabIndex }));
+    expect(size.scroll).toBeGreaterThan(size.client);
+    expect(size.client).toBeLessThanOrEqual(600 * 0.4 + 1);
+    expect(size.tab).toBe(0);
+    await stage.focus();
+    await page.keyboard.press('End');
+    await expect.poll(() => stage.evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
+    // The page itself still scrolls past the preview.
+    await page.mouse.move(640, 500);
+    await page.mouse.wheel(0, 2000);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+  });
+
+  test('a Dialog opened from the stuck preview closes on Escape and returns focus to its opener', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/playground?component=dialog');
+    await option(page, 'dismissOnBackdrop', 'true').click();
+    const opener = page.getByRole('button', { name: 'Open dialog' });
+    await expect(opener).toBeInViewport();
+    await opener.click();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(opener).toBeFocused();
+    await expect(opener).toBeInViewport();
+  });
+
+  test('on a phone the preview scrolls away with the page', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/playground?component=button');
+    await expect(panel(page)).toHaveCSS('position', 'static');
+  });
+});

@@ -281,7 +281,7 @@ function ColorContent() {
       <DocSection id="contrast" title="Verified contrast">
         <Prose>
           <p>
-            Ratios below are computed live from the generated manifest. The full set of 510 pairs (every tone on every
+            Ratios below are computed live from the generated manifest. The full set of pairs (every tone on every
             surface and every button state, in all three products and both themes) runs in <code>contrast.test.ts</code>,
             so a token change that breaks contrast fails the build. Each cell also shows the APCA lightness contrast (Lc),
             the draft WCAG 3 method, for comparison; it is informative and does not decide pass or fail.

@@ -44,7 +44,7 @@ Environment: Windows, Node 24, Microsoft Edge (Chromium) driven by Playwright 1.
 | Check | Method | Result |
 | --- | --- | --- |
 | Roles, names, descriptions, states | Vitest + Testing Library by role and name (Button, Link, Field, Dialog, Tabs, EntryCard, ScenarioDemo, all playground stories) | Pass |
-| Token contrast, every product and theme | `contrast.test.ts`, 510 pairs | Pass |
+| Token contrast, every product and theme | `contrast.test.ts`, 534 pairs | Pass |
 | Automated WCAG 2.0/2.1/2.2 A and AA rules | axe-core on 14 routes, an open dialog and all five directory scenarios, in light and dark; Harbor and Meadow on two routes in both themes | Pass (0 violations) |
 | Shell tab order, skip link, focus after navigation | Playwright keyboard tests | Pass |
 | Dialog focus wrap, Escape, focus restoration, in-dialog error and retry | Playwright | Pass |

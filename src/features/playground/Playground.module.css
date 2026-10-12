@@ -32,7 +32,15 @@
     gap: var(--spacing-large);
   }
 
+  /* The preview, its settings and the props that change it: the stretch in which the preview stays in view. */
+  .editor {
+    display: grid;
+    gap: var(--spacing-large);
+    min-inline-size: 0;
+  }
+
   .previewPanel,
+  .previewOptions,
   .controlsPanel,
   .usagePanel,
   .propsPanel {
@@ -45,8 +53,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-small);
+    gap: var(--space-2xs) var(--spacing-medium);
+  }
+
+  /* The help sits between the heading and the button where there is room, and wraps under the heading where there is not. */
+  .shareHelp {
+    flex: 1 1 20rem;
+    max-inline-size: none;
   }
 
   .controlsPanel {
@@ -130,13 +143,38 @@
     }
   }
 
-  /* The stage scrolls when a fixed preview width is wider than the column. */
+  /* The stage scrolls when a fixed preview width is wider than the column, or a preview is taller than its cap. */
   .stage {
-    overflow-x: auto;
     padding: var(--spacing-medium);
     border: var(--border-width-thin) dashed var(--border-strong);
     border-radius: var(--radius-lg);
     background-color: var(--surface-sunken);
+  }
+
+  /*
+   * 48rem of playground: room for the preview to stay in view above the props being edited.
+   * The stage caps its height and scrolls, so a tall preview cannot crowd the props out, and
+   * anything below the preview that focus scrolls to stops beneath it instead of under it.
+   */
+  @container playground (min-inline-size: 48rem) {
+    .previewPanel {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 1;
+      padding-block: var(--spacing-small);
+      border-block-end: var(--border-width-thin) solid var(--border-subtle);
+      background-color: var(--surface-canvas);
+      box-shadow: var(--elevation-low);
+    }
+
+    .stage {
+      max-block-size: min(40dvh, 26rem);
+    }
+
+    .previewOptions *,
+    .controlsPanel * {
+      scroll-margin-block-start: calc(var(--_preview-size, 0px) + var(--spacing-small));
+    }
   }
 
   /* The frame hugs the component; a fixed preview width is the only thing that sizes it. */

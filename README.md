@@ -22,11 +22,12 @@ Sections:
 - **Components** — each component's props, defaults, precedence rules, prop → token traces,
   examples, accessibility notes and real source.
 - **Playground** — Storybook-style controls for real public props, presets, a scoped theme,
-  product and density, an independently resizable preview, a query-container overlay and a usage
-  snippet that always matches the controls.
+  product and density, an independently resizable preview that stays in view on desktop while
+  props are edited, a query-container overlay and a usage snippet that always matches the controls.
 - **Patterns** — a resource directory, a resource detail page, an activity dashboard and a
-  validated form, with a **Demo scenario** selector for loading, empty, success, error and
-  no-results states, and an overlay of the query containers each demo responds to.
+  validated form. Each request-driven demo has a **Demo scenario** selector listing only the
+  states that apply to it (loading, success, error, an empty state, and no results where there is
+  a search), and an overlay of the query containers each demo responds to.
 - **Design decisions** — the reasoning behind a system: planning requirements and a pilot,
   what a consumer mobile product and a professional desktop application should share (with a
   comparison that responds to constraints), choosing an implementation approach, and operating

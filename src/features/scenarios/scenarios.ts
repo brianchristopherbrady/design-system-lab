@@ -17,6 +17,20 @@ export const scenarioDescriptions: Record<DemoScenario, string> = {
   error: 'The first request fails. Retry succeeds, so recovery can be tested.',
 };
 
+/** One entry in a demo's scenario menu, worded for what that scenario does in that demo. */
+export interface ScenarioOption {
+  scenario: DemoScenario;
+  label: string;
+  description: string;
+}
+
+/** Every scenario with the generic wording, for demos where it is accurate. */
+export const defaultScenarioOptions: readonly ScenarioOption[] = demoScenarios.map((scenario) => ({
+  scenario,
+  label: scenarioLabels[scenario],
+  description: scenarioDescriptions[scenario],
+}));
+
 export type RequestOutcome = 'succeed' | 'fail' | 'hang';
 
 /**

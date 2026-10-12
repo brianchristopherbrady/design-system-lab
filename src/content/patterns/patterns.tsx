@@ -1,13 +1,14 @@
 import { useState, type ComponentType, type ReactNode } from 'react';
 import { ScrollRegion, Stack } from '@/design-system/layout';
 import { Switch } from '@/design-system/primitives';
+import { catalog } from '@/domain/system';
 import { DocSection, Note, Prose, SourceList, type SourceReference } from '@/features/docs';
 import { ContainerInspector } from '@/features/playground';
-import { ScenarioDemo, scenarioLabels, type DemoScenario } from '@/features/scenarios';
+import { ScenarioDemo, type ScenarioOption } from '@/features/scenarios';
 import { ActivityDashboard } from './ActivityDashboard';
 import { FormValidation } from './FormValidation';
 import { ResourceDetail } from './ResourceDetail';
-import { ResourceDirectory } from './ResourceDirectory';
+import { directoryPageSize, ResourceDirectory } from './ResourceDirectory';
 
 export interface PatternDoc {
   /** Catalog id; name and summary come from the catalog entry. */
@@ -26,13 +27,17 @@ const sections = [
   { id: 'source', label: 'Source' },
 ] as const;
 
-interface StateRow {
-  scenario: DemoScenario;
+/**
+ * One scenario as a demo offers it: the selector's label and description, and what the states
+ * table documents. The selector and the table read the same list, so every documented scenario
+ * is one the page offers.
+ */
+interface ScenarioDoc extends ScenarioOption {
   renders: ReactNode;
   next: ReactNode;
 }
 
-function StatesTable({ rows }: { rows: readonly StateRow[] }) {
+function StatesTable({ scenarios }: { scenarios: readonly ScenarioDoc[] }) {
   return (
     <Prose>
       <ScrollRegion aria-label="What each demo scenario renders">
@@ -46,9 +51,9 @@ function StatesTable({ rows }: { rows: readonly StateRow[] }) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
+            {scenarios.map((row) => (
               <tr key={row.scenario}>
-                <th scope="row">{scenarioLabels[row.scenario]}</th>
+                <th scope="row">{row.label}</th>
                 <td>{row.renders}</td>
                 <td>{row.next}</td>
               </tr>
@@ -120,48 +125,91 @@ const sharedSources: SourceReference[] = [
   { path: 'src/features/scenarios/ScenarioDemo.tsx', note: 'The Demo scenario selector and reset' },
 ];
 
-const orchestration = (
-  <Prose>
-    <ul>
-      <li>
-        <strong>Fixtures and requests live in content.</strong> <code>fixtures.ts</code> wraps the real catalog and
-        changelog in <code>simulateRequest</code>; no design-system component knows they exist.
-      </li>
-      <li>
-        <strong>Request state lives in one hook.</strong> <code>useRequest</code> holds a discriminated union (idle,
-        pending, success, error, cancelled), aborts the previous request when a new one starts, and ignores late
-        responses by request id.
-      </li>
-      <li>
-        <strong>The scenario selector owns resets.</strong> <code>ScenarioDemo</code> keys the demo by scenario and a
-        reset counter, so changing the scenario or pressing Reset demo remounts it from scratch: state, focus and
-        attempt counters included.
-      </li>
-      <li>
-        <strong>Outcomes are deterministic.</strong> Loading never settles; Error fails the first request and succeeds on
-        every retry; Empty returns no data; No results returns data and prefills a search for “tooltip”, a component this
-        system deliberately does not have.
-      </li>
-    </ul>
-  </Prose>
-);
+/** How every request-driven demo works. What each scenario returns is the pattern's own, in its states table. */
+function Orchestration({ outcomes }: { outcomes: ReactNode }) {
+  return (
+    <Prose>
+      <ul>
+        <li>
+          <strong>Fixtures and requests live in content.</strong> <code>fixtures.ts</code> wraps the real catalog and
+          changelog in <code>simulateRequest</code>; no design-system component knows they exist.
+        </li>
+        <li>
+          <strong>Request state lives in one hook.</strong> <code>useRequest</code> holds a discriminated union (idle,
+          pending, success, error, cancelled), aborts the previous request when a new one starts, and ignores late
+          responses by request id.
+        </li>
+        <li>
+          <strong>The scenario selector owns resets.</strong> <code>ScenarioDemo</code> keys the demo by scenario and a
+          reset counter, so changing the scenario or pressing Reset demo remounts it from scratch: state, focus and
+          attempt counters included. Each demo lists only the scenarios that apply to it, in its own words.
+        </li>
+        <li>
+          <strong>Outcomes are deterministic.</strong> A request’s outcome depends only on the scenario and the attempt:
+          Loading never settles, Error fails the first request and succeeds on every retry, and the other scenarios
+          succeed.
+        </li>
+        <li>
+          <strong>In this demo:</strong> {outcomes}
+        </li>
+      </ul>
+    </Prose>
+  );
+}
+
+const directoryScenarios: readonly ScenarioDoc[] = [
+  {
+    scenario: 'success',
+    label: 'Success',
+    description: `The request returns all ${catalog.length} catalog entries. The first ${directoryPageSize} are listed; search and filters cover every entry.`,
+    renders: `Filters, a live count, the first ${directoryPageSize} matching EntryCards in alphabetical order with working Pin toggles, and Show more while more match.`,
+    next: 'Show more lists the next page and moves focus to its first entry. Changing the search or a filter starts again from the first page; filtering to zero results shows No results inline.',
+  },
+  {
+    scenario: 'loading',
+    label: 'Loading',
+    description: 'The request never settles, so the loading state stays visible for inspection.',
+    renders: 'A status message (“Loading entries…”), aria-busy on the section and skeleton cards.',
+    next: 'Stays here; change the scenario to leave.',
+  },
+  {
+    scenario: 'empty',
+    label: 'Empty',
+    description: 'The request succeeds with no entries at all, so there is nothing to search yet.',
+    renders: 'EmptyState explaining that the catalog has no entries, with a link to how entries are added. No filters, because there is nothing to filter.',
+    next: 'None: the next action leaves the demo.',
+  },
+  {
+    scenario: 'noResults',
+    label: 'No results',
+    description: 'Every entry loads, but the search starts as “tooltip”, a component this system does not have.',
+    renders: 'Filters prefilled with “tooltip” and an EmptyState that says the search and filters, not the directory, are the cause.',
+    next: 'Clear filters lists the first page of every entry.',
+  },
+  {
+    scenario: 'error',
+    label: 'Error',
+    description: 'The first request fails. Retry succeeds, so recovery can be tested.',
+    renders: 'A danger Alert with role="alert", the server message and Retry.',
+    next: 'Retry shows Loading, then Success; focus moves to the section heading.',
+  },
+];
 
 function DirectoryContent() {
   return (
     <PatternPage
-      demo={<ScenarioDemo>{(scenario) => <ResourceDirectory scenario={scenario} />}</ScenarioDemo>}
-      states={
-        <StatesTable
-          rows={[
-            { scenario: 'loading', renders: 'A status message (“Loading entries…”), aria-busy on the section and skeleton cards.', next: 'Stays here; switch scenario to leave.' },
-            { scenario: 'empty', renders: 'EmptyState explaining that the catalog has no entries, with a link to how entries are added. No filters, because there is nothing to filter.', next: 'None: the next action leaves the demo.' },
-            { scenario: 'success', renders: 'Filters, a live result count and EntryCards with working Pin toggles.', next: 'Filtering to zero results shows the No results state inline.' },
-            { scenario: 'noResults', renders: 'Filters prefilled with “tooltip” and an EmptyState that says the filters, not the directory, are the cause.', next: 'Clear filters returns to Success.' },
-            { scenario: 'error', renders: 'A danger Alert with role="alert", the server message and Retry.', next: 'Retry shows Loading, then Success; focus moves to the section heading.' },
-          ]}
+      demo={<ScenarioDemo scenarios={directoryScenarios}>{(scenario) => <ResourceDirectory scenario={scenario} />}</ScenarioDemo>}
+      states={<StatesTable scenarios={directoryScenarios} />}
+      architecture={
+        <Orchestration
+          outcomes={
+            <>
+              <code>fetchEntries</code> returns the whole catalog, or nothing for Empty. Search, filters and paging run in
+              the browser over every entry the request returned, so a search finds entries that are not listed yet.
+            </>
+          }
         />
       }
-      architecture={orchestration}
       accessibility={
         <Prose>
           <ul>
@@ -209,24 +257,48 @@ function DirectoryContent() {
   );
 }
 
+const detailScenarios: readonly ScenarioDoc[] = [
+  {
+    scenario: 'success',
+    label: 'Success',
+    description: 'The Button entry loads with its recorded changes, on the Overview tab.',
+    renders: 'Metadata, Tabs (Overview, History, Documentation), Pin and Archive. Archive opens a confirmation Dialog.',
+    next: 'See the archive flow below.',
+  },
+  {
+    scenario: 'loading',
+    label: 'Loading',
+    description: 'The request never settles, so the loading state stays visible for inspection.',
+    renders: 'A provisional heading, a status message and skeletons.',
+    next: 'Stays here; change the scenario to leave.',
+  },
+  {
+    scenario: 'empty',
+    label: 'Empty history',
+    description: 'The entry loads, but it has no recorded changes. The demo opens on the History tab to show that empty state.',
+    renders: 'The entry, opened on its History tab, which has an EmptyState instead of events. The other tabs and Archive still work.',
+    next: 'Reset demo opens the History tab again.',
+  },
+  {
+    scenario: 'error',
+    label: 'Error',
+    description: 'The first request fails. Retry succeeds, so recovery can be tested.',
+    renders: 'A heading that says the entry is unavailable and an Alert with Retry.',
+    next: 'Retry loads the entry; focus moves to its heading.',
+  },
+];
+
 function DetailContent() {
   return (
     <PatternPage
       demo={
-        <ScenarioDemo scenarios={['success', 'loading', 'empty', 'error']}>
-          {(scenario) => <ResourceDetail scenario={scenario} />}
+        <ScenarioDemo scenarios={detailScenarios}>
+          {(scenario) => <ResourceDetail scenario={scenario} initialTab={scenario === 'empty' ? 'history' : 'overview'} />}
         </ScenarioDemo>
       }
       states={
         <>
-          <StatesTable
-            rows={[
-              { scenario: 'loading', renders: 'A provisional heading, a status message and skeletons.', next: 'Stays here.' },
-              { scenario: 'empty', renders: 'The entry loads, but its History tab has an EmptyState instead of events.', next: 'None.' },
-              { scenario: 'success', renders: 'Metadata, Tabs, Pin and Archive. Archive opens a confirmation Dialog.', next: 'See the archive flow below.' },
-              { scenario: 'error', renders: 'A heading that says the entry is unavailable and an Alert with Retry.', next: 'Retry loads the entry; focus moves to its heading.' },
-            ]}
-          />
+          <StatesTable scenarios={detailScenarios} />
           <Prose>
             <h3>Archive flow</h3>
             <ol>
@@ -235,11 +307,24 @@ function DetailContent() {
               <li>The error appears inside the Dialog as an Alert with role="alert", and the action becomes Try again.</li>
               <li>The second attempt succeeds: the Dialog closes, focus returns to the opener (now Restore), and a status message confirms.</li>
             </ol>
-            <p>No results does not apply: the detail view has no search.</p>
+            <p>
+              There is no No results scenario: the detail view has no search. Its empty state is an entry without history,
+              not a missing entry.
+            </p>
           </Prose>
         </>
       }
-      architecture={orchestration}
+      architecture={
+        <Orchestration
+          outcomes={
+            <>
+              <code>fetchEntryDetail</code> returns the Button entry and its changelog, or the entry with an empty history
+              for Empty history. <code>archiveEntry</code> fails its first attempt in every scenario, so the error path in the
+              Dialog is always reachable.
+            </>
+          }
+        />
+      }
       accessibility={
         <Prose>
           <ul>
@@ -270,22 +355,59 @@ function DetailContent() {
   );
 }
 
+const dashboardScenarios: readonly ScenarioDoc[] = [
+  {
+    scenario: 'success',
+    label: 'Success',
+    description: 'The changelog loads. Metrics are computed from the catalog and the feed lists every change.',
+    renders: 'Three metric cards computed from the catalog and changelog, and the searchable change feed.',
+    next: 'Searching to zero results shows No results inline.',
+  },
+  {
+    scenario: 'loading',
+    label: 'Loading',
+    description: 'The request never settles, so the loading state stays visible for inspection.',
+    renders: 'Status message and skeleton metric cards.',
+    next: 'Stays here; change the scenario to leave.',
+  },
+  {
+    scenario: 'empty',
+    label: 'Empty',
+    description: 'The request succeeds, but no changes have been recorded.',
+    renders: 'EmptyState: no activity has been recorded, with a link to browse components.',
+    next: 'None: the next action leaves the demo.',
+  },
+  {
+    scenario: 'noResults',
+    label: 'No results',
+    description: 'The changelog loads, but the feed search starts as “tooltip”, which matches no change.',
+    renders: 'Metrics as in Success, and the feed search prefilled with “tooltip” above an EmptyState.',
+    next: 'Clear search lists every change.',
+  },
+  {
+    scenario: 'error',
+    label: 'Error',
+    description: 'The first request fails. Retry succeeds, so recovery can be tested.',
+    renders: 'One Alert with Retry; metrics are hidden because they depend on the feed.',
+    next: 'Retry loads everything; focus moves to the heading.',
+  },
+];
+
 function DashboardContent() {
   return (
     <PatternPage
-      demo={<ScenarioDemo>{(scenario) => <ActivityDashboard scenario={scenario} />}</ScenarioDemo>}
-      states={
-        <StatesTable
-          rows={[
-            { scenario: 'loading', renders: 'Status message and skeleton metric cards.', next: 'Stays here.' },
-            { scenario: 'empty', renders: 'EmptyState: no activity has been recorded, with a link to browse components.', next: 'None.' },
-            { scenario: 'success', renders: 'Three metric cards computed from the catalog, and the filterable change feed.', next: 'Searching to zero results shows No results inline.' },
-            { scenario: 'noResults', renders: 'The feed search is prefilled with “tooltip”, which matches no change.', next: 'Clear search returns to Success.' },
-            { scenario: 'error', renders: 'One Alert with Retry; metrics are hidden because they depend on the feed.', next: 'Retry loads everything; focus moves to the heading.' },
-          ]}
+      demo={<ScenarioDemo scenarios={dashboardScenarios}>{(scenario) => <ActivityDashboard scenario={scenario} />}</ScenarioDemo>}
+      states={<StatesTable scenarios={dashboardScenarios} />}
+      architecture={
+        <Orchestration
+          outcomes={
+            <>
+              <code>fetchActivity</code> returns the changelog, or nothing for Empty. The catalog metric counts every
+              resource type in the catalog, so its parts always add up to its total.
+            </>
+          }
         />
       }
-      architecture={orchestration}
       accessibility={
         <Prose>
           <ul>

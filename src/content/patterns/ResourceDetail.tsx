@@ -9,11 +9,13 @@ import { archiveEntry, fetchEntryDetail, type ScenarioRequest } from './fixtures
 const entryId = 'button';
 const requestDetail = (args: ScenarioRequest, signal: AbortSignal) => fetchEntryDetail(entryId, args, signal);
 
+export type DetailTab = 'overview' | 'history' | 'docs';
+
 /**
  * A detail view for one catalog entry: metadata, tabs and a confirmed destructive action.
  * Archiving fails on the first attempt so the in-dialog error and retry can always be tested.
  */
-export function ResourceDetail({ scenario }: { scenario: DemoScenario }) {
+export function ResourceDetail({ scenario, initialTab = 'overview' }: { scenario: DemoScenario; initialTab?: DetailTab }) {
   const { state, load } = useRequest(requestDetail);
   const attempt = useRef(0);
   const headingId = useId();
@@ -66,7 +68,9 @@ export function ResourceDetail({ scenario }: { scenario: DemoScenario }) {
             </Alert>
           </>
         )}
-        {state.status === 'success' && <Detail headingId={headingId} detail={state.data} focusOnMount={attempt.current > 0} />}
+        {state.status === 'success' && (
+          <Detail headingId={headingId} detail={state.data} focusOnMount={attempt.current > 0} initialTab={initialTab} />
+        )}
       </Stack>
     </section>
   );
@@ -76,10 +80,12 @@ function Detail({
   headingId,
   detail: { entry, history },
   focusOnMount,
+  initialTab,
 }: {
   headingId: string;
   detail: Awaited<ReturnType<typeof requestDetail>>;
   focusOnMount: boolean;
+  initialTab: DetailTab;
 }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [pinned, setPinned] = useState(false);
@@ -160,6 +166,7 @@ function Detail({
 
       <Tabs
         label={`${entry.name} details`}
+        defaultSelectedId={initialTab}
         items={[
           {
             id: 'overview',

@@ -1,5 +1,5 @@
 import type { CatalogEntry, EntryKind, Maturity } from './catalog';
-import { entryKinds, maturities } from './catalog';
+import { entryKinds, kindLabels, maturities } from './catalog';
 
 export const activityKinds = ['added', 'changed', 'fixed', 'documented'] as const;
 export type ActivityKind = (typeof activityKinds)[number];
@@ -63,6 +63,18 @@ export function summarizeCatalog(entries: readonly CatalogEntry[]): CatalogSumma
     byMaturity[entry.maturity] += 1;
   }
   return { total: entries.length, byKind, byMaturity };
+}
+
+/** Every resource type with entries, largest first, worded as a count such as “4 design decisions”. */
+export function catalogBreakdown(summary: CatalogSummary): { kind: EntryKind; count: number; text: string }[] {
+  return entryKinds
+    .filter((kind) => summary.byKind[kind] > 0)
+    .map((kind) => {
+      const count = summary.byKind[kind];
+      const label = kindLabels[kind].toLowerCase();
+      return { kind, count, text: `${count} ${count === 1 ? label : `${label}s`}` };
+    })
+    .sort((a, b) => b.count - a.count);
 }
 
 export function activityFor(entryId: string, events: readonly ActivityEvent[] = activity): ActivityEvent[] {

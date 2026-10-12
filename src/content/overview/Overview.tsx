@@ -13,9 +13,9 @@ import { PageLink } from './PageLink';
 const DecisionDemo = lazy(() => import('./DecisionDemo').then((module) => ({ default: module.DecisionDemo })));
 
 export const overviewSections = [
+  { id: 'review', label: 'Review the work' },
   { id: 'about', label: 'About this project' },
   { id: 'decision-to-interface', label: 'From a design decision to a working interface' },
-  { id: 'review', label: 'Suggested review path' },
   { id: 'site', label: 'How this site is built' },
   { id: 'principles', label: 'Principles' },
   // The id predates the title; keeping it keeps existing #architecture links working.
@@ -30,47 +30,41 @@ export interface OverviewAuthor {
   repository: string;
 }
 
-interface Destination {
-  label: string;
-  href: string;
+interface Stop {
+  title: string;
+  shows: string;
+  link: { label: string; href: string };
 }
 
-const reviewPath: readonly { title: string; try: string; shows: string; links: readonly Destination[] }[] = [
+/** The strongest evidence first; each stop is one destination with one sentence about what it demonstrates. */
+const reviewPath: readonly Stop[] = [
   {
-    title: 'Button and its Playground',
-    try: 'Change Button’s appearance, size and other props in the Playground and copy the matching code. Its documentation covers states, keyboard behavior and the token behind each prop.',
-    shows: 'Visual props are named, token-backed choices, and the documentation is typed against the real component.',
-    links: [
-      { label: 'Open the Button Playground', href: '/playground?component=button' },
-      { label: 'Read the Button documentation', href: '/components/button' },
-    ],
+    title: 'Component Playground',
+    shows: 'Edit Button’s token-backed props in a Controls table, watch a scoped preview respond, and copy the usage code generated from the same values.',
+    link: { label: 'Open the Playground', href: '/playground?component=button' },
   },
   {
-    title: 'Token architecture',
-    try: 'Search the token explorer and follow a token through its aliases to the value your browser computes.',
-    shows: 'Reference, semantic and component tiers, and a dependency policy that the build enforces.',
-    links: [{ label: 'Explore the token architecture', href: '/foundations/tokens' }],
-  },
-  {
-    title: 'Products and modes',
-    try: 'Compare every product profile and theme side by side, or enter a brand color in the Theme studio and export a new product.',
-    shows: 'One token source resolved into three product profiles, two themes and two densities, with contrast checked in each.',
-    links: [
-      { label: 'Compare products and modes', href: '/foundations/products' },
-      { label: 'Open the Theme studio', href: '/foundations/theme-studio' },
-    ],
+    title: 'Theme studio',
+    shows: 'Generate a product theme from one brand color, check every brand role’s contrast in both themes, and export the token sources it produces.',
+    link: { label: 'Open the Theme studio', href: '/foundations/theme-studio' },
   },
   {
     title: 'Form validation',
-    try: 'Submit the form empty, follow a link in the error summary, then correct the fields.',
-    shows: 'Components combined into a complete interaction: when errors appear, where focus goes and how the form recovers.',
-    links: [{ label: 'Try the Form validation pattern', href: '/patterns/form-validation' }],
+    shows: 'Submit the form empty, follow the error summary’s links to each field, and see where focus goes as components combine to recover.',
+    link: { label: 'Try Form validation', href: '/patterns/form-validation' },
+  },
+];
+
+const moreStops: readonly Stop[] = [
+  {
+    title: 'Token architecture',
+    shows: 'Reference, semantic and component tiers, traced to the value your browser computes, with a dependency policy the build enforces.',
+    link: { label: 'Token architecture', href: '/foundations/tokens' },
   },
   {
     title: 'Design decisions',
-    try: 'Read how a system is planned, shared across products, implemented and operated, and change the constraints in the sharing comparison.',
-    shows: 'The reasoning behind a design system, with proposed approaches and hypothetical examples labelled as such.',
-    links: [{ label: 'Read the design decisions', href: '/decisions' }],
+    shows: 'How a system is planned, shared across products, implemented and operated, with hypothetical examples labelled as such.',
+    link: { label: 'Design decisions', href: '/decisions' },
   },
 ];
 
@@ -80,12 +74,20 @@ const componentNames = (layer: ComponentLayer) =>
     .map((entry) => entry.name)
     .join(', ');
 
-/** The page's main action, placed in the page header. */
-export function ExploreButtonLink() {
+/** The page's actions, placed in the page header: the main one, then the source and the case study. */
+export function OverviewActions({ author }: { author: OverviewAuthor }) {
   return (
-    <Link href="/playground?component=button" variant="standalone" className={styles.primaryLink}>
-      Explore Button <Icon name="arrowRight" />
-    </Link>
+    <>
+      <Link href="/playground?component=button" variant="standalone" className={styles.primaryLink}>
+        Explore Button <Icon name="arrowRight" />
+      </Link>
+      <Link href={author.repository} variant="standalone" className={styles.actionLink}>
+        Source on GitHub <Icon name="externalLink" />
+      </Link>
+      <Link href={author.caseStudy} variant="standalone" className={styles.actionLink}>
+        Case study <Icon name="externalLink" />
+      </Link>
+    </>
   );
 }
 
@@ -94,6 +96,35 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
   const { harbor, meadow } = productProfiles;
   return (
     <Stack gap="extraExtraLarge">
+      <DocSection id="review" title="Review the work">
+        <Grid as="ol" minColumnWidth="small" gap="medium" aria-label="Suggested review path">
+          {reviewPath.map((stop, index) => (
+            <Card as="li" key={stop.title} padding="medium">
+              <Stack gap="small">
+                <Text as="span" variant="caption" tone="muted" aria-hidden="true" className={styles.stopNumber}>
+                  {String(index + 1).padStart(2, '0')}
+                </Text>
+                <Heading level={3} size="small">
+                  {stop.title}
+                </Heading>
+                <Text variant="bodySmall">{stop.shows}</Text>
+                <PageLink href={stop.link.href}>{stop.link.label}</PageLink>
+              </Stack>
+            </Card>
+          ))}
+        </Grid>
+        <ul className={styles.more} aria-label="More to review">
+          {moreStops.map((stop) => (
+            <li key={stop.title}>
+              <PageLink href={stop.link.href}>{stop.link.label}</PageLink>
+              <Text as="span" variant="bodySmall" tone="muted">
+                {stop.shows}
+              </Text>
+            </li>
+          ))}
+        </ul>
+      </DocSection>
+
       <DocSection id="about" title="About this project">
         <Prose>
           <p>
@@ -121,9 +152,6 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
             { label: 'Patterns', value: summary.byKind.pattern },
           ]}
         />
-        <Text variant="bodySmall">
-          <Link href={author.caseStudy}>Read the case study</Link> · <Link href={author.repository}>Browse the source on GitHub</Link>
-        </Text>
       </DocSection>
 
       <DocSection id="decision-to-interface" title="From a design decision to a working interface">
@@ -137,41 +165,6 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
         <Suspense fallback={<Skeleton shape="block" size="large" />}>
           <DecisionDemo />
         </Suspense>
-      </DocSection>
-
-      <DocSection id="review" title="Suggested review path">
-        <Text tone="muted">Five optional stops, each showing a different kind of evidence. Visit any of them, in any order.</Text>
-        <Grid as="ol" minColumnWidth="medium" gap="medium" aria-label="Suggested review path">
-          {reviewPath.map((stop, index) => (
-            <Card as="li" key={stop.title} padding="medium">
-              <Stack gap="small">
-                <Text as="span" variant="caption" tone="muted" aria-hidden="true" className={styles.stopNumber}>
-                  {String(index + 1).padStart(2, '0')}
-                </Text>
-                <Heading level={3} size="small">
-                  {stop.title}
-                </Heading>
-                <dl className={styles.facts}>
-                  <div>
-                    <dt>Try</dt>
-                    <dd>{stop.try}</dd>
-                  </div>
-                  <div>
-                    <dt>What it shows</dt>
-                    <dd>{stop.shows}</dd>
-                  </div>
-                </dl>
-                <ul className={styles.links}>
-                  {stop.links.map((link) => (
-                    <li key={link.href}>
-                      <PageLink href={link.href}>{link.label}</PageLink>
-                    </li>
-                  ))}
-                </ul>
-              </Stack>
-            </Card>
-          ))}
-        </Grid>
       </DocSection>
 
       <DocSection id="site" title="How this site is built">

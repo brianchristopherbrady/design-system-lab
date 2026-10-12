@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Alert, Card, EmptyState } from '@/design-system/composites';
 import { Grid, Inline, Stack } from '@/design-system/layout';
 import { Button, Heading, Icon, Link, Skeleton, Text } from '@/design-system/primitives';
@@ -9,6 +9,9 @@ import { fetchEntries, noResultsQuery } from './fixtures';
 import { entryHref } from './hrefs';
 
 const resourceTypes: readonly EntryKind[] = ['component', 'foundation', 'pattern', 'decision'];
+
+/** Entries listed before Show more, so the demo stays short enough to read beside its documentation. */
+export const directoryPageSize = 12;
 
 /**
  * A searchable directory of the system's own catalog. The scenario only changes what the
@@ -47,6 +50,10 @@ export function ResourceDirectory({ scenario }: { scenario: DemoScenario }) {
     });
 
   const pending = state.status === 'idle' || state.status === 'pending';
+  const entries = useMemo(
+    () => (state.status === 'success' ? [...state.data].sort((a, b) => a.name.localeCompare(b.name)) : []),
+    [state],
+  );
 
   return (
     <section aria-labelledby={headingId} aria-busy={pending}>
@@ -89,7 +96,7 @@ export function ResourceDirectory({ scenario }: { scenario: DemoScenario }) {
         )}
 
         {state.status === 'success' && state.data.length > 0 && (
-          <Results entries={state.data} filters={filters} onFiltersChange={setFilters} pinned={pinned} onTogglePin={togglePin} />
+          <Results entries={entries} filters={filters} onFiltersChange={setFilters} pinned={pinned} onTogglePin={togglePin} />
         )}
       </Stack>
     </section>
@@ -130,14 +137,33 @@ function Results({
   onTogglePin: (id: string) => void;
 }) {
   const results = filterEntries(entries, filters);
+  const [shown, setShown] = useState(directoryPageSize);
+  const [revealFrom, setRevealFrom] = useState<number | null>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+  const visible = results.slice(0, shown);
+  const remaining = results.length - visible.length;
+
+  // Show more moves focus to the first entry it revealed, so keyboard users continue from there.
+  useEffect(() => {
+    if (revealFrom !== null) listRef.current?.children[revealFrom]?.querySelector('a')?.focus();
+  }, [revealFrom]);
+
+  // New search or filters start again from the first page.
+  const changeFilters = (next: DirectoryFilterValues) => {
+    setShown(directoryPageSize);
+    setRevealFrom(null);
+    onFiltersChange(next);
+  };
+
   return (
     <Stack gap="medium">
       <DirectoryFilters
         filters={filters}
-        onChange={onFiltersChange}
+        onChange={changeFilters}
         types={resourceTypes}
         layers={componentLayers}
         resultCount={results.length}
+        shownCount={visible.length}
         totalCount={entries.length}
         label="Filter the directory"
       />
@@ -146,22 +172,36 @@ function Results({
           headingLevel={4}
           title={filters.query ? `No entries match “${filters.query}”` : 'No entries match these filters'}
           description="The directory has entries, but none fit the current search and filters. Check the spelling, try a broader term, or clear the filters."
-          action={<Button onClick={() => onFiltersChange(defaultFilters)}>Clear filters</Button>}
+          action={<Button onClick={() => changeFilters(defaultFilters)}>Clear filters</Button>}
         />
       ) : (
-        <Grid as="ul" minColumnWidth="medium" gap="medium">
-          {results.map((entry) => (
-            <li key={entry.id}>
-              <EntryCard
-                entry={entry}
-                href={entryHref(entry)}
-                headingLevel={4}
-                pinned={pinned.has(entry.id)}
-                onTogglePin={() => onTogglePin(entry.id)}
-              />
-            </li>
-          ))}
-        </Grid>
+        <>
+          <Grid as="ul" ref={listRef} minColumnWidth="medium" gap="medium">
+            {visible.map((entry) => (
+              <li key={entry.id}>
+                <EntryCard
+                  entry={entry}
+                  href={entryHref(entry)}
+                  headingLevel={4}
+                  pinned={pinned.has(entry.id)}
+                  onTogglePin={() => onTogglePin(entry.id)}
+                />
+              </li>
+            ))}
+          </Grid>
+          {remaining > 0 && (
+            <div>
+              <Button
+                onClick={() => {
+                  setRevealFrom(shown);
+                  setShown(shown + directoryPageSize);
+                }}
+              >
+                Show {Math.min(directoryPageSize, remaining)} more
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </Stack>
   );

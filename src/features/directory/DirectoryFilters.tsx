@@ -12,16 +12,24 @@ export interface DirectoryFiltersProps {
   /** Component layers offered in the Component layer select. With `types`, shown only while Component is selected. */
   layers: readonly ComponentLayer[];
   resultCount: number;
+  /** Entries currently listed, when the list shows only some of the matches. Defaults to all of them. */
+  shownCount?: number;
   totalCount: number;
   /** Accessible name of the search region. */
   label?: string;
+}
+
+/** The count line: how many are listed, how many match, and how many exist. */
+export function countSummary(shown: number, matching: number, total: number): string {
+  if (shown >= matching) return `Showing ${matching} of ${total}`;
+  return matching === total ? `Showing ${shown} of ${total} entries` : `Showing ${shown} of ${matching} matches, ${total} in total`;
 }
 
 /**
  * Search and filter controls. Controlled, so the same UI works with URL state (the
  * Components index) or local state (the directory pattern demo).
  */
-export function DirectoryFilters({ filters, onChange, types, layers, resultCount, totalCount, label = 'Filter entries' }: DirectoryFiltersProps) {
+export function DirectoryFilters({ filters, onChange, types, layers, resultCount, shownCount, totalCount, label = 'Filter entries' }: DirectoryFiltersProps) {
   const offerTypes = types !== undefined && types.length > 1;
   const offerLayers = layers.length > 1 && (!offerTypes || filters.type === 'component');
   return (
@@ -93,7 +101,7 @@ export function DirectoryFilters({ filters, onChange, types, layers, resultCount
       </div>
       <div className={styles.summary}>
         <p role="status" className={styles.count}>
-          Showing {resultCount} of {totalCount}
+          {countSummary(shownCount ?? resultCount, resultCount, totalCount)}
         </p>
         {hasActiveFilters(filters) && (
           <Button size="small" appearance="ghost" onClick={() => onChange(defaultFilters)}>

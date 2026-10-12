@@ -8,7 +8,7 @@ export function PatternsIndexPage() {
     <DocPage
       title="Patterns"
       eyebrow="Design system"
-      description="Complete interfaces composed from the components, with every state they can be in. Each request-driven demo has a Demo scenario selector for loading, empty, success, error and no-results states."
+      description="Complete interfaces composed from the components, with every state they can be in. Each request-driven demo has a Demo scenario selector listing the loading, empty, success, error and no-results states that apply to it."
     >
       <Grid as="ul" minColumnWidth="medium" gap="medium">
         {entriesOfKind('pattern').map((entry) => (

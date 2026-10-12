@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { catalog } from '@/domain/system';
+import { countSummary } from './DirectoryFilters';
 import { defaultFilters, filterEntries, hasActiveFilters, parseFilters, toSearchParams, withType } from './filters';
 
 describe('directory filters', () => {
@@ -45,5 +46,12 @@ describe('directory filters', () => {
     expect(hasActiveFilters({ ...defaultFilters, query: '  ' })).toBe(false);
     expect(hasActiveFilters({ ...defaultFilters, type: 'pattern' })).toBe(true);
     expect(hasActiveFilters({ ...defaultFilters, layer: 'Layout' })).toBe(true);
+  });
+
+  it('counts what is listed, what matches and what exists, without conflating them', () => {
+    expect(countSummary(48, 48, 48)).toBe('Showing 48 of 48');
+    expect(countSummary(3, 3, 48)).toBe('Showing 3 of 48');
+    expect(countSummary(12, 48, 48)).toBe('Showing 12 of 48 entries');
+    expect(countSummary(12, 29, 48)).toBe('Showing 12 of 29 matches, 48 in total');
   });
 });
