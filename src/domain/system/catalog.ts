@@ -15,6 +15,8 @@ interface EntryFields {
   /** URL slug, unique across the catalog. */
   id: string;
   name: string;
+  /** Section navigation label when `name` is long; page titles keep `name`. */
+  shortName?: string;
   maturity: Maturity;
   summary: string;
   tags: readonly string[];
@@ -53,10 +55,10 @@ const ds = 'src/design-system';
 
 export const catalog: readonly CatalogEntry[] = [
   // Design decisions
-  { id: 'planning', name: 'Planning a system', kind: 'decision', maturity: 'stable', summary: 'From users, workflows and inconsistencies to principles, scoped requirements, a pilot and a measurement plan, with one principle traced to its validation.', tags: ['requirements', 'principles', 'pilot'], updatedAt: '2026-10-09', sourcePath: 'src/content/decisions/articles/planning.tsx' },
-  { id: 'sharing', name: 'Sharing across products', kind: 'decision', maturity: 'stable', summary: 'What a consumer mobile product and a professional desktop application should share, layer by layer, with a comparison that shows how constraints change the trade-offs.', tags: ['multi-product', 'architecture'], updatedAt: '2026-10-09', sourcePath: 'src/content/decisions/articles/sharing.tsx' },
-  { id: 'implementation', name: 'Choosing an implementation approach', kind: 'decision', maturity: 'stable', summary: 'Framework components, separate implementations, shared tokens and CSS, or Web Components with adapters, and the decisions each one requires.', tags: ['web components', 'frameworks'], updatedAt: '2026-10-09', sourcePath: 'src/content/decisions/articles/implementation.ts' },
-  { id: 'operating', name: 'Operating and measuring a system', kind: 'decision', maturity: 'stable', summary: 'Ownership, contribution, versioning, migration and a few measures, separating what this project checks from what has not been measured.', tags: ['governance', 'migration', 'measurement'], updatedAt: '2026-10-09', sourcePath: 'src/content/decisions/articles/operating.ts' },
+  { id: 'planning', name: 'Planning a system', shortName: 'Planning', kind: 'decision', maturity: 'stable', summary: 'Discovery steps, requirements with acceptance criteria, and one principle traced to the check that enforces it here.', tags: ['requirements', 'principles', 'pilot'], updatedAt: '2026-10-12', sourcePath: 'src/content/decisions/articles/planning.tsx' },
+  { id: 'sharing', name: 'Sharing across products', shortName: 'Sharing', kind: 'decision', maturity: 'stable', summary: 'What two products share layer by layer, four approaches compared, and a comparison that responds to changed constraints.', tags: ['multi-product', 'architecture'], updatedAt: '2026-10-12', sourcePath: 'src/content/decisions/articles/sharing.tsx' },
+  { id: 'implementation', name: 'Choosing an implementation approach', shortName: 'Implementation', kind: 'decision', maturity: 'stable', summary: 'What this repository implements, the framework approaches it did not choose, and a conceptual Web Component sketch.', tags: ['web components', 'frameworks'], updatedAt: '2026-10-12', sourcePath: 'src/content/decisions/articles/implementation.ts' },
+  { id: 'operating', name: 'Operating and measuring a system', shortName: 'Operating', kind: 'decision', maturity: 'stable', summary: 'Ownership, releases, migration and proposed measures, and which checks this repository runs today.', tags: ['governance', 'migration', 'measurement'], updatedAt: '2026-10-12', sourcePath: 'src/content/decisions/articles/operating.ts' },
   // Layout
   { id: 'box', name: 'Box', kind: 'component', layer: 'Layout', maturity: 'stable', summary: 'A plain surface with token-based padding, background, border and radius.', tags: ['surface', 'spacing'], updatedAt: '2026-10-06', sourcePath: `${ds}/layout/Box.tsx` },
   { id: 'stack', name: 'Stack', kind: 'component', layer: 'Layout', maturity: 'stable', summary: 'Vertical flow with one gap between children.', tags: ['spacing', 'flow'], updatedAt: '2026-10-06', sourcePath: `${ds}/layout/Stack.tsx` },

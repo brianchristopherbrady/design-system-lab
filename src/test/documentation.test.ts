@@ -7,7 +7,7 @@ import * as layout from '@/design-system/layout';
 import * as primitives from '@/design-system/primitives';
 import { tokenManifest } from '@/design-system/tokens/manifest';
 import { componentDocs, playgroundStories } from '@/content/components';
-import { decisionTopics } from '@/content/decisions';
+import { decisionsIndexSections, decisionTopics } from '@/content/decisions';
 import { foundationTopics } from '@/content/foundations';
 import { overviewSections } from '@/content/overview';
 import { entryHref, patternDocs } from '@/content/patterns';
@@ -177,6 +177,7 @@ describe('links', () => {
   it('points every hash link in the site at a section that exists', () => {
     const anchors = new Map<string, readonly string[]>([
       [paths.overview, overviewSections.map((section) => section.id)],
+      [paths.decisions, decisionsIndexSections.map((section) => section.id)],
       ...foundationTopics.map((topic) => [paths.foundation(topic.id), topic.sections.map((section) => section.id)] as const),
       ...decisionTopics.map((topic) => [paths.decision(topic.id), topic.sections.map((section) => section.id)] as const),
     ]);

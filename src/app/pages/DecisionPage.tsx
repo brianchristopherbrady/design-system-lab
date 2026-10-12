@@ -1,13 +1,22 @@
 import { useParams } from 'react-router';
-import { findDecisionTopic, type DecisionTopic } from '@/content/decisions';
+import { Link } from '@/design-system/primitives';
+import { DecisionPager, decisionTopics, findDecisionTopic, type DecisionTopic } from '@/content/decisions';
 import { findEntry, type CatalogEntry } from '@/domain/system';
+import { paths } from '../paths';
 import { DocPage } from './DocPage';
 import { NotFoundPage } from './NotFoundPage';
 
 function DecisionView({ entry, topic }: { entry: CatalogEntry; topic: DecisionTopic }) {
+  const position = decisionTopics.indexOf(topic) + 1;
+  const eyebrow = (
+    <>
+      <Link href={paths.decisions}>Design decisions</Link> · {position} of {decisionTopics.length} · {topic.stage}
+    </>
+  );
   return (
-    <DocPage title={entry.name} eyebrow="Design decisions" description={entry.summary} sections={topic.sections}>
+    <DocPage title={entry.name} eyebrow={eyebrow} description={topic.question} sections={topic.sections}>
       <topic.Content />
+      <DecisionPager id={topic.id} />
     </DocPage>
   );
 }

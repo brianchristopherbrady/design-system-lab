@@ -28,10 +28,12 @@ Sections:
   validated form. Each request-driven demo has a **Demo scenario** selector listing only the
   states that apply to it (loading, success, error, an empty state, and no results where there is
   a search), and an overlay of the query containers each demo responds to.
-- **Design decisions** — the reasoning behind a system: planning requirements and a pilot,
-  what a consumer mobile product and a professional desktop application should share (with a
-  comparison that responds to constraints), choosing an implementation approach, and operating
-  and measuring a system. Hypothetical, proposed and conceptual material is labelled as such.
+- **Design decisions** — four engineering decisions (planning, sharing across products,
+  implementation and operating), each with a short decision record, followed through one
+  hypothetical scenario: Meadow, for occasional consumers completing guided tasks, and Harbor, for
+  professionals scanning dense information. The scenario is separate from the Harbor and Meadow
+  product modes this site implements. Material is labelled implemented, hypothetical, proposed or
+  conceptual.
 
 The header switches the whole site between products (Design System Lab, Harbor, Meadow), themes and
 densities. A product changes brand colors, typefaces and corner shapes, not the site's name, logo or

@@ -2,9 +2,58 @@ import type { Decision } from '../types';
 
 export const operating: Decision = {
   id: 'operating',
-  question: 'How do I keep a design system healthy after launch, and know whether it is working?',
-  answer:
-    'Name owners, publish how changes get in, version releases, and record exceptions instead of letting them become silent forks. Move existing products over gradually. Track a few measures, each with a baseline and a note on how it could mislead.',
+  stage: 'Validation and operating practices',
+  question: 'Once Meadow and Harbor depend on the shared core, how is it kept healthy, and how would anyone know it is working?',
+  matters: 'Without named owners and a record of exceptions, products quietly copy and change shared components, and the system stops being shared.',
+  record: {
+    context: [
+      {
+        evidence: 'hypothetical',
+        text: 'Meadow and Harbor release on their own schedules and both depend on the versioned core. Their old controls stay in place until each screen moves over, and neither team can pause feature work for a migration.',
+      },
+    ],
+    choice: [
+      { evidence: 'proposed', text: 'Name owners, log exceptions, migrate gradually and measure a few outcomes against baselines.' },
+      {
+        evidence: 'proposed',
+        text: 'A small core team owns the system, with one representative each from Meadow and Harbor. Changes follow one written contribution path, releases are versioned, and new parts start as experimental.',
+      },
+    ],
+    alternatives: [
+      {
+        evidence: 'proposed',
+        items: [
+          '**Harbor’s team shares its own library.** Quickest to start, but Meadow’s needs would always come second.',
+          '**Part-time owners from both products only.** Both have a say, but decisions stall without a core that writes them down.',
+          '**Migrate everything at once.** One switch, but both products would pause feature work, and old and new focus handling would mix part-way through.',
+        ],
+      },
+    ],
+    consequences: [
+      {
+        evidence: 'proposed',
+        text: 'The core team is a standing cost, and product teams wait for review on core changes. The exceptions log has to be read every month, or products will fork rather than wait.',
+      },
+    ],
+    validation: [
+      {
+        evidence: 'proposed',
+        text: 'Four measures, each with a baseline taken before migration and a note on how it could mislead.',
+        example: { label: 'A few measures', href: '/decisions/operating#measures' },
+      },
+      {
+        evidence: 'implemented',
+        text: 'This repository checks its own rules in every build and test run: maturity labels have tested requirements, documentation is tested against the code, and browser tests run accessibility scans, keyboard checks and 320 pixel reflow. Adoption and delivery time are not measured, because there are no product teams.',
+        example: { label: 'What this project checks', href: '/decisions/operating#checked' },
+      },
+    ],
+    reconsider: [
+      {
+        evidence: 'proposed',
+        text: 'The exceptions log shows both products asking for the same thing, review waits start delaying releases, or a measure stops moving after its baseline.',
+      },
+    ],
+  },
   sections: [
     {
       id: 'ownership',
@@ -13,6 +62,7 @@ export const operating: Decision = {
         {
           kind: 'table',
           caption: 'Three team models',
+          evidence: 'proposed',
           columns: ['Model', 'How it works', 'Works well when', 'Watch for'],
           rows: [
             ['Solitary', 'One product team shares its own library with everyone else.', 'There is one main product and little time.', 'Other products’ needs always come second.'],
@@ -36,7 +86,7 @@ export const operating: Decision = {
         {
           kind: 'note',
           title: 'When the system lacks something',
-          text: 'The product builds it, logs what it built and why, and owners review the log with product teams each month. If two products need the same thing, it becomes a candidate for the system.',
+          text: 'The product builds it, logs what it built and why, and owners review the log with product teams each month. If Meadow and Harbor both need the same thing, it becomes a candidate for the system.',
         },
       ],
     },
@@ -46,8 +96,9 @@ export const operating: Decision = {
       blocks: [
         {
           kind: 'table',
-          caption: 'Practices, in this project and in a multi-product system',
-          columns: ['Practice', 'In this project', 'In a multi-product system'],
+          caption: 'Practices in this project, and for Meadow and Harbor',
+          evidence: ['implemented', 'proposed'],
+          columns: ['Practice', 'In this project', 'For Meadow and Harbor'],
           rows: [
             ['Maturity labels', 'Implemented. Experimental, beta, stable and deprecated have written requirements, and tests check that stable components are tested and used.', 'The same, with the label shown wherever the component is documented.'],
             ['Versioning', 'Not applicable: one site, released together.', 'Semantic versioning: a major version for breaking changes, minor for features, patch for fixes.'],
@@ -64,13 +115,22 @@ export const operating: Decision = {
       blocks: [
         {
           kind: 'text',
-          paragraphs: ['Products keep shipping while they move. Migrate in small, reversible steps, and stop adding new debt before paying down the old.'],
+          evidence: 'proposed',
+          paragraphs: ['Meadow and Harbor keep shipping while they move. Migrate in small, reversible steps, and stop adding new debt before paying down the old.'],
         },
         {
           kind: 'steps',
           items: [
             { title: 'Tokens', text: 'Replace raw values with tokens. Screens should look the same afterwards, so compare screenshots.' },
-            { title: 'Guard rails', text: 'Add a lint rule that fails new raw values and only reports old ones, then make it strict when the count reaches zero. This project runs the strict version: `check-styles.mjs` rejects any raw color.' },
+            {
+              title: 'Guard rails',
+              text: 'Add a lint rule that fails new raw values and only reports old ones, then make it strict when the count reaches zero.',
+              note: {
+                evidence: 'implemented',
+                text: 'This repository runs the strict version: `check-styles.mjs` rejects any raw color.',
+                example: { label: 'What this project checks', href: '/decisions/operating#checked' },
+              },
+            },
             { title: 'Primitives', text: 'Swap buttons, inputs and checkboxes, most used first. A wrapper with the old name can keep existing call sites working.' },
             { title: 'Composite components', text: 'Replace a whole dialog or menu at once. Mixing old and new focus handling breaks both.' },
             { title: 'Patterns', text: 'Adopt patterns when a team rebuilds a flow anyway.' },
@@ -80,6 +140,7 @@ export const operating: Decision = {
         {
           kind: 'table',
           caption: 'Ways to make the switch',
+          evidence: 'proposed',
           columns: ['Approach', 'Use it when', 'Watch for'],
           rows: [
             ['Token swap', 'Styles are hard-coded.', 'Mapping a value to the wrong token changes the look.'],
@@ -98,7 +159,7 @@ export const operating: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'Four measures, each tied to a common reason for building a system. None has been measured here: this project has one author and no product teams, so the plan below is a proposal.',
+            'Four measures for Meadow and Harbor, each tied to a common reason for building a system. None has been measured here: this project has one author and no product teams.',
           ],
         },
         {
@@ -123,6 +184,7 @@ export const operating: Decision = {
         {
           kind: 'table',
           caption: 'Technical checks in this repository, and outcomes that have not been measured',
+          evidence: 'implemented',
           columns: ['Evidence', 'Status', 'Where'],
           rows: [
             ['Token sources are valid and every alias resolves in all twelve combinations', 'Checked in every build', '`scripts/tokens/pipeline.mjs`'],

@@ -3,22 +3,78 @@
     container: decision / inline-size;
   }
 
-  /* The question and short answer, before the reasoning. */
-  .answer {
+  /* Decision record: each field name above its statements, beside them when there is room. */
+  .decisionRecord {
     display: grid;
-    gap: var(--space-2xs);
-    padding: var(--spacing-medium) var(--spacing-large);
+    margin: 0;
+    padding: var(--space-2xs) var(--spacing-large);
     border-inline-start: var(--border-width-thick) solid var(--tone-brand-solid);
     border-radius: var(--radius-sm);
     background-color: var(--surface-accent);
   }
 
-  .answer > p + span {
-    margin-block-start: var(--spacing-small);
+  .decisionRecord > div {
+    display: grid;
+    gap: var(--space-xs);
+    padding-block: var(--spacing-small);
   }
 
-  .question {
+  .decisionRecord > div + div {
+    border-block-start: var(--border-width-thin) solid var(--border-subtle);
+  }
+
+  .decisionRecord dd {
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+    min-inline-size: 0;
+  }
+
+  /* 40rem: field names in their own column, so the record scans like a table. */
+  @container decision (inline-size >= 40rem) {
+    .decisionRecord > div {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      gap: var(--spacing-medium);
+      align-items: baseline;
+    }
+  }
+
+  /* A labelled statement: badge, claim, and the working example beside it. */
+  .statement {
+    display: grid;
+    gap: var(--space-2xs);
+    justify-items: start;
+    max-inline-size: var(--layout-measure);
+  }
+
+  .statement p {
+    margin: 0;
+  }
+
+  .stepBody .statement {
+    font-size: var(--typography-body-small-font-size);
+    line-height: var(--typography-body-small-line-height);
+  }
+
+  .statement ul {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: 0;
+    padding-inline-start: var(--space-lg);
+  }
+
+  .exampleLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-size: var(--typography-body-small-font-size);
     font-weight: var(--font-weight-semibold);
+  }
+
+  .badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
   }
 
   /* Numbered steps on a vertical rail. */
@@ -372,5 +428,99 @@
     padding-inline-start: var(--space-lg);
     font-size: var(--typography-body-small-font-size);
     line-height: var(--typography-body-small-line-height);
+  }
+
+  /* Overview: the scenario's two products, side by side when they fit. */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .products li {
+    display: grid;
+    gap: var(--space-2xs);
+    align-content: start;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border: var(--border-width-thin) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background-color: var(--surface-panel);
+  }
+
+  .cardFacts {
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+  }
+
+  .cardFacts > div {
+    display: grid;
+    gap: var(--space-2xs);
+  }
+
+  .cardFacts dd {
+    margin: 0;
+  }
+
+  .legend {
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+  }
+
+  .legend > div {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: var(--spacing-medium);
+    align-items: baseline;
+  }
+
+  .legend dd {
+    margin: 0;
+  }
+
+  /* Previous, overview and next: one row when they fit, stacked otherwise. */
+  .pager {
+    margin-block-start: var(--space-xl);
+    padding-block-start: var(--space-lg);
+    border-block-start: var(--border-width-thin) solid var(--border-subtle);
+  }
+
+  .pager ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .pagerLink {
+    display: grid;
+    gap: var(--space-2xs);
+    block-size: 100%;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border: var(--border-width-thin) solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .pagerLink > span:first-child {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .pagerOverview .pagerLink {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .pagerNext .pagerLink {
+    text-align: end;
+    justify-items: end;
   }
 }

@@ -4,7 +4,7 @@ import { ScrollRegion } from '@/design-system/layout';
 import { Badge, Icon, Link, Text } from '@/design-system/primitives';
 import { sources, type SourceId } from '@/domain/decisions';
 import { Note, Prose } from '@/features/docs';
-import type { Block, Evidence } from './types';
+import type { Block, Evidence, Statement } from './types';
 import styles from './decisions.module.css';
 
 const inline = /(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/;
@@ -24,19 +24,57 @@ export function Rich({ text }: { text: string }) {
   );
 }
 
-const evidenceBadge: Record<Evidence, { label: string; tone: 'success' | 'warning' | 'info' }> = {
-  implemented: { label: 'Implemented in this project', tone: 'success' },
-  hypothetical: { label: 'Hypothetical example', tone: 'warning' },
-  proposed: { label: 'Proposed, not measured here', tone: 'info' },
-  conceptual: { label: 'Conceptual, not implemented', tone: 'info' },
+/** The four labels used throughout Design decisions, with what each one promises. */
+export const evidenceLabels: Record<Evidence, { label: string; tone: 'success' | 'warning' | 'info' | 'neutral'; meaning: string }> = {
+  implemented: { label: 'Implemented', tone: 'success', meaning: 'Built and checked in this repository. A link leads to the working example.' },
+  hypothetical: { label: 'Hypothetical', tone: 'warning', meaning: 'Part of the Meadow and Harbor scenario: invented to illustrate, not findings from real products.' },
+  proposed: { label: 'Proposed', tone: 'info', meaning: 'Reasoning, plans or targets I would recommend. Not carried out or measured here.' },
+  conceptual: { label: 'Conceptual', tone: 'neutral', meaning: 'A sketch of an approach this repository does not implement.' },
 };
 
 export function EvidenceBadge({ evidence }: { evidence: Evidence }) {
-  const { label, tone } = evidenceBadge[evidence];
+  const { label, tone } = evidenceLabels[evidence];
   return (
     <Badge tone={tone} size="small">
       {label}
     </Badge>
+  );
+}
+
+function EvidenceBadges({ evidence }: { evidence: Evidence | readonly Evidence[] | undefined }) {
+  if (!evidence) return null;
+  const all: readonly Evidence[] = typeof evidence === 'string' ? [evidence] : evidence;
+  return (
+    <span className={styles.badges}>
+      {all.map((one) => (
+        <EvidenceBadge key={one} evidence={one} />
+      ))}
+    </span>
+  );
+}
+
+/** One labelled statement, with the working example that supports it beside the claim. */
+export function StatementView({ statement }: { statement: Statement }) {
+  return (
+    <div className={styles.statement}>
+      <p>
+        <EvidenceBadge evidence={statement.evidence} /> {statement.text && <Rich text={statement.text} />}
+      </p>
+      {statement.items && (
+        <ul>
+          {statement.items.map((item) => (
+            <li key={item}>
+              <Rich text={item} />
+            </li>
+          ))}
+        </ul>
+      )}
+      {statement.example && (
+        <Link href={statement.example.href} className={styles.exampleLink}>
+          {statement.example.label} <Icon name="arrowRight" />
+        </Link>
+      )}
+    </div>
   );
 }
 
@@ -60,13 +98,16 @@ export function BlockView({ block }: { block: Block }) {
   switch (block.kind) {
     case 'text':
       return (
-        <Prose>
-          {block.paragraphs.map((paragraph) => (
-            <p key={paragraph}>
-              <Rich text={paragraph} />
-            </p>
-          ))}
-        </Prose>
+        <div className={styles.figure}>
+          <EvidenceBadges evidence={block.evidence} />
+          <Prose>
+            {block.paragraphs.map((paragraph) => (
+              <p key={paragraph}>
+                <Rich text={paragraph} />
+              </p>
+            ))}
+          </Prose>
+        </div>
       );
     case 'list': {
       const List = block.ordered ? 'ol' : 'ul';
@@ -102,6 +143,7 @@ export function BlockView({ block }: { block: Block }) {
                     Output: {step.output}
                   </Text>
                 )}
+                {step.note && <StatementView statement={step.note} />}
               </div>
             </li>
           ))}
@@ -112,7 +154,7 @@ export function BlockView({ block }: { block: Block }) {
         const [, ...fields] = block.columns;
         return (
           <figure className={styles.figure}>
-            {block.evidence && <EvidenceBadge evidence={block.evidence} />}
+            <EvidenceBadges evidence={block.evidence} />
             <figcaption>{block.caption}</figcaption>
             <ul className={styles.records}>
               {block.rows.map(([name = '', ...values]) => (
@@ -140,7 +182,7 @@ export function BlockView({ block }: { block: Block }) {
       }
       return (
         <figure className={styles.figure}>
-          {block.evidence && <EvidenceBadge evidence={block.evidence} />}
+          <EvidenceBadges evidence={block.evidence} />
           <ScrollRegion axis="inline" aria-label={block.caption}>
             <table className={styles.table} data-wide={block.wide || undefined}>
               <caption>{block.caption}</caption>
@@ -185,7 +227,7 @@ export function BlockView({ block }: { block: Block }) {
     case 'visual':
       return (
         <figure className={styles.figure}>
-          {block.evidence && <EvidenceBadge evidence={block.evidence} />}
+          <EvidenceBadges evidence={block.evidence} />
           <block.Visual />
           {block.caption && (
             <figcaption>

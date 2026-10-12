@@ -1,7 +1,7 @@
 /**
- * How sharing between a consumer mobile product and a professional desktop application
- * shifts with a few constraints. It lists reasons, strains and open questions per layer and
- * per approach; it never scores the approaches or names a winner.
+ * How sharing between Meadow (a guided consumer product, mostly on phones) and Harbor (a dense
+ * professional desktop application) shifts with a few constraints. It lists reasons, strains and
+ * open questions per layer and per approach; it never scores the approaches or names a winner.
  */
 
 export const constraintIds = ['mobile', 'frameworks', 'brands', 'overlap', 'releases', 'ownership'] as const;
@@ -16,7 +16,7 @@ export interface Constraint {
 export const constraints: readonly Constraint[] = [
   {
     id: 'mobile',
-    label: 'The mobile product is',
+    label: 'Meadow is built as',
     options: [
       { value: 'web', label: 'Responsive web' },
       { value: 'native', label: 'A native app' },
@@ -67,6 +67,7 @@ export const constraints: readonly Constraint[] = [
 
 export type Constraints = Record<ConstraintId, string>;
 
+/** The scenario's constraints; the comparison starts here. */
 export const defaultConstraints: Constraints = {
   mobile: 'web',
   frameworks: 'same',
@@ -224,7 +225,7 @@ export function assessApproaches(chosen: Constraints): ApproachAssessment[] {
 export function pilotQuestions(chosen: Constraints): string[] {
   const c = effective(chosen);
   const questions = [
-    'Build one equivalent flow, such as search or sign-in, in both products. Where did a shared component need a product-only option?',
+    'Build one equivalent flow, such as a form, in both products. Where did a shared component need a product-only option?',
     'Test the shared controls with touch on a phone and with a keyboard on a desktop. Do target sizes and focus behavior hold up in both densities?',
   ];
   if (c.overlap === 'many') questions.push('Confirm the overlap: list the controls both products use and compare their states, keyboard behavior and content.');

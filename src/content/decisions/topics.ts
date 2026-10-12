@@ -9,8 +9,11 @@ import type { Decision } from './types';
 export interface DecisionTopic {
   /** Catalog id; the title and summary come from the catalog entry. */
   id: string;
+  stage: string;
   question: string;
-  answer: string;
+  /** The decision in one sentence. */
+  choice: string;
+  matters: string;
   sections: readonly { id: string; label: string }[];
   Content: ComponentType;
 }
@@ -19,8 +22,10 @@ export const decisions: readonly Decision[] = [planning, sharing, implementation
 
 export const decisionTopics: readonly DecisionTopic[] = decisions.map((decision) => ({
   id: decision.id,
+  stage: decision.stage,
   question: decision.question,
-  answer: decision.answer,
+  choice: decision.record.choice[0]?.text ?? '',
+  matters: decision.matters,
   sections: decisionSections(decision),
   Content: decisionContent(decision),
 }));

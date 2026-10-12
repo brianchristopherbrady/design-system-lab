@@ -42,9 +42,55 @@ const usage = `<form>
 
 export const implementation: Decision = {
   id: 'implementation',
-  question: 'How should one design system reach products built with different frameworks?',
-  answer:
-    'Choose the narrowest approach that covers the products that actually exist. One framework is best served by components written for it. Web Components with thin adapters earn their cost only when several frameworks must share complex interactive behavior and a team can own the integration work. Tokens should be framework-free either way.',
+  stage: 'Implementation choices',
+  question: 'How should the shared components reach Meadow and Harbor, and what changes if their frameworks diverge?',
+  matters: 'Every framework a system supports adds integration and testing work in each product that uses it.',
+  record: {
+    context: [
+      {
+        evidence: 'hypothetical',
+        text: 'Meadow and Harbor are web apps on the same framework. The sharing decision puts form fields, buttons, alerts and dialogs in a versioned core, and tokens in one source.',
+      },
+    ],
+    choice: [
+      { evidence: 'proposed', text: 'Build components for the one framework both products use, and keep tokens framework-free.' },
+      {
+        evidence: 'implemented',
+        text: 'This repository makes the same choice: React 19 components styled with CSS Modules, reading tokens generated from DTCG JSON as CSS custom properties.',
+        example: { label: 'Token pipeline', href: '/foundations/tokens#pipeline' },
+      },
+    ],
+    alternatives: [
+      {
+        evidence: 'proposed',
+        items: [
+          '**Web Components with framework adapters.** One implementation for any framework, but adapters, testing in every host and server rendering cost more than one framework needs.',
+          '**A separate implementation per framework.** Every fix made twice, for a framework neither product uses.',
+          '**Shared tokens and CSS only.** Each product would rebuild keyboard and accessibility behavior for the shared controls.',
+        ],
+      },
+    ],
+    consequences: [
+      {
+        evidence: 'proposed',
+        text: 'A fix to a shared control is made once and reaches each product when it upgrades. A product that moved to another framework would get tokens and CSS, not components, until the decision is revisited.',
+      },
+    ],
+    validation: [
+      { evidence: 'hypothetical', text: 'The pilot form is built in both products from the same components, with no wrapper or fork.' },
+      {
+        evidence: 'implemented',
+        text: 'In this repository, each component renders in any product mode, theme and density without a code change, and lint rejects raw colors and palette variables in stylesheets.',
+        example: { label: 'Button in the Playground', href: '/playground?component=button' },
+      },
+    ],
+    reconsider: [
+      {
+        evidence: 'proposed',
+        text: 'Either product adopts a second framework that must share complex controls, such as a combobox or date picker, and a team can own the adapters. Spike one form control as a custom element in every host before committing.',
+      },
+    ],
+  },
   sections: [
     {
       id: 'current',
@@ -52,9 +98,10 @@ export const implementation: Decision = {
       blocks: [
         {
           kind: 'text',
+          evidence: 'implemented',
           paragraphs: [
-            '**Implemented:** this system is a React 19 component library. Its tokens are framework-free: authored as DTCG JSON and generated as CSS custom properties and TypeScript, so any stack could read them. Components are styled with CSS Modules that read only those variables.',
-            '**Not implemented:** there are no Web Components and no adapters for other frameworks. Everything on this page about them is analysis and a labelled conceptual example, not a working implementation.',
+            'This system is a React 19 component library. Its tokens are framework-free: authored as DTCG JSON and generated as CSS custom properties and TypeScript, so any stack could read them. Components are styled with CSS Modules that read only those variables.',
+            'There are no Web Components and no adapters for other frameworks. The rest of this page is proposed reasoning and one conceptual sketch, not a working implementation.',
           ],
         },
         {
@@ -74,6 +121,7 @@ export const implementation: Decision = {
         {
           kind: 'table',
           caption: 'Ways to support more than one framework',
+          evidence: 'proposed',
           columns: ['Approach', 'What is shared', 'Fits when', 'Costs'],
           rows: [
             ['Components for one framework', 'Components, tokens and CSS', 'Every product uses the same framework, now and for the foreseeable future.', 'Products on another framework get only tokens and CSS.'],
@@ -92,6 +140,7 @@ export const implementation: Decision = {
         {
           kind: 'table',
           caption: 'Decisions, and what to weigh for each',
+          evidence: 'proposed',
           columns: ['Decision', 'The question', 'What to weigh'],
           rows: [
             ['Attributes and properties', 'Which inputs are attributes and which are properties?', 'Attributes are strings that work in plain HTML and server-rendered pages. Objects and arrays need properties, which frameworks set in different ways.'],
@@ -131,14 +180,35 @@ export const implementation: Decision = {
       id: 'deciding',
       title: 'How I would decide',
       blocks: [
+        { kind: 'text', evidence: 'proposed', paragraphs: ['Each step below ends with where Meadow and Harbor land.'] },
         {
           kind: 'steps',
           items: [
-            { title: 'List the frameworks and their lifespans', text: 'Count the frameworks in production and the ones being retired. A framework that will be gone in a year does not need an adapter.' },
-            { title: 'Find the controls worth sharing', text: 'Shared code pays off for controls with complex behavior, such as comboboxes, date pickers and dialogs. Simple controls can share tokens and CSS.' },
-            { title: 'Spike one form control in every host', text: 'Build one control as a custom element, wrap it for each framework, and test forms, focus and server rendering.' },
-            { title: 'Compare the costs', text: 'Weigh adapter and testing work against building the control once per framework.' },
-            { title: 'Decide per layer', text: 'Keep tokens framework-free regardless. Decide component code separately, and revisit when the framework mix changes.' },
+            {
+              title: 'List the frameworks and their lifespans',
+              text: 'Count the frameworks in production and the ones being retired. A framework that will be gone in a year does not need an adapter.',
+              note: { evidence: 'hypothetical', text: 'One framework in both products, and none being retired.' },
+            },
+            {
+              title: 'Find the controls worth sharing',
+              text: 'Shared code pays off for controls with complex behavior, such as comboboxes, date pickers and dialogs. Simple controls can share tokens and CSS.',
+              note: { evidence: 'hypothetical', text: 'Form fields, buttons, alerts and dialogs. Dialogs have the most complex behavior.' },
+            },
+            {
+              title: 'Spike one form control in every host',
+              text: 'Build one control as a custom element, wrap it for each framework, and test forms, focus and server rendering.',
+              note: { evidence: 'hypothetical', text: 'Not needed with one host. It becomes the first step if a second framework arrives.' },
+            },
+            {
+              title: 'Compare the costs',
+              text: 'Weigh adapter and testing work against building the control once per framework.',
+              note: { evidence: 'hypothetical', text: 'With one framework, adapters cost work and save none.' },
+            },
+            {
+              title: 'Decide per layer',
+              text: 'Keep tokens framework-free regardless. Decide component code separately, and revisit when the framework mix changes.',
+              note: { evidence: 'hypothetical', text: 'Framework-free tokens and components for the shared framework, revisited if either product changes framework.' },
+            },
           ],
         },
         {

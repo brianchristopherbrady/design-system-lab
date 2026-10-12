@@ -6,7 +6,7 @@ export function DecisionsIndexPage() {
     <DocPage
       title="Design decisions"
       eyebrow="Reasoning"
-      description="How I determine what a design system should solve, what should be shared, and how to validate the result."
+      description="Four engineering decisions, from requirements to operation, followed through one hypothetical scenario."
     >
       <DecisionsIndex />
     </DocPage>

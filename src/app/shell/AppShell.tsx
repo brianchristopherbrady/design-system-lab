@@ -125,7 +125,7 @@ export function AppShell() {
                             className={styles.sectionLink}
                             aria-current={pathname === href ? 'page' : undefined}
                           >
-                            {entry.name}
+                            {entry.shortName ?? entry.name}
                           </Link>
                         </li>
                       );

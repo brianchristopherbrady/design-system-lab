@@ -41,9 +41,54 @@ function PrincipleChain() {
 
 export const planning: Decision = {
   id: 'planning',
+  stage: 'Discovery and requirements',
   question: 'How do I decide what a design system should solve?',
-  answer:
-    'Start from the people, workflows and inconsistencies that exist today. Agree a few principles that settle real trade-offs, turn them into scoped requirements with acceptance criteria, then prove them with a small pilot measured against a baseline.',
+  matters: 'An architecture chosen before the requirements tends to fit whichever product was studied first.',
+  record: {
+    context: [
+      {
+        evidence: 'hypothetical',
+        text: 'Meadow and Harbor each built their own buttons, form fields and dialogs. The same control behaves differently in each product, accessibility fixes are made twice, and nobody has counted how much overlaps.',
+      },
+    ],
+    choice: [
+      { evidence: 'proposed', text: 'Inventory both products and write testable requirements before deciding what to share.' },
+      {
+        evidence: 'proposed',
+        text: 'Agree a few principles that settle the trade-off between Meadow’s guidance and Harbor’s density, then test the requirements in one equivalent pilot flow in each product.',
+      },
+    ],
+    alternatives: [
+      {
+        evidence: 'proposed',
+        items: [
+          '**Promote one product’s components.** Fastest, but every control inherits Harbor’s density or Meadow’s step-by-step guidance.',
+          '**Principles only.** Easy to agree, but nothing in them can pass or fail.',
+          '**Choose the architecture first.** It settles what to share before anyone knows which controls are equivalent.',
+        ],
+      },
+    ],
+    consequences: [
+      {
+        evidence: 'proposed',
+        text: 'Shared components start later than a straight port would. In exchange, each requirement can pass or fail, and the pilot can show a principle is wrong before both products depend on it.',
+      },
+    ],
+    validation: [
+      { evidence: 'hypothetical', text: 'The pilot passes requirements R1 to R5 in both products without forking a shared component.' },
+      {
+        evidence: 'implemented',
+        text: 'In this repository, “purpose before appearance” is enforced: lint fails when a stylesheet reads a palette color, and the token build fails when a component token aliases one.',
+        example: { label: 'Dependency policy', href: '/foundations/tokens#policy' },
+      },
+    ],
+    reconsider: [
+      {
+        evidence: 'proposed',
+        text: 'The pilot shows Meadow and Harbor need different behavior from a control the requirements treat as shared, or a third product arrives whose people are unlike either.',
+      },
+    ],
+  },
   sections: [
     {
       id: 'process',
@@ -51,6 +96,7 @@ export const planning: Decision = {
       blocks: [
         {
           kind: 'text',
+          evidence: 'proposed',
           paragraphs: ['Five steps, each producing something a team can review. In practice they overlap: a pilot often sends you back to rewrite a requirement.'],
         },
         {
@@ -129,20 +175,51 @@ export const planning: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'The documents below are hypothetical. They are written for an organization with a consumer mobile product and a professional desktop application, to show the level of detail, not real findings. The requirements are the core of the plan, so they are shown in full.',
+            'The documents below are written for Meadow and Harbor to show the level of detail, not real findings. The requirements are the core of the plan, so they are shown in full, each beside the closest working example in this repository.',
           ],
         },
         {
           kind: 'table',
-          caption: 'Requirements, with acceptance criteria',
-          evidence: 'hypothetical',
-          columns: ['ID', 'Requirement', 'Accepted when', 'Priority'],
+          caption: 'Requirements for Meadow and Harbor, with acceptance criteria and the closest working example here',
+          evidence: ['hypothetical', 'implemented'],
+          wide: true,
+          columns: ['ID', 'Requirement', 'Accepted when', 'Priority', 'Closest working example here'],
           rows: [
-            ['R1', 'Every shared control works with a keyboard alone.', 'The pilot flow completes with Tab, Shift+Tab, Enter, Space and arrow keys, and focus is always visible.', 'Must'],
-            ['R2', 'The pilot flow targets WCAG 2.2 AA.', 'An evaluation of the pilot flow lists the applicable success criteria; records automated results and manual checks of keyboard use, focus, labels and error handling, plus a screen-reader pass; and names untested criteria and open failures. It reports results per criterion rather than claiming conformance.', 'Must'],
-            ['R3', 'Products change brand and shape without forking components.', 'Each product’s token file overrides only brand roles and radii, and a test fails otherwise.', 'Must'],
-            ['R4', 'Dense screens can opt into a compact density.', 'Compact density applies per screen or region, and targets and contrast still pass.', 'Should'],
-            ['R5', 'A failed submission keeps what people entered.', 'A test forces a failure and checks that every value survives and focus moves to an error summary.', 'Should'],
+            [
+              'R1',
+              'Every shared control works with a keyboard alone.',
+              'The pilot flow completes with Tab, Shift+Tab, Enter, Space and arrow keys, and focus is always visible.',
+              'Must',
+              '[Tabs](/components/tabs) and [Dialog](/components/dialog): arrow keys, focus containment and focus return, covered by browser tests.',
+            ],
+            [
+              'R2',
+              'The pilot flow targets WCAG 2.2 AA.',
+              'An evaluation of the pilot flow lists the applicable success criteria; records automated results and manual checks of keyboard use, focus, labels and error handling, plus a screen-reader pass; and names untested criteria and open failures. It reports results per criterion rather than claiming conformance.',
+              'Must',
+              'Automated axe scans in both themes, keyboard and reflow tests; [not a full evaluation](/decisions/operating#checked).',
+            ],
+            [
+              'R3',
+              'Products change brand and shape without forking components.',
+              'Each product’s token file overrides only brand colors, typefaces and corner radii, and a test fails otherwise.',
+              'Must',
+              '[What a product changes](/foundations/products#overrides): the Harbor and Meadow modes, held to that limit by a policy test.',
+            ],
+            [
+              'R4',
+              'Dense screens can opt into a compact density.',
+              'Compact density applies per screen or region, and targets and contrast still pass.',
+              'Should',
+              '[Density](/foundations/products#density): compact controls stay above the 24 pixel minimum target size.',
+            ],
+            [
+              'R5',
+              'A failed submission keeps what people entered.',
+              'A test forces a failure and checks that every value survives and focus moves to an error summary.',
+              'Should',
+              '[Form validation](/patterns/form-validation): values stay, and focus moves to a summary that links to each field.',
+            ],
           ],
         },
         {
@@ -157,12 +234,12 @@ export const planning: Decision = {
                   evidence: 'hypothetical',
                   columns: ['Part', 'Content'],
                   rows: [
-                    ['Problem', 'Both products rebuild the same controls with different behavior, and accessibility fixes are made twice.'],
-                    ['People', 'Occasional consumers on phones; professionals at desks all day.'],
+                    ['Problem', 'Meadow and Harbor rebuild the same controls with different behavior, and accessibility fixes are made twice.'],
+                    ['People', 'Meadow: occasional consumers completing guided tasks, mostly on phones. Harbor: professionals scanning and acting on dense information at desks.'],
                     ['In scope', 'Tokens, buttons, form controls, alerts and dialogs, and their documentation.'],
                     ['Out of scope', 'Product screens, workflows and business logic.'],
                     ['Owner', 'A small core team, with one representative from each product.'],
-                    ['First pilot', 'One equivalent flow in each product.'],
+                    ['First pilot', 'One form both products have, built in each.'],
                   ],
                 },
               ],
@@ -176,7 +253,7 @@ export const planning: Decision = {
                   evidence: 'hypothetical',
                   columns: ['Item', 'Plan'],
                   rows: [
-                    ['Workflow', 'Search with filters, an empty state and an error state, built in both products.'],
+                    ['Workflow', 'Entering and correcting details in a form, with required fields, an error summary and a failed submission. In Meadow it is one step of a guided task; in Harbor, an edit panel beside a dense list.'],
                     ['People', 'One designer and one engineer from each product, with the core team.'],
                     ['Duration', 'Six weeks.'],
                     ['Done when', 'R1 to R5 pass in both products, no shared component was forked, and the findings are written up.'],
@@ -215,7 +292,7 @@ export const planning: Decision = {
           items: [
             { label: 'Principles', href: '/#principles', shows: 'The six principles this system follows.' },
             { label: 'Token dependency policy', href: '/foundations/tokens#policy', shows: 'A requirement enforced by the build, with its recorded exceptions.' },
-            { label: 'Products and modes', href: '/foundations/products', shows: 'Requirement R3 working: three products from one token source.' },
+            { label: 'Products and modes', href: '/foundations/products', shows: 'The nearest thing to R3 here: three product modes from one token source.' },
             { label: 'Form validation', href: '/patterns/form-validation', shows: 'Errors appear on submit, and focus moves to a summary that links to each field.' },
           ],
         },
