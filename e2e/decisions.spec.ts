@@ -98,6 +98,26 @@ test.describe('design decisions', () => {
     await expectNoAxeViolations(page);
   });
 
+  test('implementation opens its source files, React example and sources, and still passes automated accessibility checks', async ({ page }) => {
+    // Six source files open at once make this a long page for axe to scan.
+    test.slow();
+    await page.goto('/decisions/implementation');
+    const files = page.locator('#current details');
+    await expect(files).toHaveCount(6);
+    for (const file of await files.all()) {
+      await file.locator('summary').click();
+      await expect(file).toHaveJSProperty('open', true);
+    }
+    await expect(files.first().getByText('No component library and no headless library').first()).toBeVisible();
+    await page.getByText('Using the sketch from React 19', { exact: true }).click();
+    await expect(page.locator('#example code[data-language="tsx"]')).toContainText('onchange=');
+    await page.getByText('Sources', { exact: true }).click();
+    for (const name of ['React DOM components: Custom HTML elements', 'Vue and Web Components', 'CUSTOM_ELEMENTS_SCHEMA', 'ControlValueAccessor']) {
+      await expect(page.getByRole('link', { name, exact: true })).toBeVisible();
+    }
+    await expectNoAxeViolations(page);
+  });
+
   test('each page keeps its full title, links back to the overview and to its neighbours', async ({ page }) => {
     const pages = [
       { id: 'planning', title: 'Planning a system', short: 'Planning' },

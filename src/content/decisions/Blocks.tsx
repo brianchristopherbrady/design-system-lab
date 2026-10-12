@@ -4,7 +4,7 @@ import { ScrollRegion } from '@/design-system/layout';
 import { Badge, Icon, Link, Text } from '@/design-system/primitives';
 import { sources, type SourceId } from '@/domain/decisions';
 import { Note, Prose } from '@/features/docs';
-import type { Block, Evidence, Statement } from './types';
+import type { Block, Evidence, RecordField, Statement } from './types';
 import styles from './decisions.module.css';
 
 const inline = /(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/;
@@ -75,6 +75,26 @@ export function StatementView({ statement }: { statement: Statement }) {
         </Link>
       )}
     </div>
+  );
+}
+
+/** Labelled fields of a decision record, each holding one or more labelled statements. */
+export function RecordFields({ fields, label }: { fields: readonly RecordField[]; label?: string }) {
+  return (
+    <dl className={styles.decisionRecord} aria-label={label}>
+      {fields.map((field) => (
+        <div key={field.label}>
+          <Text as="dt" variant="caption" tone="muted">
+            {field.label}
+          </Text>
+          <dd>
+            {field.statements.map((statement, index) => (
+              <StatementView key={index} statement={statement} />
+            ))}
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 
@@ -261,6 +281,13 @@ export function BlockView({ block }: { block: Block }) {
             </Disclosure>
           ))}
         </div>
+      );
+    case 'record':
+      return (
+        <figure className={styles.figure}>
+          <figcaption>{block.caption}</figcaption>
+          <RecordFields fields={block.fields} label={block.caption} />
+        </figure>
       );
     case 'evidence':
       return (

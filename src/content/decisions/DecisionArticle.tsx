@@ -2,7 +2,7 @@ import { Disclosure } from '@/design-system/composites';
 import { Stack } from '@/design-system/layout';
 import { Link, Text } from '@/design-system/primitives';
 import { DocSection } from '@/features/docs';
-import { BlockView, Sources, StatementView } from './Blocks';
+import { BlockView, RecordFields, Sources } from './Blocks';
 import type { Decision, DecisionRecord } from './types';
 import styles from './decisions.module.css';
 
@@ -24,20 +24,7 @@ export const decisionSections = (decision: Decision) => [
 function RecordView({ decision }: { decision: Decision }) {
   return (
     <DocSection id="record" title="Decision record">
-      <dl className={styles.decisionRecord}>
-        {recordFields.map(({ key, label }) => (
-          <div key={key}>
-            <Text as="dt" variant="caption" tone="muted">
-              {label}
-            </Text>
-            <dd>
-              {decision.record[key].map((statement, index) => (
-                <StatementView key={index} statement={statement} />
-              ))}
-            </dd>
-          </div>
-        ))}
-      </dl>
+      <RecordFields fields={recordFields.map(({ key, label }) => ({ label, statements: decision.record[key] }))} />
       <Text variant="bodySmall" tone="muted">
         <Link href="/decisions#labels">What the labels mean</Link>
       </Text>

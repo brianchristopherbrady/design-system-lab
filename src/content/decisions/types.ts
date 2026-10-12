@@ -32,7 +32,13 @@ export type Block =
   | { kind: 'visual'; evidence?: Evidence | readonly Evidence[]; caption?: string; Visual: ComponentType }
   | { kind: 'code'; evidence: Evidence; caption: string; language: string; code: string }
   | { kind: 'details'; items: readonly { summary: string; blocks: readonly Block[] }[] }
+  | { kind: 'record'; caption: string; fields: readonly RecordField[] }
   | { kind: 'evidence'; items: readonly { label: string; href: string; shows: string }[] };
+
+export interface RecordField {
+  label: string;
+  statements: readonly Statement[];
+}
 
 export interface DecisionSection {
   id: string;

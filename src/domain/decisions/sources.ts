@@ -11,6 +11,11 @@ export const sources = [
   { id: 'apg', short: 'ARIA APG', author: 'W3C Web Accessibility Initiative', title: 'ARIA Authoring Practices Guide', year: null, href: 'https://www.w3.org/WAI/ARIA/apg/' },
   { id: 'semver', short: 'SemVer', author: 'Tom Preston-Werner', title: 'Semantic Versioning 2.0.0', year: null, href: 'https://semver.org/' },
   { id: 'custom-elements', short: 'HTML Standard', author: 'WHATWG', title: 'HTML Standard: Custom elements', year: null, href: 'https://html.spec.whatwg.org/multipage/custom-elements.html' },
+  { id: 'declarative-shadow-dom', short: 'HTML template', author: 'WHATWG', title: 'HTML Standard: The template element and declarative shadow roots', year: null, href: 'https://html.spec.whatwg.org/multipage/scripting.html#the-template-element' },
+  { id: 'react-custom-elements', short: 'React DOM', author: 'React', title: 'React DOM components: Custom HTML elements', year: null, href: 'https://react.dev/reference/react-dom/components#custom-html-elements' },
+  { id: 'vue-custom-elements', short: 'Vue', author: 'Vue.js', title: 'Vue and Web Components', year: null, href: 'https://vuejs.org/guide/extras/web-components.html' },
+  { id: 'angular-custom-elements-schema', short: 'Angular schema', author: 'Angular', title: 'CUSTOM_ELEMENTS_SCHEMA', year: null, href: 'https://angular.dev/api/core/CUSTOM_ELEMENTS_SCHEMA' },
+  { id: 'angular-control-value-accessor', short: 'Angular forms', author: 'Angular', title: 'ControlValueAccessor', year: null, href: 'https://angular.dev/api/forms/ControlValueAccessor' },
 ] as const;
 
 export type SourceId = (typeof sources)[number]['id'];

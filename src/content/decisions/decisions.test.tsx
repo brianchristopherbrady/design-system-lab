@@ -36,6 +36,7 @@ describe('design decisions', () => {
     const implemented = [
       ...statements,
       ...allBlocks.flatMap((block) => (block.kind === 'steps' ? block.items.flatMap((item) => (item.note ? [item.note] : [])) : [])),
+      ...allBlocks.flatMap((block) => (block.kind === 'record' ? block.fields.flatMap((field) => field.statements) : [])),
     ].filter((statement) => statement.evidence === 'implemented');
     expect(implemented.length).toBeGreaterThanOrEqual(decisions.length);
     for (const statement of implemented) expect(statement.example?.href, statement.text).toMatch(/^\//);
@@ -47,6 +48,20 @@ describe('design decisions', () => {
       if (block.kind === 'visual') expect(block.evidence).toBeDefined();
       if (block.kind === 'code') expect(block.evidence).toBe('conceptual');
     }
+  });
+
+  it('records this repository’s implementation choice apart from current analysis, and sets a prototype acceptance matrix', () => {
+    const implementation = decisions.find((decision) => decision.id === 'implementation');
+    const blocks = (implementation?.sections ?? []).flatMap((section) => blocksOf(section.blocks));
+    const [record] = blocks.flatMap((block) => (block.kind === 'record' ? [block] : []));
+    expect(record?.fields.map((field) => field.label)).toEqual(['Constraints', 'Choice and reasons', 'Alternatives', 'Accepted limitations', 'Reconsider when']);
+
+    const analysis = (record?.fields ?? []).flatMap((field) => field.statements).filter((statement) => /^Current analysis/.test(statement.text ?? ''));
+    expect(analysis.length).toBeGreaterThan(0);
+    for (const statement of analysis) expect(statement.evidence).toBe('proposed');
+
+    const matrix = blocks.flatMap((block) => (block.kind === 'table' && /acceptance matrix/i.test(block.caption) ? [block] : []))[0];
+    expect(matrix?.rows.map((row) => row[0])).toEqual(['Properties', 'Events', 'Forms', 'Focus', 'Styling', 'Server rendering', 'Typing', 'Host integration']);
   });
 
   it('traces every planning finding and requirement through to a pilot check', () => {
@@ -67,13 +82,15 @@ describe('design decisions', () => {
   });
 
   it.each(decisionTopics.map((topic) => [topic.id, topic] as const))('renders %s with its decision record and every section', (_, topic) => {
-    render(
+    const { container } = render(
       <MemoryRouter initialEntries={[`/decisions/${topic.id}`]}>
         <topic.Content />
       </MemoryRouter>,
     );
     for (const section of topic.sections) expect(screen.getByRole('heading', { level: 2, name: section.label })).toBeInTheDocument();
-    for (const term of ['Context', 'Choice', 'Alternatives considered', 'Consequences', 'Validation', 'Reconsider when']) expect(screen.getByText(term, { selector: 'dt' })).toBeInTheDocument();
+    const record = container.querySelector<HTMLElement>('#record');
+    if (!record) throw new Error(`${topic.id} has no decision record`);
+    for (const term of ['Context', 'Choice', 'Alternatives considered', 'Consequences', 'Validation', 'Reconsider when']) expect(within(record).getByText(term, { selector: 'dt' })).toBeInTheDocument();
     expect(screen.getByText(topic.choice)).toBeInTheDocument();
   });
 
