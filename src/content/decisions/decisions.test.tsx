@@ -49,6 +49,23 @@ describe('design decisions', () => {
     }
   });
 
+  it('traces every planning finding and requirement through to a pilot check', () => {
+    const planning = decisions.find((decision) => decision.id === 'planning');
+    const tables = (planning?.sections ?? []).flatMap((section) => blocksOf(section.blocks)).flatMap((block) => (block.kind === 'table' ? [block] : []));
+    const table = (first: string, has: string) => tables.find((candidate) => candidate.columns[0] === first && candidate.columns.includes(has))?.rows ?? [];
+    const ids = (cells: readonly string[]) => cells.flatMap((cell) => cell.match(/\b[IRP]\d+\b/g) ?? []);
+    const findings = ids(table('Finding', 'Judgment').map((row) => row[0] ?? ''));
+    const trace = table('Finding', 'Pilot check');
+    const requirements = table('ID', 'Accepted when').map((row) => row[0] ?? '');
+    const checks = table('Check', 'Requirement');
+
+    expect(findings.length).toBeGreaterThan(0);
+    expect(ids(trace.map((row) => row[0] ?? ''))).toEqual(findings);
+    for (const id of ids(trace.flatMap((row) => [row[2] ?? '', row[3] ?? '']))) expect([...requirements, ...checks.map((row) => row[0])], id).toContain(id);
+    for (const id of ids(checks.map((row) => row[1] ?? ''))) expect(requirements, id).toContain(id);
+    for (const id of requirements) expect(ids(checks.map((row) => row[1] ?? '')), id).toContain(id);
+  });
+
   it.each(decisionTopics.map((topic) => [topic.id, topic] as const))('renders %s with its decision record and every section', (_, topic) => {
     render(<topic.Content />);
     for (const section of topic.sections) expect(screen.getByRole('heading', { level: 2, name: section.label })).toBeInTheDocument();

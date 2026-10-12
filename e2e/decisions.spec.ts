@@ -33,6 +33,16 @@ test.describe('design decisions', () => {
     });
   }
 
+  test('planning opens every disclosure and still passes automated accessibility checks', async ({ page }) => {
+    await page.goto('/decisions/planning');
+    for (const summary of ['System brief', 'Measurement plan', 'Sources']) {
+      await page.getByText(summary, { exact: true }).click();
+      await expect(page.locator('details', { has: page.getByText(summary, { exact: true }) })).toHaveJSProperty('open', true);
+    }
+    await expect(page.getByRole('table', { name: /each measure tied to inventory findings/ })).toBeVisible();
+    await expectNoAxeViolations(page);
+  });
+
   test('each page keeps its full title, links back to the overview and to its neighbours', async ({ page }) => {
     const pages = [
       { id: 'planning', title: 'Planning a system', short: 'Planning' },
