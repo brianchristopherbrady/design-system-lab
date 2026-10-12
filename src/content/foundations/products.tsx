@@ -127,7 +127,7 @@ function Specimen({ heading }: { heading: string }) {
     <Card
       header={
         <Inline gap="extraSmall" justify="between">
-          <Heading level={4} size="small">
+          <Heading level={3} size="small">
             {heading}
           </Heading>
           <Badge tone="brand">New</Badge>

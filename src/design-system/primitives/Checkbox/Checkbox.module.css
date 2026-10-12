@@ -27,6 +27,11 @@
     cursor: pointer;
   }
 
+  .required {
+    color: var(--text-muted);
+    font-weight: var(--font-weight-regular);
+  }
+
   .description {
     grid-column: 2;
     color: var(--text-muted);

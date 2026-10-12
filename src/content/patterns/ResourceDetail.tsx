@@ -19,10 +19,16 @@ export function ResourceDetail({ scenario, initialTab = 'overview' }: { scenario
   const { state, load } = useRequest(requestDetail);
   const attempt = useRef(0);
   const headingId = useId();
+  const pendingHeadingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     load({ scenario, attempt: 0 });
   }, [load, scenario]);
+
+  // The Retry button disappears while loading; keep focus inside the demo.
+  useEffect(() => {
+    if (state.status === 'pending' && attempt.current > 0) pendingHeadingRef.current?.focus();
+  }, [state.status]);
 
   const retry = () => {
     attempt.current += 1;
@@ -46,7 +52,7 @@ export function ResourceDetail({ scenario, initialTab = 'overview' }: { scenario
         </Text>
         {pending && (
           <>
-            <Heading level={3} size="medium" id={headingId}>
+            <Heading level={3} size="medium" id={headingId} ref={pendingHeadingRef} tabIndex={-1}>
               Loading entry
             </Heading>
             <Text variant="bodySmall" tone="muted">

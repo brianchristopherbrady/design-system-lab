@@ -338,7 +338,7 @@ function Workbench({
             {copiedSnippet === snippet ? 'Copied' : ''}
           </span>
         </div>
-        <ScrollRegion as="pre" className={styles.code} data-theme="dark" aria-labelledby={ids.usage}>
+        <ScrollRegion as="pre" className={styles.code} data-theme="dark" aria-label="Usage code">
           <code data-testid="playground-snippet">{snippet}</code>
         </ScrollRegion>
       </section>

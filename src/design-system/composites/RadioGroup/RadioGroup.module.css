@@ -63,8 +63,9 @@
     grid-column: 2;
   }
 
-  .group:disabled .option,
-  .option:has(.radio:disabled) {
+  /* Dim only the control and label; the description explains why and must keep text contrast. */
+  .group:disabled :is(.radio, .label),
+  .option:has(.radio:disabled) :is(.radio, .label) {
     opacity: var(--control-disabled-opacity);
   }
 

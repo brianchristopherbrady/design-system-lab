@@ -33,6 +33,8 @@ export function ActivityDashboard({ scenario }: { scenario: DemoScenario }) {
   }, [state.status]);
 
   const retry = () => {
+    // The Retry button disappears while loading; keep focus inside the demo.
+    headingRef.current?.focus();
     attempt.current += 1;
     load({ scenario, attempt: attempt.current });
   };

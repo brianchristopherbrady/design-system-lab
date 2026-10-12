@@ -131,6 +131,7 @@ export function FormValidation() {
             id={ids.searched}
             label="I searched the directory and nothing existing fits"
             checked={values.searched}
+            required
             aria-invalid={errors.searched ? true : undefined}
             aria-describedby={errors.searched ? `${ids.searched}-error` : undefined}
             onChange={(event) => set('searched', event.target.checked)}

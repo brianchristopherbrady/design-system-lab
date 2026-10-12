@@ -650,7 +650,7 @@
     {
       "id": "A11Y-003",
       "title": "Required confirmation checkbox in the proposal form is not identified as required",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 3,
@@ -773,13 +773,27 @@
       ],
       "candidateAutomatedTest": "Vitest in src/content/patterns/FormValidation.test.ts or a component test: render FormValidation, expect(getByRole('checkbox', { name: /I searched the directory/ })).toBeRequired() and label text contains '(required)'. Playwright: same assertion via toBeRequired().",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/design-system/primitives/Checkbox/Checkbox.tsx",
+          "src/design-system/primitives/Checkbox/Checkbox.module.css",
+          "src/content/patterns/FormValidation.tsx"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -817,13 +831,23 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     },
     {
       "id": "A11Y-004",
       "title": "After Retry the focused button disappears and focus sits on the body until loading succeeds",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 4,
@@ -931,13 +955,27 @@
       ],
       "candidateAutomatedTest": "Playwright e2e in e2e/patterns.spec.ts: select 'error', press Enter on Retry, expect(heading).toBeFocused() before the success state (use a short timeout). Vitest with fake timers on simulateRequest can assert toHaveFocus() during pending.",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/content/patterns/ResourceDirectory.tsx",
+          "src/content/patterns/ActivityDashboard.tsx",
+          "src/content/patterns/ResourceDetail.tsx"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -974,13 +1012,23 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     },
     {
       "id": "A11Y-005",
       "title": "Theme studio ramp chroma values are cut off with an ellipsis under WCAG text-spacing overrides",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 5,
@@ -1092,13 +1140,25 @@
       ],
       "candidateAutomatedTest": "Playwright e2e (responsive.spec.ts): addStyleTag with the 1.4.12 CSS and assert every [class*=stripMeta] has scrollWidth <= clientWidth + 1. Limits: only catches overflow-type truncation.",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/features/theming/ThemeStudio.module.css"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -1136,13 +1196,23 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     },
     {
       "id": "A11Y-006",
       "title": "Reason text for an unavailable RadioGroup option is dimmed to 2.5:1 contrast",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 6,
@@ -1249,13 +1319,25 @@
       ],
       "candidateAutomatedTest": "Extend e2e axe scan to /components/radio-group (already in the axe sweep) and add contrast.test.ts coverage for the disabled description pair if the token approach is used.",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/design-system/composites/RadioGroup/RadioGroup.module.css"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -1293,13 +1375,23 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     },
     {
       "id": "A11Y-007",
       "title": "Two regions share the same accessible name (Playground 'Usage', ScrollRegion demo 'Release history')",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 7,
@@ -1385,13 +1477,27 @@
       ],
       "candidateAutomatedTest": "Already covered once axe best-practice tags are included in e2e/axe.ts; or add a Playwright assertion on getByRole('region', { name: 'Usage' }) count = 1.",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/features/playground/Playground.tsx",
+          "src/content/components/examples/frames.tsx",
+          "src/content/components/examples/LayoutExamples.tsx"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -1429,13 +1535,23 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     },
     {
       "id": "A11Y-008",
       "title": "Products foundation skips from h2 to h4 in the 'Products × themes' specimens",
-      "status": "open",
+      "status": "fixed-pending-verification",
       "severity": "low",
       "priority": {
         "rank": 8,
@@ -1506,13 +1622,25 @@
       ],
       "candidateAutomatedTest": "Covered by axe best-practice heading-order in the sweep; or a Playwright check of consecutive heading levels.",
       "remediation": {
-        "notes": "deferred: time",
-        "filesChanged": [],
-        "testsAdded": [],
-        "automatedResults": [],
-        "manualResults": [],
+        "notes": "Fixed by orchestrator directly per user request (time-constrained) following proposedFix.",
+        "filesChanged": [
+          "src/content/foundations/products.tsx"
+        ],
+        "testsAdded": [
+          "e2e/patterns.spec.ts › small accessibility fixes (A11Y-003 to A11Y-008)"
+        ],
+        "automatedResults": [
+          "npm run lint: pass",
+          "npm run typecheck: pass",
+          "npm test: 909/909 pass",
+          "playwright patterns/accessibility/responsive/playground: 106 pass (7 initial failures were Playwright trace ENOENT infrastructure errors; all 7 passed on re-run with --trace off)"
+        ],
+        "manualResults": [
+          "No separate manual check beyond Playwright assertions."
+        ],
         "remainingDependencies": [
-          "Not started: user ran out of time and limited this pass to A11Y-001 and A11Y-002. No code changed for this issue."
+          "Independent verification (Agent 3) not yet run",
+          "BLK-001: no screen reader"
         ]
       },
       "verification": {
@@ -1549,6 +1677,16 @@
           "reason": "deferred: time (user-directed wrap-up; no edits made)",
           "timestamp": "2026-10-12T13:30:00-07:00",
           "evidence": []
+        },
+        {
+          "actor": "accessibility-orchestrator",
+          "previousStatus": "open",
+          "newStatus": "fixed-pending-verification",
+          "reason": "Proposed fix implemented with regression test",
+          "timestamp": "2026-10-12T14:35:00-07:00",
+          "evidence": [
+            "e2e/patterns.spec.ts"
+          ]
         }
       ]
     }

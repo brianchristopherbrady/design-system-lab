@@ -181,26 +181,28 @@ export function ScrollRegionExample() {
       description="The table keeps its columns and scrolls on its own; the page never scrolls sideways. Tab to the region and use the arrow keys to scroll it."
     >
       <NarrowAndWide>
-        <ScrollRegion aria-label="Release history">
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th scope="col">Version</th>
-                <th scope="col">Date</th>
-                <th scope="col">Change</th>
-              </tr>
-            </thead>
-            <tbody>
-              {releases.map((release) => (
-                <tr key={release.version}>
-                  <th scope="row">{release.version}</th>
-                  <td>{release.date}</td>
-                  <td>{release.change}</td>
+        {(frame) => (
+          <ScrollRegion aria-label={`Release history, ${frame === 'narrow' ? 'narrow' : 'full-width'} container`}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th scope="col">Version</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Change</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </ScrollRegion>
+              </thead>
+              <tbody>
+                {releases.map((release) => (
+                  <tr key={release.version}>
+                    <th scope="row">{release.version}</th>
+                    <td>{release.date}</td>
+                    <td>{release.change}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ScrollRegion>
+        )}
       </NarrowAndWide>
     </LiveExample>
   );

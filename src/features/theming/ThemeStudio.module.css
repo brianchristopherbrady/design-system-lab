@@ -453,7 +453,12 @@
     margin-block-start: var(--space-2xs);
   }
 
+  /* Values wrap rather than truncate so they survive text-spacing overrides (WCAG 1.4.12). */
   .stripMeta {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
     color: var(--text-muted);
     font-variant-numeric: tabular-nums;
   }
