@@ -13,15 +13,70 @@ test.describe('design decisions', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Sharing across products' })).toBeFocused();
   });
 
-  test('the sharing comparison responds to constraints without naming a winner', async ({ page }) => {
+  test('the sharing comparison explains what changed without naming a winner', async ({ page }) => {
     await page.goto('/decisions/sharing#explore');
-    const code = page.getByRole('listitem').filter({ hasText: 'Component code' });
-    await expect(code).toContainText('One framework allows one library');
+    const layers = page.getByRole('region', { name: 'Layer by layer' });
+    const code = layers.getByRole('listitem').filter({ hasText: 'Component code (web)' });
+    await expect(code).toContainText('use the same framework, so one library can serve both');
     await page.getByRole('combobox', { name: 'Meadow is built as' }).selectOption('native');
     await expect(code).toContainText('Keep separate');
-    await expect(code).toContainText('Native and web code cannot be shared directly');
+    await expect(code).toContainText('Changed');
     await expect(page.getByRole('combobox', { name: 'Web frameworks' })).toBeDisabled();
-    await expect(page.getByRole('status').filter({ hasText: 'Comparison updated' })).toContainText('kept separate');
+    const changed = page.getByRole('region', { name: 'What changed' });
+    await expect(changed.getByRole('listitem').filter({ hasText: 'Component code (web)' })).toContainText('Why: Only Harbor is on the web');
+    await expect(page.getByRole('status').filter({ hasText: 'Meadow is built as: A native app.' })).toContainText('conclusions changed');
+    await expect(page.getByRole('region', { name: 'A starting point for these constraints' })).toContainText('Would change if');
+    await expectNoAxeViolations(page);
+  });
+
+  test('presets, reset and a copied link reproduce a scenario', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto('/decisions/sharing#explore');
+    const preset = page.getByRole('button', { name: 'Native plus web' });
+    await preset.click();
+    await expect(preset).toHaveAttribute('aria-pressed', 'true');
+    await expect(page).toHaveURL(/mobile=both.*#explore$/);
+    await expect(page.getByRole('heading', { level: 4, name: 'Meadow’s native app' })).toBeVisible();
+
+    await page.getByRole('combobox', { name: 'Controls with equivalent behavior' }).selectOption('many');
+    await expect(preset).toHaveAttribute('aria-pressed', 'false');
+    await page.getByRole('button', { name: 'Copy scenario link' }).click();
+    await expect(page.getByText('Scenario link copied.')).toBeVisible();
+    const copied = await page.evaluate(() => navigator.clipboard.readText());
+    expect(new URL(copied).searchParams.get('overlap')).toBe('many');
+
+    await page.getByRole('button', { name: 'Reset to the scenario' }).click();
+    await expect(page).toHaveURL(/\/decisions\/sharing#explore$/);
+    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('web');
+
+    await page.goto(copied);
+    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('both');
+    await expect(page.getByRole('combobox', { name: 'Controls with equivalent behavior' })).toHaveValue('many');
+    await expect(page.getByRole('region', { name: 'What changed' })).toHaveCount(0);
+  });
+
+  test('a scenario link with invalid values falls back to the defaults', async ({ page }) => {
+    await page.goto('/decisions/sharing?mobile=tablet&brands=distinct#explore');
+    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('web');
+    await expect(page.getByRole('combobox', { name: 'Brands' })).toHaveValue('distinct');
+    await expect(page).not.toHaveURL(/tablet/);
+    await expect(page).toHaveURL(/brands=distinct.*#explore$/);
+  });
+
+  test('the two product demonstrations share behavior and differ in presentation', async ({ page }) => {
+    await page.goto('/decisions/sharing#compositions');
+    const meadow = page.getByRole('region', { name: 'How should we keep you updated?' });
+    const harbor = page.getByRole('region', { name: 'Records to review' });
+    await meadow.getByRole('textbox', { name: 'Email address' }).fill('abc');
+    await meadow.getByRole('button', { name: 'Continue' }).click();
+    await harbor.getByRole('textbox', { name: 'Notify by email' }).fill('abc');
+    await harbor.getByRole('button', { name: 'Save' }).click();
+    await expect(page.getByText('Enter an email address, like name@example.com.')).toHaveCount(2);
+    await expect(harbor.getByRole('textbox', { name: 'Notify by email' })).toBeFocused();
+    const fonts = await Promise.all([meadow, harbor].map((region) => region.getByRole('heading', { level: 3 }).evaluate((heading) => getComputedStyle(heading).fontFamily)));
+    expect(fonts[0]).not.toBe(fonts[1]);
+    await harbor.getByRole('textbox', { name: 'Filter records' }).fill('access');
+    await expect(harbor.getByText('Showing 2 of 5 records')).toBeVisible();
     await expectNoAxeViolations(page);
   });
 

@@ -430,6 +430,124 @@
     line-height: var(--typography-body-small-line-height);
   }
 
+  .presetGroup {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .presetButtons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .presetButtons > span {
+    margin-inline-end: var(--space-xs);
+  }
+
+  /* The pressed preset carries a check icon too, so color is not the only cue. */
+  .presetButton[aria-pressed='true'] {
+    border-color: var(--tone-brand-border);
+    background-color: var(--tone-brand-surface);
+    color: var(--tone-brand-text);
+  }
+
+  .explorerActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs) var(--spacing-small);
+  }
+
+  .changes {
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .changes li {
+    display: grid;
+    gap: var(--space-2xs);
+    padding-inline-start: var(--spacing-small);
+    border-inline-start: var(--border-width-thick) solid var(--tone-brand-border);
+  }
+
+  .recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+    gap: var(--spacing-medium);
+  }
+
+  .recommendation {
+    display: grid;
+    gap: var(--space-xs);
+    align-content: start;
+    padding: var(--spacing-medium);
+    border: var(--border-width-thin) solid var(--border-subtle);
+    border-inline-start: var(--border-width-thick) solid var(--tone-brand-solid);
+    border-radius: var(--radius-sm);
+    background-color: var(--surface-accent);
+  }
+
+  .recommendation dl {
+    display: grid;
+    gap: var(--space-xs);
+    margin: 0;
+  }
+
+  .recommendation dd {
+    margin: 0;
+  }
+
+  .recommendation ul {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: 0;
+    padding-inline-start: var(--space-lg);
+    font-size: var(--typography-body-small-font-size);
+    line-height: var(--typography-body-small-line-height);
+  }
+
+  /* A product demonstration: its scope repaints surface, text and typeface. */
+  .composition {
+    padding: var(--spacing-large);
+    border: var(--border-width-thin) solid var(--border-default);
+    border-radius: var(--radius-lg);
+    min-inline-size: 0;
+  }
+
+  .queue {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .queue li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs) var(--spacing-small);
+    padding-block: var(--space-xs);
+    border-block-end: var(--border-width-thin) solid var(--border-subtle);
+  }
+
+  .inlineForm {
+    display: grid;
+    justify-items: start;
+    gap: var(--spacing-small);
+    padding-block-start: var(--spacing-small);
+    border-block-start: var(--border-width-thin) solid var(--border-subtle);
+  }
+
+  .inlineForm > :first-child {
+    justify-self: stretch;
+  }
+
   /* Overview: the scenario's two products, side by side when they fit. */
   .products {
     display: grid;

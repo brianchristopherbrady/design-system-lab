@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
 import { DecisionPager } from './DecisionPager';
 import { DecisionsIndex } from './DecisionsIndex';
@@ -67,7 +67,11 @@ describe('design decisions', () => {
   });
 
   it.each(decisionTopics.map((topic) => [topic.id, topic] as const))('renders %s with its decision record and every section', (_, topic) => {
-    render(<topic.Content />);
+    render(
+      <MemoryRouter initialEntries={[`/decisions/${topic.id}`]}>
+        <topic.Content />
+      </MemoryRouter>,
+    );
     for (const section of topic.sections) expect(screen.getByRole('heading', { level: 2, name: section.label })).toBeInTheDocument();
     for (const term of ['Context', 'Choice', 'Alternatives considered', 'Consequences', 'Validation', 'Reconsider when']) expect(screen.getByText(term, { selector: 'dt' })).toBeInTheDocument();
     expect(screen.getByText(topic.choice)).toBeInTheDocument();
@@ -93,15 +97,5 @@ describe('design decisions', () => {
     expect(cards).toHaveLength(decisionTopics.length);
     expect(within(cards[0] as HTMLElement).getByText(decisionTopics[0]?.choice ?? '')).toBeInTheDocument();
     for (const label of ['Implemented', 'Hypothetical', 'Proposed', 'Conceptual']) expect(screen.getAllByText(label).length).toBeGreaterThan(0);
-  });
-
-  it('updates the sharing comparison when a constraint changes', async () => {
-    const user = userEvent.setup();
-    const sharing = decisionTopics.find((topic) => topic.id === 'sharing');
-    if (!sharing) throw new Error('No sharing page');
-    render(<sharing.Content />);
-    expect(screen.queryByText(/Native and web code cannot be shared directly/)).not.toBeInTheDocument();
-    await user.selectOptions(screen.getByRole('combobox', { name: 'Meadow is built as' }), 'native');
-    expect(screen.getByText(/Native and web code cannot be shared directly/)).toBeInTheDocument();
   });
 });
