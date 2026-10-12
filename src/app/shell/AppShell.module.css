@@ -174,7 +174,17 @@
     }
   }
 
-  /* 64rem: below it the sections wrap under the name; tighter tracking keeps them to as few rows as possible. */
+  /*
+   * 68rem: the name and the sections at full tracking need about 66rem. Tighter tracking holds them on one
+   * row down to 64rem, and below that keeps the wrapped sections to as few rows as possible.
+   */
+  @media (width < 68rem) {
+    .navLink {
+      letter-spacing: var(--font-letter-spacing-wide);
+    }
+  }
+
+  /* 64rem: below it the sections wrap under the name. */
   @media (width < 64rem) {
     .headerRow {
       padding-block-end: 0;
@@ -186,7 +196,6 @@
 
     .navLink {
       min-block-size: var(--control-height-small);
-      letter-spacing: var(--font-letter-spacing-wide);
     }
 
     .primaryNav {

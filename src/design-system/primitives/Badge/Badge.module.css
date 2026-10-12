@@ -14,7 +14,10 @@
     letter-spacing: var(--typography-control-letter-spacing);
     line-height: var(--font-line-height-snug);
     text-transform: uppercase;
-    white-space: nowrap;
+    /* Stays on one line in a row (no shrinking), but wraps rather than overflowing a container narrower than its label. */
+    flex-shrink: 0;
+    max-inline-size: 100%;
+    overflow-wrap: break-word;
   }
 
   .icon {

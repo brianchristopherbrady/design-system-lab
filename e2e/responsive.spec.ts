@@ -43,6 +43,30 @@ test.describe('reflow at 320 CSS pixels (WCAG 1.4.10)', () => {
   });
 });
 
+test.describe('reflow at common phone widths', () => {
+  // A long unbreakable badge once overflowed here at 375 and 390 while fitting at 320, where the layout differs.
+  for (const width of [375, 390]) {
+    test(`no horizontal scrolling on /foundations/tokens at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 812 });
+      await page.goto('/foundations/tokens');
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+      expect(await horizontalOverflow(page)).toBe(0);
+    });
+  }
+});
+
+test.describe('header', () => {
+  test('the name and sections share one row between the 64rem and 90rem breakpoints', async ({ page }) => {
+    for (const width of [1040, 1070]) {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto('/');
+      const brand = await page.getByRole('banner').getByRole('link', { name: 'Design System Lab' }).boundingBox();
+      const sections = await page.getByRole('navigation', { name: 'Sections' }).boundingBox();
+      expect(Math.abs(sections!.y - brand!.y)).toBeLessThan(2);
+    }
+  });
+});
+
 test.describe('container queries', () => {
   test('EntryCard adapts to its container, not the viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1400, height: 900 });
