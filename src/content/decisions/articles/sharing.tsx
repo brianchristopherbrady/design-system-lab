@@ -7,6 +7,23 @@ export const sharing: Decision = {
   stage: 'Sharing boundaries',
   question: 'What should Meadow, a guided consumer product, share with Harbor, a dense professional application?',
   matters: 'Sharing too much bends components toward options neither product needs; sharing too little means building keyboard and accessibility behavior twice.',
+  project: {
+    choice:
+      'One component tree serves every product mode. A product changes brand colors, typefaces and corner radii through tokens, density changes sizes, and no component is forked or restyled per product.',
+    constraint: 'Share behavior only where it is genuinely the same, and let tokens carry what varies, so one fix reaches every product mode.',
+    tryIt: {
+      text: 'Submit “abc” in both compositions below: the same message and error wiring, in two different presentations. Then change the Product control in the header and watch this whole site restyle.',
+      links: [
+        { label: 'Two compositions', href: '/decisions/sharing#compositions' },
+        { label: 'Products × themes', href: '/foundations/products#matrix' },
+      ],
+    },
+    tradeoff:
+      'Product modes prove configurable presentation, not that two real products should share workflows or behavior. That needs evidence from their users and a pilot, which the scenario below works through.',
+    evidence:
+      'A policy test keeps each product’s overrides to brand colors, typefaces and corner radii, and a browser test checks that both compositions show the same error while their typefaces differ. The scenario and the constraints explorer below are hypothetical and proposed.',
+    lead: ['compositions', 'this-site'],
+  },
   record: {
     context: [
       {
@@ -144,7 +161,7 @@ export const sharing: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'Two demonstrations built from this repository’s components, each inside its product’s scope: a guided step for Meadow and a dense review panel for Harbor. The workflows are invented for the scenario, and nothing is sent or saved. They show what can be shared between compositions, not what either product’s users need.',
+            'Two demonstrations built from this repository’s components, each inside its product’s scope: a guided step for Meadow and a dense review panel for Harbor. The workflows are invented for the [scenario](/decisions/sharing#scenario), and nothing is sent or saved. They show what can be shared between compositions, not what either product’s users need.',
           ],
         },
         {

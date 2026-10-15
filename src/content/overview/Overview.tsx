@@ -68,7 +68,7 @@ const moreStops: readonly Stop[] = [
   },
   {
     title: 'Design decisions',
-    shows: 'Decision records, from requirements to operation, followed through one labelled hypothetical scenario.',
+    shows: 'Why this project is built the way it is, each choice with a working example, then how the approach applies to a product team.',
     link: { label: 'Design decisions', href: '/decisions' },
   },
 ];

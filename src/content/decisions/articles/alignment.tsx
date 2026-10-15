@@ -24,6 +24,24 @@ export const alignment: Decision = {
   stage: 'Design and code alignment',
   question: 'How do design assets, tokens, component APIs and documentation stay in step as the shared core changes?',
   matters: 'When the design file, the code and the documentation disagree, each team builds from a different answer and every review starts by finding out which one is right.',
+  project: {
+    choice:
+      'The code owns each component’s contract and the token files own every value; the documentation reads both instead of restating them. There is no design-tool library here.',
+    constraint:
+      'A reviewer has to be able to trust that a props table, a Playground control and a token trace describe the component as built, without anyone remembering to update them.',
+    tryIt: {
+      text: 'Change Badge’s tone in the Playground: the controls offer exactly the values the component exports. Then open its props table, which the compiler checks against the component’s props.',
+      links: [
+        { label: 'Badge in the Playground', href: '/playground?component=badge' },
+        { label: 'Badge props', href: '/components/badge#api' },
+      ],
+    },
+    tradeoff:
+      'The compiler checks names and types, not meaning. Descriptions and displayed type strings are prose that still need review, and nothing here checks a design file.',
+    evidence:
+      'Props tables are typed against each component (ADR 0004), Playground controls must use the exported option arrays, each prop-to-token trace must name a token the component’s files read, and lint fails if generated token output is stale. The design-tool practices later on this page are proposed.',
+    lead: ['today'],
+  },
   record: {
     context: [
       {

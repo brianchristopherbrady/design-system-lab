@@ -8,7 +8,7 @@ import { planning } from './articles/planning';
 import { quality } from './articles/quality';
 import { sharing } from './articles/sharing';
 import { decisionContent, decisionSections } from './DecisionArticle';
-import type { Decision } from './types';
+import type { Decision, ProjectOpening } from './types';
 
 export interface DecisionTopic {
   /** Catalog id; the title and summary come from the catalog entry. */
@@ -18,11 +18,14 @@ export interface DecisionTopic {
   /** The decision in one sentence. */
   choice: string;
   matters: string;
+  /** Present when the page is about this repository's own choice. */
+  project?: ProjectOpening;
   sections: readonly { id: string; label: string }[];
   Content: ComponentType;
 }
 
-export const decisions: readonly Decision[] = [planning, sharing, implementation, componentApis, quality, alignment, adoption, operating];
+/** Reading order: this repository's own decisions first, then applying the approach to a product team. */
+export const decisions: readonly Decision[] = [implementation, componentApis, alignment, quality, sharing, planning, adoption, operating];
 
 export const decisionTopics: readonly DecisionTopic[] = decisions.map((decision) => ({
   id: decision.id,
@@ -30,6 +33,7 @@ export const decisionTopics: readonly DecisionTopic[] = decisions.map((decision)
   question: decision.question,
   choice: decision.record.choice[0]?.text ?? '',
   matters: decision.matters,
+  project: decision.project,
   sections: decisionSections(decision),
   Content: decisionContent(decision),
 }));

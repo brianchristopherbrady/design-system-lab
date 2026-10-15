@@ -1,28 +1,44 @@
 import { expect, test } from '@playwright/test';
 import { expectNoAxeViolations } from './axe';
 
-/** The decision pages in sidebar and pager order. */
+/** The decision pages in sidebar and pager order; `own` pages open with this repository's choice. */
 const pages = [
-  { id: 'planning', title: 'Planning a system', short: 'Planning' },
-  { id: 'sharing', title: 'Sharing across products', short: 'Sharing' },
-  { id: 'implementation', title: 'Choosing an implementation approach', short: 'Implementation' },
-  { id: 'component-apis', title: 'Designing component APIs', short: 'Component APIs' },
-  { id: 'quality', title: 'Quality and release decisions', short: 'Quality' },
-  { id: 'alignment', title: 'Keeping design, code and docs aligned', short: 'Alignment' },
-  { id: 'adoption', title: 'Adoption and migration', short: 'Adoption' },
-  { id: 'operating', title: 'Operating and measuring a system', short: 'Operating' },
+  { id: 'implementation', title: 'Choosing an implementation approach', short: 'Implementation', own: true },
+  { id: 'component-apis', title: 'Designing component APIs', short: 'Component APIs', own: true },
+  { id: 'alignment', title: 'Keeping design, code and docs aligned', short: 'Alignment', own: true },
+  { id: 'quality', title: 'Quality and release decisions', short: 'Quality', own: true },
+  { id: 'sharing', title: 'Sharing across products', short: 'Sharing', own: true },
+  { id: 'planning', title: 'Planning a system', short: 'Planning', own: false },
+  { id: 'adoption', title: 'Adoption and migration', short: 'Adoption', own: false },
+  { id: 'operating', title: 'Operating and measuring a system', short: 'Operating', own: false },
 ];
 
 test.describe('design decisions', () => {
   test('the section answers one question per page, each linked from the landing page', async ({ page }) => {
     await page.goto('/decisions');
     await expect(page.getByRole('heading', { level: 1, name: 'Design decisions' })).toBeVisible();
-    const cards = page.getByRole('list', { name: 'Design decisions' }).getByRole('listitem');
-    await expect(cards).toHaveCount(pages.length);
+    const own = page.getByRole('list', { name: 'Decisions in this project' }).getByRole('listitem');
+    await expect(own).toHaveCount(pages.filter((entry) => entry.own).length);
+    await expect(page.getByRole('list', { name: 'Applying the approach to a product team' }).getByRole('listitem')).toHaveCount(pages.filter((entry) => !entry.own).length);
+    await expect(own.first().getByRole('link', { name: 'Button in the Playground' })).toHaveAttribute('href', '/playground?component=button');
     await expectNoAxeViolations(page);
     await page.getByRole('link', { name: 'Sharing across products' }).first().click();
     await expect(page).toHaveURL(/\/decisions\/sharing$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Sharing across products' })).toBeFocused();
+  });
+
+  test('each page about this project explains its choice in one screen before the scenario', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    for (const { id } of pages.filter((entry) => entry.own)) {
+      await page.goto(`/decisions/${id}`);
+      const opening = page.locator('#project');
+      await expect(opening.getByText('Chosen here', { exact: true })).toBeVisible();
+      const box = await opening.evaluate((element) => element.getBoundingClientRect().height);
+      expect(box, id).toBeLessThanOrEqual(900);
+      const order = await page.locator('main h2').evaluateAll((headings) => headings.map((heading) => heading.textContent));
+      expect(order[0], id).toBe('In this project');
+      expect(order.indexOf('Decision record'), id).toBeGreaterThan(0);
+    }
   });
 
   test('the sharing comparison explains what changed without naming a winner', async ({ page }) => {
@@ -243,7 +259,8 @@ test.describe('design decisions', () => {
       if (next) await expect(pager.getByRole('link', { name: `Next ${next.title}` })).toHaveAttribute('href', `/decisions/${next.id}`);
       else await expect(pager.getByRole('link', { name: /^Next/ })).toHaveCount(0);
       const anchors = await page.getByRole('navigation', { name: 'On this page' }).getByRole('link').evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
-      expect(anchors[0], current.id).toBe('#record');
+      expect(anchors[0], current.id).toBe(current.own ? '#project' : '#record');
+      expect(anchors, current.id).toContain('#record');
       for (const anchor of anchors) await expect(page.locator(anchor), `${current.id} ${anchor}`).toHaveCount(1);
     }
     await page.getByRole('navigation', { name: 'Previous and next decisions' }).getByRole('link', { name: /^Previous/ }).click();

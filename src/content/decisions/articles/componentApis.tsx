@@ -31,6 +31,23 @@ export const componentApis: Decision = {
   stage: 'Component contracts',
   question: 'Which choices should a shared component expose as props, and which belong in tokens, composition or product code?',
   matters: 'Every prop a shared component accepts becomes a promise to every product that uses it, and props are much easier to add than to remove.',
+  project: {
+    choice:
+      'I use named options for visual choices and composition for content and workflow. Button exposes `appearance`, `size`, `border` and `radius`; Card takes `header` and `footer` content; a confirmation composes Dialog with Buttons instead of adding a prop for each action.',
+    constraint:
+      'A prop is a promise to every consumer, so the system owns the values. An unset radius follows the component token and the product; an explicit radius picks a step from the shared scale.',
+    tryIt: {
+      text: 'Change Button’s appearance and loading state in the Playground: it keeps its emphasis while loading, and the usage code follows the same values. Then trace a Card padding value to your browser.',
+      links: [
+        { label: 'Button in the Playground', href: '/playground?component=button' },
+        { label: 'The padding trace', href: '/decisions/component-apis#options' },
+      ],
+    },
+    tradeoff:
+      'A smaller vocabulary for one-off styling, and more composition at the call site. A new shared option has to represent a repeated need, not one screen’s layout.',
+    evidence:
+      'Playground controls use the option arrays the components export, and a test fails if they drift. TypeScript checks each props table against the component’s own props, and tests check that each documented token trace names a token the component reads. Descriptions and displayed type strings are written by hand and still need review.',
+  },
   record: {
     context: [
       {

@@ -71,6 +71,17 @@
     font-weight: var(--font-weight-semibold);
   }
 
+  /* The working examples a page's opening and its overview card point to; the second selector outranks .statement ul. */
+  .tryLinks,
+  .statement .tryLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--spacing-medium);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   .badges {
     display: inline-flex;
     flex-wrap: wrap;

@@ -26,6 +26,23 @@ export const quality: Decision = {
   stage: 'Quality and release',
   question: 'How do quality and accessibility requirements become acceptance criteria, and what decides that a shared component is ready for products?',
   matters: 'A clean automated scan is easy to mistake for accessibility, and without written criteria each product assumes the other one tested the component.',
+  project: {
+    choice: 'I write a component’s behavior as criteria that can pass or fail, and name the check that proves each one. Tabs is the worked example.',
+    constraint:
+      'A clean automated scan is easy to mistake for accessibility, and this project has had no screen-reader evaluation, so every claim has to say which check supports it.',
+    tryIt: {
+      text: 'Focus a tab in the demo below and use the arrow keys, Home and End. Then switch to right to left: ArrowLeft now moves to the next tab.',
+      links: [
+        { label: 'Try the contract', href: '/decisions/quality#demo' },
+        { label: 'Tabs behavior and accessibility', href: '/components/tabs#behavior' },
+      ],
+    },
+    tradeoff:
+      'Writing criteria and evaluating by hand slows promotion. In return, each guarantee and each gap is written down, and an untested area is listed rather than assumed to pass.',
+    evidence:
+      'Unit tests and Chromium browser tests cover the keyboard pattern, including mirrored arrows in right to left; token tests cover contrast in every product and theme; axe scans run in both themes. Passing them is not a conformance claim, and screen readers, other browsers and a cue for overflowing tabs remain open.',
+    lead: ['contract', 'demo'],
+  },
   record: {
     context: [
       {

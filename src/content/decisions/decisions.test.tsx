@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
 import { badgeAppearances, badgeSizes } from '@/design-system/primitives';
 import { toneScale } from '@/design-system/tokens';
-import { maturities, maturityDefinitions, maturityLabels } from '@/domain/system';
+import { entriesOfKind, findEntry, maturities, maturityDefinitions, maturityLabels } from '@/domain/system';
 import { badgeMapping, differences } from './AlignmentExamples';
 import { DecisionPager } from './DecisionPager';
 import { DecisionsIndex } from './DecisionsIndex';
@@ -188,21 +188,52 @@ describe('design decisions', () => {
     const { unmount } = render(<DecisionPager id="sharing" />);
     const pager = within(screen.getByRole('navigation', { name: 'Previous and next decisions' }));
     expect(pager.getAllByRole('link').map((link) => [link.textContent?.replace(/\s+/g, ' ').trim(), link.getAttribute('href')])).toEqual([
-      ['Previous Planning a system', '/decisions/planning'],
+      ['Previous Quality and release decisions', '/decisions/quality'],
       ['Back to Decisions overview', '/decisions'],
-      ['Next Choosing an implementation approach', '/decisions/implementation'],
+      ['Next Planning a system', '/decisions/planning'],
     ]);
     unmount();
-    render(<DecisionPager id="planning" />);
+    render(<DecisionPager id="implementation" />);
     expect(screen.queryByRole('link', { name: /^Previous/ })).not.toBeInTheDocument();
   });
 
-  it('introduces the scenario, one card per decision and the four labels on the overview', () => {
+  it('leads with this repository’s own decisions, each opening with one screen before the scenario', () => {
+    const own = decisions.filter((decision) => decision.project);
+    expect(own.map((decision) => decision.id)).toEqual(['implementation', 'component-apis', 'alignment', 'quality', 'sharing']);
+    expect(decisions.slice(0, own.length)).toEqual(own);
+    expect(entriesOfKind('decision').map((entry) => entry.id)).toEqual(decisions.map((decision) => decision.id));
+
+    for (const decision of decisions) {
+      const topic = decisionTopics.find((candidate) => candidate.id === decision.id);
+      const ids = topic?.sections.map((section) => section.id) ?? [];
+      const { project } = decision;
+      if (!project) {
+        expect(ids[0], decision.id).toBe('record');
+        continue;
+      }
+      const lead = project.lead ?? [];
+      expect(ids.slice(0, lead.length + 2), decision.id).toEqual(['project', ...lead, 'record']);
+      const parts = [project.choice, project.constraint, project.tryIt.text, project.tradeoff, project.evidence];
+      for (const part of parts) expect(part.trim().length, decision.id).toBeGreaterThan(0);
+      expect(parts.join(' ').split(/\s+/).length, decision.id).toBeLessThanOrEqual(200);
+      expect(project.tryIt.links.length, decision.id).toBeGreaterThan(0);
+      for (const link of project.tryIt.links) expect(link.href, decision.id).toMatch(/^\//);
+    }
+  });
+
+  it('groups the overview into this project’s decisions and the product-team scenario', () => {
     render(<DecisionsIndex />);
+    const own = within(screen.getByRole('list', { name: 'Decisions in this project' })).getAllByRole('listitem');
+    const team = within(screen.getByRole('list', { name: 'Applying the approach to a product team' })).getAllByRole('listitem');
+    expect(own.length + team.length).toBe(decisionTopics.length);
+    for (const [index, card] of own.entries()) {
+      const topic = decisionTopics[index];
+      expect(within(card).getByRole('link', { name: findEntry(topic?.id ?? '')?.name })).toHaveAttribute('href', `/decisions/${topic?.id ?? ''}`);
+      for (const link of topic?.project?.tryIt.links ?? []) expect(within(card).getByRole('link', { name: link.label })).toHaveAttribute('href', link.href);
+    }
+    const firstTeam = decisionTopics[own.length];
+    expect(within(team[0] as HTMLElement).getByText(firstTeam?.choice ?? '')).toBeInTheDocument();
     expect(within(screen.getByRole('list', { name: 'Products in the scenario' })).getAllByRole('listitem')).toHaveLength(2);
-    const cards = within(screen.getByRole('list', { name: 'Design decisions' })).getAllByRole('listitem');
-    expect(cards).toHaveLength(decisionTopics.length);
-    expect(within(cards[0] as HTMLElement).getByText(decisionTopics[0]?.choice ?? '')).toBeInTheDocument();
     for (const label of ['Implemented', 'Hypothetical', 'Proposed', 'Conceptual']) expect(screen.getAllByText(label).length).toBeGreaterThan(0);
   });
 });

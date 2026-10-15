@@ -57,6 +57,20 @@ export interface DecisionRecord {
   reconsider: readonly Statement[];
 }
 
+/** How a page opens when the decision is one this repository made: one screen, before the scenario. */
+export interface ProjectOpening {
+  /** What this repository chose. The overview card shows it. */
+  choice: string;
+  constraint: string;
+  /** Something to do with a working example, and where to do it. */
+  tryIt: { text: string; links: readonly { label: string; href: string }[] };
+  tradeoff: string;
+  /** What the checks establish, and what they leave open. */
+  evidence: string;
+  /** Ids of sections about this repository that come before the scenario's decision record. */
+  lead?: readonly string[];
+}
+
 export interface Decision {
   /** Catalog id; the page title and summary come from the catalog entry. */
   id: string;
@@ -65,6 +79,8 @@ export interface Decision {
   question: string;
   /** Why the decision matters, in one sentence. */
   matters: string;
+  /** Present on pages about this repository's own choices, which lead the section. */
+  project?: ProjectOpening;
   record: DecisionRecord;
   sections: readonly DecisionSection[];
   sources?: readonly SourceId[];

@@ -24,6 +24,24 @@ export const implementation: Decision = {
   stage: 'Implementation choices',
   question: 'How should the shared components reach Meadow and Harbor, and what changes if their frameworks diverge?',
   matters: 'Every framework a system supports adds integration and testing work in each product that uses it.',
+  project: {
+    choice:
+      'I build the components in React 19 and strict TypeScript, styled with CSS Modules, over tokens generated from framework-free DTCG JSON. There are no Web Components and no component or headless library.',
+    constraint:
+      'The brief asked for React, a small dependency list and the project’s own design-system surface rather than a styled library (ADR 0001), and for one token source whose build fails on broken references (ADR 0002).',
+    tryIt: {
+      text: 'Change Button’s appearance in the Playground and switch the product in the header, then follow the same value from its token file to the CSS.',
+      links: [
+        { label: 'Button in the Playground', href: '/playground?component=button' },
+        { label: 'Token pipeline', href: '/foundations/tokens#pipeline' },
+      ],
+    },
+    tradeoff:
+      'Components work only in React, and every keyboard model and focus rule is written and tested here, with no upstream library to share fixes. The tokens stay portable to any framework.',
+    evidence:
+      'ADR 0001 and 0002 record the constraints and the token alternatives. No record explains why Dialog and Tabs were later written by hand, and the repository’s record below says so rather than supplying a history. Lint rejects raw colors in stylesheets, and the token generator fails on DTCG features it does not support.',
+    lead: ['current'],
+  },
   record: {
     context: [
       {
