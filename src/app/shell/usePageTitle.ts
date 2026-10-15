@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
-import { appName } from '../paths';
+import { appName, homeTitle } from '../paths';
 
 /**
  * Sets the document title and, after client-side navigation, moves focus to the page's h1
@@ -13,7 +13,7 @@ export function usePageTitle(title: string) {
   const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
-    document.title = title === appName ? appName : `${title} · ${appName}`;
+    document.title = title === appName ? homeTitle : `${title} · ${appName}`;
   }, [title]);
 
   useEffect(() => {

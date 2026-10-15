@@ -15,7 +15,7 @@ import { catalog, entriesOfKind, findEntry } from '@/domain/system';
 import { cssVarIndex, hasSource, tokenReadsOf } from '@/features/docs';
 import { parseSearch, toSearchParams } from '@/features/playground';
 import { legacyGuideTargets } from '@/app/legacyGuides';
-import { paths } from '@/app/paths';
+import { author, homeTitle, paths } from '@/app/paths';
 
 const siteSources = import.meta.glob<string>(['/src/**/*.{ts,tsx}', '!/src/test/documentation.test.ts', '!/src/**/generated/**'], {
   query: '?raw',
@@ -222,6 +222,15 @@ describe('terminology', () => {
 });
 
 describe('written facts match the source', () => {
+  it('gives link previews the Overview’s title and one description that names the author', () => {
+    const html = projectText['/index.html'] ?? '';
+    expect(html).toContain(`<title>${homeTitle}</title>`);
+    expect(html).toContain(`<meta property="og:title" content="${homeTitle}" />`);
+    const descriptions = [...html.matchAll(/(?:name="description"|property="og:description")\s+content="([^"]+)"/g)].map((match) => match[1]);
+    expect(descriptions).toHaveLength(2);
+    expect(new Set(descriptions).size).toBe(1);
+    expect(descriptions[0]).toContain(author.name);
+  });
   it('names only palette tokens that exist', () => {
     const known = new Set<string>(tokenManifest.map((record) => record.path));
     const missing = Object.entries({ ...siteSources, ...projectText }).flatMap(([file, text]) =>

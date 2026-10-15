@@ -3,13 +3,14 @@
 ## Before you add something
 
 1. **Search the Components index.** Extending an existing component is usually better than adding one.
-2. **Find the lowest implementation layer that has everything the code needs.** Catalog knowledge belongs in
+2. **Open an issue first.** Describe the problem a new component or change solves and what you searched.
+3. **Find the lowest implementation layer that has everything the code needs.** Catalog knowledge belongs in
    `src/domain/system`; URL, storage, requests and demo orchestration belong in
    `src/features/<area>`; documentation, stories and fixtures belong in `src/content/<area>`;
    routes and the shell belong in `src/app`.
-3. **Prefer native HTML.** Introduce ARIA only when no native element expresses the pattern, and
+4. **Prefer native HTML.** Introduce ARIA only when no native element expresses the pattern, and
    then follow the matching WAI-ARIA Authoring Practices pattern.
-4. **Do not add props to make an API larger.** A visual prop must express a real design decision
+5. **Do not add props to make an API larger.** A visual prop must express a real design decision
    and resolve to a token.
 
 ## Adding a token

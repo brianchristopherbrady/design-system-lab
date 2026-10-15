@@ -33,24 +33,29 @@ export interface OverviewAuthor {
 interface Stop {
   title: string;
   shows: string;
+  /** What a reviewer can judge from this stop. */
+  demonstrates?: string;
   link: { label: string; href: string };
 }
 
-/** The strongest evidence first; each stop is one destination with one sentence about what it demonstrates. */
+/** The strongest evidence first; each stop is one destination with one sentence about what to try there. */
 const reviewPath: readonly Stop[] = [
   {
-    title: 'Component Playground',
-    shows: 'Edit Button’s token-backed props in a Controls table, watch a scoped preview respond, and copy the usage code generated from the same values.',
+    title: 'Try component controls',
+    shows: 'Change a button’s props and see the interface and usage code stay in step.',
+    demonstrates: 'Component APIs and developer tooling.',
     link: { label: 'Open the Playground', href: '/playground?component=button' },
   },
   {
-    title: 'Theme studio',
-    shows: 'Generate a product theme from one brand color, check every brand role’s contrast in both themes, and export the token sources it produces.',
+    title: 'Build a theme',
+    shows: 'Choose a brand color, compare contrast and inspect the resulting token files.',
+    demonstrates: 'Token architecture and design automation.',
     link: { label: 'Open the Theme studio', href: '/foundations/theme-studio' },
   },
   {
-    title: 'Form validation',
-    shows: 'Submit the form empty, follow the error summary’s links to each field, and see where focus goes as components combine to recover.',
+    title: 'Test error recovery',
+    shows: 'Submit an empty form, follow the error links and see how the interface helps you recover.',
+    demonstrates: 'Composition, validation and focus management.',
     link: { label: 'Try Form validation', href: '/patterns/form-validation' },
   },
 ];
@@ -79,7 +84,7 @@ export function OverviewActions({ author }: { author: OverviewAuthor }) {
   return (
     <>
       <Link href="/playground?component=button" variant="standalone" className={styles.primaryLink}>
-        Explore Button <Icon name="arrowRight" />
+        Explore the Playground <Icon name="arrowRight" />
       </Link>
       <Link href={author.repository} variant="standalone" className={styles.actionLink}>
         Source on GitHub <Icon name="externalLink" />
@@ -108,6 +113,11 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
                   {stop.title}
                 </Heading>
                 <Text variant="bodySmall">{stop.shows}</Text>
+                {stop.demonstrates && (
+                  <Text variant="bodySmall" tone="muted">
+                    Shows: {stop.demonstrates}
+                  </Text>
+                )}
                 <PageLink href={stop.link.href}>{stop.link.label}</PageLink>
               </Stack>
             </Card>
@@ -422,30 +432,12 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
 
       <DocSection id="contributing" title="Contributing">
         <Prose>
-          <ol>
-            <li>
-              Search the <Link href="/components">Components index</Link>. Extending an existing component is usually better
-              than adding one.
-            </li>
-            <li>
-              Propose a new component or a change by{' '}
-              <Link href={`${author.repository}/issues/new`}>opening an issue in the GitHub repository</Link>. Describe the
-              problem it solves and what you searched.
-            </li>
-            <li>
-              Follow the <Link href={`${author.repository}/blob/main/docs/contributing.md`}>contributing guide</Link>. A
-              visual decision that should change with theme, product or density needs a semantic or component token before
-              any CSS; a fixed value may read a non-color reference scale directly.
-            </li>
-            <li>Add a catalog entry, a ComponentDoc and, for components with visual props, a Playground story.</li>
-            <li>
-              Run <code>npm run verify</code> before opening a pull request. It runs lint with the token, boundary and style
-              checks, type checking, unit tests, the build and the end-to-end suite.
-            </li>
-          </ol>
           <p>
-            The <Link href="/patterns/form-validation">Form validation pattern</Link> shows how a proposal form can validate
-            input. It is a demonstration: submitting it sends nothing.
+            New entries start in the repository: a catalog entry, a ComponentDoc and, for components with visual props, a
+            Playground story, checked by <code>npm run verify</code>. The{' '}
+            <Link href={`${author.repository}/blob/main/docs/contributing.md`}>contributing guide</Link> has the full
+            checklist. The <Link href="/patterns/form-validation">Form validation pattern</Link> shows how a proposal form
+            can validate input; submitting it sends nothing.
           </p>
         </Prose>
       </DocSection>

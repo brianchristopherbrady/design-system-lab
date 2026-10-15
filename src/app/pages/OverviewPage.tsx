@@ -10,8 +10,9 @@ export function OverviewPage() {
       eyebrow="Overview"
       description={
         <>
-          A working design system, designed and built by <Link href={author.portfolio}>{author.name}</Link>. Its tokens,
-          components and interface patterns are documented here, and this website is built from them.
+          I’m <Link href={author.portfolio}>{author.name}</Link>, a design engineer. I built this site to show how I turn
+          design decisions into reusable components, accessible interactions and tools that keep implementation and
+          documentation aligned. The site uses the same tokens and components it documents.
         </>
       }
       actions={<OverviewActions author={author} />}

@@ -99,6 +99,7 @@ test.describe('keyboard and focus', () => {
 
   test('client-side navigation moves focus to the new page heading', async ({ page }) => {
     await page.goto('/');
+    await expect(page).toHaveTitle('Design System Lab | Brian Brady | Design Engineer');
     await page.getByRole('navigation', { name: 'Sections' }).getByRole('link', { name: 'Components' }).click();
     await expect(page.getByRole('heading', { level: 1, name: 'Components' })).toBeFocused();
     await expect(page).toHaveTitle('Components · Design System Lab');

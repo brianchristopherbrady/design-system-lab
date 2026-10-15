@@ -34,7 +34,7 @@ test.describe('overview', () => {
       await page.setViewportSize(viewport);
       await page.goto('/');
       await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
-      const explore = page.getByRole('link', { name: 'Explore Button' });
+      const explore = page.getByRole('link', { name: 'Explore the Playground' });
       await expect(explore).toBeInViewport({ ratio: 1 });
       await explore.focus();
       await page.keyboard.press('Enter');
@@ -108,6 +108,6 @@ test.describe('overview', () => {
     await expect(page.getByRole('link', { name: 'Brian Brady' }).first()).toHaveAttribute('href', 'https://brianbrady.dev');
     const repository = 'https://github.com/brianchristopherbrady/design-system-lab';
     await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Source on GitHub' })).toHaveAttribute('href', repository);
-    await expect(page.getByRole('link', { name: 'opening an issue in the GitHub repository' })).toHaveAttribute('href', `${repository}/issues/new`);
+    await expect(page.getByRole('link', { name: 'contributing guide' })).toHaveAttribute('href', `${repository}/blob/main/docs/contributing.md`);
   });
 });
