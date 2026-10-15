@@ -153,6 +153,27 @@ test.describe('theme studio', () => {
     await expect(page.getByRole('tabpanel')).toContainText('product.night-shift.tokens.json');
   });
 
+  test('presets live inside the generator, and the result changes in view as the controls do', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto('/foundations/theme-studio');
+    const presets = page.getByRole('group', { name: 'Start from a preset' });
+    await presets.evaluate((element) => window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 24));
+    const result = page.locator('#studio figure', { hasText: 'Live result' });
+    const save = result.locator('button', { hasText: 'Save' }).first();
+    await expect(result).toBeInViewport();
+    const before = await background(save);
+
+    await presets.getByRole('button', { name: 'Orion' }).click();
+    await expect(result).toContainText('Orion, machined shape');
+    expect(await background(save)).not.toBe(before);
+    await page.locator('#studio').getByRole('radio', { name: 'Pill' }).check();
+    await expect(save).toHaveCSS('border-top-left-radius', '999px');
+    await expect(result).toBeInViewport();
+
+    const top = (name: string) => page.getByRole('textbox', { name, exact: true }).evaluate((input) => Math.round(input.getBoundingClientRect().top));
+    expect(await top('Brand color')).toBe(await top('Product id'));
+  });
+
   test('presets, shape and the address restore a shared theme', async ({ page }) => {
     test.slow();
     await page.goto('/foundations/theme-studio');

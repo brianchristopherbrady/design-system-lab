@@ -21,10 +21,11 @@ function StudioContent() {
       <DocSection id="studio" title="Generate a product theme">
         <Prose>
           <p>
-            Choose a brand color, an id and a shape. The studio builds a 12-step OKLCH ramp, gives each brand role the
-            first step that passes WCAG 2 against this system’s real surfaces, checks the result against the status colors
-            and simulated color vision, and writes every source file a new product needs. Choices are kept in the address,
-            so a theme can be bookmarked or sent for review.
+            Start from a preset, or choose a brand color, an id and a shape. The studio builds a 12-step OKLCH ramp, gives
+            each brand role the first step that passes WCAG 2 against this system’s real surfaces, checks the result against
+            the status colors and simulated color vision, and writes every source file a new product needs. The live result
+            under the controls changes as you do; the sections below show the detail. Choices are kept in the address, so a
+            theme can be bookmarked or sent for review.
           </p>
         </Prose>
         <StudioControls studio={studio} />

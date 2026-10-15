@@ -36,14 +36,38 @@
     background-color: var(--surface-panel);
     box-shadow: var(--elevation-low);
     min-inline-size: 0;
+    container: studio-console / inline-size;
   }
 
-  .inputs {
+  .controls {
+    /* Room for the docked result band, so a focused control is never scrolled underneath it. */
+    --_result-clearance: 12rem;
+
+    display: grid;
+    gap: var(--spacing-large);
+    padding: var(--spacing-large);
+  }
+
+  .controls :is(input, button) {
+    scroll-margin-block-end: var(--_result-clearance);
+  }
+
+  .presetRow {
+    display: grid;
+    gap: var(--spacing-extra-small);
+  }
+
+  /* Label, description, control and error share rows across both fields, so the inputs line up. */
+  .identity {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(var(--size-item-sm), 100%), 1fr));
     gap: var(--spacing-large);
-    align-items: start;
-    padding: var(--spacing-large);
+  }
+
+  .alignedField {
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    align-content: start;
   }
 
   .colorRow {
@@ -77,9 +101,9 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: var(--spacing-medium);
-    padding: var(--spacing-medium) var(--spacing-large);
+    padding: var(--spacing-small) var(--spacing-large);
     border-block-start: var(--border-width-thin) solid var(--border-subtle);
     background-color: var(--surface-sunken);
     border-end-start-radius: var(--radius-lg);
@@ -94,17 +118,19 @@
   }
 
   .presets > .caption {
-    margin-inline-end: var(--spacing-extra-small);
+    flex-basis: 100%;
+    margin-block-end: var(--space-2xs);
   }
 
+  /* Color choices, drawn as swatch tiles so they do not read as a shape. */
   .preset {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
     min-block-size: var(--control-height-small);
-    padding-inline: var(--space-sm) var(--space-md);
+    padding-inline: var(--space-xs) var(--space-md);
     border: var(--border-width-thin) solid var(--border-default);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
     background-color: var(--surface-panel);
     color: var(--text-primary);
     cursor: pointer;
@@ -128,11 +154,92 @@
   }
 
   .presetSwatch {
-    inline-size: var(--space-md);
-    block-size: var(--space-md);
-    border-radius: var(--radius-full);
+    inline-size: var(--space-lg);
+    block-size: var(--space-lg);
+    border-radius: var(--radius-sm);
     background-color: var(--_swatch);
     box-shadow: inset 0 0 0 var(--border-width-thin) var(--border-subtle);
+  }
+
+  /*
+   * Live result: docked to the bottom of the screen while the console is in view, so every
+   * change shows at once; it settles under the controls once the reader scrolls past them.
+   */
+  .result {
+    position: sticky;
+    z-index: 1;
+    inset-block-end: 0;
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: var(--spacing-medium) var(--spacing-large);
+    border-block-start: var(--border-width-thin) solid var(--border-subtle);
+    background-color: var(--surface-panel);
+  }
+
+  .resultCaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2xs) var(--spacing-small);
+    font-size: var(--typography-body-small-font-size);
+  }
+
+  .resultRamp {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    block-size: var(--space-lg);
+    overflow: clip;
+    border-radius: var(--radius-sm);
+  }
+
+  .resultRamp > span {
+    background-color: var(--_swatch);
+    transition: background-color var(--motion-duration-transition) var(--motion-easing-standard);
+  }
+
+  .resultScopes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-small);
+  }
+
+  .resultScope {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs) var(--spacing-small);
+    min-inline-size: 0;
+    padding: var(--spacing-small);
+    border: var(--border-width-thin) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background-color: var(--surface-canvas);
+    color: var(--text-primary);
+  }
+
+  .resultExtra {
+    display: contents;
+  }
+
+  .resultScope > * {
+    flex: none;
+  }
+
+  /* 30rem: below this the docked band keeps only the ramp, the primary button and the filled badge, so it stays short. */
+  @container studio-console (max-inline-size: 30rem) {
+    .result {
+      padding-block: var(--spacing-small);
+    }
+
+    .resultExtra {
+      display: none;
+    }
+
+    .resultScope {
+      flex-wrap: nowrap;
+      gap: var(--space-xs);
+      padding: var(--space-xs);
+    }
   }
 
   /* Readouts: a hairline grid drawn by the gap over a border-colored background */
