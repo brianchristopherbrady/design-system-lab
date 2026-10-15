@@ -247,6 +247,26 @@ test.describe('focus and status after a state change (A11Y-001, A11Y-002)', () =
     expect(await page.evaluate(() => document.activeElement === document.body)).toBe(false);
   });
 
+  test('Clear search on the activity dashboard hands focus to Search changes', async ({ page }) => {
+    const search = page.getByRole('searchbox', { name: 'Search changes' });
+    for (const activation of ['Enter', 'Space', 'pointer'] as const) {
+      await page.goto('/patterns/activity-dashboard');
+      await page.getByRole('combobox', { name: 'Demo scenario' }).selectOption('noResults');
+      const clear = page.getByRole('button', { name: 'Clear search' });
+      if (activation === 'pointer') {
+        await clear.click();
+      } else {
+        await clear.focus();
+        await page.keyboard.press(activation);
+      }
+      await expect(search).toBeFocused();
+      await expect(search).toHaveValue('');
+      await expect(page.getByRole('status').filter({ hasText: /^Showing 23 of 23 changes$/ })).toBeVisible();
+    }
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('combobox', { name: 'Kind of change' })).toBeFocused();
+  });
+
   for (const { path, scenario, outcome } of [
     { path: '/patterns/resource-directory', scenario: 'empty', outcome: 'No entries yet.' },
     { path: '/patterns/activity-dashboard', scenario: 'empty', outcome: 'No activity yet.' },

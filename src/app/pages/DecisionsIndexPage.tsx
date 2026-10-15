@@ -6,7 +6,7 @@ export function DecisionsIndexPage() {
     <DocPage
       title="Design decisions"
       eyebrow="Reasoning"
-      description="Four engineering decisions, from requirements to operation, followed through one hypothetical scenario."
+      description="Engineering decisions, from requirements to operation, followed through one hypothetical scenario."
     >
       <DecisionsIndex />
     </DocPage>

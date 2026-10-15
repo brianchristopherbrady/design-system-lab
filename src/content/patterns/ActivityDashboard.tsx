@@ -112,6 +112,7 @@ function Metric({ label, value, children }: { label: string; value: string; chil
 function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[]; initialQuery: string }) {
   const [query, setQuery] = useState(initialQuery);
   const [kind, setKind] = useState<ActivityKind | 'all'>('all');
+  const searchRef = useRef<HTMLInputElement>(null);
   const summary = summarizeCatalog(catalog);
   const byKind = countActivityByKind(events);
   const terms = query.trim().toLowerCase();
@@ -151,7 +152,7 @@ function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[];
         </Heading>
         <Grid minColumnWidth="small" gap="medium" align="end">
           <Field label="Search changes">
-            {(control) => <Input {...control} type="search" value={query} onChange={(event) => setQuery(event.target.value)} />}
+            {(control) => <Input {...control} ref={searchRef} type="search" value={query} onChange={(event) => setQuery(event.target.value)} />}
           </Field>
           <Field label="Kind of change">
             {(control) => (
@@ -177,6 +178,8 @@ function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[];
             action={
               <Button
                 onClick={() => {
+                  // This button unmounts once changes are listed again; hand focus to Search first.
+                  searchRef.current?.focus();
                   setQuery('');
                   setKind('all');
                 }}

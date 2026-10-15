@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Alert, alertTones, Card, Dialog, Disclosure, EmptyState, Field, RadioGroup, Tabs } from '@/design-system/composites';
-import { Grid, Inline, Stack } from '@/design-system/layout';
-import { Badge, Button, Heading, Icon, Input, Link, Text } from '@/design-system/primitives';
-import { elevationScale } from '@/design-system/tokens';
-import { LiveExample } from '@/features/docs';
+import { Grid, Inline, Stack, useThemeScope } from '@/design-system/layout';
+import { Badge, Button, Heading, Icon, Input, Link, Text, type TextOwnProps } from '@/design-system/primitives';
+import { elevationScale, tokenValueIn } from '@/design-system/tokens';
+import { tokenManifest } from '@/design-system/tokens/manifest';
+import { contextLabel, LiveExample } from '@/features/docs';
 import { outcomeFor, simulateRequest } from '@/features/scenarios';
 import { NarrowAndWide } from './frames';
 import styles from './examples.module.css';
@@ -22,13 +23,14 @@ function MediaArt() {
 }
 
 export function CardExample() {
+  const [pinned, setPinned] = useState(false);
   return (
     <>
       <LiveExample
         title="Header, body and footer with real actions"
         kind="recommended"
         sourcePath={source}
-        description="The card itself is not clickable. The title is a link and the footer holds buttons, so each target has one clear purpose and keyboard users reach each one."
+        description="The card itself is not clickable. The title is a link and the footer holds a Pin toggle button, so each target has one clear purpose and keyboard users reach each one."
       >
         <NarrowAndWide>
           <Card
@@ -55,7 +57,7 @@ export function CardExample() {
                 <Text variant="bodySmall" tone="muted">
                   Updated 5 Oct 2026
                 </Text>
-                <Button size="small" iconStart={<Icon name="star" />}>
+                <Button size="small" aria-pressed={pinned} iconStart={<Icon name="star" />} onClick={() => setPinned(!pinned)}>
                   Pin
                 </Button>
               </Inline>
@@ -281,25 +283,64 @@ function FailingDialog() {
 
 export function AlertExample() {
   return (
+    <>
+      <LiveExample
+        title="Tones with titles that state the meaning"
+        kind="recommended"
+        sourcePath={source}
+        description="These alerts are static, so they have no live role. Add role=&quot;alert&quot; or role=&quot;status&quot; only for messages that appear in response to an action."
+      >
+        <Stack gap="small">
+          {alertTones.map((tone) => (
+            <Alert key={tone} tone={tone} title={`${tone[0]?.toUpperCase()}${tone.slice(1)}: tone="${tone}"`}>
+              Surface, border, icon and title color all come from the {tone} tone tokens.
+            </Alert>
+          ))}
+        </Stack>
+      </LiveExample>
+      <RecoveringAlert />
+    </>
+  );
+}
+
+function RecoveringAlert() {
+  const [recovered, setRecovered] = useState(false);
+  return (
     <LiveExample
-      title="Tones with titles that state the meaning"
+      title="An error with a way to recover"
       kind="recommended"
       sourcePath={source}
-      description="These alerts are static, so they have no live role. Add role=&quot;alert&quot; or role=&quot;status&quot; only for messages that appear in response to an action."
+      description="Retry always succeeds here, so recovery can be tried every time. The action stays the same button, so focus stays on it while the alert changes tone, and a status message reports the result."
     >
       <Stack gap="small">
-        {alertTones.map((tone) => (
-          <Alert
-            key={tone}
-            tone={tone}
-            title={`${tone[0]?.toUpperCase()}${tone.slice(1)}: tone="${tone}"`}
-            actions={tone === 'danger' ? <Button size="small">Retry</Button> : undefined}
-          >
-            Surface, border, icon and title color all come from the {tone} tone tokens.
-          </Alert>
-        ))}
+        <Alert
+          tone={recovered ? 'success' : 'danger'}
+          title={recovered ? 'Changes loaded' : 'Changes could not be loaded'}
+          actions={
+            <Button size="small" iconStart={<Icon name="refresh" />} onClick={() => setRecovered(!recovered)}>
+              {recovered ? 'Reset example' : 'Retry'}
+            </Button>
+          }
+        >
+          {recovered ? 'The second attempt succeeded.' : 'The request failed and nothing was changed. Try again.'}
+        </Alert>
+        <Text role="status" variant="bodySmall" tone="muted">
+          {recovered ? 'Changes loaded on the second attempt.' : ''}
+        </Text>
       </Stack>
     </LiveExample>
+  );
+}
+
+/** button.primary.background's alias chain for the product and theme in effect where it renders. */
+function PrimaryBackgroundChain({ variant }: { variant?: TextOwnProps['variant'] }) {
+  const scope = useThemeScope();
+  const record = tokenManifest.find((candidate) => candidate.path === 'button.primary.background');
+  if (!record) return null;
+  return (
+    <Text variant={variant}>
+      {tokenValueIn(record, scope).chain.join(' → ')} ({contextLabel(scope)})
+    </Text>
   );
 }
 
@@ -315,7 +356,7 @@ export function TabsExample() {
         label="Button details"
         items={[
           { id: 'usage', label: 'Usage', content: <Text>Use one primary button per view region.</Text> },
-          { id: 'tokens', label: 'Tokens', content: <Text>button.primary.background → action.primary.background → color.blue.600</Text> },
+          { id: 'tokens', label: 'Tokens', content: <PrimaryBackgroundChain /> },
           { id: 'changes', label: 'Changes', content: <Text>Renamed variant to appearance on 7 Oct 2026.</Text> },
         ]}
       />
@@ -332,11 +373,11 @@ export function DisclosureExample() {
       description="Each row is a native summary: Tab to it, then Enter or Space toggles it. lazy renders the content only while it is open."
     >
       <Stack gap="extraSmall">
-        <Disclosure summary="Why is the primary button black?">
+        <Disclosure summary="Why is the primary button solid?">
           <Text variant="bodySmall">The monolith: one solid action per region, so the next step is never ambiguous.</Text>
         </Disclosure>
         <Disclosure summary="Which tokens does it read?" lazy>
-          <Text variant="bodySmall">button.primary.background → action.primary.background → color.neutral.950</Text>
+          <PrimaryBackgroundChain variant="bodySmall" />
         </Disclosure>
         <Disclosure summary="A summary with a much longer label that wraps onto a second line in narrow containers" defaultOpen>
           <Text variant="bodySmall">Open on first render with defaultOpen; the marker turns to show the state.</Text>
@@ -400,7 +441,7 @@ export function EmptyStateExample() {
         headingLevel={3}
         title="No pinned entries yet"
         description="Pin the components you use most and they will appear here."
-        action={<Button appearance="primary">Browse components</Button>}
+        action={<Link href="/components">Browse components</Link>}
       />
     </LiveExample>
   );

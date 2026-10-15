@@ -63,7 +63,7 @@ const moreStops: readonly Stop[] = [
   },
   {
     title: 'Design decisions',
-    shows: 'Four decision records, from requirements to operation, followed through one labelled hypothetical scenario.',
+    shows: 'Decision records, from requirements to operation, followed through one labelled hypothetical scenario.',
     link: { label: 'Design decisions', href: '/decisions' },
   },
 ];

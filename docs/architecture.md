@@ -45,7 +45,7 @@ forbids raw colors and palette (`--color-*`) variables outside the token files, 
 
 ## Token tiers
 
-1. **Reference** (`reference.tokens.json`): palettes and raw scales — `color.blue.600`,
+1. **Reference** (`reference.tokens.json`): palettes and raw scales — `color.neutral.950`,
    `space.md`, `radius.lg`, `shadow.medium`, `duration.base`. Palettes are read only through
    semantic roles; the non-color scales may be read directly for fixed values. The dependency
    policy (`src/design-system/tokens/policy.ts`) lists the rules and their exceptions, and the token

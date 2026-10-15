@@ -28,8 +28,9 @@ Sections:
   validated form. Each request-driven demo has a **Demo scenario** selector listing only the
   states that apply to it (loading, success, error, an empty state, and no results where there is
   a search), and an overlay of the query containers each demo responds to.
-- **Design decisions** — four engineering decisions (planning, sharing across products,
-  implementation and operating), each with a short decision record, followed through one
+- **Design decisions** — engineering decisions (planning, sharing across products, implementation,
+  component APIs, quality, design and code alignment, adoption and operating), each with a short
+  decision record, followed through one
   hypothetical scenario: Meadow, for occasional consumers completing guided tasks, and Harbor, for
   professionals scanning dense information. The scenario is separate from the Harbor and Meadow
   product modes this site implements. Material is labelled implemented, hypothetical, proposed or

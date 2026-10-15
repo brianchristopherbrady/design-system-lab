@@ -40,7 +40,7 @@ export const maturityDefinitions: Record<Maturity, MaturityDefinition> = {
       'Used by this site outside its own documentation page.',
     ],
     change: 'Deprecate first, keep working for at least one minor release, then remove in a major release.',
-    limits: 'Not a claim of WCAG conformance. Automated scans and keyboard tests run in Chromium; screen reader testing is manual and partial (see docs/accessibility.md).',
+    limits: 'Not a claim of WCAG conformance. Automated scans and keyboard tests run in Chromium; no screen-reader evaluation has been performed (see docs/accessibility.md).',
   },
   deprecated: {
     promise: 'Still works, but is scheduled for removal and hidden from navigation and the index.',

@@ -220,3 +220,31 @@ describe('terminology', () => {
     expect(hits).toEqual([]);
   });
 });
+
+describe('written facts match the source', () => {
+  it('names only palette tokens that exist', () => {
+    const known = new Set<string>(tokenManifest.map((record) => record.path));
+    const missing = Object.entries({ ...siteSources, ...projectText }).flatMap(([file, text]) =>
+      [...text.matchAll(/\bcolor\.[a-z]+\.\d{2,3}\b/g)].map((match) => match[0]).filter((path) => !known.has(path)).map((path) => `${file}: ${path}`),
+    );
+    expect(missing).toEqual([]);
+  });
+
+  it('counts the design decisions correctly where the section is described', () => {
+    const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+    const describing = ['/README.md', '/index.html', '/src/content/overview/Overview.tsx', '/src/app/pages/DecisionsIndexPage.tsx', '/src/content/decisions/DecisionsIndex.tsx'];
+    // Top-level docs only: dated audit records and ADRs describe the site as it was.
+    const texts = Object.entries({ ...siteSources, ...projectText }).filter(([file]) => describing.includes(file) || /^\/docs\/[^/]+\.md$/.test(file));
+    expect(texts.length).toBeGreaterThanOrEqual(describing.length);
+    const wrong = texts.flatMap(([file, text]) =>
+      [...text.matchAll(/\b(\w+) (?:engineering |design )?decision(?:s| records| pages)\b/gi)]
+        .filter((match) => {
+          const word = (match[1] ?? '').toLowerCase();
+          const count = /^\d+$/.test(word) ? Number(word) : numbers.indexOf(word);
+          return count >= 0 && count !== decisionTopics.length;
+        })
+        .map((match) => `${file}: ${match[0]}`),
+    );
+    expect(wrong).toEqual([]);
+  });
+});

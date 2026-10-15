@@ -82,9 +82,14 @@ function Specimen({ studio, theme }: { studio: ThemeStudioState; theme: 'light' 
  */
 export function StudioPreview({ studio }: { studio: ThemeStudioState }) {
   return (
-    <Grid minColumnWidth="medium" gap="medium">
-      <Specimen studio={studio} theme="light" />
-      <Specimen studio={studio} theme="dark" />
-    </Grid>
+    <Stack gap="small">
+      <Text variant="bodySmall" tone="muted">
+        Visual specimens: Publish and Preview show the generated styles and do not do anything.
+      </Text>
+      <Grid minColumnWidth="medium" gap="medium">
+        <Specimen studio={studio} theme="light" />
+        <Specimen studio={studio} theme="dark" />
+      </Grid>
+    </Stack>
   );
 }

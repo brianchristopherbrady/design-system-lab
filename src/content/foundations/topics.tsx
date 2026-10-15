@@ -72,7 +72,7 @@ function TokensContent() {
         <Grid minColumnWidth="small" gap="medium">
           <Card header={<Heading level={3} size="small">Reference ({tierCount('reference')})</Heading>}>
             <Text variant="bodySmall">
-              Raw scales with no meaning: <code>color.blue.600</code>, <code>space.md</code>, <code>radius.lg</code>,{' '}
+              Raw scales with no meaning: <code>color.neutral.950</code>, <code>space.md</code>, <code>radius.lg</code>,{' '}
               <code>shadow.medium</code>, <code>duration.base</code>. Identical in every theme, product and density.
               Palettes are read only through semantic roles; the other scales may be read directly for fixed values.
             </Text>

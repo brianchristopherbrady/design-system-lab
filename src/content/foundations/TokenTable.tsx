@@ -1,7 +1,8 @@
 import { useId, type ReactNode } from 'react';
-import type { TokenPath } from '@/design-system/tokens';
+import { themeNames, tokenValueIn, type TokenPath } from '@/design-system/tokens';
 import { tokenManifest } from '@/design-system/tokens/manifest';
-import { ScrollRegion } from '@/design-system/layout';
+import { ScrollRegion, useThemeScope } from '@/design-system/layout';
+import { densityLabels, productProfiles } from '@/domain/system';
 import { TokenSwatch } from '@/features/docs';
 import styles from './foundations.module.css';
 
@@ -18,46 +19,60 @@ export interface TokenTableProps {
   preview?: (cssVar: string, path: TokenPath) => ReactNode;
 }
 
-/** Tokens with their authored and resolved values in both themes, read from the generated manifest. */
+/**
+ * Tokens with their authored and resolved values, read from the generated manifest for the product and
+ * density in effect. Light and Dark columns appear only when a token in the table varies by theme.
+ */
 export function TokenTable({ caption, paths, preview }: TokenTableProps) {
   const captionId = useId();
+  const scope = useThemeScope();
+  const records = paths.flatMap((path) => byPath.get(path) ?? []);
+  const themes = records.some((record) => record.dependsOn.includes('theme')) ? themeNames : null;
+  const contextual = records.some((record) => record.dependsOn.some((name) => name !== 'theme'));
   return (
     <ScrollRegion aria-labelledby={captionId}>
       <table className={styles.table}>
         <caption id={captionId} className={styles.caption}>
           {caption}
+          {contextual && `, for ${productProfiles[scope.product].name} at ${densityLabels[scope.density].toLowerCase()} density`}
         </caption>
         <thead>
           <tr>
             <th scope="col">Token</th>
-            <th scope="col">Light</th>
-            <th scope="col">Dark</th>
+            {themes ? (
+              themes.map((theme) => (
+                <th key={theme} scope="col">
+                  {theme === 'light' ? 'Light' : 'Dark'}
+                </th>
+              ))
+            ) : (
+              <th scope="col">Value</th>
+            )}
             {preview && <th scope="col">Sample</th>}
           </tr>
         </thead>
         <tbody>
-          {paths.map((path) => {
-            const record = byPath.get(path);
-            if (!record) return null;
-            return (
-              <tr key={path}>
-                <th scope="row">
-                  <code>{path}</code>
-                  <br />
-                  <code className={styles.muted}>{record.cssVar}</code>
-                </th>
-                {(['light', 'dark'] as const).map((theme) => (
+          {records.map((record) => (
+            <tr key={record.path}>
+              <th scope="row">
+                <code>{record.path}</code>
+                <br />
+                <code className={styles.muted}>{record.cssVar}</code>
+              </th>
+              {(themes ?? [scope.theme]).map((theme) => {
+                const value = tokenValueIn(record, { ...scope, theme });
+                return (
                   <td key={theme}>
                     <span className={styles.value}>
-                      <TokenSwatch type={record.type} value={record.values[theme].resolved} />
-                      <code>{record.values[theme].authored}</code>
+                      <TokenSwatch type={record.type} value={value.resolved} />
+                      <code>{value.authored}</code>
                     </span>
                   </td>
-                ))}
-                {preview && <td>{preview(`var(${record.cssVar})`, path)}</td>}
-              </tr>
-            );
-          })}
+                );
+              })}
+              {preview && <td>{preview(`var(${record.cssVar})`, record.path as TokenPath)}</td>}
+            </tr>
+          ))}
         </tbody>
       </table>
     </ScrollRegion>

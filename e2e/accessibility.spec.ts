@@ -140,10 +140,34 @@ test.describe('keyboard and focus', () => {
     await page.keyboard.press('ArrowRight');
     await expect(page.getByRole('tab', { name: 'Tokens' })).toBeFocused();
     await expect(page.getByRole('tab', { name: 'Tokens' })).toHaveAttribute('aria-selected', 'true');
+    await expect(page.getByRole('tabpanel', { name: 'Tokens' })).toContainText('button.primary.background → action.primary.background → color.neutral.950');
     await page.keyboard.press('End');
     await expect(page.getByRole('tab', { name: 'Changes' })).toBeFocused();
     await page.keyboard.press('Tab');
     await expect(page.getByRole('tabpanel', { name: 'Changes' })).toBeFocused();
+  });
+
+  test('example actions show a result for pointer and keyboard', async ({ page }) => {
+    await page.goto('/components/card');
+    const pin = page.getByRole('button', { name: 'Pin' }).first();
+    await expect(pin).toHaveAttribute('aria-pressed', 'false');
+    await pin.click();
+    await expect(pin).toHaveAttribute('aria-pressed', 'true');
+    await page.keyboard.press('Space');
+    await expect(pin).toHaveAttribute('aria-pressed', 'false');
+
+    await page.goto('/components/alert');
+    await page.getByRole('button', { name: 'Retry' }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('status').filter({ hasText: 'Changes loaded on the second attempt.' })).toBeVisible();
+    const reset = page.getByRole('button', { name: 'Reset example' });
+    await expect(reset).toBeFocused();
+    await reset.click();
+    await expect(page.getByRole('button', { name: 'Retry' })).toBeFocused();
+
+    await page.goto('/components/empty-state');
+    await page.getByRole('link', { name: 'Browse components' }).click();
+    await expect(page).toHaveURL(/\/components$/);
   });
 
   test('the form error summary receives focus and links to fields', async ({ page }) => {
@@ -167,5 +191,16 @@ test.describe('themes', () => {
     expect(await canvas()).not.toBe(light);
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  });
+
+  test('token tables and example traces follow the selected product', async ({ page }) => {
+    await page.goto('/foundations/color');
+    await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption('meadow');
+    const actions = page.getByRole('table', { name: /^Action roles used by Button, for Meadow at \w+ density$/ });
+    await expect(actions.getByRole('row', { name: /^action\.primary\.background\b/ }).getByRole('cell').first()).toHaveText('{brand.meadow.strong}');
+
+    await page.goto('/components/tabs');
+    await page.getByRole('tab', { name: 'Tokens' }).click();
+    await expect(page.getByRole('tabpanel', { name: 'Tokens' })).toContainText('action.primary.background → brand.meadow.strong');
   });
 });
