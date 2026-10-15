@@ -10,7 +10,7 @@ import styles from './decisions.module.css';
 
 export const decisionsIndexSections = [
   { id: 'scenario', label: 'The scenario' },
-  { id: 'decisions', label: 'Four decisions' },
+  { id: 'decisions', label: 'The decisions' },
   { id: 'labels', label: 'Labels' },
 ] as const;
 
@@ -72,7 +72,7 @@ export function DecisionsIndex() {
         </Note>
       </DocSection>
 
-      <DocSection id="decisions" title="Four decisions">
+      <DocSection id="decisions" title="The decisions">
         <Grid as="ol" columns={2} minColumnWidth="medium" gap="medium" aria-label="Design decisions">
           {decisionTopics.map((topic, index) => {
             const entry = findEntry(topic.id);

@@ -1,6 +1,10 @@
 import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
+import { badgeAppearances, badgeSizes } from '@/design-system/primitives';
+import { toneScale } from '@/design-system/tokens';
+import { maturities, maturityDefinitions, maturityLabels } from '@/domain/system';
+import { badgeMapping, differences } from './AlignmentExamples';
 import { DecisionPager } from './DecisionPager';
 import { DecisionsIndex } from './DecisionsIndex';
 import { decisions, decisionTopics } from './topics';
@@ -62,6 +66,92 @@ describe('design decisions', () => {
 
     const matrix = blocks.flatMap((block) => (block.kind === 'table' && /acceptance matrix/i.test(block.caption) ? [block] : []))[0];
     expect(matrix?.rows.map((row) => row[0])).toEqual(['Properties', 'Events', 'Forms', 'Focus', 'Styling', 'Server rendering', 'Typing', 'Host integration']);
+  });
+
+  it('works each component API decision from requirement to validation', () => {
+    const apis = decisions.find((decision) => decision.id === 'component-apis');
+    const records = (apis?.sections ?? []).flatMap((section) => blocksOf(section.blocks)).flatMap((block) => (block.kind === 'record' ? [block] : []));
+    expect(records.map((record) => record.caption.split(':')[0])).toEqual(['Button', 'Card', 'Dialog']);
+    for (const record of records) {
+      expect(record.fields.map((field) => field.label), record.caption).toEqual(['Requirement', 'Options considered', 'Chosen contract', 'Rejected alternative', 'Consequences', 'Validation']);
+      const rejected = record.fields.find((field) => field.label === 'Rejected alternative')?.statements ?? [];
+      for (const statement of rejected) expect(statement.evidence, record.caption).not.toBe('implemented');
+    }
+  });
+
+  it('works a migration in six steps on its own page, and leaves a pointer where migration used to be', () => {
+    const adoption = decisions.find((decision) => decision.id === 'adoption');
+    const titles = (adoption?.sections ?? []).map((section) => section.title).filter((title) => /^\d\. /.test(title));
+    expect(titles).toEqual(['1. The existing control', '2. Raw values to tokens', '3. A compatibility wrapper', '4. Replacing call sites', '5. Verifying the change', '6. Removing the wrapper']);
+    const codemod = adoption?.sections.find((section) => section.id === 'codemod');
+    expect(JSON.stringify(codemod)).toContain('No codemod exists in this repository.');
+
+    const operating = decisions.find((decision) => decision.id === 'operating');
+    const pointer = operating?.sections.find((section) => section.id === 'migration');
+    expect(pointer?.blocks).toHaveLength(1);
+    expect(JSON.stringify(pointer)).toContain('](/decisions/adoption)');
+  });
+
+  it('accepts Tabs against a matrix that names its evidence and does not treat a pass as conformance', () => {
+    const quality = decisions.find((decision) => decision.id === 'quality');
+    const tables = (quality?.sections ?? []).flatMap((section) => blocksOf(section.blocks)).flatMap((block) => (block.kind === 'table' ? [block] : []));
+    const matrix = tables.find((table) => /acceptance matrix/i.test(table.caption));
+    expect(matrix?.rows.map((row) => row[0])).toEqual(['Keyboard interaction', 'Focus', 'Accessible names', 'States', 'Contrast', 'Motion preferences', 'Supported environments']);
+    for (const row of matrix?.rows ?? []) expect(row.every((cell) => cell.trim().length > 0), row[0]).toBe(true);
+
+    const checks = tables.find((table) => table.columns.includes('Does not establish'));
+    expect(checks?.rows.find((row) => row[0] === 'Screen-reader evaluation')?.[3]).toMatch(/^Not done/);
+    expect(JSON.stringify(quality)).not.toMatch(/\b(conforms|is conformant|fully accessible)\b(?! to WCAG; this project makes no)/);
+  });
+
+  it('maps Badge design properties to the values the component exports, and says no design tool exists here', () => {
+    const byProp = Object.fromEntries(badgeMapping.map((mapping) => [mapping.prop, mapping]));
+    expect(byProp.tone?.codeValues).toBe(toneScale);
+    expect(byProp.appearance?.codeValues).toBe(badgeAppearances);
+    expect(byProp.size?.codeValues).toBe(badgeSizes);
+    for (const mapping of badgeMapping) {
+      for (const value of Object.values(mapping.designValues)) expect(mapping.codeValues, `${mapping.prop}: ${value}`).toContain(value);
+    }
+    expect(byProp.tone ? differences(byProp.tone) : []).toEqual(expect.arrayContaining(['property Tone → tone', 'Error → danger']));
+
+    const alignment = decisions.find((decision) => decision.id === 'alignment');
+    const today = alignment?.sections.find((section) => section.id === 'today');
+    expect(JSON.stringify(today)).toContain('There is no design-tool library, plugin, export or synchronization here.');
+  });
+
+  it('works operating examples through to stable, a declined request, an exception and a release, and defines every measure', () => {
+    const operating = decisions.find((decision) => decision.id === 'operating');
+    const blocksIn = (id: string) => blocksOf(operating?.sections.find((section) => section.id === id)?.blocks ?? []);
+    const recordIn = (id: string) => blocksIn(id).flatMap((block) => (block.kind === 'record' ? [block] : []))[0];
+    const labels = (id: string) => recordIn(id)?.fields.map((field) => field.label) ?? [];
+    const tables = (id: string) => blocksIn(id).flatMap((block) => (block.kind === 'table' ? [block] : []));
+
+    const steps = blocksIn('contribution').flatMap((block) => (block.kind === 'steps' ? block.items.map((item) => item.title) : []));
+    expect(steps).toEqual(['Request', 'Evidence', 'API proposal', 'Review feedback', 'Experimental release', 'Stable acceptance']);
+    expect(labels('disputed')).toEqual(expect.arrayContaining(['Who decides', 'Evidence that matters', 'Decision', 'How Harbor proceeds']));
+    expect(labels('exceptions')).toEqual(expect.arrayContaining(['Reason', 'Owner', 'Affected products', 'Logged and review date', 'Remove when', 'Include in the shared system when']));
+    expect(labels('releases')).toEqual(expect.arrayContaining(['Changes', 'Affected consumers', 'Migration', 'Compatibility support', 'Rollback']));
+    expect(tables('defects')[0]?.columns).toEqual(['Aspect', 'Urgent defect', 'Scheduled contribution']);
+
+    const maturity = tables('releases').find((table) => table.columns[0] === 'Label');
+    expect(maturity?.evidence).toBe('implemented');
+    expect(maturity?.rows.map((row) => [row[0], row[1], row[3]])).toEqual(
+      maturities.map((level) => [maturityLabels[level], maturityDefinitions[level].promise, maturityDefinitions[level].change]),
+    );
+
+    const [measures, adoption, illustration] = tables('measures');
+    for (const column of ['Unit', 'Scope', 'Baseline definition', 'Measured baseline', 'How to collect', 'Owner', 'Review', 'Could mislead because', 'If the result is worrying']) {
+      expect(measures?.columns, column).toContain(column);
+    }
+    const measured = measures?.columns.indexOf('Measured baseline') ?? -1;
+    for (const row of measures?.rows ?? []) {
+      expect(row.every((cell) => cell.trim().length > 0), row[0]).toBe(true);
+      expect(row[measured], row[0]).toMatch(/^Not measured/);
+    }
+    const cases = (adoption?.rows ?? []).map((row) => row[0] ?? '').join(' ');
+    for (const kind of [/wrapper/, /native element/, /System internals/, /logged exception/, /past its review date/]) expect(cases).toMatch(kind);
+    expect(illustration?.evidence).toBe('hypothetical');
+    expect(illustration?.caption).toMatch(/^Illustrative only/);
   });
 
   it('traces every planning finding and requirement through to a pilot check', () => {

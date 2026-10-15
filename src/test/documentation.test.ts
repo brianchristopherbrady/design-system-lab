@@ -13,6 +13,7 @@ import { overviewSections } from '@/content/overview';
 import { entryHref, patternDocs } from '@/content/patterns';
 import { catalog, entriesOfKind, findEntry } from '@/domain/system';
 import { cssVarIndex, hasSource, tokenReadsOf } from '@/features/docs';
+import { parseSearch, toSearchParams } from '@/features/playground';
 import { legacyGuideTargets } from '@/app/legacyGuides';
 import { paths } from '@/app/paths';
 
@@ -172,6 +173,21 @@ describe('links', () => {
 
   it('sends every old Guides link to a page that exists', () => {
     for (const [id, target] of Object.entries(legacyGuideTargets)) expect(isRoute(target), `${id} -> ${target}`).toBe(true);
+  });
+
+  it('links only to Playground configurations the Playground reproduces in full', () => {
+    const links = [...new Set(Object.values(siteSources).flatMap((source) => source.match(/\/playground\?[^"'`)\s#]*v=1[^"'`)\s#]*/g) ?? []))];
+    expect(links.length).toBeGreaterThan(0);
+    for (const link of links) {
+      const search = new URLSearchParams(link.slice(link.indexOf('?') + 1));
+      const parsed = parseSearch(search, playgroundStories, 'button');
+      expect(parsed.kind, link).toBe('configured');
+      if (parsed.kind !== 'configured') continue;
+      expect(parsed.config.component, link).toBe(search.get('component'));
+      const story = playgroundStories.find((candidate) => candidate.id === parsed.config.component);
+      const kept = story ? toSearchParams(parsed.config, story) : new URLSearchParams();
+      for (const [key, value] of search) if (key.startsWith('p.')) expect(kept.get(key), `${link}: ${key}`).toBe(value);
+    }
   });
 
   it('points every hash link in the site at a section that exists', () => {

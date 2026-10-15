@@ -252,6 +252,31 @@
     line-height: var(--typography-code-line-height);
   }
 
+  /* Code and rendered result for one call site in a migration example. */
+  .callSites {
+    display: grid;
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .callSite {
+    display: grid;
+    gap: var(--spacing-extra-small);
+    justify-items: start;
+    padding: var(--spacing-small);
+    border: var(--border-width-thin) solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .callSite code {
+    font-family: var(--typography-code-font-family);
+    font-size-adjust: none;
+    font-size: var(--typography-code-font-size);
+    overflow-wrap: anywhere;
+  }
+
   /* Links to working examples on this site. */
   .evidence {
     display: grid;

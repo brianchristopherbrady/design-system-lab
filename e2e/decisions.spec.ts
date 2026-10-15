@@ -1,12 +1,24 @@
 import { expect, test } from '@playwright/test';
 import { expectNoAxeViolations } from './axe';
 
+/** The decision pages in sidebar and pager order. */
+const pages = [
+  { id: 'planning', title: 'Planning a system', short: 'Planning' },
+  { id: 'sharing', title: 'Sharing across products', short: 'Sharing' },
+  { id: 'implementation', title: 'Choosing an implementation approach', short: 'Implementation' },
+  { id: 'component-apis', title: 'Designing component APIs', short: 'Component APIs' },
+  { id: 'quality', title: 'Quality and release decisions', short: 'Quality' },
+  { id: 'alignment', title: 'Keeping design, code and docs aligned', short: 'Alignment' },
+  { id: 'adoption', title: 'Adoption and migration', short: 'Adoption' },
+  { id: 'operating', title: 'Operating and measuring a system', short: 'Operating' },
+];
+
 test.describe('design decisions', () => {
-  test('the section answers four questions, each linked from the landing page', async ({ page }) => {
+  test('the section answers one question per page, each linked from the landing page', async ({ page }) => {
     await page.goto('/decisions');
     await expect(page.getByRole('heading', { level: 1, name: 'Design decisions' })).toBeVisible();
     const cards = page.getByRole('list', { name: 'Design decisions' }).getByRole('listitem');
-    await expect(cards).toHaveCount(4);
+    await expect(cards).toHaveCount(pages.length);
     await expectNoAxeViolations(page);
     await page.getByRole('link', { name: 'Sharing across products' }).first().click();
     await expect(page).toHaveURL(/\/decisions\/sharing$/);
@@ -80,7 +92,7 @@ test.describe('design decisions', () => {
     await expectNoAxeViolations(page);
   });
 
-  for (const id of ['planning', 'implementation', 'operating']) {
+  for (const { id } of pages.filter((entry) => entry.id !== 'sharing')) {
     test(`${id} passes automated accessibility checks`, async ({ page }) => {
       await page.goto(`/decisions/${id}`);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
@@ -118,13 +130,103 @@ test.describe('design decisions', () => {
     await expectNoAxeViolations(page);
   });
 
+  test('operating shows its worked examples, opens its source files, and still passes automated accessibility checks', async ({ page }) => {
+    // Six source files open at once make this a long page for axe to scan.
+    test.slow();
+    await page.goto('/decisions/operating');
+    for (const caption of ['Request: hide the Checkbox label in table rows', 'Exception EX-007: Harbor’s row-selection checkbox', 'Release note: shared core 3.0.0']) {
+      await expect(page.locator('figcaption', { hasText: caption })).toBeVisible();
+    }
+    await expect(page.locator('#releases figure', { hasText: 'Maturity labels in this repository' })).toContainText('Deprecate first, keep working for at least one minor release');
+
+    const links = await page.locator('main a[href^="/decisions/"]').evaluateAll((elements) => elements.map((element) => element.getAttribute('href') ?? ''));
+    for (const href of new Set(links.filter((link) => link.includes('#')))) {
+      const [path = '', hash = ''] = href.split('#');
+      await page.goto(`${path}#${hash}`);
+      await expect(page.locator(`#${hash}`), href).toBeInViewport();
+    }
+
+    await page.goto('/decisions/operating#checked');
+    const files = page.locator('#checked details');
+    await expect(files).toHaveCount(6);
+    for (const file of await files.all()) {
+      await file.locator('summary').click();
+      await expect(file).toHaveJSProperty('open', true);
+    }
+    await expect(files.first()).toContainText('maturityDefinitions');
+    await page.getByText('Sources', { exact: true }).click();
+    await expect(page.getByRole('link', { name: 'Contribution criteria', exact: true })).toBeVisible();
+    await expectNoAxeViolations(page);
+  });
+
+  test('component APIs trace a named value to the browser and compose a summary without a new prop', async ({ page }) => {
+    await page.goto('/decisions/component-apis#options');
+    await page.getByRole('combobox', { name: 'Card padding' }).selectOption('extraLarge');
+    await expect(page.locator('#options [aria-live="polite"]')).toHaveText('padding="extraLarge" → spacing.extra-large → var(--spacing-extra-large) → 32px in your browser');
+    const summary = page.getByRole('article', { name: 'Access request R-1042' });
+    await summary.getByRole('button', { name: 'Approve' }).click();
+    await expect(summary.getByText('Approved', { exact: true })).toBeVisible();
+    await expect(summary.getByRole('status')).toHaveText('Status changed to Approved.');
+    await page.getByRole('link', { name: 'Loading button in the Playground' }).click();
+    await expect(page).toHaveURL(/component=button&v=1&p\.appearance=primary&p\.loading=true/);
+    await expect(page.locator('button[data-loading]', { hasText: 'Saving' })).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  test('adoption measures the replacement tokens live and keeps the wrapped call sites working', async ({ page }) => {
+    await page.goto('/decisions/adoption#tokens');
+    const radius = page.locator('#tokens tbody tr', { hasText: 'button.radius' }).locator('td').nth(1);
+    await expect(radius).toHaveText('4px');
+    await page.evaluate(() => (document.documentElement.dataset.product = 'harbor'));
+    await expect(radius).toHaveText('2px');
+
+    await page.goto('/decisions/adoption#replace');
+    await page.getByRole('switch', { name: 'Saving' }).check();
+    const saves = page.locator('#replace').getByRole('button', { name: 'Save' });
+    await expect(saves).toHaveCount(2);
+    for (const save of await saves.all()) {
+      await expect(save).toHaveAttribute('aria-disabled', 'true');
+      await save.focus();
+      await expect(save).toBeFocused();
+    }
+    await expect(page.locator('#replace').getByRole('link', { name: 'View history' })).toHaveAttribute('href', '/patterns/resource-detail');
+    await expectNoAxeViolations(page);
+  });
+
+  test('quality shows the Tabs keyboard contract in both writing directions', async ({ page }) => {
+    await page.goto('/decisions/quality#demo');
+    const demo = page.locator('#demo');
+    const tab = (name: string) => demo.getByRole('tab', { name });
+    await tab('Overview').focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(tab('Tokens')).toBeFocused();
+    await expect(tab('Tokens')).toHaveAttribute('aria-selected', 'true');
+    await expect(demo.getByText('Selected: Tokens')).toBeVisible();
+
+    await demo.getByRole('combobox', { name: 'Writing direction' }).selectOption('rtl');
+    await tab('Tokens').focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(tab('History')).toBeFocused();
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await expect(tab('Overview')).toBeFocused();
+    await page.keyboard.press('End');
+    await expect(tab('History')).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('Tab');
+    await expect(demo.getByRole('tabpanel', { name: 'History' })).toBeFocused();
+    await expectNoAxeViolations(page);
+  });
+
+  test('alignment maps Badge properties to its real props and links to the same badge in the Playground', async ({ page }) => {
+    await page.goto('/decisions/alignment#mapping');
+    const mapping = page.getByRole('table', { name: 'Badge: design-tool properties and props in code' });
+    await expect(mapping.getByRole('row', { name: /^Style/ })).toContainText('filled, subtle, outlined');
+    await expect(mapping.getByRole('row', { name: /^Tone/ })).toContainText('Error → danger');
+    await page.getByRole('link', { name: 'that badge in the Playground' }).click();
+    await expect(page).toHaveURL(/component=badge&v=1&p\.tone=danger&p\.appearance=outlined&p\.size=small/);
+    await expect(page.getByRole('combobox', { name: 'tone' })).toHaveValue('danger');
+  });
+
   test('each page keeps its full title, links back to the overview and to its neighbours', async ({ page }) => {
-    const pages = [
-      { id: 'planning', title: 'Planning a system', short: 'Planning' },
-      { id: 'sharing', title: 'Sharing across products', short: 'Sharing' },
-      { id: 'implementation', title: 'Choosing an implementation approach', short: 'Implementation' },
-      { id: 'operating', title: 'Operating and measuring a system', short: 'Operating' },
-    ];
     for (const [index, current] of pages.entries()) {
       await page.goto(`/decisions/${current.id}`);
       await expect(page.getByRole('heading', { level: 1, name: current.title })).toBeVisible();
@@ -145,8 +247,9 @@ test.describe('design decisions', () => {
       for (const anchor of anchors) await expect(page.locator(anchor), `${current.id} ${anchor}`).toHaveCount(1);
     }
     await page.getByRole('navigation', { name: 'Previous and next decisions' }).getByRole('link', { name: /^Previous/ }).click();
-    await expect(page).toHaveURL(/\/decisions\/implementation$/);
-    await expect(page.getByRole('heading', { level: 1, name: 'Choosing an implementation approach' })).toBeFocused();
+    const secondLast = pages[pages.length - 2];
+    await expect(page).toHaveURL(new RegExp(`/decisions/${secondLast?.id ?? ''}$`));
+    await expect(page.getByRole('heading', { level: 1, name: secondLast?.title })).toBeFocused();
   });
 
   test('old Guides links lead somewhere useful', async ({ page }) => {
@@ -155,15 +258,18 @@ test.describe('design decisions', () => {
     await page.goto('/guides/design-tokens');
     await expect(page).toHaveURL(/\/foundations\/tokens$/);
     await page.goto('/guides/migration');
-    await expect(page).toHaveURL(/\/decisions\/operating#migration$/);
+    await expect(page).toHaveURL(/\/decisions\/adoption$/);
+    await page.goto('/decisions/operating#migration');
     await expect(page.locator('#migration')).toBeInViewport();
+    await page.locator('#migration').getByRole('link', { name: 'Adoption and migration' }).click();
+    await expect(page).toHaveURL(/\/decisions\/adoption$/);
     await page.goto('/guides/no-such-article');
     await expect(page).toHaveURL(/\/decisions$/);
   });
 
   test('fits a 320 pixel screen', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 720 });
-    for (const path of ['/decisions', '/decisions/planning', '/decisions/sharing', '/decisions/implementation', '/decisions/operating']) {
+    for (const path of ['/decisions', ...pages.map((entry) => `/decisions/${entry.id}`)]) {
       await page.goto(path);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), path).toBe(0);

@@ -13,7 +13,7 @@ export const legacyGuideTargets: Readonly<Record<string, string>> = {
   patterns: '/patterns',
   documentation: '/#site',
   governance: '/decisions/operating#ownership',
-  migration: '/decisions/operating#migration',
+  migration: '/decisions/adoption',
   measure: '/decisions/operating#measures',
   sharing: '/decisions/sharing',
   frameworks: '/decisions/implementation',
