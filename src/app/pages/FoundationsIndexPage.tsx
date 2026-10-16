@@ -13,7 +13,7 @@ export function FoundationsIndexPage() {
       <Grid as="ul" minColumnWidth="medium" gap="medium">
         {entriesOfKind('foundation').map((entry) => (
           <li key={entry.id}>
-            <EntryCard entry={entry} href={paths.foundation(entry.id)} headingLevel={2} />
+            <EntryCard entry={entry} href={paths.foundation(entry.id)} headingLevel={2} showClassification={false} />
           </li>
         ))}
       </Grid>

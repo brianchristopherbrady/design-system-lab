@@ -18,6 +18,7 @@ const reflowPages = [
   '/patterns/resource-directory',
   '/patterns/activity-dashboard',
   '/patterns/form-validation',
+  '/decisions',
 ];
 
 test.describe('reflow at 320 CSS pixels (WCAG 1.4.10)', () => {

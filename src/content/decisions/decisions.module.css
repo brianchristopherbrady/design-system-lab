@@ -604,21 +604,6 @@
     background-color: var(--surface-panel);
   }
 
-  .cardFacts {
-    display: grid;
-    gap: var(--spacing-small);
-    margin: 0;
-  }
-
-  .cardFacts > div {
-    display: grid;
-    gap: var(--space-2xs);
-  }
-
-  .cardFacts dd {
-    margin: 0;
-  }
-
   .legend {
     display: grid;
     gap: var(--spacing-small);

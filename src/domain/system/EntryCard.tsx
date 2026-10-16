@@ -12,23 +12,27 @@ export interface EntryCardProps {
   pinned?: boolean;
   onTogglePin?: () => void;
   headingLevel?: 2 | 3 | 4;
+  /** Show the resource type or component layer. Leave it off where every card on the page has the same one. */
+  showClassification?: boolean;
 }
 
 /**
  * One catalog entry as a card. Adapts to its own width with a container query:
  * narrow cards stack the pin button under the text, wide cards place it beside.
  */
-export function EntryCard({ entry, href, pinned, onTogglePin, headingLevel = 3 }: EntryCardProps) {
+export function EntryCard({ entry, href, pinned, onTogglePin, headingLevel = 3, showClassification = true }: EntryCardProps) {
   const Title = `h${headingLevel}` as const;
   return (
     <Card as="article" padding="medium" className={styles.card}>
       <div className={styles.layout}>
         <div className={styles.main}>
-          <div>
-            <Badge appearance="outlined" size="small">
-              {classificationOf(entry)}
-            </Badge>
-          </div>
+          {showClassification && (
+            <div>
+              <Badge appearance="outlined" size="small">
+                {classificationOf(entry)}
+              </Badge>
+            </div>
+          )}
           <Title className={styles.title}>
             <Link href={href} variant="standalone">
               {entry.name}

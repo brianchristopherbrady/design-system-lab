@@ -13,7 +13,7 @@ export function PatternsIndexPage() {
       <Grid as="ul" minColumnWidth="medium" gap="medium">
         {entriesOfKind('pattern').map((entry) => (
           <li key={entry.id}>
-            <EntryCard entry={entry} href={paths.pattern(entry.id)} headingLevel={2} />
+            <EntryCard entry={entry} href={paths.pattern(entry.id)} headingLevel={2} showClassification={false} />
           </li>
         ))}
       </Grid>

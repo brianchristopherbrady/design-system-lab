@@ -224,13 +224,12 @@ describe('design decisions', () => {
     const own = within(screen.getByRole('list', { name: 'Decisions in this project' })).getAllByRole('listitem');
     const team = within(screen.getByRole('list', { name: 'Applying the approach to a product team' })).getAllByRole('listitem');
     expect(own.length + team.length).toBe(decisionTopics.length);
-    for (const [index, card] of own.entries()) {
-      const topic = decisionTopics[index];
-      expect(within(card).getByRole('link', { name: findEntry(topic?.id ?? '')?.name })).toHaveAttribute('href', `/decisions/${topic?.id ?? ''}`);
-      for (const link of topic?.project?.tryIt.links ?? []) expect(within(card).getByRole('link', { name: link.label })).toHaveAttribute('href', link.href);
+    for (const [index, card] of [...own, ...team].entries()) {
+      const entry = findEntry(decisionTopics[index]?.id ?? '');
+      expect(within(card).getByRole('link', { name: entry?.name })).toHaveAttribute('href', `/decisions/${entry?.id ?? ''}`);
+      expect(within(card).getByText(entry?.summary ?? '')).toBeInTheDocument();
+      expect(within(card).queryByText('Design decision')).toBeNull();
     }
-    const firstTeam = decisionTopics[own.length];
-    expect(within(team[0] as HTMLElement).getByText(firstTeam?.choice ?? '')).toBeInTheDocument();
     expect(within(screen.getByRole('list', { name: 'Products in the scenario' })).getAllByRole('listitem')).toHaveLength(2);
     for (const label of ['Implemented', 'Hypothetical', 'Proposed', 'Conceptual']) expect(screen.getAllByText(label).length).toBeGreaterThan(0);
   });

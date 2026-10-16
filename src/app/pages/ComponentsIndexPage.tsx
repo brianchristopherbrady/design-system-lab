@@ -63,7 +63,7 @@ export function ComponentsIndexPage() {
                   <Grid as="ul" minColumnWidth="medium" gap="medium">
                     {group.map((entry) => (
                       <li key={entry.id}>
-                        <EntryCard entry={entry} href={paths.component(entry.id)} headingLevel={3} />
+                        <EntryCard entry={entry} href={paths.component(entry.id)} headingLevel={3} showClassification={false} />
                       </li>
                     ))}
                   </Grid>

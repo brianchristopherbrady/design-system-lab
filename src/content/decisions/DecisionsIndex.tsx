@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
-import { Card } from '@/design-system/composites';
 import { Grid, Stack } from '@/design-system/layout';
-import { Heading, Icon, Link, Text } from '@/design-system/primitives';
-import { findEntry } from '@/domain/system';
+import { Link, Text } from '@/design-system/primitives';
+import { EntryCard, findEntry } from '@/domain/system';
 import { productExampleIds, productExamples } from '@/domain/scenario';
 import { DocSection, Prose } from '@/features/docs';
-import { EvidenceBadge, evidenceLabels, Rich } from './Blocks';
+import { EvidenceBadge, evidenceLabels } from './Blocks';
 import { decisionTopics, type DecisionTopic } from './topics';
 import type { Evidence } from './types';
 import styles from './decisions.module.css';
@@ -18,64 +16,19 @@ export const decisionsIndexSections = [
 
 const labelOrder: readonly Evidence[] = ['implemented', 'hypothetical', 'proposed', 'conceptual'];
 
-const firstSentence = (text: string) => text.split(/(?<=\.)\s/)[0] ?? text;
-
-function Fact({ term, children }: { term: string; children: ReactNode }) {
+/** The decisions in reading order, as the same cards the other section landing pages use. */
+function DecisionList({ topics, label }: { topics: readonly DecisionTopic[]; label: string }) {
   return (
-    <div>
-      <Text as="dt" variant="caption" tone="muted">
-        {term}
-      </Text>
-      <Text as="dd" variant="bodySmall">
-        {children}
-      </Text>
-    </div>
-  );
-}
-
-function DecisionCard({ topic }: { topic: DecisionTopic }) {
-  const entry = findEntry(topic.id);
-  return (
-    <Card as="li" padding="medium">
-      <Stack gap="small">
-        <Text as="span" variant="caption" tone="muted">
-          {decisionTopics.indexOf(topic) + 1} · {topic.stage}
-        </Text>
-        <Heading level={3} size="small">
-          <Link href={`/decisions/${topic.id}`} variant="standalone">
-            {entry?.name}
-          </Link>
-        </Heading>
-        <dl className={styles.cardFacts}>
-          {topic.project ? (
-            <>
-              <Fact term="Chosen here">
-                <strong>
-                  <Rich text={firstSentence(topic.project.choice)} />
-                </strong>
-              </Fact>
-              <Fact term="Try it">
-                <span className={styles.tryLinks}>
-                  {topic.project.tryIt.links.map((link) => (
-                    <Link key={link.href} href={link.href} className={styles.exampleLink}>
-                      {link.label} <Icon name="arrowRight" />
-                    </Link>
-                  ))}
-                </span>
-              </Fact>
-            </>
-          ) : (
-            <>
-              <Fact term="Decision">
-                <strong>{topic.choice}</strong>
-              </Fact>
-              <Fact term="Why it matters">{topic.matters}</Fact>
-            </>
-          )}
-          <Fact term="The page shows">{entry?.summary}</Fact>
-        </dl>
-      </Stack>
-    </Card>
+    <Grid as="ol" minColumnWidth="medium" gap="medium" aria-label={label}>
+      {topics.map((topic) => {
+        const entry = findEntry(topic.id);
+        return entry ? (
+          <li key={topic.id}>
+            <EntryCard entry={entry} href={`/decisions/${topic.id}`} headingLevel={3} showClassification={false} />
+          </li>
+        ) : null;
+      })}
+    </Grid>
   );
 }
 
@@ -92,11 +45,7 @@ export function DecisionsIndex() {
             shows, then follows the reasoning in depth.
           </p>
         </Prose>
-        <Grid as="ol" columns={2} minColumnWidth="medium" gap="medium" aria-label="Decisions in this project">
-          {own.map((topic) => (
-            <DecisionCard key={topic.id} topic={topic} />
-          ))}
-        </Grid>
+        <DecisionList topics={own} label="Decisions in this project" />
       </DocSection>
 
       <DocSection id="team" title="Applying the approach to a product team">
@@ -133,11 +82,7 @@ export function DecisionsIndex() {
             system, migrate onto it and keep it healthy.
           </p>
         </Prose>
-        <Grid as="ol" columns={2} minColumnWidth="medium" gap="medium" aria-label="Applying the approach to a product team">
-          {team.map((topic) => (
-            <DecisionCard key={topic.id} topic={topic} />
-          ))}
-        </Grid>
+        <DecisionList topics={team} label="Applying the approach to a product team" />
       </DocSection>
 
       <DocSection id="labels" title="Labels">

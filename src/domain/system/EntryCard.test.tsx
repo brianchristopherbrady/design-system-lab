@@ -16,6 +16,12 @@ describe('EntryCard', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
+  it('leaves out the classification where every card on the page shares it', () => {
+    render(<EntryCard entry={button} href="/components/button" showClassification={false} />);
+    expect(screen.getByRole('link', { name: 'Button' })).toBeInTheDocument();
+    expect(screen.queryByText('Primitive component')).toBeNull();
+  });
+
   it('exposes the pin state with aria-pressed and a name that includes the entry', async () => {
     const onTogglePin = vi.fn();
     render(<EntryCard entry={button} href="/components/button" pinned={false} onTogglePin={onTogglePin} />);

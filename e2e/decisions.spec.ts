@@ -20,7 +20,7 @@ test.describe('design decisions', () => {
     const own = page.getByRole('list', { name: 'Decisions in this project' }).getByRole('listitem');
     await expect(own).toHaveCount(pages.filter((entry) => entry.own).length);
     await expect(page.getByRole('list', { name: 'Applying the approach to a product team' }).getByRole('listitem')).toHaveCount(pages.filter((entry) => !entry.own).length);
-    await expect(own.first().getByRole('link', { name: 'Button in the Playground' })).toHaveAttribute('href', '/playground?component=button');
+    await expect(own.first().getByRole('link', { name: 'Choosing an implementation approach' })).toHaveAttribute('href', '/decisions/implementation');
     await expectNoAxeViolations(page);
     await page.getByRole('link', { name: 'Sharing across products' }).first().click();
     await expect(page).toHaveURL(/\/decisions\/sharing$/);
