@@ -56,7 +56,7 @@ Environment: Windows, Node 24, Microsoft Edge (Chromium) driven by Playwright 1.
 | Reflow at 320 CSS px | Playwright on 13 routes | Pass (no page-level horizontal scroll) |
 | Container queries at a fixed viewport | Playwright: EntryCard layout in a resized frame; playground preview at 320px vs fill; docs contents column | Pass |
 | Theme switching and persistence | Playwright | Pass |
-| Product and density switching, persistence and scoping | Playwright: header selects, playground preview scope, products matrix | Pass |
+| Theme persistence; product and density scoping | Playwright: header Theme select, Playground examples and preview scope, products matrix | Pass |
 | Forced colors and reduced motion | Chromium emulation in the dev server; visual review and computed transition duration | Boundaries visible; transitions effectively removed |
 
 ## Not verified (known gaps)

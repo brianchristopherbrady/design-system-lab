@@ -164,18 +164,11 @@ export function parseSearch(search: URLSearchParams, stories: readonly AnyStory[
 }
 
 /**
- * The same example with the preview's inherited product, theme and density written out, so a
- * visitor with other site settings sees what the author saw. Component props stay as they are.
+ * The same example with the preview's inherited theme written out, so a visitor whose site follows
+ * the other theme sees what the author saw. Product and density need no capture: the site is always
+ * Design System Lab at comfortable density. Component props stay as they are.
  */
 export function withCapturedAppearance(config: PlaygroundConfig, site: ModifierInput): PlaygroundConfig {
-  const { product, theme, density } = config.preview;
-  return {
-    ...config,
-    preview: {
-      ...config.preview,
-      product: product === inherit ? site.product : product,
-      theme: theme === inherit ? site.theme : theme,
-      density: density === inherit ? site.density : density,
-    },
-  };
+  const { theme } = config.preview;
+  return { ...config, preview: { ...config.preview, theme: theme === inherit ? site.theme : theme } };
 }

@@ -48,6 +48,8 @@
   .heading {
     display: grid;
     gap: var(--spacing-extra-small);
+    /* Extra header content, such as a badge, keeps its own width. */
+    justify-items: start;
     min-inline-size: 0;
   }
 

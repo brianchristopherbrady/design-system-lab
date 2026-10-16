@@ -85,12 +85,16 @@ import {
   themeNames,
   toneScale,
 } from '@/design-system/tokens';
+import { productExamples } from '@/domain/scenario';
 import { defineStory, type AnyStory } from '@/features/playground';
 
 const importFrom = (path: string) => (...names: string[]) => `import { ${names.join(', ')} } from '@/design-system/${path}';`;
 const primitives = importFrom('primitives');
 const layout = importFrom('layout');
 const composites = importFrom('composites');
+
+const patientScope = { product: productExamples.patient.profile, density: productExamples.patient.density };
+const providerScope = { product: productExamples.provider.profile, density: productExamples.provider.density };
 
 /** Sample content for layout stories: varied lengths make alignment and wrapping visible. */
 const tileText = ['Tokens', 'Components with a longer label', 'Patterns', 'Themes', 'Responsive layout behavior', 'Motion'];
@@ -218,6 +222,28 @@ export const playgroundStories: readonly AnyStory[] = [
       { name: 'Raised', values: { elevation: 'high', border: 'none' } },
       { name: 'Inset panel', values: { surface: 'sunken', elevation: 'none', border: 'none', radius: 'medium' } },
       { name: 'Compact', values: { padding: 'small', radius: 'small', footer: '' } },
+      {
+        name: 'Patient app: appointment',
+        scope: patientScope,
+        values: {
+          header: 'Annual check-up',
+          children: 'Your request for weekday mornings is with the clinic. You will hear back by email within two working days.',
+          footer: 'Request R-2041 · Requested',
+          surface: 'accent',
+        },
+      },
+      {
+        name: 'Provider workspace: review',
+        scope: providerScope,
+        values: {
+          header: 'R-2042 · Priya N.',
+          children: 'Follow-up visit, any afternoon. Needs a contact phone number before it can be confirmed.',
+          footer: 'Needs details · Received 14 Oct 2026',
+          padding: 'medium',
+          elevation: 'none',
+          border: 'default',
+        },
+      },
     ],
     render: (props) => <Card {...props} />,
   }),
@@ -248,6 +274,28 @@ export const playgroundStories: readonly AnyStory[] = [
       { name: 'Large form', values: { size: 'large', title: 'Edit entry', description: 'Change the name and summary.', footer: '' } },
       { name: 'Flat', values: { elevation: 'none', border: 'strong', radius: 'small' } },
       { name: 'Dismiss on backdrop', values: { size: 'small', title: 'Keyboard shortcuts', description: 'Press ? to open this list.', children: '', footer: 'Click outside to close.', dismissOnBackdrop: true } },
+      {
+        name: 'Patient app: send request',
+        scope: patientScope,
+        values: {
+          size: 'small',
+          title: 'Send your appointment request?',
+          description: 'Annual check-up, weekday mornings.',
+          children: 'The clinic confirms a time by email. You can change or cancel the request until then.',
+          footer: 'Requests are answered within two working days.',
+        },
+      },
+      {
+        name: 'Provider workspace: confirm',
+        scope: providerScope,
+        values: {
+          title: 'Confirm 2 requests?',
+          description: 'R-2041 and R-2045 move to Confirmed.',
+          children: 'Each patient hears back by the method they chose. Confirmed requests leave the queue.',
+          header: 'Notifies patients',
+          footer: 'Selected in the request queue.',
+        },
+      },
     ],
     render: (props) => <DialogPreview {...props} />,
   }),

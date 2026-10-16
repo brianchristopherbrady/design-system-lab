@@ -85,11 +85,22 @@ describe('playground configuration', () => {
     });
   });
 
-  it('captures the inherited appearance for a shared link without touching props', () => {
-    const scope: PlaygroundConfig = { component: 'theme-scope', props: { product: undefined, theme: undefined, density: undefined }, preview: { ...defaultPreview, theme: 'light', width: 320 } };
-    const captured = withCapturedAppearance(scope, { product: 'provider', theme: 'dark', density: 'compact' });
-    expect(captured.preview).toEqual({ product: 'provider', theme: 'light', density: 'compact', width: 320, outlines: false });
+  it('captures the inherited theme for a shared link, and leaves product, density and props alone', () => {
+    const scope: PlaygroundConfig = { component: 'theme-scope', props: { product: undefined, theme: undefined, density: undefined }, preview: { ...defaultPreview, width: 320 } };
+    const captured = withCapturedAppearance(scope, { product: 'system-lab', theme: 'dark', density: 'comfortable' });
+    expect(captured.preview).toEqual({ product: 'inherit', theme: 'dark', density: 'inherit', width: 320, outlines: false });
+    expect(withCapturedAppearance({ ...scope, preview: { ...scope.preview, theme: 'light' } }, { product: 'system-lab', theme: 'dark', density: 'comfortable' }).preview.theme).toBe('light');
     expect(captured.props).toEqual(scope.props);
+  });
+
+  it('gives the Card and Dialog product examples their own profile and density, and no other story any', () => {
+    const scoped = playgroundStories.flatMap((candidate) => candidate.presets.filter((preset) => preset.scope).map((preset) => [candidate.id, preset.scope?.product, preset.scope?.density]));
+    expect(scoped).toEqual([
+      ['card', 'patient', 'comfortable'],
+      ['card', 'provider', 'compact'],
+      ['dialog', 'patient', 'comfortable'],
+      ['dialog', 'provider', 'compact'],
+    ]);
   });
 
   it('opens links that use the previous product context names', () => {

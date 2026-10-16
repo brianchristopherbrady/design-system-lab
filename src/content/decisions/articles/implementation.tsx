@@ -30,9 +30,10 @@ export const implementation: Decision = {
     constraint:
       'The brief asked for React, a small dependency list and the project’s own design-system surface rather than a styled library (ADR 0001), and for one token source whose build fails on broken references (ADR 0002).',
     tryIt: {
-      text: 'Change Button’s appearance in the Playground and preview it in another product, then follow the same value from its token file to the CSS.',
+      text: 'Change Button’s appearance in the Playground, then follow the same value from its token file to the CSS. Card’s patient and provider examples show one component in two product profiles.',
       links: [
         { label: 'Button in the Playground', href: '/playground?component=button' },
+        { label: 'Card examples', href: '/playground?component=card' },
         { label: 'Token pipeline', href: '/foundations/tokens#pipeline' },
       ],
     },

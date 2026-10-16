@@ -41,13 +41,58 @@ test.describe('products and modes', () => {
     for (const theme of ['light', 'dark']) expect(colors.get(`patient ${theme}`)).toBe(colors.get(`provider ${theme}`));
   });
 
-  test('the playground preview takes its own product without changing the site', async ({ page }) => {
-    await page.goto('/playground?component=button');
+  test('a Card product example loads its content, profile and density, and keeps them through edits, theme changes and links', async ({ page }) => {
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto('/playground?component=card');
     const preview = page.getByTestId('playground-preview');
-    await page.locator('summary', { hasText: 'Preview settings' }).click();
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
+    const example = page.getByRole('combobox', { name: 'Example' });
+    const footer = page.getByRole('textbox', { name: 'footer' });
+    await example.selectOption('Patient app: appointment');
     await expect(preview).toHaveAttribute('data-product', 'patient');
+    await expect(preview).toHaveAttribute('data-density', 'comfortable');
+    await expect(preview.getByRole('heading', { name: 'Annual check-up' })).toBeVisible();
+    await expect(page.getByTestId('playground-snippet')).toContainText('surface="accent"');
     await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
+
+    await footer.fill('Request R-2041');
+    await expect(example.locator('option:checked')).toHaveText('Custom');
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
+    await expect(preview).toHaveAttribute('data-theme', 'dark');
+    await expect(preview).toHaveAttribute('data-product', 'patient');
+    await expect(footer).toHaveValue('Request R-2041');
+
+    await page.getByRole('button', { name: 'Copy example link' }).click();
+    const link = new URL(await page.evaluate(() => navigator.clipboard.readText()));
+    expect([link.searchParams.get('preview.product'), link.searchParams.get('preview.density'), link.searchParams.get('preview.theme')]).toEqual(['patient', 'comfortable', 'dark']);
+
+    await example.selectOption('Provider workspace: review');
+    await expect(preview).toHaveAttribute('data-product', 'provider');
+    await expect(preview).toHaveAttribute('data-density', 'compact');
+    await example.selectOption({ label: 'Starting values' });
+    await expect(preview).toHaveAttribute('data-product', 'system-lab');
+    await expect(preview).toHaveAttribute('data-density', 'comfortable');
+    await expect(page).not.toHaveURL(/preview\.(product|density)/);
+
+    await page.goto(link.toString());
+    await expect(preview).toHaveAttribute('data-product', 'patient');
+    await expect(footer).toHaveValue('Request R-2041');
+    await expectNoAxeViolations(page);
+  });
+
+  test('a Dialog product example opens inside its profile and returns focus', async ({ page }) => {
+    await page.goto('/playground?component=dialog');
+    await page.getByRole('combobox', { name: 'Example' }).selectOption('Provider workspace: confirm');
+    const opener = page.getByRole('button', { name: 'Open dialog' });
+    await opener.click();
+    const dialog = page.getByRole('dialog', { name: 'Confirm 2 requests?' });
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toHaveAccessibleDescription(/R-2041 and R-2045 move to Confirmed/);
+    expect(await dialog.evaluate((element) => element.closest('[data-product]')?.getAttribute('data-product'))).toBe('provider');
+    await expect(dialog).toHaveCSS('opacity', '1');
+    await expectNoAxeViolations(page);
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(opener).toBeFocused();
   });
 
   test('the composer lands on any permutation and reports where each value is declared', async ({ page }) => {

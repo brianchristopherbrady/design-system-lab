@@ -245,7 +245,7 @@ export const sharing: Decision = {
           items: [
             { label: 'Products and modes', href: '/foundations/products', shows: 'What each product and density changes, computed from the token build.' },
             { label: 'Theme studio', href: '/foundations/theme-studio', shows: 'A new product theme generated from one brand color, with contrast checks.' },
-            { label: 'Button in the Playground', href: '/playground?component=button', shows: 'One component previewed in any product, theme and density.' },
+            { label: 'Card in the Playground', href: '/playground?component=card', shows: 'General presets beside a patient and a provider example, each in its own profile and density.' },
           ],
         },
       ],

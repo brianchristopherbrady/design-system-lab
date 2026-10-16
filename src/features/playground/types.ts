@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { IconName } from '@/design-system/primitives';
+import type { DensityName, ProductName } from '@/design-system/tokens';
 
 type Keys<P> = Extract<keyof P, string>;
 
@@ -71,9 +72,17 @@ export interface PropApi {
   defaultValue?: string;
 }
 
+/** The product profile and density a product example is shown in. */
+export interface PresetScope {
+  product: ProductName;
+  density: DensityName;
+}
+
 export interface Preset<P> {
   name: string;
   values: Partial<Record<Keys<P>, ControlValue>>;
+  /** Makes the preset a product example: the preview takes this scope, and the selector lists it apart. */
+  scope?: PresetScope;
 }
 
 export interface PlaygroundStory<P> {
@@ -108,7 +117,7 @@ type AnyControl =
 /** A story with its props type erased, so stories for different components share one list. */
 export interface AnyStory extends Omit<PlaygroundStory<Record<string, unknown>>, 'controls' | 'presets' | 'render'> {
   controls: readonly AnyControl[];
-  presets: readonly { name: string; values: ControlValues }[];
+  presets: readonly { name: string; values: ControlValues; scope?: PresetScope }[];
   render: (props: Record<string, unknown>) => ReactNode;
 }
 

@@ -76,14 +76,14 @@ test.describe('playground', () => {
     await expect(context).toContainText('Same as site');
 
     await openPreviewSettings(page);
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
-    await expect(context).toContainText('Patient app');
-    await expect(context).toContainText('Overrides product');
-    await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
+    await page.getByRole('combobox', { name: 'Preview density' }).selectOption('compact');
+    await expect(context).toContainText('Compact');
+    await expect(context).toContainText('Overrides density');
+    await expect(page.locator('html')).toHaveAttribute('data-density', 'comfortable');
 
     await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
     await expect(preview).toHaveAttribute('data-theme', 'dark');
-    await expect(preview).toHaveAttribute('data-product', 'patient');
+    await expect(preview).toHaveAttribute('data-density', 'compact');
     await expect(context).toContainText('Dark');
   });
 
@@ -91,16 +91,20 @@ test.describe('playground', () => {
     await page.goto('/playground?component=theme-scope');
     const preview = page.getByTestId('playground-preview');
     const scope = preview.locator('[data-product]').first();
-    await openPreviewSettings(page);
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
-    await expect(preview).toHaveAttribute('data-product', 'patient');
     await expect(scope).toHaveAttribute('data-product', 'provider');
+    await openPreviewSettings(page);
+    await page.getByRole('combobox', { name: 'Preview theme' }).selectOption('dark');
+    await expect(preview).toHaveAttribute('data-theme', 'dark');
+    await expect(scope).toHaveAttribute('data-theme', 'dark');
 
+    await page.getByRole('combobox', { name: 'theme', exact: true }).selectOption('light');
+    await expect(scope).toHaveAttribute('data-theme', 'light');
     await page.getByRole('combobox', { name: 'product', exact: true }).selectOption('');
-    await expect(scope).toHaveAttribute('data-product', 'patient');
+    await expect(scope).toHaveAttribute('data-product', 'system-lab');
     const chain = page.getByRole('table', { name: 'Where ThemeScope gets each setting' });
-    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Design System Lab');
-    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Patient app from preview');
+    await expect(chain.getByRole('row', { name: /^theme/ })).toContainText('Dark preview setting');
+    await expect(chain.getByRole('row', { name: /^theme/ })).toContainText('Light prop');
+    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Design System Lab from preview');
     await expect(page.getByTestId('playground-snippet')).not.toContainText('product=');
   });
 

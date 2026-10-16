@@ -1,8 +1,8 @@
 import { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { Disclosure, Field } from '@/design-system/composites';
-import { ScrollRegion, ThemeScope, useThemeScope } from '@/design-system/layout';
+import { Inline, ScrollRegion, ThemeScope, useThemeScope } from '@/design-system/layout';
 import { Button, Heading, Input, Select, Switch, Text } from '@/design-system/primitives';
-import { densityNames, productNames, themeNames, type ModifierInput, type ThemeName } from '@/design-system/tokens';
+import { densityNames, themeNames, type ModifierInput, type ThemeName } from '@/design-system/tokens';
 import { densityLabels, productProfiles } from '@/domain/system';
 import { inherit, previewWidth, withCapturedAppearance, type Inheritable, type PlaygroundConfig, type PreviewSettings } from './config';
 import { ControlsTable } from './ControlsTable';
@@ -52,6 +52,24 @@ export function Playground({ stories, config, onConfigChange, onStoryChange, lin
   if (!story) return null;
   const preset = presetOf(story, config.props);
   const setValues = (props: ControlValues) => onConfigChange({ ...config, props });
+  const examples = story.presets.filter((candidate) => candidate.scope);
+  const general = story.presets.filter((candidate) => !candidate.scope);
+  const choosePreset = (name: string) => {
+    const chosen = story.presets.find((candidate) => candidate.name === name);
+    const props = name ? presetValues(story, name) : initialValues(story);
+    // Leaving a product example returns the preview to the site's profile and density.
+    const preview: PreviewSettings = chosen?.scope
+      ? { ...config.preview, ...chosen.scope }
+      : config.preview.product === inherit
+        ? config.preview
+        : { ...config.preview, product: inherit, density: inherit };
+    onConfigChange({ ...config, props, preview });
+  };
+  const presetOption = (candidate: AnyStory['presets'][number]) => (
+    <option key={candidate.name} value={candidate.name}>
+      {candidate.name}
+    </option>
+  );
   return (
     <div className={styles.playground}>
       <div className={styles.bar}>
@@ -67,19 +85,23 @@ export function Playground({ stories, config, onConfigChange, onStoryChange, lin
           )}
         </Field>
         {story.presets.length > 0 && (
-          <Field label="Preset" className={styles.barField}>
+          <Field label={examples.length > 0 ? 'Example' : 'Preset'} className={styles.barField}>
             {(control) => (
-              <Select
-                {...control}
-                value={preset ?? customPreset}
-                onChange={(event) => setValues(event.target.value ? presetValues(story, event.target.value) : initialValues(story))}
-              >
-                <option value="">Starting values</option>
-                {story.presets.map((candidate) => (
-                  <option key={candidate.name} value={candidate.name}>
-                    {candidate.name}
-                  </option>
-                ))}
+              <Select {...control} value={preset ?? customPreset} onChange={(event) => choosePreset(event.target.value)}>
+                {examples.length > 0 ? (
+                  <>
+                    <optgroup label="General">
+                      <option value="">Starting values</option>
+                      {general.map(presetOption)}
+                    </optgroup>
+                    <optgroup label="Product examples">{examples.map(presetOption)}</optgroup>
+                  </>
+                ) : (
+                  <>
+                    <option value="">Starting values</option>
+                    {general.map(presetOption)}
+                  </>
+                )}
                 {preset === undefined && (
                   <option value={customPreset} disabled>
                     Custom
@@ -252,13 +274,15 @@ function Workbench({
             }
           >
             <div className={styles.toolbar}>
+              {overrides.product !== inherit && (
+                <Inline gap="small" align="center">
+                  <Text variant="bodySmall">Product profile: {productProfiles[overrides.product].name}</Text>
+                  <Button size="small" onClick={() => setPreview({ product: inherit })}>
+                    Use the site profile
+                  </Button>
+                </Inline>
+              )}
               <div className={styles.scopeGroup}>
-                <ScopeSelect
-                  label="Preview product"
-                  value={overrides.product}
-                  options={productNames.map((name) => [name, productProfiles[name].name] as const)}
-                  onChange={(product) => setPreview({ product })}
-                />
                 <ScopeSelect
                   label="Preview theme"
                   value={overrides.theme}

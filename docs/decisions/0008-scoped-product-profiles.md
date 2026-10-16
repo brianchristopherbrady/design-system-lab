@@ -31,7 +31,10 @@ Three ways forward:
 - The product contexts are `patient` (Patient app) and `provider` (Provider workspace), two products
   of one fictional healthcare company: a patient app for requesting care and a provider workspace
   for reviewing requests. Examples apply them with `ThemeScope`: Products and modes, the Sharing
-  examples, the Overview demonstration, the decision demonstrations and the Playground preview.
+  examples, the Overview demonstration, the decision demonstrations, and the Playground's Card and
+  Dialog product examples. The Playground has no permanent product control; choosing a product
+  example sets the preview's profile and density, and choosing a general preset returns it to the
+  site's.
 - Both share one brand family, `brand.care` (the former Harbor teal ramp), and IBM Plex Sans for
   display and text. The provider workspace adds tighter corners (small for controls and badges,
   medium for cards and dialogs); the patient app keeps the system's corners. Density is chosen per

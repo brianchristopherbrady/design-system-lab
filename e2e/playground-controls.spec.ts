@@ -109,7 +109,8 @@ test.describe('Controls table', () => {
     await expect(page.getByRole('combobox', { name: 'size' })).toHaveValue('large');
 
     await page.getByRole('combobox', { name: 'Component' }).selectOption('card');
-    await expect(shownPreset(page)).toHaveText('Starting values');
+    // Card has product examples, so its preset selector is called Example.
+    await expect(page.getByRole('combobox', { name: 'Example' }).locator('option:checked')).toHaveText('Starting values');
     await page.goBack();
     await expect(page.getByRole('combobox', { name: 'Component' })).toHaveValue('button');
     await expect(shownPreset(page)).toHaveText('Custom');

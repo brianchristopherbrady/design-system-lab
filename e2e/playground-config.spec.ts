@@ -12,7 +12,6 @@ async function configureButton(page: Page) {
   await page.getByRole('combobox', { name: 'border' }).selectOption('thick');
   await booleanValue(page, 'fullWidth', 'true').check();
   await openPreviewSettings(page);
-  await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
   await page.getByRole('combobox', { name: 'Preview theme' }).selectOption('dark');
   await page.getByRole('combobox', { name: 'Preview density' }).selectOption('compact');
   await page.getByRole('button', { name: 'Narrow (320px)' }).click();
@@ -22,10 +21,10 @@ async function expectConfiguredButton(page: Page) {
   await expect(page.getByRole('combobox', { name: 'size' })).toHaveValue('large');
   await expect(page.getByRole('combobox', { name: 'border' })).toHaveValue('thick');
   await expect(booleanValue(page, 'fullWidth', 'true')).toBeChecked();
-  await expect(preview(page)).toHaveAttribute('data-product', 'patient');
+  await expect(preview(page)).toHaveAttribute('data-product', 'system-lab');
   await expect(preview(page)).toHaveAttribute('data-theme', 'dark');
   await expect(preview(page)).toHaveAttribute('data-density', 'compact');
-  await expect(page.getByTestId('preview-context')).toContainText('Patient app · Dark · Compact · 320px');
+  await expect(page.getByTestId('preview-context')).toContainText('Design System Lab · Dark · Compact · 320px');
   await expect(snippet(page)).toContainText('size="large"');
   await expect(snippet(page)).toContainText('fullWidth={true}');
 }
@@ -91,23 +90,24 @@ test.describe('playground configuration', () => {
     await visitor.close();
   });
 
-  test('a link from an inherited preview captures its appearance but leaves the author inheriting', async ({ page }) => {
+  test('a link from an inherited preview captures its theme but leaves the author inheriting', async ({ page }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('/playground?component=theme-scope');
     await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
     await page.getByRole('combobox', { name: 'product', exact: true }).selectOption('');
     await page.getByRole('button', { name: 'Copy example link' }).click();
     const link = new URL(await page.evaluate(() => navigator.clipboard.readText()));
-    expect(link.searchParams.get('preview.product')).toBe('system-lab');
     expect(link.searchParams.get('preview.theme')).toBe('dark');
-    expect(link.searchParams.get('preview.density')).toBe('comfortable');
+    // The site is always Design System Lab at comfortable density, so neither needs capturing.
+    expect(link.searchParams.get('preview.product')).toBeNull();
+    expect(link.searchParams.get('preview.density')).toBeNull();
     // The ThemeScope prop stays unset, so it keeps inheriting from the captured preview.
     expect(link.searchParams.get('p.product')).toBe('');
 
     await expect(page.getByTestId('preview-context')).toContainText('Same as site');
     await openPreviewSettings(page);
-    await expect(page.getByRole('combobox', { name: 'Preview product' })).toHaveValue('inherit');
-    expect(new URL(page.url()).searchParams.get('preview.product')).toBeNull();
+    await expect(page.getByRole('combobox', { name: 'Preview theme' })).toHaveValue('inherit');
+    expect(new URL(page.url()).searchParams.get('preview.theme')).toBeNull();
   });
 
   test('when copying fails, the link is offered for manual copying from the keyboard', async ({ page }) => {
@@ -120,7 +120,7 @@ test.describe('playground configuration', () => {
     await expect(page.getByRole('status').filter({ hasText: 'could not be copied' })).toBeVisible();
     const field = page.getByRole('textbox', { name: 'Example link' });
     await expect(field).toBeFocused();
-    await expect(field).toHaveValue(/\/playground\?component=badge&v=1&preview\.product=/);
+    await expect(field).toHaveValue(/\/playground\?component=badge&v=1&preview\.theme=/);
   });
 
   test('round-trips unset values, false and text with punctuation and Unicode', async ({ page }) => {
@@ -160,11 +160,11 @@ test.describe('playground configuration', () => {
     await page.getByRole('button', { name: 'Reset component props' }).click();
     await expect(page.getByRole('combobox', { name: 'size' })).toHaveValue('medium');
     await expect(booleanValue(page, 'fullWidth', 'false')).toBeChecked();
-    await expect(page.getByTestId('preview-context')).toContainText('Patient app · Dark · Compact · 320px');
+    await expect(page.getByTestId('preview-context')).toContainText('Design System Lab · Dark · Compact · 320px');
     const url = new URL(page.url());
     expect([...url.searchParams.keys()].filter((name) => name.startsWith('p.'))).toEqual([]);
     expect(url.searchParams.get('preview.width')).toBe('320');
-    for (const word of ['preview', 'patient', 'dark', 'compact', '320']) await expect(snippet(page)).not.toContainText(word);
+    for (const word of ['preview', 'dark', 'compact', '320']) await expect(snippet(page)).not.toContainText(word);
   });
 
   test('fixed widths fit a narrow screen and Fill follows it', async ({ page }) => {
@@ -219,11 +219,11 @@ test.describe('dialog backdrop dismissal', () => {
   test('a copied example keeps backdrop dismissal off when it was turned off', async ({ page }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('/playground?component=dialog');
-    await page.getByRole('combobox', { name: 'Preset' }).selectOption('Dismiss on backdrop');
+    await page.getByRole('combobox', { name: 'Example' }).selectOption('Dismiss on backdrop');
     await expect(booleanValue(page, 'dismissOnBackdrop', 'true')).toBeChecked();
     await booleanValue(page, 'dismissOnBackdrop', 'false').click();
     await expect(booleanValue(page, 'dismissOnBackdrop', 'false')).toBeChecked();
-    await expect(page.getByRole('combobox', { name: 'Preset' }).locator('option:checked')).toHaveText('Custom');
+    await expect(page.getByRole('combobox', { name: 'Example' }).locator('option:checked')).toHaveText('Custom');
     await page.getByRole('combobox', { name: 'size' }).selectOption('large');
     await page.getByRole('button', { name: 'Copy example link' }).click();
     const link = await page.evaluate(() => navigator.clipboard.readText());

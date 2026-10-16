@@ -2,10 +2,10 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
-import { defaultPreview, type PlaygroundConfig } from './config';
+import { defaultPreview, type PlaygroundConfig, type PreviewSettings } from './config';
 import { initialValues, presetOf, presetValues } from './engine';
 import { Playground } from './Playground';
-import { defineStory, type PropApi } from './types';
+import { defineStory, type AnyStory, type PropApi } from './types';
 
 interface SampleProps {
   label?: string;
@@ -38,17 +38,27 @@ const story = defineStory<SampleProps>({
   ),
 });
 
+const exampleStory: AnyStory = {
+  ...story,
+  id: 'examples',
+  presets: [
+    { name: 'Brand', values: { tone: 'brand', label: 'Publish' } },
+    { name: 'Patient app: request', scope: { product: 'patient', density: 'comfortable' }, values: { label: 'Request appointment' } },
+    { name: 'Provider workspace: review', scope: { product: 'provider', density: 'compact' }, values: { label: 'Confirm selected', tone: 'brand' } },
+  ],
+};
+
 const api: PropApi[] = [
   { name: 'tone', type: '"neutral" | "brand"', defaultValue: '"neutral"' },
   { name: 'scope', type: '"inherited" | "own"', defaultValue: 'inherited' },
   { name: 'fullWidth', type: 'boolean', defaultValue: 'false' },
 ];
 
-function Harness() {
-  const [config, setConfig] = useState<PlaygroundConfig>({ component: story.id, props: initialValues(story), preview: defaultPreview });
+function Harness({ subject = story, initialPreview = defaultPreview }: { subject?: AnyStory; initialPreview?: PreviewSettings }) {
+  const [config, setConfig] = useState<PlaygroundConfig>({ component: subject.id, props: initialValues(subject), preview: initialPreview });
   return (
     <Playground
-      stories={[story]}
+      stories={[subject]}
       config={config}
       onConfigChange={setConfig}
       onStoryChange={() => undefined}
@@ -142,5 +152,51 @@ describe('Preset selector', () => {
     expect(presetOf(story, initialValues(story))).toBe('');
     expect(presetOf(story, presetValues(story, 'Wide'))).toBe('Wide');
     expect(presetOf(story, { ...presetValues(story, 'Wide'), label: 'Other' })).toBeUndefined();
+  });
+});
+
+describe('Product examples', () => {
+  it('are listed apart from general presets and show the component in their own profile and density', async () => {
+    const user = userEvent.setup();
+    render(<Harness subject={exampleStory} />);
+    const examples = screen.getByRole('combobox', { name: 'Example' });
+    expect(screen.getByRole('option', { name: 'Provider workspace: review' }).closest('optgroup')).toHaveAttribute('label', 'Product examples');
+    expect(screen.getByRole('option', { name: 'Brand' }).closest('optgroup')).toHaveAttribute('label', 'General');
+
+    await user.selectOptions(examples, 'Provider workspace: review');
+    expect(preview()).toHaveAttribute('data-product', 'provider');
+    expect(preview()).toHaveAttribute('data-density', 'compact');
+    expect(within(preview()).getByRole('button', { name: 'Confirm selected' })).toBeInTheDocument();
+    expect(snippet()).not.toHaveTextContent(/provider|compact/);
+
+    const label = screen.getByRole('textbox', { name: 'label' });
+    await user.clear(label);
+    await user.type(label, 'Confirm');
+    expect(examples).toHaveDisplayValue('Custom');
+    expect(preview()).toHaveAttribute('data-product', 'provider');
+
+    await user.selectOptions(examples, 'Brand');
+    expect(preview()).toHaveAttribute('data-product', 'system-lab');
+    expect(preview()).toHaveAttribute('data-density', 'comfortable');
+  });
+
+  it('keep a density chosen by hand when no product example is involved', async () => {
+    const user = userEvent.setup();
+    render(<Harness subject={exampleStory} initialPreview={{ ...defaultPreview, density: 'compact' }} />);
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Example' }), 'Brand');
+    expect(preview()).toHaveAttribute('data-density', 'compact');
+  });
+
+  it('leave no permanent product control, but a linked profile can be cleared without touching props', async () => {
+    const user = userEvent.setup();
+    render(<Harness initialPreview={{ ...defaultPreview, product: 'patient' }} />);
+    expect(preview()).toHaveAttribute('data-product', 'patient');
+    await user.click(screen.getByText('Preview settings'));
+    expect(screen.queryByRole('combobox', { name: 'Preview product' })).toBeNull();
+    expect(screen.getByText('Product profile: Patient app')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Use the site profile' }));
+    expect(preview()).toHaveAttribute('data-product', 'system-lab');
+    expect(screen.queryByRole('button', { name: 'Use the site profile' })).toBeNull();
+    expect(screen.getByRole('textbox', { name: 'label' })).toHaveValue('Save');
   });
 });
