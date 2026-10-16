@@ -47,29 +47,34 @@ const reviewPath: readonly Stop[] = [
     link: { label: 'Open the Playground', href: '/playground?component=button' },
   },
   {
-    title: 'Build a theme',
-    shows: 'Choose a brand color, compare contrast and inspect the resulting token files.',
-    demonstrates: 'Token architecture and design automation.',
-    link: { label: 'Open the Theme studio', href: '/foundations/theme-studio' },
+    title: 'Compare two products',
+    shows: 'A patient app step and a provider request queue, built from the same components and tokens for different tasks.',
+    demonstrates: 'Shared foundations and product-specific composition.',
+    link: { label: 'See the patient and provider examples', href: '/decisions/sharing#compositions' },
   },
   {
-    title: 'Test error recovery',
-    shows: 'Submit an empty form, follow the error links and see how the interface helps you recover.',
-    demonstrates: 'Composition, validation and focus management.',
-    link: { label: 'Try Form validation', href: '/patterns/form-validation' },
+    title: 'Read the reasoning',
+    shows: 'Why this project is built the way it is, each choice with a working example and its trade-off.',
+    demonstrates: 'Design-engineering judgement.',
+    link: { label: 'Design decisions', href: '/decisions' },
   },
 ];
 
 const moreStops: readonly Stop[] = [
   {
+    title: 'Theme studio',
+    shows: 'Choose a brand color, compare contrast and inspect the resulting token files.',
+    link: { label: 'Theme studio', href: '/foundations/theme-studio' },
+  },
+  {
+    title: 'Form validation',
+    shows: 'Submit an empty form, follow the error links and see how the interface helps you recover.',
+    link: { label: 'Form validation', href: '/patterns/form-validation' },
+  },
+  {
     title: 'Token architecture',
     shows: 'Reference, semantic and component tiers, traced to the value your browser computes, with a dependency policy the build enforces.',
     link: { label: 'Token architecture', href: '/foundations/tokens' },
-  },
-  {
-    title: 'Design decisions',
-    shows: 'Why this project is built the way it is, each choice with a working example, then how the approach applies to a product team.',
-    link: { label: 'Design decisions', href: '/decisions' },
   },
 ];
 
@@ -256,7 +261,7 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
         <Note title="Try it">
           <p>
             Choose a product profile in the demonstration above to see the same components use a different one. The Products
-            and modes foundation and the Playground preview compare them too.
+            and modes foundation and the Playground’s Card and Dialog examples compare them too.
           </p>
           <p>
             The patient app and the provider workspace are the product profiles of one fictional healthcare organization,

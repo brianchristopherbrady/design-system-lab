@@ -52,15 +52,15 @@ test.describe('overview', () => {
     await expect(stops).toHaveCount(3);
     await expect(stops.first()).toBeInViewport();
     const destinations = await stops.evaluateAll((items) => items.map((item) => item.querySelector('a')?.getAttribute('href')));
-    expect(destinations).toEqual(['/playground?component=button', '/foundations/theme-studio', '/patterns/form-validation']);
+    expect(destinations).toEqual(['/playground?component=button', '/decisions/sharing#compositions', '/decisions']);
     const more = await page
       .getByRole('list', { name: 'More to review' })
       .getByRole('link')
       .evaluateAll((links) => links.map((link) => link.getAttribute('href')));
-    expect(more).toEqual(['/foundations/tokens', '/decisions']);
+    expect(more).toEqual(['/foundations/theme-studio', '/patterns/form-validation', '/foundations/tokens']);
 
     await stops.nth(1).getByRole('link').click();
-    await expect(page.getByRole('heading', { level: 1, name: 'Theme studio' })).toBeFocused();
+    await expect(page.getByRole('heading', { name: 'Patient and provider examples' })).toBeInViewport();
   });
 
   test('the introduction states authorship and links the source and the case study', async ({ page }) => {
