@@ -14,7 +14,15 @@
 | `npm run build` | Generates tokens, type-checks and builds to `dist/`. |
 | `npm run preview` | Serves `dist/`. |
 | `npm run test:e2e` | Builds, serves the production bundle and runs Playwright + axe-core. |
+| `npm run test:e2e:employer` | The browser tests tagged `@employer-path`: first screen and review path, a shared Playground link, form and dialog recovery, the product examples and 320px reflow. |
 | `npm run verify` | Everything above, in order. |
+
+## Deployment
+
+Pushing to `main` deploys to GitHub Pages only after `npm run lint`, `npm test`, the build and
+`npm run test:e2e:employer` pass (`.github/workflows/deploy.yml`). The rest of the browser suite
+runs locally with `npm run verify`; it is not a deployment gate. Tag a browser test
+`@employer-path` when it covers something a first-time visitor is likely to try.
 
 ## Runtime and dependency versions
 

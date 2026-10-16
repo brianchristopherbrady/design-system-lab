@@ -118,7 +118,7 @@ test.describe('design decisions', () => {
     await expectNoAxeViolations(page);
   });
 
-  test('the examples keep their state through a theme change, and stack on a narrow screen', async ({ page }) => {
+  test('the examples keep their state through a theme change, and stack on a narrow screen', { tag: '@employer-path' }, async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 720 });
     await page.goto('/decisions/sharing#compositions');
     const patient = page.getByRole('region', { name: 'How should we confirm your appointment?' });

@@ -605,7 +605,7 @@ export const operating: Decision = {
             ['Stylesheets use only tokens and declare cascade layers', 'Checked by lint', '`scripts/architecture/check-styles.mjs`'],
             ['Imports respect the layer boundaries', 'Checked by lint', '[Implementation architecture](/#architecture)'],
             ['Text and control contrast in every product and theme', 'Unit tested', '[Contrast](/foundations/color#contrast)'],
-            ['Keyboard, focus, reflow at 320 pixels and automated accessibility scans', 'Browser tests on the production build', '`e2e/`'],
+            ['Keyboard, focus, reflow at 320 pixels and automated accessibility scans', 'Browser tests on the production build; the tests tagged `@employer-path` must pass before the site deploys', '`e2e/`'],
             ['Documentation agrees with the implementation', 'Unit tested', '`src/test/documentation.test.ts`'],
             ['Stable components are named in a test and used outside their own page', 'Unit tested', '`src/test/documentation.test.ts`'],
             ['Accessibility defects found by the October 2026 audit', 'Recorded: eight issues, all fixed and awaiting independent verification', '`docs/accessibility/accessibility-audit.md`'],

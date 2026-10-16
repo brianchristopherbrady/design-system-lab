@@ -30,7 +30,7 @@ test.describe('overview', () => {
     { width: 375, height: 760 },
     { width: 1280, height: 800 },
   ]) {
-    test(`the first screen shows the purpose and the main action at ${viewport.width}px`, async ({ page }) => {
+    test(`the first screen shows the purpose and the main action at ${viewport.width}px`, { tag: '@employer-path' }, async ({ page }) => {
       await page.setViewportSize(viewport);
       await page.goto('/');
       await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
@@ -43,7 +43,7 @@ test.describe('overview', () => {
     });
   }
 
-  test('the review path comes first and its stops lead to their destinations in order', async ({ page }) => {
+  test('the review path comes first and its stops lead to their destinations in order', { tag: '@employer-path' }, async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
     const sections = await page.getByRole('main').getByRole('heading', { level: 2 }).allTextContents();

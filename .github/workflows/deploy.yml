@@ -37,8 +37,27 @@ jobs:
         with:
           path: dist
 
+  # The full browser suite runs locally with npm run verify; this subset guards the path a first-time visitor takes.
+  employer-path:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e:employer
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: employer-path-traces
+          path: test-results
+          retention-days: 7
+
   deploy:
-    needs: build
+    needs: [build, employer-path]
     runs-on: ubuntu-latest
     environment:
       name: github-pages

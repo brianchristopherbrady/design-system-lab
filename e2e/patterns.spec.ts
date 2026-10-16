@@ -119,7 +119,7 @@ test.describe('resource directory scenarios', () => {
 });
 
 test.describe('resource detail', () => {
-  test('archive is confirmed, fails once, succeeds on retry and returns focus', async ({ page }) => {
+  test('archive is confirmed, fails once, succeeds on retry and returns focus', { tag: '@employer-path' }, async ({ page }) => {
     await page.goto('/patterns/resource-detail');
     await page.getByRole('button', { name: 'Archive', exact: true }).click();
     const dialog = page.getByRole('dialog', { name: 'Archive Button?' });

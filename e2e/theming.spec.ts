@@ -41,7 +41,7 @@ test.describe('products and modes', () => {
     for (const theme of ['light', 'dark']) expect(colors.get(`patient ${theme}`)).toBe(colors.get(`provider ${theme}`));
   });
 
-  test('a Card product example loads its content, profile and density, and keeps them through edits, theme changes and links', async ({ page }) => {
+  test('a Card product example loads its content, profile and density, and keeps them through edits, theme changes and links', { tag: '@employer-path' }, async ({ page }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('/playground?component=card');
     const preview = page.getByTestId('playground-preview');

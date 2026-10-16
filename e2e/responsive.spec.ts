@@ -24,7 +24,7 @@ test.describe('reflow at 320 CSS pixels (WCAG 1.4.10)', () => {
   test.use({ viewport: { width: 320, height: 720 } });
 
   for (const path of reflowPages) {
-    test(`no horizontal scrolling on ${path}`, async ({ page }) => {
+    test(`no horizontal scrolling on ${path}`, { tag: '@employer-path' }, async ({ page }) => {
       await page.goto(path);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       expect(await horizontalOverflow(page)).toBe(0);

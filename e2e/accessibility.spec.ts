@@ -172,7 +172,7 @@ test.describe('keyboard and focus', () => {
     await expect(page).toHaveURL(/\/components$/);
   });
 
-  test('the form error summary receives focus and links to fields', async ({ page }) => {
+  test('the form error summary receives focus and links to fields', { tag: '@employer-path' }, async ({ page }) => {
     await page.goto('/patterns/form-validation');
     await page.getByRole('button', { name: 'Submit proposal' }).click();
     const summary = page.getByText('Fix 5 problems to continue');

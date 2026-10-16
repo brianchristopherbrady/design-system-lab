@@ -71,7 +71,7 @@ test.describe('playground configuration', () => {
     await expect(page.getByRole('combobox', { name: 'Component' })).toHaveValue('card');
   });
 
-  test('a copied link reproduces the example in a fresh browser without changing its site settings', async ({ page, browser }) => {
+  test('a copied link reproduces the example in a fresh browser without changing its site settings', { tag: '@employer-path' }, async ({ page, browser }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await configureButton(page);
     await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('light');
