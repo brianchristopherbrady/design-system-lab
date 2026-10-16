@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { Disclosure } from '@/design-system/composites';
-import { Inline, Stack } from '@/design-system/layout';
-import { Badge, Icon, Link } from '@/design-system/primitives';
-import { MaturityBadge, type CatalogEntry } from '@/domain/system';
+import { Stack } from '@/design-system/layout';
+import { Icon, Link } from '@/design-system/primitives';
+import type { CatalogEntry } from '@/domain/system';
 import { ApiTable } from './ApiTable';
 import { DocSection, Prose } from './DocSection';
 import type { ComponentDoc, PropTokenTrace } from './docTypes';
@@ -30,11 +30,17 @@ export const componentSections = [
   { id: 'source', label: 'Source' },
 ] as const;
 
+/** Reference text marks code with backticks; show it as code rather than as literal delimiters. */
+function withCode(text: ReactNode): ReactNode {
+  if (typeof text !== 'string') return text;
+  return text.split(/(`[^`]+`)/).map((part, index) => (part.length > 2 && part.startsWith('`') && part.endsWith('`') ? <code key={index}>{part.slice(1, -1)}</code> : part));
+}
+
 function BulletList({ items }: { items: readonly ReactNode[] }) {
   return (
     <ul>
       {items.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li key={index}>{withCode(item)}</li>
       ))}
     </ul>
   );
@@ -72,19 +78,13 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
   return (
     <Stack gap="extraExtraLarge">
       <DocSection id="overview" title="Overview">
-        <Inline gap="small">
-          <Badge tone="info" appearance="outlined">
-            {entry.layer}
-          </Badge>
-          <MaturityBadge maturity={entry.maturity} />
-          {playgroundHref && (
-            <Link href={playgroundHref} variant="standalone" className={styles.playgroundLink}>
-              Open in playground <Icon name="arrowRight" />
-            </Link>
-          )}
-        </Inline>
+        {playgroundHref && (
+          <Link href={playgroundHref} variant="standalone" className={styles.playgroundLink}>
+            Open in playground <Icon name="arrowRight" />
+          </Link>
+        )}
         <Prose>
-          <p>{doc.purpose}</p>
+          <p>{withCode(doc.purpose)}</p>
         </Prose>
         <div className={styles.columns}>
           <Prose>
@@ -105,7 +105,7 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
       <DocSection id="api" title="Props">
         {doc.props.length > 0 && <ApiTable caption={`${entry.name} props`} props={doc.props} />}
         <Prose>
-          <p>{doc.nativeProps}</p>
+          <p>{withCode(doc.nativeProps)}</p>
           {doc.precedence.length > 0 && (
             <>
               <h3>Defaults, combinations and precedence</h3>
@@ -116,16 +116,25 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
       </DocSection>
 
       <DocSection id="tokens" title="Tokens">
+        <Disclosure summary="How to read these traces">
+          <Prose>
+            <p>
+              <strong>From prop to token</strong> follows a prop value to the CSS property it sets and the first token that
+              property reads. Open a row for the alias chain in the product, theme and density this page is rendered in, with
+              three readings: the value as authored in the token file, the value the token build resolved, and the value this
+              browser computes on an element in the same context.
+            </p>
+            <p>
+              <strong>Every token read</strong> is derived from the component’s own source files, not listed by hand:{' '}
+              <code>var()</code> reads in its stylesheet and the prop vocabularies its code calls. Values follow the theme set
+              in the header.
+            </p>
+          </Prose>
+        </Disclosure>
         {doc.propTokens.length > 0 && (
           <>
             <Prose>
               <h3>From prop to token</h3>
-              <p>
-                Each row follows a prop value to the CSS property it sets and the first token that property reads. Open a
-                row to follow the alias chain for the product, theme and density this page is rendered in, and to compare
-                three readings: the value as authored in the token file, the value the token build resolved, and the value
-                this browser computes on an element in the same context.
-              </p>
             </Prose>
             <ul className={styles.traces}>
               {doc.propTokens.map((trace) => (
@@ -136,11 +145,6 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
         )}
         <Prose>
           <h3>Every token read</h3>
-          <p>
-            Derived from this component’s own source files, not listed by hand: <code>var()</code> reads in its stylesheet
-            and the prop vocabularies its code calls. Values are for the context this page is rendered in; change the
-            theme in the header to compare.
-          </p>
         </Prose>
         <TokensRead sourcePaths={doc.sourcePaths} />
       </DocSection>
