@@ -126,13 +126,13 @@ export const playgroundStories: readonly AnyStory[] = [
     snippetChildren: '{children}',
     inheritsScope: true,
     controls: [
-      { kind: 'select', prop: 'product', options: productNames, defaultValue: 'harbor', unsetLabel: 'parent scope', unsetKind: 'inherit', description: 'Brand roles, typefaces and shape.' },
+      { kind: 'select', prop: 'product', options: productNames, defaultValue: 'provider', unsetLabel: 'parent scope', unsetKind: 'inherit', description: 'Brand roles, typefaces and shape.' },
       { kind: 'select', prop: 'theme', options: themeNames, defaultValue: undefined, unsetLabel: 'parent scope', unsetKind: 'inherit', description: 'Color theme.' },
       { kind: 'select', prop: 'density', options: densityNames, defaultValue: undefined, unsetLabel: 'parent scope', unsetKind: 'inherit', description: 'Control size and spacing.' },
     ],
     presets: [
-      { name: 'Meadow, dark', values: { product: 'meadow', theme: 'dark' } },
-      { name: 'Compact Harbor', values: { product: 'harbor', density: 'compact' } },
+      { name: 'Patient app, dark', values: { product: 'patient', theme: 'dark' } },
+      { name: 'Provider workspace, compact', values: { product: 'provider', density: 'compact' } },
     ],
     render: (props) => (
       <ThemeScope {...props}>

@@ -15,7 +15,7 @@ export function TokenSwatch({ type, value }: { type: string; value: string }) {
   return <span className={styles.swatch} style={{ backgroundColor: value }} aria-hidden="true" />;
 }
 
-/** "Harbor · dark · compact": the modifiers a value was resolved for. */
+/** "Provider workspace · dark · compact": the modifiers a value was resolved for. */
 export function contextLabel(input: ModifierInput) {
   return `${productProfiles[input.product].name} · ${input.theme} · ${densityLabels[input.density].toLowerCase()}`;
 }

@@ -52,7 +52,7 @@ export const componentApis: Decision = {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow and Harbor will build screens from the same Button, Card and Dialog. Each team will ask for options its own screens need, and any option added stays in the shared API for both.',
+        text: 'The patient app and the provider workspace will build screens from the same Button, Card and Dialog. Each team will ask for options its own screens need, and any option added stays in the shared API for both.',
       },
     ],
     choice: [
@@ -136,7 +136,7 @@ export const componentApis: Decision = {
             [
               'A need of one product’s workflow',
               'A product component composed from shared parts',
-              'None here. In the scenario, Harbor’s bulk-action bar ([inventory finding I7](/decisions/planning#inventory)).',
+              'None here. In the scenario, the provider workspace’s bulk-action bar ([inventory finding I7](/decisions/planning#inventory)).',
               'One product’s needs stay out of every product’s API.',
             ],
           ],
@@ -179,7 +179,7 @@ export const componentApis: Decision = {
           kind: 'text',
           paragraphs: [
             'A named option fits when its values are a scale the system already owns: spacing, radius, elevation, border strength, surface and tone. Each name resolves to one token, so a theme can change what `large` means without any consumer changing code.',
-            'Avoid names that describe a product (`harbor`) or a raw value (`16`). The first ties the shared API to one product; the second ties it to one theme.',
+            'Avoid names that describe a product (`provider`) or a raw value (`16`). The first ties the shared API to one product; the second ties it to one theme.',
           ],
         },
         {
@@ -333,7 +333,7 @@ export const componentApis: Decision = {
           kind: 'record',
           caption: 'Button: a save that takes time',
           fields: [
-            { label: 'Requirement', statements: [{ evidence: 'hypothetical', text: 'Harbor’s Save sends a request that can take seconds. People must not submit twice, and keyboard users must not lose their place.' }] },
+            { label: 'Requirement', statements: [{ evidence: 'hypothetical', text: 'The provider workspace’s Save sends a request that can take seconds. People must not submit twice, and keyboard users must not lose their place.' }] },
             {
               label: 'Options considered',
               statements: [{ evidence: 'proposed', items: ['Set `disabled` while saving.', 'A `loading` prop that keeps focus and ignores activation.', 'Let each product build its own spinner button.'] }],
@@ -378,7 +378,7 @@ export const componentApis: Decision = {
           kind: 'record',
           caption: 'Card: one component, two densities',
           fields: [
-            { label: 'Requirement', statements: [{ evidence: 'hypothetical', text: 'Harbor wants flat, compact cards in its record lists; Meadow wants roomy, raised cards for its guided steps.' }] },
+            { label: 'Requirement', statements: [{ evidence: 'hypothetical', text: 'The provider workspace wants flat, compact cards in its record lists; the patient app wants roomy, raised cards for its guided steps.' }] },
             {
               label: 'Options considered',
               statements: [{ evidence: 'proposed', items: ['A `variant` per product.', 'Raw `padding` and `boxShadow` values.', 'Named styling props, each falling back to a component token.'] }],
@@ -395,7 +395,7 @@ export const componentApis: Decision = {
             },
             {
               label: 'Rejected alternative',
-              statements: [{ evidence: 'conceptual', text: '`variant="harbor"`. It puts one product’s choices in the shared API, and a third product would need a third variant.' }],
+              statements: [{ evidence: 'conceptual', text: '`variant="provider"`. It puts one product’s choices in the shared API, and a third product would need a third variant.' }],
             },
             {
               label: 'Consequences',
@@ -428,7 +428,7 @@ export const componentApis: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'Meadow’s dialogs hold short forms, where a stray tap outside must not throw away input. Harbor’s keyboard-shortcut list should close with a click outside.',
+                  text: 'The patient app’s dialogs hold short forms, where a stray tap outside must not throw away input. The provider workspace’s keyboard-shortcut list should close with a click outside.',
                 },
               ],
             },
@@ -452,7 +452,7 @@ export const componentApis: Decision = {
             },
             {
               label: 'Consequences',
-              statements: [{ evidence: 'proposed', text: 'Harbor’s shortcut list opts in with one prop; dialogs that hold input need nothing. Every consumer still sets `open` to false in `onClose`.' }],
+              statements: [{ evidence: 'proposed', text: 'The provider workspace’s shortcut list opts in with one prop; dialogs that hold input need nothing. Every consumer still sets `open` to false in `onClose`.' }],
             },
             {
               label: 'Validation',
@@ -481,13 +481,13 @@ export const componentApis: Decision = {
         {
           kind: 'text',
           evidence: 'hypothetical',
-          paragraphs: ['Harbor needs a record summary that shows the record’s status next to its title, with Approve and Return actions at the end.'],
+          paragraphs: ['The provider workspace needs a record summary that shows the record’s status next to its title, with Approve and Return actions at the end.'],
         },
         {
           kind: 'code',
           evidence: 'conceptual',
           language: 'tsx',
-          caption: 'Rejected: status and actions as Card props. Card would need a tone mapping, an action model and a layout rule that only Harbor uses.',
+          caption: 'Rejected: status and actions as Card props. Card would need a tone mapping, an action model and a layout rule that only the provider workspace uses.',
           code: '<Card status="in-review" statusTone="warning" actions={[{ label: \'Approve\', onClick: approve }]} />',
         },
         {
@@ -499,7 +499,7 @@ export const componentApis: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'If Meadow needed the same summary, the composition would become a candidate for a shared pattern, not a set of Card props. Until then it is Harbor’s component. See [what the system lacks](/decisions/operating#ownership).',
+            'If the patient app needed the same summary, the composition would become a candidate for a shared pattern, not a set of Card props. Until then it is the provider workspace’s component. See [what the system lacks](/decisions/operating#ownership).',
           ],
         },
       ],

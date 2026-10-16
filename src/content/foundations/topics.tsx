@@ -118,7 +118,7 @@ function TokensContent() {
           <ol>
             <li>
               Tokens are authored as DTCG JSON in <code>src/design-system/tokens/source/</code>. A resolver file lists the
-              sets and three modifiers: <code>theme</code> (light, dark), <code>product</code> (System Lab, Harbor, Meadow)
+              sets and three modifiers: <code>theme</code> (light, dark), <code>product</code> (System Lab, patient app, provider workspace)
               and <code>density</code> (comfortable, compact).
             </li>
             <li>
@@ -374,8 +374,9 @@ function TypographyContent() {
       <DocSection id="families" title="Families and scale">
         <Prose>
           <p>
-            The system sets text in Jost, a self-hosted geometric sans, and code in the platform’s monospace. Harbor and
-            Meadow add three more families, described under typefaces by product. Sizes are an eight-step scale in rem,
+            The system sets text in Jost, a self-hosted geometric sans, and code in the platform’s monospace. The patient
+            app and the provider workspace share one more family, IBM Plex Sans, described under typefaces by product.
+            Sizes are an eight-step scale in rem,
             so text follows the reader’s font-size preference and zoom. Weights and line heights are separate reference
             tokens.
           </p>

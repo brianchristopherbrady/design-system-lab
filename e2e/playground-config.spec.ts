@@ -12,7 +12,7 @@ async function configureButton(page: Page) {
   await page.getByRole('combobox', { name: 'border' }).selectOption('thick');
   await booleanValue(page, 'fullWidth', 'true').check();
   await openPreviewSettings(page);
-  await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
+  await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
   await page.getByRole('combobox', { name: 'Preview theme' }).selectOption('dark');
   await page.getByRole('combobox', { name: 'Preview density' }).selectOption('compact');
   await page.getByRole('button', { name: 'Narrow (320px)' }).click();
@@ -22,10 +22,10 @@ async function expectConfiguredButton(page: Page) {
   await expect(page.getByRole('combobox', { name: 'size' })).toHaveValue('large');
   await expect(page.getByRole('combobox', { name: 'border' })).toHaveValue('thick');
   await expect(booleanValue(page, 'fullWidth', 'true')).toBeChecked();
-  await expect(preview(page)).toHaveAttribute('data-product', 'meadow');
+  await expect(preview(page)).toHaveAttribute('data-product', 'patient');
   await expect(preview(page)).toHaveAttribute('data-theme', 'dark');
   await expect(preview(page)).toHaveAttribute('data-density', 'compact');
-  await expect(page.getByTestId('preview-context')).toContainText('Meadow · Dark · Compact · 320px');
+  await expect(page.getByTestId('preview-context')).toContainText('Patient app · Dark · Compact · 320px');
   await expect(snippet(page)).toContainText('size="large"');
   await expect(snippet(page)).toContainText('fullWidth={true}');
 }
@@ -160,11 +160,11 @@ test.describe('playground configuration', () => {
     await page.getByRole('button', { name: 'Reset component props' }).click();
     await expect(page.getByRole('combobox', { name: 'size' })).toHaveValue('medium');
     await expect(booleanValue(page, 'fullWidth', 'false')).toBeChecked();
-    await expect(page.getByTestId('preview-context')).toContainText('Meadow · Dark · Compact · 320px');
+    await expect(page.getByTestId('preview-context')).toContainText('Patient app · Dark · Compact · 320px');
     const url = new URL(page.url());
     expect([...url.searchParams.keys()].filter((name) => name.startsWith('p.'))).toEqual([]);
     expect(url.searchParams.get('preview.width')).toBe('320');
-    for (const word of ['preview', 'meadow', 'dark', 'compact', '320']) await expect(snippet(page)).not.toContainText(word);
+    for (const word of ['preview', 'patient', 'dark', 'compact', '320']) await expect(snippet(page)).not.toContainText(word);
   });
 
   test('fixed widths fit a narrow screen and Fill follows it', async ({ page }) => {

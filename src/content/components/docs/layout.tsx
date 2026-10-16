@@ -22,7 +22,7 @@ export const layoutDocs: ComponentDoc[] = [
       'ThemeScope re-themes a region of the page: a different theme, product or density for everything inside it. It renders one element carrying all three data attributes and publishes the values to nested scopes, so anything it does not set is inherited from the nearest parent scope rather than reset.',
     whenToUse: [
       'Previews and comparisons, such as the playground frame and the products × themes matrix.',
-      'A product area embedded in another product, such as a Harbor widget inside a Design System Lab page.',
+      'A product area embedded in another product, such as a provider workspace widget inside a Design System Lab page.',
       'A permanently dark region, such as a code panel or media viewer.',
     ],
     whenNotToUse: [
@@ -31,7 +31,7 @@ export const layoutDocs: ComponentDoc[] = [
     ],
     props: propsTable<ThemeScopeOwnProps>({
       theme: { type: '"light" | "dark"', defaultValue: 'inherited', description: 'Color theme.' },
-      product: { type: '"system-lab" | "harbor" | "meadow"', defaultValue: 'inherited', description: 'Brand roles, typefaces and shape.' },
+      product: { type: '"system-lab" | "patient" | "provider"', defaultValue: 'inherited', description: 'Brand roles, typefaces and shape.' },
       density: { type: '"comfortable" | "compact"', defaultValue: 'inherited', description: 'Control size and spacing.' },
     }),
     nativeProps: `${layoutNative} The accepted values are generated from the resolver, so adding a product context adds it to the type.`,
@@ -42,7 +42,7 @@ export const layoutDocs: ComponentDoc[] = [
     ],
     propTokens: [
       { prop: 'theme="dark"', property: 'background-color (via base.css)', token: 'surface.canvas' },
-      { prop: 'product="harbor"', property: '--button-primary-background', token: 'button.primary.background' },
+      { prop: 'product="provider"', property: '--button-primary-background', token: 'button.primary.background' },
       { prop: 'density="compact"', property: '--control-height-medium', token: 'control.height.medium' },
     ],
     composition: ['The playground preview, the theme studio previews and the foundations matrices are ThemeScopes.', 'Scopes nest; each inherits from its parent.'],

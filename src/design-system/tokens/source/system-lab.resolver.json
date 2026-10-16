@@ -2,7 +2,7 @@
   "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
   "name": "Design System Lab tokens",
   "version": "2025.10",
-  "description": "Combines reference, semantic and component token sets with three modifiers: theme (light/dark), product (Design System Lab, Harbor, Meadow) and density (comfortable/compact). Read by scripts/tokens/build-tokens.mjs.",
+  "description": "Combines reference, semantic and component token sets with three modifiers: theme (light/dark), product (Design System Lab, the patient app, the provider workspace) and density (comfortable/compact). Read by scripts/tokens/build-tokens.mjs.",
   "sets": {
     "reference": {
       "description": "Raw scales and palettes, identical in every permutation (no modifier may override them). Palettes are read only by semantic tokens; non-color scales may be read directly for values that must never change by theme, product or density.",
@@ -31,11 +31,11 @@
       "$extensions": { "org.systemlab": { "tier": "semantic", "complete": true } }
     },
     "product": {
-      "description": "Product brand, typefaces and shape. Contexts only re-point existing roles, so every product inherits everything it does not override.",
+      "description": "Product brand, typefaces and shape. Contexts only re-point existing roles, so every product inherits everything it does not override. The patient app and the provider workspace share one brand family.",
       "contexts": {
         "system-lab": [],
-        "harbor": [{ "$ref": "product.harbor.tokens.json" }],
-        "meadow": [{ "$ref": "product.meadow.tokens.json" }]
+        "patient": [{ "$ref": "product.patient.tokens.json" }],
+        "provider": [{ "$ref": "product.provider.tokens.json" }]
       },
       "default": "system-lab",
       "$extensions": { "org.systemlab": { "tier": "semantic", "overrides": true } }

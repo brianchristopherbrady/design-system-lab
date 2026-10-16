@@ -5,30 +5,30 @@ import type { Decision } from '../types';
 export const sharing: Decision = {
   id: 'sharing',
   stage: 'Sharing boundaries',
-  question: 'What should Meadow, a guided consumer product, share with Harbor, a dense professional application?',
+  question: 'What should the patient app, a guided product for patients, share with the provider workspace, a dense tool for clinic staff?',
   matters: 'Sharing too much bends components toward options neither product needs; sharing too little means building keyboard and accessibility behavior twice.',
   project: {
     choice:
-      'One component tree serves every product mode. A product changes brand colors, typefaces and corner radii through tokens, density changes sizes, and no component is forked or restyled per product.',
-    constraint: 'Share behavior only where it is genuinely the same, and let tokens carry what varies, so one fix reaches every product mode.',
+      'One component tree serves every product profile. The patient app and the provider workspace share one brand family; the provider workspace adds compact density and tighter corners, and no component is forked or restyled per product.',
+    constraint: 'Share behavior only where it is genuinely the same, and let tokens carry what varies, so one fix reaches both products.',
     tryIt: {
-      text: 'Submit “abc” in both compositions below: the same message and error wiring, in two different presentations. Then compare every product and theme side by side in Products and modes.',
+      text: 'Submit “abc” in both examples below: the same message and error wiring, in two different presentations. Then compare every product and theme side by side in Products and modes.',
       links: [
-        { label: 'Two compositions', href: '/decisions/sharing#compositions' },
+        { label: 'Patient and provider examples', href: '/decisions/sharing#compositions' },
         { label: 'Products × themes', href: '/foundations/products#matrix' },
       ],
     },
     tradeoff:
-      'Product modes prove configurable presentation, not that two real products should share workflows or behavior. That needs evidence from their users and a pilot, which the scenario below works through.',
+      'Product profiles prove configurable presentation, not that two real products should share workflows or behavior. That needs evidence from their users and a pilot, which the scenario below works through.',
     evidence:
-      'A policy test keeps each product’s overrides to brand colors, typefaces and corner radii, and a browser test checks that both compositions show the same error while their typefaces differ. The scenario and the constraints explorer below are hypothetical and proposed.',
+      'A policy test keeps each product’s overrides to brand roles, typefaces, the signal and corner radii, and a browser test checks that both examples show the same error in the same typeface while their density differs. The organization, the scenario and the constraints explorer below are hypothetical and proposed.',
     lead: ['compositions', 'this-site'],
   },
   record: {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow is used occasionally, mostly on phones, touch first and one step at a time. Harbor is used all day at a desk, keyboard first, with tables and bulk actions. Both are web apps on the same framework with related brands, each releases on its own schedule, and the inventory found that only form fields, buttons, alerts and dialogs behave the same in both.',
+        text: 'The patient app is used occasionally, mostly on phones, touch first and one step at a time. The provider workspace is used all day at a desk, keyboard first, with tables and bulk actions. Both are web apps on the same framework with related brands, each releases on its own schedule, and the inventory found that only form fields, buttons, alerts and dialogs behave the same in both.',
       },
     ],
     choice: [
@@ -48,7 +48,7 @@ export const sharing: Decision = {
     consequences: [
       {
         evidence: 'proposed',
-        text: 'Someone must own and version the core and decide what belongs in it. Some duplication stays on purpose: Harbor’s tables and Meadow’s guided steps are built separately.',
+        text: 'Someone must own and version the core and decide what belongs in it. Some duplication stays on purpose: the provider workspace’s tables and the patient app’s guided steps are built separately.',
       },
     ],
     validation: [
@@ -62,7 +62,7 @@ export const sharing: Decision = {
     reconsider: [
       {
         evidence: 'proposed',
-        text: 'Meadow ships a native app, which can share tokens and specifications but not web components, while its web app could still share code with Harbor; the products move to different frameworks; or the exceptions log shows both products overriding the same core control.',
+        text: 'The patient app ships a native app, which can share tokens and specifications but not web components, while its web app could still share code with the provider workspace; the products move to different frameworks; or the exceptions log shows both products overriding the same core control.',
       },
     ],
   },
@@ -73,16 +73,16 @@ export const sharing: Decision = {
       blocks: [
         {
           kind: 'table',
-          caption: 'Meadow and Harbor: different people, tasks and devices',
+          caption: 'The patient app and the provider workspace: different people, tasks and devices',
           evidence: 'hypothetical',
-          columns: ['Aspect', 'Meadow', 'Harbor'],
+          columns: ['Aspect', 'Patient app', 'Provider workspace'],
           rows: [
-            ['People', 'Occasional consumers who need guidance', 'Professionals who use it all day'],
+            ['People', 'Patients who need guidance', 'Providers and clinic staff who use it all day'],
             ['Devices', 'Mostly phones', 'Desktops with large screens'],
             ['Tasks', 'A few short, guided tasks', 'Scanning, comparing and acting on many records'],
             ['Density', 'Low', 'High, with tables and bulk actions'],
             ['Input', 'Touch first', 'Keyboard first'],
-            ['Platform', 'Responsive web', 'Web, on the same framework as Meadow'],
+            ['Platform', 'Responsive web', 'Web, on the same framework as the patient app'],
             ['Releases', 'On its own schedule', 'On its own schedule'],
           ],
         },
@@ -101,12 +101,12 @@ export const sharing: Decision = {
           caption: 'Questions, why each one changes the answer, and the scenario’s answers',
           evidence: ['proposed', 'hypothetical'],
           wide: true,
-          columns: ['Question', 'Why it matters', 'Meadow and Harbor'],
+          columns: ['Question', 'Why it matters', 'The patient app and the provider workspace'],
           rows: [
-            ['Is the consumer product responsive web, a native app, or both?', 'Web products can share component code. A native app shares only tokens and specifications. If both, decide each part separately.', 'Responsive web.'],
+            ['Is the patient app responsive web, a native app, or both?', 'Web products can share component code. A native app shares only tokens and specifications. If both, decide each part separately.', 'Responsive web.'],
             ['How do the people, tasks, usage frequency and density differ?', 'The more they differ, the less of each screen and pattern can be shared.', 'Sharply: occasional guided use against all-day dense work.'],
             ['Which controls have genuinely equivalent behavior?', 'Only equivalent controls benefit from one implementation. Forcing others together adds options neither product needs.', 'Few: form fields, buttons, alerts and dialogs.'],
-            ['What differs in touch targets, keyboard use, accessibility and navigation?', 'A shared control must support both input styles. Size differences can live in density or target tokens.', 'Meadow needs large touch targets; Harbor needs full keyboard use and a compact density.'],
+            ['What differs in touch targets, keyboard use, accessibility and navigation?', 'A shared control must support both input styles. Size differences can live in density or target tokens.', 'The patient app needs large touch targets; the provider workspace needs full keyboard use and a compact density.'],
             ['Are the brands, platforms, frameworks and performance budgets compatible?', 'Different frameworks or tight performance budgets raise the cost of shared code. Whether a host needs an adapter depends on the framework and the component’s contract.', 'Yes: related brands on one framework.'],
             ['Can the teams release independently?', 'A shared library does not force shared releases: with versioned packages, each product adopts a change when it is ready, within a support window.', 'Yes, and they want to keep doing so.'],
             ['Who owns shared components, supports their users and resolves exceptions?', 'Without an owner, a shared library decays faster than two separate ones.', 'A small dedicated core team, with one representative from each product.'],
@@ -156,23 +156,23 @@ export const sharing: Decision = {
     },
     {
       id: 'compositions',
-      title: 'Two compositions, one system',
+      title: 'Patient and provider examples',
       blocks: [
         {
           kind: 'text',
           paragraphs: [
-            'Two demonstrations built from this repository’s components, each inside its product’s scope: a guided step for Meadow and a dense review panel for Harbor. The workflows are invented for the [scenario](/decisions/sharing#scenario), and nothing is sent or saved. They show what can be shared between compositions, not what either product’s users need.',
+            'Two examples built from this repository’s components, each inside its product’s scope: an appointment request step in the patient app and a request queue in the provider workspace. Both use the same foundations and shared web components; their content, layout and workflows follow their tasks. The organization and its requests are illustrative, and nothing is sent or saved.',
           ],
         },
         {
           kind: 'visual',
           evidence: ['implemented', 'hypothetical'],
-          caption: 'Demonstrations: real components and tokens, invented workflows.',
+          caption: 'Real components and tokens; an illustrative organization and invented requests.',
           Visual: ProductCompositions,
         },
         {
           kind: 'table',
-          caption: 'What the two compositions share, what differs, and why',
+          caption: 'What the two examples share, what differs, and why',
           evidence: ['implemented', 'proposed'],
           stacked: true,
           columns: ['Part', 'Shared', 'Differs', 'Why'],
@@ -180,25 +180,25 @@ export const sharing: Decision = {
             [
               'Components',
               'Field, Input and Button, with the same props. Nothing is forked or restyled locally.',
-              'Only Meadow uses RadioGroup cards; only Harbor uses Checkbox rows and status Badges.',
+              'Only the patient app uses RadioGroup cards; only the provider workspace uses Checkbox rows and status Badges.',
               'Each control behaves the same wherever it appears, so one implementation serves both.',
             ],
             [
               'Tokens',
-              'The same semantic roles.',
-              'The product scope re-points brand colors, typefaces and corner radii, and Harbor’s scope is compact.',
-              'Brand and density are presentation, which tokens carry without new components.',
+              'The same semantic roles, the care brand family and IBM Plex Sans.',
+              'The provider workspace’s scope is compact and has tighter corners; the patient app keeps comfortable density and the system’s corners.',
+              'Brand, density and shape are presentation, which tokens carry without new components.',
             ],
             [
               'Validation',
               'One email rule, one message, the same error wiring, and focus moves back to the field.',
-              'Meadow checks on Continue, Harbor on Save; both check only on submit.',
+              'The patient app checks on Continue, the provider workspace on Save; both check only on submit.',
               'Equivalent behavior, which [requirements R5 and R6](/decisions/planning#outputs) ask for in both products.',
             ],
             [
               'Composition',
               'Nothing.',
-              'Meadow asks one question per step with a full-width action. Harbor shows a live filter, compact rows, selection and a bulk action.',
+              'The patient app asks one question per step with a full-width action. The provider workspace shows a live filter, compact rows, selection and an action on the selected requests.',
               'Different tasks and frequency, so each product composes its own screens ([finding I7](/decisions/planning#inventory)).',
             ],
           ],
@@ -212,15 +212,15 @@ export const sharing: Decision = {
           rows: [
             [
               'Matching appearance, different behavior',
-              'Harbor’s “Filter records” and “Notify by email” fields.',
+              'The provider workspace’s “Filter requests” and “Notify by email” fields.',
               'Identical: the same Field and Input in the same scope.',
               'The filter narrows the list on every keystroke and never shows an error. The email field waits for Save, then validates.',
               'Behavior belongs to the composition. Sharing the input does not mean sharing a filter or search component ([finding I8](/decisions/planning#similar)).',
             ],
             [
               'Different appearance, matching behavior',
-              'The email fields in Meadow and Harbor. Submit “abc” in each.',
-              'Different typeface, color, corner radius and size.',
+              'The email fields in the patient app and the provider workspace. Submit “abc” in each.',
+              'Different size, spacing and corner radius; the same brand color and typeface.',
               'The same message and error wiring, and focus returns to the field.',
               'Share the behavior; let tokens vary the look.',
             ],
@@ -230,14 +230,14 @@ export const sharing: Decision = {
     },
     {
       id: 'this-site',
-      title: 'What this site’s product modes show',
+      title: 'Scoped product presentation',
       blocks: [
         {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'This site has three product profiles (Design System Lab, Harbor and Meadow), light and dark themes, and comfortable and compact density. One token source drives all twelve combinations, and no component knows which one is active. The site itself always uses its own profile; the other profiles are applied only to the examples that show them, such as the compositions above.',
-            'Here Harbor and Meadow are presentation modes only; the scenario borrows their names. They demonstrate **configurable presentation**: brand colors, typefaces, shape and density vary without forking components. They do not show that a guided consumer product and a dense professional application should share workflows or component behavior. That needs evidence from their users and a pilot.',
+            'Each example sets its product profile and density on its own scope and inherits light or dark from the page. The site has three product profiles (Design System Lab, the patient app and the provider workspace), light and dark themes, and comfortable and compact density. One token source drives all twelve combinations, no component knows which one is active, and the site itself always keeps its own profile.',
+            'The two product profiles demonstrate **configurable presentation**: one brand family and typeface, with density and corner shapes chosen per product, and no forked components. They do not show that two real products should share workflows or component behavior. That needs evidence from their users and a pilot.',
           ],
         },
         {

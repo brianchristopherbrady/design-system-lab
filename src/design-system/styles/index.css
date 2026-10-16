@@ -14,8 +14,6 @@
 /* Self-hosted variable fonts: a face downloads only when rendered text uses it, so a product's typefaces cost nothing until chosen. */
 @import '@fontsource-variable/jost';
 @import '@fontsource-variable/ibm-plex-sans';
-@import '@fontsource-variable/fraunces/opsz.css';
-@import '@fontsource-variable/nunito';
 @import './reset.css';
 @import '../tokens/generated/tokens.css';
 @import './base.css';

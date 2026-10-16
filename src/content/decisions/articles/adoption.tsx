@@ -1,13 +1,13 @@
 import { SourceList } from '@/features/docs';
-import wrapperSource from '../HbButton.tsx?raw';
+import wrapperSource from '../PwButton.tsx?raw';
 import { TokenMapping, WrapperBench } from '../MigrationExamples';
 import type { Decision } from '../types';
 
-const legacyComponent = `// Harbor's existing button (hypothetical), used at about 200 call sites.
-export function HbButton({ kind = 'default', small, busy, children, ...rest }) {
+const legacyComponent = `// The provider workspace's existing button (hypothetical), used at about 200 call sites.
+export function PwButton({ kind = 'default', small, busy, children, ...rest }) {
   return (
     <button
-      className={\`hb-btn hb-btn--\${kind}\${small ? ' hb-btn--small' : ''}\`}
+      className={\`pw-btn pw-btn--\${kind}\${small ? ' pw-btn--small' : ''}\`}
       disabled={busy || rest.disabled}
       {...rest}
     >
@@ -16,20 +16,20 @@ export function HbButton({ kind = 'default', small, busy, children, ...rest }) {
   );
 }`;
 
-const legacyStyles = `.hb-btn { height: 32px; padding: 0 14px; border: 1px solid #0b5cab; border-radius: 3px;
+const legacyStyles = `.pw-btn { height: 32px; padding: 0 14px; border: 1px solid #0b5cab; border-radius: 3px;
   font: 600 14px/1 Arial, sans-serif; background: #fff; color: #0b5cab; }
-.hb-btn--primary { background: #0b5cab; color: #fff; }
-.hb-btn--small { height: 26px; padding: 0 10px; font-size: 12px; }
-.hb-btn--link { border-color: transparent; background: none; text-decoration: underline; }
-.hb-btn:focus { outline: none; box-shadow: 0 0 0 2px #7fb2e5; }
-.hb-btn:disabled { background: #e0e0e0; color: #9a9a9a; border-color: #e0e0e0; }`;
+.pw-btn--primary { background: #0b5cab; color: #fff; }
+.pw-btn--small { height: 26px; padding: 0 10px; font-size: 12px; }
+.pw-btn--link { border-color: transparent; background: none; text-decoration: underline; }
+.pw-btn:focus { outline: none; box-shadow: 0 0 0 2px #7fb2e5; }
+.pw-btn:disabled { background: #e0e0e0; color: #9a9a9a; border-color: #e0e0e0; }`;
 
 function MigrationEvidence() {
   return (
     <SourceList
       sources={[
-        { path: 'src/content/decisions/HbButton.tsx', note: 'The compatibility wrapper on this page, on the real Button' },
-        { path: 'src/content/decisions/HbButton.test.tsx', note: 'What the wrapper preserves and what it changes on purpose' },
+        { path: 'src/content/decisions/PwButton.tsx', note: 'The compatibility wrapper on this page, on the real Button' },
+        { path: 'src/content/decisions/PwButton.test.tsx', note: 'What the wrapper preserves and what it changes on purpose' },
         { path: 'src/content/decisions/MigrationExamples.tsx', note: 'The live token mapping and the before-and-after call sites' },
         { path: 'scripts/architecture/check-styles.mjs', note: 'The strict guard rail: no raw colors in any stylesheet' },
       ]}
@@ -40,13 +40,13 @@ function MigrationEvidence() {
 export const adoption: Decision = {
   id: 'adoption',
   stage: 'Adoption and migration',
-  question: 'How do Meadow and Harbor move existing screens onto the shared core without pausing feature work or breaking what already works?',
+  question: 'How do the patient app and the provider workspace move existing screens onto the shared core without pausing feature work or breaking what already works?',
   matters: 'A migration that stops at changed imports leaves two systems to maintain, and one that breaks behavior loses the trust it needs to finish.',
   record: {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Harbor has its own button in about 200 places, styled with raw values; Meadow has a different one. Both keep shipping features while they move to the shared core, and Meadow and Harbor each upgrade the core on their own schedule.',
+        text: 'The provider workspace has its own button in about 200 places, styled with raw values; the patient app has a different one. Both keep shipping features while they move to the shared core, and the patient app and the provider workspace each upgrade the core on their own schedule.',
       },
     ],
     choice: [
@@ -98,7 +98,7 @@ export const adoption: Decision = {
         {
           kind: 'text',
           evidence: 'proposed',
-          paragraphs: ['Meadow and Harbor keep shipping while they move. Migrate in small, reversible steps, and stop adding new debt before paying down the old.'],
+          paragraphs: ['The patient app and the provider workspace keep shipping while they move. Migrate in small, reversible steps, and stop adding new debt before paying down the old.'],
         },
         {
           kind: 'steps',
@@ -153,9 +153,9 @@ export const adoption: Decision = {
         {
           kind: 'text',
           evidence: 'hypothetical',
-          paragraphs: ['Harbor’s `HbButton` is invented for this example. Before changing anything, write down what it does, because call sites may depend on any of it.'],
+          paragraphs: ['The provider workspace’s `PwButton` is invented for this example. Before changing anything, write down what it does, because call sites may depend on any of it.'],
         },
-        { kind: 'code', evidence: 'conceptual', language: 'tsx', caption: 'Hypothetical: Harbor’s button today.', code: legacyComponent },
+        { kind: 'code', evidence: 'conceptual', language: 'tsx', caption: 'Hypothetical: the provider workspace’s button today.', code: legacyComponent },
         { kind: 'code', evidence: 'conceptual', language: 'css', caption: 'Hypothetical: its styles, with raw values throughout.', code: legacyStyles },
         {
           kind: 'table',
@@ -187,7 +187,7 @@ export const adoption: Decision = {
         {
           kind: 'visual',
           evidence: ['hypothetical', 'implemented'],
-          caption: 'Harbor’s values are invented; the tokens and the values in the third column are real, measured from the two buttons above. Switch the theme in the header and they update.',
+          caption: 'The provider workspace’s values are invented; the tokens and the values in the third column are real, measured from the two buttons above. Switch the theme in the header and they update.',
           Visual: TokenMapping,
         },
       ],
@@ -206,7 +206,7 @@ export const adoption: Decision = {
           kind: 'code',
           evidence: 'conceptual',
           language: 'tsx',
-          caption: 'The wrapper exactly as this page runs it. Harbor is invented; the Button it renders is the shared one.',
+          caption: 'The wrapper exactly as this page runs it. The provider workspace is invented; the Button it renders is the shared one.',
           code: wrapperSource,
         },
       ],
@@ -262,7 +262,7 @@ export const adoption: Decision = {
           items: [
             { title: 'Count the call sites', text: 'Search the product for the wrapper’s name and its old props. The count goes in the migration record each release.', output: 'zero call sites' },
             { title: 'Delete the wrapper', text: 'Remove the file and its tests. A build that still compiles proves nothing imports it.', output: 'a commit that only deletes' },
-            { title: 'Delete the old styles', text: 'Remove `.hb-btn` and its variants, then confirm the class names are gone from the built CSS, not just the source.', output: 'a smaller stylesheet' },
+            { title: 'Delete the old styles', text: 'Remove `.pw-btn` and its variants, then confirm the class names are gone from the built CSS, not just the source.', output: 'a smaller stylesheet' },
             { title: 'Make the guard rail strict', text: 'Clear the recorded entries for this component from the lint baseline, so a raw value here now fails the build.', output: 'an empty baseline for the component' },
             { title: 'Close the record', text: 'Note the release that removed the wrapper and any intended differences that remain.', output: 'MIG-12 closed' },
           ],
@@ -276,7 +276,7 @@ export const adoption: Decision = {
         {
           kind: 'text',
           evidence: 'conceptual',
-          paragraphs: ['No codemod exists in this repository. If Harbor wrote one for the mechanical part of step 4, it should be this narrow.'],
+          paragraphs: ['No codemod exists in this repository. If the provider workspace wrote one for the mechanical part of step 4, it should be this narrow.'],
         },
         {
           kind: 'table',
@@ -285,7 +285,7 @@ export const adoption: Decision = {
           stacked: true,
           columns: ['Part', 'Specification'],
           rows: [
-            ['Rewrites', '`<HbButton>` with literal props only: `kind="primary"` or `"default"` to `appearance`, `small` to `size="small"`, `busy` to `loading`, and an explicit `type="submit"` where the call site is inside a `<form>` in the same file.'],
+            ['Rewrites', '`<PwButton>` with literal props only: `kind="primary"` or `"default"` to `appearance`, `small` to `size="small"`, `busy` to `loading`, and an explicit `type="submit"` where the call site is inside a `<form>` in the same file.'],
             ['Leaves alone, and lists', 'Spread props, computed `kind`, any `kind="link"`, a `className` or `style`, call sites in files without a form whose parent form is elsewhere, and re-exports under another name.'],
             ['Review', 'Every changed file is read by the owning team, the product’s tests and screenshot comparison run, and the skipped list becomes part of the migration record.'],
             ['Never', 'Changes behavior to make a test pass, or edits files outside the product.'],
@@ -379,7 +379,7 @@ export const adoption: Decision = {
           kind: 'text',
           evidence: 'proposed',
           paragraphs: [
-            'Meadow and Harbor upgrade the core separately, so a migration cannot assume both are on the same version. The wrapper lives in each product, not in the core, so each product removes its own when it is ready.',
+            'The patient app and the provider workspace upgrade the core separately, so a migration cannot assume both are on the same version. The wrapper lives in each product, not in the core, so each product removes its own when it is ready.',
           ],
         },
         {

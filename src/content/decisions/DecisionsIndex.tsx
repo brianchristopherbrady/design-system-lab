@@ -2,8 +2,9 @@ import type { ReactNode } from 'react';
 import { Card } from '@/design-system/composites';
 import { Grid, Stack } from '@/design-system/layout';
 import { Heading, Icon, Link, Text } from '@/design-system/primitives';
-import { findEntry, productProfiles } from '@/domain/system';
-import { DocSection, Note, Prose } from '@/features/docs';
+import { findEntry } from '@/domain/system';
+import { productExampleIds, productExamples } from '@/domain/scenario';
+import { DocSection, Prose } from '@/features/docs';
 import { EvidenceBadge, evidenceLabels, Rich } from './Blocks';
 import { decisionTopics, type DecisionTopic } from './topics';
 import type { Evidence } from './types';
@@ -80,7 +81,6 @@ function DecisionCard({ topic }: { topic: DecisionTopic }) {
 
 /** The section's landing page: this project's decisions, the same approach applied to a product team, and the labels. */
 export function DecisionsIndex() {
-  const { harbor, meadow } = productProfiles;
   const own = decisionTopics.filter((topic) => topic.project);
   const team = decisionTopics.filter((topic) => !topic.project);
   return (
@@ -104,53 +104,35 @@ export function DecisionsIndex() {
           <EvidenceBadge evidence="hypothetical" />
           <Prose>
             <p>
-              Every page also works its decision through one organization that runs two products and wants one design system
-              to serve both. These pages go further: how that team would plan a system, migrate onto it and keep it healthy.
+              These examples follow one fictional healthcare company: a patient app for requesting care and a provider
+              workspace for reviewing requests. Both use the same foundations and shared web components, while their
+              content, layout and workflows reflect different tasks. The examples are implemented here; the company and
+              product context are illustrative.
             </p>
           </Prose>
           <ul className={styles.products} aria-label="Products in the scenario">
-            <li>
-              <Text as="span" variant="label">
-                Meadow
-              </Text>
-              <Text as="span" variant="bodySmall">
-                Occasional consumers completing guided tasks: a few visits a year, mostly on phones, touch first, one step at a
-                time.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="label">
-                Harbor
-              </Text>
-              <Text as="span" variant="bodySmall">
-                Professionals scanning and acting on dense information: all day at a desk, keyboard first, with tables and bulk
-                actions.
-              </Text>
-            </li>
+            {productExampleIds.map((id) => (
+              <li key={id}>
+                <Text as="span" variant="label">
+                  {productExamples[id].name}
+                </Text>
+                <Text as="span" variant="bodySmall">
+                  {productExamples[id].task} {productExamples[id].setting}
+                </Text>
+              </li>
+            ))}
           </ul>
           <Text variant="bodySmall" tone="muted">
-            Both are web apps on the same framework with related brands, and each releases on its own schedule.
+            Both are web apps on the same framework with related branding, and each releases on its own schedule.{' '}
+            <EvidenceBadge evidence="implemented" /> <Link href="/decisions/sharing#compositions">Try both examples</Link>
           </Text>
         </div>
-        <Note title="Not the same as this site’s product modes">
+        <Prose>
           <p>
-            <EvidenceBadge evidence="implemented" /> In this repository, Harbor and Meadow are product profiles, not products.
-            They restyle scoped examples, such as the compositions on the Sharing page, and each changes only presentation:
+            Every page works its decision through this scenario. These pages go further: how the company would plan a
+            system, migrate onto it and keep it healthy.
           </p>
-          <ul>
-            <li>
-              <strong>Harbor mode:</strong> {harbor.overrides}
-            </li>
-            <li>
-              <strong>Meadow mode:</strong> {meadow.overrides}
-            </li>
-          </ul>
-          <p>
-            The modes have no users, workflows or code of their own. They show that presentation can vary without forking
-            components; the scenario borrows their names to ask what two real products with these audiences should share.{' '}
-            <Link href="/foundations/products">Products and modes</Link>
-          </p>
-        </Note>
+        </Prose>
         <Grid as="ol" columns={2} minColumnWidth="medium" gap="medium" aria-label="Applying the approach to a product team">
           {team.map((topic) => (
             <DecisionCard key={topic.id} topic={topic} />

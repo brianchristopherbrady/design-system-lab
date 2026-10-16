@@ -83,8 +83,8 @@ test.describe('overview', () => {
 
     for (const [product, theme] of [
       ['system-lab', 'light'],
-      ['harbor', 'light'],
-      ['meadow', 'dark'],
+      ['provider', 'light'],
+      ['patient', 'dark'],
     ] as const) {
       await page.getByRole('combobox', { name: 'Product profile' }).selectOption(product);
       await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption(theme);

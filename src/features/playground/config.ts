@@ -20,6 +20,10 @@ export type Inheritable<T extends string> = T | typeof inherit;
 export const previewWidth = { min: 240, max: 1280 } as const;
 const maxTextLength = 500;
 
+/** Product contexts renamed when the examples became a patient app and a provider workspace, so old links still resolve. */
+const renamedProducts: Readonly<Record<string, ProductName>> = { harbor: 'provider', meadow: 'patient' };
+const currentProductName = (raw: string | null) => (raw !== null && Object.hasOwn(renamedProducts, raw) ? (renamedProducts[raw] ?? raw) : raw);
+
 /** The example's environment. None of it reaches the component's props or the usage code. */
 export interface PreviewSettings {
   product: Inheritable<ProductName>;
@@ -83,7 +87,9 @@ export function encodeProps(story: AnyStory, values: ControlValues): [string, st
 export function decodeProps(story: AnyStory, params: URLSearchParams): ControlValues {
   const values = initialValues(story);
   for (const control of story.controls) {
-    const raw = params.get(`${keys.prop}${control.prop}`);
+    const stored = params.get(`${keys.prop}${control.prop}`);
+    // ThemeScope's product prop takes product context names, which old links may spell the previous way.
+    const raw = control.prop === 'product' ? currentProductName(stored) : stored;
     if (raw === null) continue;
     const value = decodeValue(control, raw);
     if (value !== invalid) values[control.prop] = value;
@@ -110,7 +116,7 @@ export function decodePreview(params: URLSearchParams): PreviewSettings {
   const raw = params.get(`${keys.preview}width`);
   const width = raw !== null && /^\d+$/.test(raw) ? Number(raw) : NaN;
   return {
-    product: oneOf(productNames, params.get(`${keys.preview}product`)),
+    product: oneOf(productNames, currentProductName(params.get(`${keys.preview}product`))),
     theme: oneOf(themeNames, params.get(`${keys.preview}theme`)),
     density: oneOf(densityNames, params.get(`${keys.preview}density`)),
     width: width >= previewWidth.min && width <= previewWidth.max ? width : null,

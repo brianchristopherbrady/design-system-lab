@@ -3148,8 +3148,8 @@ export const tokenManifest: readonly TokenRecord[] = [
     }
   },
   {
-    "path": "color.harbor.50",
-    "cssVar": "--color-harbor-50",
+    "path": "color.care.50",
+    "cssVar": "--color-care-50",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3161,21 +3161,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#f0fdfa",
         "resolved": "#f0fdfa",
         "chain": [
-          "color.harbor.50"
+          "color.care.50"
         ]
       },
       "dark": {
         "authored": "#f0fdfa",
         "resolved": "#f0fdfa",
         "chain": [
-          "color.harbor.50"
+          "color.care.50"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.100",
-    "cssVar": "--color-harbor-100",
+    "path": "color.care.100",
+    "cssVar": "--color-care-100",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3187,21 +3187,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#ccfbf1",
         "resolved": "#ccfbf1",
         "chain": [
-          "color.harbor.100"
+          "color.care.100"
         ]
       },
       "dark": {
         "authored": "#ccfbf1",
         "resolved": "#ccfbf1",
         "chain": [
-          "color.harbor.100"
+          "color.care.100"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.200",
-    "cssVar": "--color-harbor-200",
+    "path": "color.care.200",
+    "cssVar": "--color-care-200",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3213,21 +3213,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#99f6e4",
         "resolved": "#99f6e4",
         "chain": [
-          "color.harbor.200"
+          "color.care.200"
         ]
       },
       "dark": {
         "authored": "#99f6e4",
         "resolved": "#99f6e4",
         "chain": [
-          "color.harbor.200"
+          "color.care.200"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.300",
-    "cssVar": "--color-harbor-300",
+    "path": "color.care.300",
+    "cssVar": "--color-care-300",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3239,21 +3239,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#5eead4",
         "resolved": "#5eead4",
         "chain": [
-          "color.harbor.300"
+          "color.care.300"
         ]
       },
       "dark": {
         "authored": "#5eead4",
         "resolved": "#5eead4",
         "chain": [
-          "color.harbor.300"
+          "color.care.300"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.400",
-    "cssVar": "--color-harbor-400",
+    "path": "color.care.400",
+    "cssVar": "--color-care-400",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3265,21 +3265,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#2dd4bf",
         "resolved": "#2dd4bf",
         "chain": [
-          "color.harbor.400"
+          "color.care.400"
         ]
       },
       "dark": {
         "authored": "#2dd4bf",
         "resolved": "#2dd4bf",
         "chain": [
-          "color.harbor.400"
+          "color.care.400"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.500",
-    "cssVar": "--color-harbor-500",
+    "path": "color.care.500",
+    "cssVar": "--color-care-500",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3291,21 +3291,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#14b8a6",
         "resolved": "#14b8a6",
         "chain": [
-          "color.harbor.500"
+          "color.care.500"
         ]
       },
       "dark": {
         "authored": "#14b8a6",
         "resolved": "#14b8a6",
         "chain": [
-          "color.harbor.500"
+          "color.care.500"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.600",
-    "cssVar": "--color-harbor-600",
+    "path": "color.care.600",
+    "cssVar": "--color-care-600",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3317,21 +3317,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#0d9488",
         "resolved": "#0d9488",
         "chain": [
-          "color.harbor.600"
+          "color.care.600"
         ]
       },
       "dark": {
         "authored": "#0d9488",
         "resolved": "#0d9488",
         "chain": [
-          "color.harbor.600"
+          "color.care.600"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.700",
-    "cssVar": "--color-harbor-700",
+    "path": "color.care.700",
+    "cssVar": "--color-care-700",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3343,21 +3343,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#0f766e",
         "resolved": "#0f766e",
         "chain": [
-          "color.harbor.700"
+          "color.care.700"
         ]
       },
       "dark": {
         "authored": "#0f766e",
         "resolved": "#0f766e",
         "chain": [
-          "color.harbor.700"
+          "color.care.700"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.800",
-    "cssVar": "--color-harbor-800",
+    "path": "color.care.800",
+    "cssVar": "--color-care-800",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3369,21 +3369,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#115e59",
         "resolved": "#115e59",
         "chain": [
-          "color.harbor.800"
+          "color.care.800"
         ]
       },
       "dark": {
         "authored": "#115e59",
         "resolved": "#115e59",
         "chain": [
-          "color.harbor.800"
+          "color.care.800"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.900",
-    "cssVar": "--color-harbor-900",
+    "path": "color.care.900",
+    "cssVar": "--color-care-900",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3395,21 +3395,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#134e4a",
         "resolved": "#134e4a",
         "chain": [
-          "color.harbor.900"
+          "color.care.900"
         ]
       },
       "dark": {
         "authored": "#134e4a",
         "resolved": "#134e4a",
         "chain": [
-          "color.harbor.900"
+          "color.care.900"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.950",
-    "cssVar": "--color-harbor-950",
+    "path": "color.care.950",
+    "cssVar": "--color-care-950",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3421,21 +3421,21 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#042f2e",
         "resolved": "#042f2e",
         "chain": [
-          "color.harbor.950"
+          "color.care.950"
         ]
       },
       "dark": {
         "authored": "#042f2e",
         "resolved": "#042f2e",
         "chain": [
-          "color.harbor.950"
+          "color.care.950"
         ]
       }
     }
   },
   {
-    "path": "color.harbor.975",
-    "cssVar": "--color-harbor-975",
+    "path": "color.care.975",
+    "cssVar": "--color-care-975",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
@@ -3447,311 +3447,25 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "#032423",
         "resolved": "#032423",
         "chain": [
-          "color.harbor.975"
+          "color.care.975"
         ]
       },
       "dark": {
         "authored": "#032423",
         "resolved": "#032423",
         "chain": [
-          "color.harbor.975"
+          "color.care.975"
         ]
       }
     }
   },
   {
-    "path": "color.meadow.50",
-    "cssVar": "--color-meadow-50",
+    "path": "color.care-glow",
+    "cssVar": "--color-care-glow",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#f5f3ff",
-        "resolved": "#f5f3ff",
-        "chain": [
-          "color.meadow.50"
-        ]
-      },
-      "dark": {
-        "authored": "#f5f3ff",
-        "resolved": "#f5f3ff",
-        "chain": [
-          "color.meadow.50"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.100",
-    "cssVar": "--color-meadow-100",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#ede9fe",
-        "resolved": "#ede9fe",
-        "chain": [
-          "color.meadow.100"
-        ]
-      },
-      "dark": {
-        "authored": "#ede9fe",
-        "resolved": "#ede9fe",
-        "chain": [
-          "color.meadow.100"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.200",
-    "cssVar": "--color-meadow-200",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#ddd6fe",
-        "resolved": "#ddd6fe",
-        "chain": [
-          "color.meadow.200"
-        ]
-      },
-      "dark": {
-        "authored": "#ddd6fe",
-        "resolved": "#ddd6fe",
-        "chain": [
-          "color.meadow.200"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.300",
-    "cssVar": "--color-meadow-300",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#c4b5fd",
-        "resolved": "#c4b5fd",
-        "chain": [
-          "color.meadow.300"
-        ]
-      },
-      "dark": {
-        "authored": "#c4b5fd",
-        "resolved": "#c4b5fd",
-        "chain": [
-          "color.meadow.300"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.400",
-    "cssVar": "--color-meadow-400",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#a78bfa",
-        "resolved": "#a78bfa",
-        "chain": [
-          "color.meadow.400"
-        ]
-      },
-      "dark": {
-        "authored": "#a78bfa",
-        "resolved": "#a78bfa",
-        "chain": [
-          "color.meadow.400"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.500",
-    "cssVar": "--color-meadow-500",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#8b5cf6",
-        "resolved": "#8b5cf6",
-        "chain": [
-          "color.meadow.500"
-        ]
-      },
-      "dark": {
-        "authored": "#8b5cf6",
-        "resolved": "#8b5cf6",
-        "chain": [
-          "color.meadow.500"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.600",
-    "cssVar": "--color-meadow-600",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#7c3aed",
-        "resolved": "#7c3aed",
-        "chain": [
-          "color.meadow.600"
-        ]
-      },
-      "dark": {
-        "authored": "#7c3aed",
-        "resolved": "#7c3aed",
-        "chain": [
-          "color.meadow.600"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.700",
-    "cssVar": "--color-meadow-700",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#6d28d9",
-        "resolved": "#6d28d9",
-        "chain": [
-          "color.meadow.700"
-        ]
-      },
-      "dark": {
-        "authored": "#6d28d9",
-        "resolved": "#6d28d9",
-        "chain": [
-          "color.meadow.700"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.800",
-    "cssVar": "--color-meadow-800",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#5b21b6",
-        "resolved": "#5b21b6",
-        "chain": [
-          "color.meadow.800"
-        ]
-      },
-      "dark": {
-        "authored": "#5b21b6",
-        "resolved": "#5b21b6",
-        "chain": [
-          "color.meadow.800"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.900",
-    "cssVar": "--color-meadow-900",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#4c1d95",
-        "resolved": "#4c1d95",
-        "chain": [
-          "color.meadow.900"
-        ]
-      },
-      "dark": {
-        "authored": "#4c1d95",
-        "resolved": "#4c1d95",
-        "chain": [
-          "color.meadow.900"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow.950",
-    "cssVar": "--color-meadow-950",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "#2e1065",
-        "resolved": "#2e1065",
-        "chain": [
-          "color.meadow.950"
-        ]
-      },
-      "dark": {
-        "authored": "#2e1065",
-        "resolved": "#2e1065",
-        "chain": [
-          "color.meadow.950"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.harbor-glow",
-    "cssVar": "--color-harbor-glow",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "Halo around Harbor's signal indicator on dark surfaces.",
+    "description": "Halo around the care brand's signal indicator on dark surfaces.",
     "themed": false,
     "dependsOn": [],
     "values": {
@@ -3759,25 +3473,25 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "rgb(20 184 166 / 0.55)",
         "resolved": "rgb(20 184 166 / 0.55)",
         "chain": [
-          "color.harbor-glow"
+          "color.care-glow"
         ]
       },
       "dark": {
         "authored": "rgb(20 184 166 / 0.55)",
         "resolved": "rgb(20 184 166 / 0.55)",
         "chain": [
-          "color.harbor-glow"
+          "color.care-glow"
         ]
       }
     }
   },
   {
-    "path": "color.harbor-glow-soft",
-    "cssVar": "--color-harbor-glow-soft",
+    "path": "color.care-glow-soft",
+    "cssVar": "--color-care-glow-soft",
     "type": "color",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
-    "description": "Halo around Harbor's signal indicator on light surfaces.",
+    "description": "Halo around the care brand's signal indicator on light surfaces.",
     "themed": false,
     "dependsOn": [],
     "values": {
@@ -3785,66 +3499,14 @@ export const tokenManifest: readonly TokenRecord[] = [
         "authored": "rgb(13 148 136 / 0.28)",
         "resolved": "rgb(13 148 136 / 0.28)",
         "chain": [
-          "color.harbor-glow-soft"
+          "color.care-glow-soft"
         ]
       },
       "dark": {
         "authored": "rgb(13 148 136 / 0.28)",
         "resolved": "rgb(13 148 136 / 0.28)",
         "chain": [
-          "color.harbor-glow-soft"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow-glow",
-    "cssVar": "--color-meadow-glow",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "Halo around Meadow's signal indicator on dark surfaces.",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "rgb(167 139 250 / 0.55)",
-        "resolved": "rgb(167 139 250 / 0.55)",
-        "chain": [
-          "color.meadow-glow"
-        ]
-      },
-      "dark": {
-        "authored": "rgb(167 139 250 / 0.55)",
-        "resolved": "rgb(167 139 250 / 0.55)",
-        "chain": [
-          "color.meadow-glow"
-        ]
-      }
-    }
-  },
-  {
-    "path": "color.meadow-glow-soft",
-    "cssVar": "--color-meadow-glow-soft",
-    "type": "color",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "Halo around Meadow's signal indicator on light surfaces.",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "rgb(139 92 246 / 0.28)",
-        "resolved": "rgb(139 92 246 / 0.28)",
-        "chain": [
-          "color.meadow-glow-soft"
-        ]
-      },
-      "dark": {
-        "authored": "rgb(139 92 246 / 0.28)",
-        "resolved": "rgb(139 92 246 / 0.28)",
-        "chain": [
-          "color.meadow-glow-soft"
+          "color.care-glow-soft"
         ]
       }
     }
@@ -3933,7 +3595,7 @@ export const tokenManifest: readonly TokenRecord[] = [
     "type": "fontFamily",
     "tier": "reference",
     "source": "reference.modes.tokens.json",
-    "description": "Harbor's typeface: an engineered grotesque with open apertures that stays legible in dense tables.",
+    "description": "The products' typeface: an engineered grotesque with open apertures that stays legible in dense rows and on small screens.",
     "themed": false,
     "dependsOn": [],
     "values": {
@@ -3949,58 +3611,6 @@ export const tokenManifest: readonly TokenRecord[] = [
         "resolved": "\"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "font.family.plex-sans"
-        ]
-      }
-    }
-  },
-  {
-    "path": "font.family.fraunces",
-    "cssVar": "--font-family-fraunces",
-    "type": "fontFamily",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "Meadow's display face: a soft, warm serif whose optical-size axis adapts it to each heading size.",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "\"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "\"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "chain": [
-          "font.family.fraunces"
-        ]
-      },
-      "dark": {
-        "authored": "\"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "\"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "chain": [
-          "font.family.fraunces"
-        ]
-      }
-    }
-  },
-  {
-    "path": "font.family.nunito",
-    "cssVar": "--font-family-nunito",
-    "type": "fontFamily",
-    "tier": "reference",
-    "source": "reference.modes.tokens.json",
-    "description": "Meadow's text face: rounded terminals for a friendly, unhurried read.",
-    "themed": false,
-    "dependsOn": [],
-    "values": {
-      "light": {
-        "authored": "\"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "\"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "chain": [
-          "font.family.nunito"
-        ]
-      },
-      "dark": {
-        "authored": "\"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "\"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "chain": [
-          "font.family.nunito"
         ]
       }
     }
@@ -4598,7 +4208,18 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
+        },
+        "authored": "{radius.md}",
+        "resolved": "0.25rem",
+        "chain": [
+          "control.radius",
+          "radius.md"
+        ]
+      },
+      {
+        "input": {
+          "product": "provider"
         },
         "authored": "{radius.sm}",
         "resolved": "0.125rem",
@@ -4606,19 +4227,7 @@ export const tokenManifest: readonly TokenRecord[] = [
           "control.radius",
           "radius.sm"
         ],
-        "source": "product.harbor.tokens.json"
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{radius.full}",
-        "resolved": "999px",
-        "chain": [
-          "control.radius",
-          "radius.full"
-        ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -5307,7 +4916,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{font.family.plex-sans}",
         "resolved": "\"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5315,19 +4924,19 @@ export const tokenManifest: readonly TokenRecord[] = [
           "typeface.display",
           "font.family.plex-sans"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{font.family.fraunces}",
-        "resolved": "\"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
+        "authored": "{font.family.plex-sans}",
+        "resolved": "\"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typeface.display",
-          "font.family.fraunces"
+          "font.family.plex-sans"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -5374,7 +4983,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{font.family.plex-sans}",
         "resolved": "\"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5382,19 +4991,19 @@ export const tokenManifest: readonly TokenRecord[] = [
           "typeface.text",
           "font.family.plex-sans"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{font.family.nunito}",
-        "resolved": "\"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "{font.family.plex-sans}",
+        "resolved": "\"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typeface.text",
-          "font.family.nunito"
+          "font.family.plex-sans"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -5464,7 +5073,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "400 1.0625rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "400 1.0625rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5474,10 +5083,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "400 1.0625rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "400 1.0625rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "400 1.0625rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "400 1.0625rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.body"
         ]
@@ -5524,7 +5133,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "400 0.875rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "400 0.875rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5534,10 +5143,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "400 0.875rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "400 0.875rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "400 0.875rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "400 0.875rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.body-small"
         ]
@@ -5584,7 +5193,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "300 1.25rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "300 1.25rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5594,10 +5203,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "300 1.25rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "300 1.25rem/1.65 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "300 1.25rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "300 1.25rem/1.65 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.lead"
         ]
@@ -5644,7 +5253,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5654,10 +5263,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "500 0.875rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "500 0.875rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.label"
         ]
@@ -5704,7 +5313,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "500 0.75rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "500 0.75rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5714,10 +5323,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "500 0.75rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "500 0.75rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "500 0.75rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "500 0.75rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.caption"
         ]
@@ -5764,7 +5373,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5774,10 +5383,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "500 0.875rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
-        "resolved": "500 0.875rem/1.35 \"Nunito Variable\", Nunito, ui-rounded, \"Avenir Next\", system-ui, sans-serif",
+        "authored": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "500 0.875rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.control"
         ]
@@ -5850,7 +5459,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "300 2.75rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "300 2.75rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5860,10 +5469,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "300 2.75rem/1.12 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "300 2.75rem/1.12 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
+        "authored": "300 2.75rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "300 2.75rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.heading-1"
         ]
@@ -5910,7 +5519,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "400 2rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "400 2rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5920,10 +5529,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "400 2rem/1.12 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "400 2rem/1.12 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
+        "authored": "400 2rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "400 2rem/1.12 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.heading-2"
         ]
@@ -5970,7 +5579,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "400 1.5rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "400 1.5rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -5980,10 +5589,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "400 1.5rem/1.35 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "400 1.5rem/1.35 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
+        "authored": "400 1.5rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "400 1.5rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.heading-3"
         ]
@@ -6030,7 +5639,7 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "500 1.25rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "resolved": "500 1.25rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
@@ -6040,10 +5649,10 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "500 1.25rem/1.35 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
-        "resolved": "500 1.25rem/1.35 \"Fraunces Variable\", Fraunces, Georgia, Cambria, serif",
+        "authored": "500 1.25rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
+        "resolved": "500 1.25rem/1.35 \"IBM Plex Sans Variable\", \"IBM Plex Sans\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
         "chain": [
           "typography.heading-4"
         ]
@@ -6190,30 +5799,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.subtle}",
+        "authored": "{brand.care.subtle}",
         "resolved": "#f0fdfa",
         "chain": [
           "surface.accent",
-          "brand.harbor.subtle",
-          "color.harbor.50"
+          "brand.care.subtle",
+          "color.care.50"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.subtle}",
-        "resolved": "#f5f3ff",
+        "authored": "{brand.care.subtle}",
+        "resolved": "#f0fdfa",
         "chain": [
           "surface.accent",
-          "brand.meadow.subtle",
-          "color.meadow.50"
+          "brand.care.subtle",
+          "color.care.50"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6231,30 +5840,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.subtle}",
+        "authored": "{brand.care.subtle}",
         "resolved": "#032423",
         "chain": [
           "surface.accent",
-          "brand.harbor.subtle",
-          "color.harbor.975"
+          "brand.care.subtle",
+          "color.care.975"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.subtle}",
-        "resolved": "#2e1065",
+        "authored": "{brand.care.subtle}",
+        "resolved": "#032423",
         "chain": [
           "surface.accent",
-          "brand.meadow.subtle",
-          "color.meadow.950"
+          "brand.care.subtle",
+          "color.care.975"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -6367,30 +5976,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.text}",
+        "authored": "{brand.care.text}",
         "resolved": "#0f766e",
         "chain": [
           "text.link",
-          "brand.harbor.text",
-          "color.harbor.700"
+          "brand.care.text",
+          "color.care.700"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.text}",
-        "resolved": "#6d28d9",
+        "authored": "{brand.care.text}",
+        "resolved": "#0f766e",
         "chain": [
           "text.link",
-          "brand.meadow.text",
-          "color.meadow.700"
+          "brand.care.text",
+          "color.care.700"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6408,30 +6017,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.text}",
+        "authored": "{brand.care.text}",
         "resolved": "#5eead4",
         "chain": [
           "text.link",
-          "brand.harbor.text",
-          "color.harbor.300"
+          "brand.care.text",
+          "color.care.300"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.text}",
-        "resolved": "#c4b5fd",
+        "authored": "{brand.care.text}",
+        "resolved": "#5eead4",
         "chain": [
           "text.link",
-          "brand.meadow.text",
-          "color.meadow.300"
+          "brand.care.text",
+          "color.care.300"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -6573,30 +6182,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#0f766e",
         "chain": [
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#7c3aed",
+        "authored": "{brand.care.strong}",
+        "resolved": "#0f766e",
         "chain": [
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6614,30 +6223,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#5eead4",
         "chain": [
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#c4b5fd",
+        "authored": "{brand.care.strong}",
+        "resolved": "#5eead4",
         "chain": [
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -6688,30 +6297,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.stronger}",
+        "authored": "{brand.care.stronger}",
         "resolved": "#115e59",
         "chain": [
           "action.primary.hover",
-          "brand.harbor.stronger",
-          "color.harbor.800"
+          "brand.care.stronger",
+          "color.care.800"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.stronger}",
-        "resolved": "#6d28d9",
+        "authored": "{brand.care.stronger}",
+        "resolved": "#115e59",
         "chain": [
           "action.primary.hover",
-          "brand.meadow.stronger",
-          "color.meadow.700"
+          "brand.care.stronger",
+          "color.care.800"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6729,30 +6338,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.stronger}",
+        "authored": "{brand.care.stronger}",
         "resolved": "#99f6e4",
         "chain": [
           "action.primary.hover",
-          "brand.harbor.stronger",
-          "color.harbor.200"
+          "brand.care.stronger",
+          "color.care.200"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.stronger}",
-        "resolved": "#ddd6fe",
+        "authored": "{brand.care.stronger}",
+        "resolved": "#99f6e4",
         "chain": [
           "action.primary.hover",
-          "brand.meadow.stronger",
-          "color.meadow.200"
+          "brand.care.stronger",
+          "color.care.200"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -6803,30 +6412,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strongest}",
+        "authored": "{brand.care.strongest}",
         "resolved": "#134e4a",
         "chain": [
           "action.primary.active",
-          "brand.harbor.strongest",
-          "color.harbor.900"
+          "brand.care.strongest",
+          "color.care.900"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strongest}",
-        "resolved": "#5b21b6",
+        "authored": "{brand.care.strongest}",
+        "resolved": "#134e4a",
         "chain": [
           "action.primary.active",
-          "brand.meadow.strongest",
-          "color.meadow.800"
+          "brand.care.strongest",
+          "color.care.900"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6844,30 +6453,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strongest}",
+        "authored": "{brand.care.strongest}",
         "resolved": "#ccfbf1",
         "chain": [
           "action.primary.active",
-          "brand.harbor.strongest",
-          "color.harbor.100"
+          "brand.care.strongest",
+          "color.care.100"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strongest}",
-        "resolved": "#ede9fe",
+        "authored": "{brand.care.strongest}",
+        "resolved": "#ccfbf1",
         "chain": [
           "action.primary.active",
-          "brand.meadow.strongest",
-          "color.meadow.100"
+          "brand.care.strongest",
+          "color.care.100"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -6918,30 +6527,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.on-strong}",
+        "authored": "{brand.care.on-strong}",
         "resolved": "#f0fdfa",
         "chain": [
           "action.primary.foreground",
-          "brand.harbor.on-strong",
-          "color.harbor.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.on-strong}",
-        "resolved": "#f5f3ff",
+        "authored": "{brand.care.on-strong}",
+        "resolved": "#f0fdfa",
         "chain": [
           "action.primary.foreground",
-          "brand.meadow.on-strong",
-          "color.meadow.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -6959,30 +6568,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.on-strong}",
+        "authored": "{brand.care.on-strong}",
         "resolved": "#042f2e",
         "chain": [
           "action.primary.foreground",
-          "brand.harbor.on-strong",
-          "color.harbor.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.on-strong}",
-        "resolved": "#2e1065",
+        "authored": "{brand.care.on-strong}",
+        "resolved": "#042f2e",
         "chain": [
           "action.primary.foreground",
-          "brand.meadow.on-strong",
-          "color.meadow.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -7033,30 +6642,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#0f766e",
         "chain": [
           "action.primary.border",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#7c3aed",
+        "authored": "{brand.care.strong}",
+        "resolved": "#0f766e",
         "chain": [
           "action.primary.border",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -7074,30 +6683,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#5eead4",
         "chain": [
           "action.primary.border",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#c4b5fd",
+        "authored": "{brand.care.strong}",
+        "resolved": "#5eead4",
         "chain": [
           "action.primary.border",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -7698,30 +7307,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#0d9488",
         "chain": [
           "focus.ring",
-          "brand.harbor.border",
-          "color.harbor.600"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#8b5cf6",
+        "authored": "{brand.care.border}",
+        "resolved": "#0d9488",
         "chain": [
           "focus.ring",
-          "brand.meadow.border",
-          "color.meadow.500"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -7739,30 +7348,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#14b8a6",
         "chain": [
           "focus.ring",
-          "brand.harbor.border",
-          "color.harbor.500"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#a78bfa",
+        "authored": "{brand.care.border}",
+        "resolved": "#14b8a6",
         "chain": [
           "focus.ring",
-          "brand.meadow.border",
-          "color.meadow.400"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -7813,30 +7422,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#0d9488",
         "chain": [
           "signal.current",
-          "brand.harbor.border",
-          "color.harbor.600"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#8b5cf6",
+        "authored": "{brand.care.border}",
+        "resolved": "#0d9488",
         "chain": [
           "signal.current",
-          "brand.meadow.border",
-          "color.meadow.500"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -7854,30 +7463,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#14b8a6",
         "chain": [
           "signal.current",
-          "brand.harbor.border",
-          "color.harbor.500"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#a78bfa",
+        "authored": "{brand.care.border}",
+        "resolved": "#14b8a6",
         "chain": [
           "signal.current",
-          "brand.meadow.border",
-          "color.meadow.400"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -7928,30 +7537,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.glow}",
+        "authored": "{brand.care.glow}",
         "resolved": "rgb(13 148 136 / 0.28)",
         "chain": [
           "signal.glow",
-          "brand.harbor.glow",
-          "color.harbor-glow-soft"
+          "brand.care.glow",
+          "color.care-glow-soft"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.glow}",
-        "resolved": "rgb(139 92 246 / 0.28)",
+        "authored": "{brand.care.glow}",
+        "resolved": "rgb(13 148 136 / 0.28)",
         "chain": [
           "signal.glow",
-          "brand.meadow.glow",
-          "color.meadow-glow-soft"
+          "brand.care.glow",
+          "color.care-glow-soft"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -7969,30 +7578,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.glow}",
+        "authored": "{brand.care.glow}",
         "resolved": "rgb(20 184 166 / 0.55)",
         "chain": [
           "signal.glow",
-          "brand.harbor.glow",
-          "color.harbor-glow"
+          "brand.care.glow",
+          "color.care-glow"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.glow}",
-        "resolved": "rgb(167 139 250 / 0.55)",
+        "authored": "{brand.care.glow}",
+        "resolved": "rgb(20 184 166 / 0.55)",
         "chain": [
           "signal.glow",
-          "brand.meadow.glow",
-          "color.meadow-glow"
+          "brand.care.glow",
+          "color.care-glow"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -8196,30 +7805,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.text}",
+        "authored": "{brand.care.text}",
         "resolved": "#0f766e",
         "chain": [
           "tone.brand.text",
-          "brand.harbor.text",
-          "color.harbor.700"
+          "brand.care.text",
+          "color.care.700"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.text}",
-        "resolved": "#6d28d9",
+        "authored": "{brand.care.text}",
+        "resolved": "#0f766e",
         "chain": [
           "tone.brand.text",
-          "brand.meadow.text",
-          "color.meadow.700"
+          "brand.care.text",
+          "color.care.700"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -8237,30 +7846,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.text}",
+        "authored": "{brand.care.text}",
         "resolved": "#5eead4",
         "chain": [
           "tone.brand.text",
-          "brand.harbor.text",
-          "color.harbor.300"
+          "brand.care.text",
+          "color.care.300"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.text}",
-        "resolved": "#c4b5fd",
+        "authored": "{brand.care.text}",
+        "resolved": "#5eead4",
         "chain": [
           "tone.brand.text",
-          "brand.meadow.text",
-          "color.meadow.300"
+          "brand.care.text",
+          "color.care.300"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -8311,30 +7920,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.subtle}",
+        "authored": "{brand.care.subtle}",
         "resolved": "#f0fdfa",
         "chain": [
           "tone.brand.surface",
-          "brand.harbor.subtle",
-          "color.harbor.50"
+          "brand.care.subtle",
+          "color.care.50"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.subtle}",
-        "resolved": "#f5f3ff",
+        "authored": "{brand.care.subtle}",
+        "resolved": "#f0fdfa",
         "chain": [
           "tone.brand.surface",
-          "brand.meadow.subtle",
-          "color.meadow.50"
+          "brand.care.subtle",
+          "color.care.50"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -8352,30 +7961,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.subtle}",
+        "authored": "{brand.care.subtle}",
         "resolved": "#032423",
         "chain": [
           "tone.brand.surface",
-          "brand.harbor.subtle",
-          "color.harbor.975"
+          "brand.care.subtle",
+          "color.care.975"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.subtle}",
-        "resolved": "#2e1065",
+        "authored": "{brand.care.subtle}",
+        "resolved": "#032423",
         "chain": [
           "tone.brand.surface",
-          "brand.meadow.subtle",
-          "color.meadow.950"
+          "brand.care.subtle",
+          "color.care.975"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -8426,30 +8035,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#0d9488",
         "chain": [
           "tone.brand.border",
-          "brand.harbor.border",
-          "color.harbor.600"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#8b5cf6",
+        "authored": "{brand.care.border}",
+        "resolved": "#0d9488",
         "chain": [
           "tone.brand.border",
-          "brand.meadow.border",
-          "color.meadow.500"
+          "brand.care.border",
+          "color.care.600"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -8467,30 +8076,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.border}",
+        "authored": "{brand.care.border}",
         "resolved": "#14b8a6",
         "chain": [
           "tone.brand.border",
-          "brand.harbor.border",
-          "color.harbor.500"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.border}",
-        "resolved": "#a78bfa",
+        "authored": "{brand.care.border}",
+        "resolved": "#14b8a6",
         "chain": [
           "tone.brand.border",
-          "brand.meadow.border",
-          "color.meadow.400"
+          "brand.care.border",
+          "color.care.500"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -8541,30 +8150,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#0f766e",
         "chain": [
           "tone.brand.solid",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#7c3aed",
+        "authored": "{brand.care.strong}",
+        "resolved": "#0f766e",
         "chain": [
           "tone.brand.solid",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -8582,30 +8191,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.strong}",
+        "authored": "{brand.care.strong}",
         "resolved": "#5eead4",
         "chain": [
           "tone.brand.solid",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.strong}",
-        "resolved": "#c4b5fd",
+        "authored": "{brand.care.strong}",
+        "resolved": "#5eead4",
         "chain": [
           "tone.brand.solid",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -8656,30 +8265,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.on-strong}",
+        "authored": "{brand.care.on-strong}",
         "resolved": "#f0fdfa",
         "chain": [
           "tone.brand.on-solid",
-          "brand.harbor.on-strong",
-          "color.harbor.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.on-strong}",
-        "resolved": "#f5f3ff",
+        "authored": "{brand.care.on-strong}",
+        "resolved": "#f0fdfa",
         "chain": [
           "tone.brand.on-solid",
-          "brand.meadow.on-strong",
-          "color.meadow.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       },
       {
         "input": {
@@ -8697,30 +8306,30 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
-        "authored": "{brand.harbor.on-strong}",
+        "authored": "{brand.care.on-strong}",
         "resolved": "#042f2e",
         "chain": [
           "tone.brand.on-solid",
-          "brand.harbor.on-strong",
-          "color.harbor.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ],
-        "source": "product.harbor.tokens.json"
+        "source": "product.patient.tokens.json"
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
-        "authored": "{brand.meadow.on-strong}",
-        "resolved": "#2e1065",
+        "authored": "{brand.care.on-strong}",
+        "resolved": "#042f2e",
         "chain": [
           "tone.brand.on-solid",
-          "brand.meadow.on-strong",
-          "color.meadow.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -9465,8 +9074,8 @@ export const tokenManifest: readonly TokenRecord[] = [
     }
   },
   {
-    "path": "brand.harbor.strong",
-    "cssVar": "--brand-harbor-strong",
+    "path": "brand.care.strong",
+    "cssVar": "--brand-care-strong",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9477,27 +9086,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.700}",
+        "authored": "{color.care.700}",
         "resolved": "#0f766e",
         "chain": [
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.300}",
+        "authored": "{color.care.300}",
         "resolved": "#5eead4",
         "chain": [
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.stronger",
-    "cssVar": "--brand-harbor-stronger",
+    "path": "brand.care.stronger",
+    "cssVar": "--brand-care-stronger",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9508,27 +9117,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.800}",
+        "authored": "{color.care.800}",
         "resolved": "#115e59",
         "chain": [
-          "brand.harbor.stronger",
-          "color.harbor.800"
+          "brand.care.stronger",
+          "color.care.800"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.200}",
+        "authored": "{color.care.200}",
         "resolved": "#99f6e4",
         "chain": [
-          "brand.harbor.stronger",
-          "color.harbor.200"
+          "brand.care.stronger",
+          "color.care.200"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.strongest",
-    "cssVar": "--brand-harbor-strongest",
+    "path": "brand.care.strongest",
+    "cssVar": "--brand-care-strongest",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9539,27 +9148,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.900}",
+        "authored": "{color.care.900}",
         "resolved": "#134e4a",
         "chain": [
-          "brand.harbor.strongest",
-          "color.harbor.900"
+          "brand.care.strongest",
+          "color.care.900"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.100}",
+        "authored": "{color.care.100}",
         "resolved": "#ccfbf1",
         "chain": [
-          "brand.harbor.strongest",
-          "color.harbor.100"
+          "brand.care.strongest",
+          "color.care.100"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.on-strong",
-    "cssVar": "--brand-harbor-on-strong",
+    "path": "brand.care.on-strong",
+    "cssVar": "--brand-care-on-strong",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9570,27 +9179,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.50}",
+        "authored": "{color.care.50}",
         "resolved": "#f0fdfa",
         "chain": [
-          "brand.harbor.on-strong",
-          "color.harbor.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.950}",
+        "authored": "{color.care.950}",
         "resolved": "#042f2e",
         "chain": [
-          "brand.harbor.on-strong",
-          "color.harbor.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.text",
-    "cssVar": "--brand-harbor-text",
+    "path": "brand.care.text",
+    "cssVar": "--brand-care-text",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9601,27 +9210,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.700}",
+        "authored": "{color.care.700}",
         "resolved": "#0f766e",
         "chain": [
-          "brand.harbor.text",
-          "color.harbor.700"
+          "brand.care.text",
+          "color.care.700"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.300}",
+        "authored": "{color.care.300}",
         "resolved": "#5eead4",
         "chain": [
-          "brand.harbor.text",
-          "color.harbor.300"
+          "brand.care.text",
+          "color.care.300"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.subtle",
-    "cssVar": "--brand-harbor-subtle",
+    "path": "brand.care.subtle",
+    "cssVar": "--brand-care-subtle",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9632,27 +9241,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.50}",
+        "authored": "{color.care.50}",
         "resolved": "#f0fdfa",
         "chain": [
-          "brand.harbor.subtle",
-          "color.harbor.50"
+          "brand.care.subtle",
+          "color.care.50"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.975}",
+        "authored": "{color.care.975}",
         "resolved": "#032423",
         "chain": [
-          "brand.harbor.subtle",
-          "color.harbor.975"
+          "brand.care.subtle",
+          "color.care.975"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.border",
-    "cssVar": "--brand-harbor-border",
+    "path": "brand.care.border",
+    "cssVar": "--brand-care-border",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9663,27 +9272,27 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor.600}",
+        "authored": "{color.care.600}",
         "resolved": "#0d9488",
         "chain": [
-          "brand.harbor.border",
-          "color.harbor.600"
+          "brand.care.border",
+          "color.care.600"
         ]
       },
       "dark": {
-        "authored": "{color.harbor.500}",
+        "authored": "{color.care.500}",
         "resolved": "#14b8a6",
         "chain": [
-          "brand.harbor.border",
-          "color.harbor.500"
+          "brand.care.border",
+          "color.care.500"
         ],
         "source": "brands.dark.tokens.json"
       }
     }
   },
   {
-    "path": "brand.harbor.glow",
-    "cssVar": "--brand-harbor-glow",
+    "path": "brand.care.glow",
+    "cssVar": "--brand-care-glow",
     "type": "color",
     "tier": "semantic",
     "source": "brands.light.tokens.json",
@@ -9694,267 +9303,19 @@ export const tokenManifest: readonly TokenRecord[] = [
     ],
     "values": {
       "light": {
-        "authored": "{color.harbor-glow-soft}",
+        "authored": "{color.care-glow-soft}",
         "resolved": "rgb(13 148 136 / 0.28)",
         "chain": [
-          "brand.harbor.glow",
-          "color.harbor-glow-soft"
+          "brand.care.glow",
+          "color.care-glow-soft"
         ]
       },
       "dark": {
-        "authored": "{color.harbor-glow}",
+        "authored": "{color.care-glow}",
         "resolved": "rgb(20 184 166 / 0.55)",
         "chain": [
-          "brand.harbor.glow",
-          "color.harbor-glow"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.strong",
-    "cssVar": "--brand-meadow-strong",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.600}",
-        "resolved": "#7c3aed",
-        "chain": [
-          "brand.meadow.strong",
-          "color.meadow.600"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.300}",
-        "resolved": "#c4b5fd",
-        "chain": [
-          "brand.meadow.strong",
-          "color.meadow.300"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.stronger",
-    "cssVar": "--brand-meadow-stronger",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.700}",
-        "resolved": "#6d28d9",
-        "chain": [
-          "brand.meadow.stronger",
-          "color.meadow.700"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.200}",
-        "resolved": "#ddd6fe",
-        "chain": [
-          "brand.meadow.stronger",
-          "color.meadow.200"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.strongest",
-    "cssVar": "--brand-meadow-strongest",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.800}",
-        "resolved": "#5b21b6",
-        "chain": [
-          "brand.meadow.strongest",
-          "color.meadow.800"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.100}",
-        "resolved": "#ede9fe",
-        "chain": [
-          "brand.meadow.strongest",
-          "color.meadow.100"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.on-strong",
-    "cssVar": "--brand-meadow-on-strong",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.50}",
-        "resolved": "#f5f3ff",
-        "chain": [
-          "brand.meadow.on-strong",
-          "color.meadow.50"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.950}",
-        "resolved": "#2e1065",
-        "chain": [
-          "brand.meadow.on-strong",
-          "color.meadow.950"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.text",
-    "cssVar": "--brand-meadow-text",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.700}",
-        "resolved": "#6d28d9",
-        "chain": [
-          "brand.meadow.text",
-          "color.meadow.700"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.300}",
-        "resolved": "#c4b5fd",
-        "chain": [
-          "brand.meadow.text",
-          "color.meadow.300"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.subtle",
-    "cssVar": "--brand-meadow-subtle",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.50}",
-        "resolved": "#f5f3ff",
-        "chain": [
-          "brand.meadow.subtle",
-          "color.meadow.50"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.950}",
-        "resolved": "#2e1065",
-        "chain": [
-          "brand.meadow.subtle",
-          "color.meadow.950"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.border",
-    "cssVar": "--brand-meadow-border",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow.500}",
-        "resolved": "#8b5cf6",
-        "chain": [
-          "brand.meadow.border",
-          "color.meadow.500"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow.400}",
-        "resolved": "#a78bfa",
-        "chain": [
-          "brand.meadow.border",
-          "color.meadow.400"
-        ],
-        "source": "brands.dark.tokens.json"
-      }
-    }
-  },
-  {
-    "path": "brand.meadow.glow",
-    "cssVar": "--brand-meadow-glow",
-    "type": "color",
-    "tier": "semantic",
-    "source": "brands.light.tokens.json",
-    "description": "",
-    "themed": true,
-    "dependsOn": [
-      "theme"
-    ],
-    "values": {
-      "light": {
-        "authored": "{color.meadow-glow-soft}",
-        "resolved": "rgb(139 92 246 / 0.28)",
-        "chain": [
-          "brand.meadow.glow",
-          "color.meadow-glow-soft"
-        ]
-      },
-      "dark": {
-        "authored": "{color.meadow-glow}",
-        "resolved": "rgb(167 139 250 / 0.55)",
-        "chain": [
-          "brand.meadow.glow",
-          "color.meadow-glow"
+          "brand.care.glow",
+          "color.care-glow"
         ],
         "source": "brands.dark.tokens.json"
       }
@@ -10009,29 +9370,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#0f766e",
         "chain": [
           "button.primary.background",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#7c3aed",
+        "resolved": "#0f766e",
         "chain": [
           "button.primary.background",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
@@ -10050,29 +9411,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#5eead4",
         "chain": [
           "button.primary.background",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#c4b5fd",
+        "resolved": "#5eead4",
         "chain": [
           "button.primary.background",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       }
     ]
@@ -10126,29 +9487,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.hover}",
         "resolved": "#115e59",
         "chain": [
           "button.primary.background-hover",
           "action.primary.hover",
-          "brand.harbor.stronger",
-          "color.harbor.800"
+          "brand.care.stronger",
+          "color.care.800"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.hover}",
-        "resolved": "#6d28d9",
+        "resolved": "#115e59",
         "chain": [
           "button.primary.background-hover",
           "action.primary.hover",
-          "brand.meadow.stronger",
-          "color.meadow.700"
+          "brand.care.stronger",
+          "color.care.800"
         ]
       },
       {
@@ -10167,29 +9528,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.hover}",
         "resolved": "#99f6e4",
         "chain": [
           "button.primary.background-hover",
           "action.primary.hover",
-          "brand.harbor.stronger",
-          "color.harbor.200"
+          "brand.care.stronger",
+          "color.care.200"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.hover}",
-        "resolved": "#ddd6fe",
+        "resolved": "#99f6e4",
         "chain": [
           "button.primary.background-hover",
           "action.primary.hover",
-          "brand.meadow.stronger",
-          "color.meadow.200"
+          "brand.care.stronger",
+          "color.care.200"
         ]
       }
     ]
@@ -10243,29 +9604,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.active}",
         "resolved": "#134e4a",
         "chain": [
           "button.primary.background-active",
           "action.primary.active",
-          "brand.harbor.strongest",
-          "color.harbor.900"
+          "brand.care.strongest",
+          "color.care.900"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.active}",
-        "resolved": "#5b21b6",
+        "resolved": "#134e4a",
         "chain": [
           "button.primary.background-active",
           "action.primary.active",
-          "brand.meadow.strongest",
-          "color.meadow.800"
+          "brand.care.strongest",
+          "color.care.900"
         ]
       },
       {
@@ -10284,29 +9645,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.active}",
         "resolved": "#ccfbf1",
         "chain": [
           "button.primary.background-active",
           "action.primary.active",
-          "brand.harbor.strongest",
-          "color.harbor.100"
+          "brand.care.strongest",
+          "color.care.100"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.active}",
-        "resolved": "#ede9fe",
+        "resolved": "#ccfbf1",
         "chain": [
           "button.primary.background-active",
           "action.primary.active",
-          "brand.meadow.strongest",
-          "color.meadow.100"
+          "brand.care.strongest",
+          "color.care.100"
         ]
       }
     ]
@@ -10360,29 +9721,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.foreground}",
         "resolved": "#f0fdfa",
         "chain": [
           "button.primary.foreground",
           "action.primary.foreground",
-          "brand.harbor.on-strong",
-          "color.harbor.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.foreground}",
-        "resolved": "#f5f3ff",
+        "resolved": "#f0fdfa",
         "chain": [
           "button.primary.foreground",
           "action.primary.foreground",
-          "brand.meadow.on-strong",
-          "color.meadow.50"
+          "brand.care.on-strong",
+          "color.care.50"
         ]
       },
       {
@@ -10401,29 +9762,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.foreground}",
         "resolved": "#042f2e",
         "chain": [
           "button.primary.foreground",
           "action.primary.foreground",
-          "brand.harbor.on-strong",
-          "color.harbor.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.foreground}",
-        "resolved": "#2e1065",
+        "resolved": "#042f2e",
         "chain": [
           "button.primary.foreground",
           "action.primary.foreground",
-          "brand.meadow.on-strong",
-          "color.meadow.950"
+          "brand.care.on-strong",
+          "color.care.950"
         ]
       }
     ]
@@ -10477,29 +9838,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.border}",
         "resolved": "#0f766e",
         "chain": [
           "button.primary.border",
           "action.primary.border",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.border}",
-        "resolved": "#7c3aed",
+        "resolved": "#0f766e",
         "chain": [
           "button.primary.border",
           "action.primary.border",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
@@ -10518,29 +9879,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.border}",
         "resolved": "#5eead4",
         "chain": [
           "button.primary.border",
           "action.primary.border",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.border}",
-        "resolved": "#c4b5fd",
+        "resolved": "#5eead4",
         "chain": [
           "button.primary.border",
           "action.primary.border",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       }
     ]
@@ -11159,7 +10520,19 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
+        },
+        "authored": "{control.radius}",
+        "resolved": "0.25rem",
+        "chain": [
+          "button.radius",
+          "control.radius",
+          "radius.md"
+        ]
+      },
+      {
+        "input": {
+          "product": "provider"
         },
         "authored": "{control.radius}",
         "resolved": "0.125rem",
@@ -11167,18 +10540,6 @@ export const tokenManifest: readonly TokenRecord[] = [
           "button.radius",
           "control.radius",
           "radius.sm"
-        ]
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{control.radius}",
-        "resolved": "999px",
-        "chain": [
-          "button.radius",
-          "control.radius",
-          "radius.full"
         ]
       }
     ]
@@ -11642,9 +11003,7 @@ export const tokenManifest: readonly TokenRecord[] = [
     "source": "component.tokens.json",
     "description": "Used when the radius prop is not set: a squared plate, like a panel label.",
     "themed": false,
-    "dependsOn": [
-      "product"
-    ],
+    "dependsOn": [],
     "values": {
       "light": {
         "authored": "{radius.sm}",
@@ -11662,44 +11021,7 @@ export const tokenManifest: readonly TokenRecord[] = [
           "radius.sm"
         ]
       }
-    },
-    "variants": [
-      {
-        "input": {
-          "product": "system-lab"
-        },
-        "authored": "{radius.sm}",
-        "resolved": "0.125rem",
-        "chain": [
-          "badge.radius",
-          "radius.sm"
-        ]
-      },
-      {
-        "input": {
-          "product": "harbor"
-        },
-        "authored": "{radius.sm}",
-        "resolved": "0.125rem",
-        "chain": [
-          "badge.radius",
-          "radius.sm"
-        ],
-        "source": "product.harbor.tokens.json"
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{radius.full}",
-        "resolved": "999px",
-        "chain": [
-          "badge.radius",
-          "radius.full"
-        ],
-        "source": "product.meadow.tokens.json"
-      }
-    ]
+    }
   },
   {
     "path": "badge.height.small",
@@ -12060,7 +11382,18 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
+        },
+        "authored": "{radius.lg}",
+        "resolved": "0.375rem",
+        "chain": [
+          "card.radius",
+          "radius.lg"
+        ]
+      },
+      {
+        "input": {
+          "product": "provider"
         },
         "authored": "{radius.md}",
         "resolved": "0.25rem",
@@ -12068,19 +11401,7 @@ export const tokenManifest: readonly TokenRecord[] = [
           "card.radius",
           "radius.md"
         ],
-        "source": "product.harbor.tokens.json"
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{radius.xl}",
-        "resolved": "0.75rem",
-        "chain": [
-          "card.radius",
-          "radius.xl"
-        ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -12281,7 +11602,18 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
+        },
+        "authored": "{radius.xl}",
+        "resolved": "0.75rem",
+        "chain": [
+          "dialog.radius",
+          "radius.xl"
+        ]
+      },
+      {
+        "input": {
+          "product": "provider"
         },
         "authored": "{radius.md}",
         "resolved": "0.25rem",
@@ -12289,19 +11621,7 @@ export const tokenManifest: readonly TokenRecord[] = [
           "dialog.radius",
           "radius.md"
         ],
-        "source": "product.harbor.tokens.json"
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{radius.xl}",
-        "resolved": "0.75rem",
-        "chain": [
-          "dialog.radius",
-          "radius.xl"
-        ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -12616,7 +11936,18 @@ export const tokenManifest: readonly TokenRecord[] = [
       },
       {
         "input": {
-          "product": "harbor"
+          "product": "patient"
+        },
+        "authored": "{radius.md}",
+        "resolved": "0.25rem",
+        "chain": [
+          "radio-group.card-radius",
+          "radius.md"
+        ]
+      },
+      {
+        "input": {
+          "product": "provider"
         },
         "authored": "{radius.sm}",
         "resolved": "0.125rem",
@@ -12624,19 +11955,7 @@ export const tokenManifest: readonly TokenRecord[] = [
           "radio-group.card-radius",
           "radius.sm"
         ],
-        "source": "product.harbor.tokens.json"
-      },
-      {
-        "input": {
-          "product": "meadow"
-        },
-        "authored": "{radius.lg}",
-        "resolved": "0.375rem",
-        "chain": [
-          "radio-group.card-radius",
-          "radius.lg"
-        ],
-        "source": "product.meadow.tokens.json"
+        "source": "product.provider.tokens.json"
       }
     ]
   },
@@ -12721,29 +12040,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#0f766e",
         "chain": [
           "radio-group.card-border-checked",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#7c3aed",
+        "resolved": "#0f766e",
         "chain": [
           "radio-group.card-border-checked",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
@@ -12762,29 +12081,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#5eead4",
         "chain": [
           "radio-group.card-border-checked",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#c4b5fd",
+        "resolved": "#5eead4",
         "chain": [
           "radio-group.card-border-checked",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       }
     ]
@@ -12838,29 +12157,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{surface.accent}",
         "resolved": "#f0fdfa",
         "chain": [
           "radio-group.card-background-checked",
           "surface.accent",
-          "brand.harbor.subtle",
-          "color.harbor.50"
+          "brand.care.subtle",
+          "color.care.50"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{surface.accent}",
-        "resolved": "#f5f3ff",
+        "resolved": "#f0fdfa",
         "chain": [
           "radio-group.card-background-checked",
           "surface.accent",
-          "brand.meadow.subtle",
-          "color.meadow.50"
+          "brand.care.subtle",
+          "color.care.50"
         ]
       },
       {
@@ -12879,29 +12198,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{surface.accent}",
         "resolved": "#032423",
         "chain": [
           "radio-group.card-background-checked",
           "surface.accent",
-          "brand.harbor.subtle",
-          "color.harbor.975"
+          "brand.care.subtle",
+          "color.care.975"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{surface.accent}",
-        "resolved": "#2e1065",
+        "resolved": "#032423",
         "chain": [
           "radio-group.card-background-checked",
           "surface.accent",
-          "brand.meadow.subtle",
-          "color.meadow.950"
+          "brand.care.subtle",
+          "color.care.975"
         ]
       }
     ]
@@ -12985,29 +12304,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "light",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#0f766e",
         "chain": [
           "switch.track-on",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.700"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
         "input": {
           "theme": "light",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#7c3aed",
+        "resolved": "#0f766e",
         "chain": [
           "switch.track-on",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.600"
+          "brand.care.strong",
+          "color.care.700"
         ]
       },
       {
@@ -13026,29 +12345,29 @@ export const tokenManifest: readonly TokenRecord[] = [
       {
         "input": {
           "theme": "dark",
-          "product": "harbor"
+          "product": "patient"
         },
         "authored": "{action.primary.background}",
         "resolved": "#5eead4",
         "chain": [
           "switch.track-on",
           "action.primary.background",
-          "brand.harbor.strong",
-          "color.harbor.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       },
       {
         "input": {
           "theme": "dark",
-          "product": "meadow"
+          "product": "provider"
         },
         "authored": "{action.primary.background}",
-        "resolved": "#c4b5fd",
+        "resolved": "#5eead4",
         "chain": [
           "switch.track-on",
           "action.primary.background",
-          "brand.meadow.strong",
-          "color.meadow.300"
+          "brand.care.strong",
+          "color.care.300"
         ]
       }
     ]

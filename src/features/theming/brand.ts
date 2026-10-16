@@ -229,13 +229,13 @@ export const shapes: Record<ShapeName, Shape> = {
   },
   tight: {
     label: 'Tight',
-    description: 'Crisp corners for dense, all-day tools, as in Harbor.',
+    description: 'Crisp corners for dense, all-day tools, as in the provider workspace.',
     radii: { control: 'sm', badge: 'sm', card: 'md', dialog: 'md' },
     summary: 'tighter corners on controls, badges, cards and dialogs',
   },
   pill: {
     label: 'Pill',
-    description: 'Pill controls and badges with soft cards, as in Meadow.',
+    description: 'Pill controls and badges with soft cards.',
     radii: { control: 'full', badge: 'full', card: 'xl', dialog: 'xl' },
     summary: 'pill-shaped controls and badges, soft extra-large card corners',
   },

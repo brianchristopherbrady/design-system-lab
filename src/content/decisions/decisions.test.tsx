@@ -31,7 +31,7 @@ describe('design decisions', () => {
         expect(statements.length, `${decision.id} ${field}`).toBeGreaterThan(0);
         for (const statement of statements) expect(Boolean(statement.text || statement.items?.length), `${decision.id} ${field}`).toBe(true);
       }
-      expect(decision.record.context.some((statement) => statement.evidence === 'hypothetical' && /Meadow/.test(statement.text ?? '') && /Harbor/.test(statement.text ?? '')), decision.id).toBe(true);
+      expect(decision.record.context.some((statement) => statement.evidence === 'hypothetical' && /patient app/i.test(statement.text ?? '') && /provider workspace/i.test(statement.text ?? '')), decision.id).toBe(true);
     }
   });
 
@@ -128,7 +128,7 @@ describe('design decisions', () => {
 
     const steps = blocksIn('contribution').flatMap((block) => (block.kind === 'steps' ? block.items.map((item) => item.title) : []));
     expect(steps).toEqual(['Request', 'Evidence', 'API proposal', 'Review feedback', 'Experimental release', 'Stable acceptance']);
-    expect(labels('disputed')).toEqual(expect.arrayContaining(['Who decides', 'Evidence that matters', 'Decision', 'How Harbor proceeds']));
+    expect(labels('disputed')).toEqual(expect.arrayContaining(['Who decides', 'Evidence that matters', 'Decision', 'How the provider workspace proceeds']));
     expect(labels('exceptions')).toEqual(expect.arrayContaining(['Reason', 'Owner', 'Affected products', 'Logged and review date', 'Remove when', 'Include in the shared system when']));
     expect(labels('releases')).toEqual(expect.arrayContaining(['Changes', 'Affected consumers', 'Migration', 'Compatibility support', 'Rollback']));
     expect(tables('defects')[0]?.columns).toEqual(['Aspect', 'Urgent defect', 'Scheduled contribution']);

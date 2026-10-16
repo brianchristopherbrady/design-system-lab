@@ -1,26 +1,16 @@
 {
-  "$description": "Dark-theme brand roles for each additional product: lighter steps carry the brand, the deepest step becomes the tinted surface.",
+  "$description": "Dark-theme brand roles for the products' shared brand family: lighter steps carry the brand, the deepest step becomes the tinted surface.",
   "brand": {
     "$type": "color",
-    "harbor": {
-      "strong": { "$value": "{color.harbor.300}" },
-      "stronger": { "$value": "{color.harbor.200}" },
-      "strongest": { "$value": "{color.harbor.100}" },
-      "on-strong": { "$value": "{color.harbor.950}" },
-      "text": { "$value": "{color.harbor.300}" },
-      "subtle": { "$value": "{color.harbor.975}" },
-      "border": { "$value": "{color.harbor.500}" },
-      "glow": { "$value": "{color.harbor-glow}" }
-    },
-    "meadow": {
-      "strong": { "$value": "{color.meadow.300}" },
-      "stronger": { "$value": "{color.meadow.200}" },
-      "strongest": { "$value": "{color.meadow.100}" },
-      "on-strong": { "$value": "{color.meadow.950}" },
-      "text": { "$value": "{color.meadow.300}" },
-      "subtle": { "$value": "{color.meadow.950}" },
-      "border": { "$value": "{color.meadow.400}" },
-      "glow": { "$value": "{color.meadow-glow}" }
+    "care": {
+      "strong": { "$value": "{color.care.300}" },
+      "stronger": { "$value": "{color.care.200}" },
+      "strongest": { "$value": "{color.care.100}" },
+      "on-strong": { "$value": "{color.care.950}" },
+      "text": { "$value": "{color.care.300}" },
+      "subtle": { "$value": "{color.care.975}" },
+      "border": { "$value": "{color.care.500}" },
+      "glow": { "$value": "{color.care-glow}" }
     }
   }
 }

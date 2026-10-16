@@ -1,26 +1,16 @@
 {
-  "$description": "Light-theme brand roles for each additional product. Product contexts map semantic roles onto these, so one product file works in every theme.",
+  "$description": "Light-theme brand roles for the products' shared brand family. Product contexts map semantic roles onto these, so one product file works in every theme.",
   "brand": {
     "$type": "color",
-    "harbor": {
-      "strong": { "$value": "{color.harbor.700}", "$description": "Filled brand surfaces such as primary buttons." },
-      "stronger": { "$value": "{color.harbor.800}" },
-      "strongest": { "$value": "{color.harbor.900}" },
-      "on-strong": { "$value": "{color.harbor.50}", "$description": "Text and icons on strong." },
-      "text": { "$value": "{color.harbor.700}", "$description": "Brand-colored text and links on surfaces." },
-      "subtle": { "$value": "{color.harbor.50}", "$description": "Tinted brand surface." },
-      "border": { "$value": "{color.harbor.600}", "$description": "Brand outlines; at least 3:1 against panels." },
-      "glow": { "$value": "{color.harbor-glow-soft}", "$description": "Translucent halo around a border-colored indicator." }
-    },
-    "meadow": {
-      "strong": { "$value": "{color.meadow.600}" },
-      "stronger": { "$value": "{color.meadow.700}" },
-      "strongest": { "$value": "{color.meadow.800}" },
-      "on-strong": { "$value": "{color.meadow.50}" },
-      "text": { "$value": "{color.meadow.700}" },
-      "subtle": { "$value": "{color.meadow.50}" },
-      "border": { "$value": "{color.meadow.500}" },
-      "glow": { "$value": "{color.meadow-glow-soft}" }
+    "care": {
+      "strong": { "$value": "{color.care.700}", "$description": "Filled brand surfaces such as primary buttons." },
+      "stronger": { "$value": "{color.care.800}" },
+      "strongest": { "$value": "{color.care.900}" },
+      "on-strong": { "$value": "{color.care.50}", "$description": "Text and icons on strong." },
+      "text": { "$value": "{color.care.700}", "$description": "Brand-colored text and links on surfaces." },
+      "subtle": { "$value": "{color.care.50}", "$description": "Tinted brand surface." },
+      "border": { "$value": "{color.care.600}", "$description": "Brand outlines; at least 3:1 against panels." },
+      "glow": { "$value": "{color.care-glow-soft}", "$description": "Translucent halo around a border-colored indicator." }
     }
   }
 }

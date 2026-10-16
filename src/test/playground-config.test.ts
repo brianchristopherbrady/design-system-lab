@@ -22,7 +22,7 @@ describe('playground configuration', () => {
     const config: PlaygroundConfig = {
       component: 'button',
       props: { ...initialValues(story('button')), size: 'large', border: 'thick', fullWidth: true, radius: 'full', iconStart: 'star' },
-      preview: { product: 'meadow', theme: 'dark', density: 'compact', width: 320, outlines: true },
+      preview: { product: 'patient', theme: 'dark', density: 'compact', width: 320, outlines: true },
     };
     expect(roundTrip(config)).toEqual({ kind: 'configured', config });
 
@@ -87,8 +87,16 @@ describe('playground configuration', () => {
 
   it('captures the inherited appearance for a shared link without touching props', () => {
     const scope: PlaygroundConfig = { component: 'theme-scope', props: { product: undefined, theme: undefined, density: undefined }, preview: { ...defaultPreview, theme: 'light', width: 320 } };
-    const captured = withCapturedAppearance(scope, { product: 'harbor', theme: 'dark', density: 'compact' });
-    expect(captured.preview).toEqual({ product: 'harbor', theme: 'light', density: 'compact', width: 320, outlines: false });
+    const captured = withCapturedAppearance(scope, { product: 'provider', theme: 'dark', density: 'compact' });
+    expect(captured.preview).toEqual({ product: 'provider', theme: 'light', density: 'compact', width: 320, outlines: false });
     expect(captured.props).toEqual(scope.props);
+  });
+
+  it('opens links that use the previous product context names', () => {
+    expect(decodePreview(new URLSearchParams('preview.product=harbor')).product).toBe('provider');
+    expect(decodePreview(new URLSearchParams('preview.product=meadow')).product).toBe('patient');
+    expect(decodePreview(new URLSearchParams('preview.product=constructor')).product).toBe('inherit');
+    const parsed = parseSearch(new URLSearchParams('component=theme-scope&v=1&p.product=meadow'), playgroundStories, 'button');
+    expect(parsed.kind === 'configured' && parsed.config.props.product).toBe('patient');
   });
 });

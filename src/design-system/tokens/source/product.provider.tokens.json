@@ -1,0 +1,53 @@
+{
+  "$description": "Provider workspace: a desktop-oriented tool for reviewing appointment requests. The shared care brand and IBM Plex Sans, with tighter corners that suit its compact rows. Overrides only brand roles, typefaces, the signal and shape; everything else is inherited.",
+  "typeface": {
+    "display": { "$value": "{font.family.plex-sans}" },
+    "text": { "$value": "{font.family.plex-sans}" }
+  },
+  "action": {
+    "primary": {
+      "background": { "$value": "{brand.care.strong}" },
+      "hover": { "$value": "{brand.care.stronger}" },
+      "active": { "$value": "{brand.care.strongest}" },
+      "foreground": { "$value": "{brand.care.on-strong}" },
+      "border": { "$value": "{brand.care.strong}" }
+    }
+  },
+  "text": {
+    "link": { "$value": "{brand.care.text}" }
+  },
+  "focus": {
+    "ring": { "$value": "{brand.care.border}" }
+  },
+  "surface": {
+    "accent": { "$value": "{brand.care.subtle}" }
+  },
+  "signal": {
+    "current": { "$value": "{brand.care.border}" },
+    "glow": { "$value": "{brand.care.glow}" }
+  },
+  "tone": {
+    "brand": {
+      "text": { "$value": "{brand.care.text}" },
+      "surface": { "$value": "{brand.care.subtle}" },
+      "border": { "$value": "{brand.care.border}" },
+      "solid": { "$value": "{brand.care.strong}" },
+      "on-solid": { "$value": "{brand.care.on-strong}" }
+    }
+  },
+  "control": {
+    "radius": { "$value": "{radius.sm}" }
+  },
+  "badge": {
+    "radius": { "$value": "{radius.sm}" }
+  },
+  "card": {
+    "radius": { "$value": "{radius.md}" }
+  },
+  "dialog": {
+    "radius": { "$value": "{radius.md}" }
+  },
+  "radio-group": {
+    "card-radius": { "$value": "{radius.sm}" }
+  }
+}

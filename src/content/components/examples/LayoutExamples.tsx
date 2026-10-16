@@ -169,7 +169,7 @@ export function ContainerExample() {
 const releases = [
   { version: '0.4.0', date: '8 Oct 2026', change: 'Adds Disclosure and ScrollRegion; docs disclosures meet the 24px target size.' },
   { version: '0.3.0', date: '7 Oct 2026', change: 'Adds Dialog and Tabs, and renames Button variant to appearance.' },
-  { version: '0.2.0', date: '6 Oct 2026', change: 'Adds the Harbor and Meadow products and the compact density.' },
+  { version: '0.2.0', date: '6 Oct 2026', change: 'Adds the patient and provider product profiles and the compact density.' },
 ];
 
 export function ScrollRegionExample() {

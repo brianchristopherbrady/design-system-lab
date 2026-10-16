@@ -1,4 +1,4 @@
-import type { DensityName, Tone } from '@/design-system/tokens';
+import type { DensityName, ProductName, Tone } from '@/design-system/tokens';
 
 /**
  * One fictional healthcare organization with two products. They are examples of how one system
@@ -14,6 +14,8 @@ export interface ProductExample {
   task: string;
   /** Mobile-first or desktop-oriented: a scenario constraint, not a research finding. */
   setting: string;
+  /** The appearance profile its examples are shown in. */
+  profile: ProductName;
   density: DensityName;
 }
 
@@ -23,6 +25,7 @@ export const productExamples: Record<ProductExampleId, ProductExample> = {
     name: 'Patient app',
     task: 'A patient requests an appointment and chooses how to hear back.',
     setting: 'Mobile-first, used a few times a year.',
+    profile: 'patient',
     density: 'comfortable',
   },
   provider: {
@@ -30,6 +33,7 @@ export const productExamples: Record<ProductExampleId, ProductExample> = {
     name: 'Provider workspace',
     task: 'A provider reviews appointment requests, filters the queue and acts on a request.',
     setting: 'Desktop-oriented, used throughout the working day.',
+    profile: 'provider',
     density: 'compact',
   },
 };

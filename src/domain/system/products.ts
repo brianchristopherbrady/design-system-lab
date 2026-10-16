@@ -17,17 +17,17 @@ export const productProfiles: Record<ProductName, ProductProfile> = {
     audience: 'The design system itself and its documentation.',
     overrides: 'Nothing: the base mappings.',
   },
-  harbor: {
-    id: 'harbor',
-    name: 'Harbor',
-    audience: 'Professional tools: people working at a desk all day, scanning and acting on dense lists.',
-    overrides: 'Teal brand roles, IBM Plex Sans throughout, tighter corners on controls, badges, cards and dialogs.',
+  patient: {
+    id: 'patient',
+    name: 'Patient app',
+    audience: 'Patients requesting an appointment, mostly on phones, a few times a year.',
+    overrides: 'The shared care brand roles and IBM Plex Sans; the system’s own corner shapes.',
   },
-  meadow: {
-    id: 'meadow',
-    name: 'Meadow',
-    audience: 'Consumer apps: people visiting a few times a year, on phones and desktops, who need guidance.',
-    overrides: 'Violet brand roles, Fraunces headings over Nunito text, pill-shaped controls and badges, soft extra-large card corners.',
+  provider: {
+    id: 'provider',
+    name: 'Provider workspace',
+    audience: 'Providers reviewing appointment requests at a desk throughout the working day.',
+    overrides: 'The shared care brand roles and IBM Plex Sans, with tighter corners on controls, badges, cards and dialogs to suit compact rows.',
   },
 };
 

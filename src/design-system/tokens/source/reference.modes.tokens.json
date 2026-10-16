@@ -2,8 +2,8 @@
   "$description": "Reference values used only by the product and density modifiers. Kept apart from reference.tokens.json so product palettes can be added without touching the core palette.",
   "color": {
     "$type": "color",
-    "harbor": {
-      "$description": "Harbor product ramp: deep sea teal for a calm, precise financial tool.",
+    "care": {
+      "$description": "The care brand ramp, shared by the patient app and the provider workspace: a calm, clinical teal.",
       "50": { "$value": { "colorSpace": "srgb", "components": [0.9412, 0.9922, 0.9804], "hex": "#f0fdfa" } },
       "100": { "$value": { "colorSpace": "srgb", "components": [0.8, 0.9843, 0.9451], "hex": "#ccfbf1" } },
       "200": { "$value": { "colorSpace": "srgb", "components": [0.6, 0.9647, 0.8941], "hex": "#99f6e4" } },
@@ -20,35 +20,13 @@
         "$description": "Dark tinted surface; 950 left strong borders under 3:1."
       }
     },
-    "meadow": {
-      "$description": "Meadow product ramp: saturated violet for a friendly consumer app.",
-      "50": { "$value": { "colorSpace": "srgb", "components": [0.9608, 0.9529, 1], "hex": "#f5f3ff" } },
-      "100": { "$value": { "colorSpace": "srgb", "components": [0.9294, 0.9137, 0.9961], "hex": "#ede9fe" } },
-      "200": { "$value": { "colorSpace": "srgb", "components": [0.8667, 0.8392, 0.9961], "hex": "#ddd6fe" } },
-      "300": { "$value": { "colorSpace": "srgb", "components": [0.7686, 0.7098, 0.9922], "hex": "#c4b5fd" } },
-      "400": { "$value": { "colorSpace": "srgb", "components": [0.6549, 0.5451, 0.9804], "hex": "#a78bfa" } },
-      "500": { "$value": { "colorSpace": "srgb", "components": [0.5451, 0.3608, 0.9647], "hex": "#8b5cf6" } },
-      "600": { "$value": { "colorSpace": "srgb", "components": [0.4863, 0.2275, 0.9294], "hex": "#7c3aed" } },
-      "700": { "$value": { "colorSpace": "srgb", "components": [0.4275, 0.1569, 0.851], "hex": "#6d28d9" } },
-      "800": { "$value": { "colorSpace": "srgb", "components": [0.3569, 0.1294, 0.7137], "hex": "#5b21b6" } },
-      "900": { "$value": { "colorSpace": "srgb", "components": [0.298, 0.1137, 0.5843], "hex": "#4c1d95" } },
-      "950": { "$value": { "colorSpace": "srgb", "components": [0.1804, 0.0627, 0.3961], "hex": "#2e1065" } }
-    },
-    "harbor-glow": {
+    "care-glow": {
       "$value": { "colorSpace": "srgb", "components": [0.0784, 0.7216, 0.651], "alpha": 0.55 },
-      "$description": "Halo around Harbor's signal indicator on dark surfaces."
+      "$description": "Halo around the care brand's signal indicator on dark surfaces."
     },
-    "harbor-glow-soft": {
+    "care-glow-soft": {
       "$value": { "colorSpace": "srgb", "components": [0.051, 0.5804, 0.5333], "alpha": 0.28 },
-      "$description": "Halo around Harbor's signal indicator on light surfaces."
-    },
-    "meadow-glow": {
-      "$value": { "colorSpace": "srgb", "components": [0.6549, 0.5451, 0.9804], "alpha": 0.55 },
-      "$description": "Halo around Meadow's signal indicator on dark surfaces."
-    },
-    "meadow-glow-soft": {
-      "$value": { "colorSpace": "srgb", "components": [0.5451, 0.3608, 0.9647], "alpha": 0.28 },
-      "$description": "Halo around Meadow's signal indicator on light surfaces."
+      "$description": "Halo around the care brand's signal indicator on light surfaces."
     }
   },
   "size": {
@@ -65,15 +43,7 @@
       "$type": "fontFamily",
       "plex-sans": {
         "$value": ["IBM Plex Sans Variable", "IBM Plex Sans", "Helvetica Neue", "Arial", "system-ui", "sans-serif"],
-        "$description": "Harbor's typeface: an engineered grotesque with open apertures that stays legible in dense tables."
-      },
-      "fraunces": {
-        "$value": ["Fraunces Variable", "Fraunces", "Georgia", "Cambria", "serif"],
-        "$description": "Meadow's display face: a soft, warm serif whose optical-size axis adapts it to each heading size."
-      },
-      "nunito": {
-        "$value": ["Nunito Variable", "Nunito", "ui-rounded", "Avenir Next", "system-ui", "sans-serif"],
-        "$description": "Meadow's text face: rounded terminals for a friendly, unhurried read."
+        "$description": "The products' typeface: an engineered grotesque with open apertures that stays legible in dense rows and on small screens."
       }
     }
   }

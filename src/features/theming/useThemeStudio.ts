@@ -50,8 +50,9 @@ export const studioPresets: readonly StudioPreset[] = [
 const defaults = { brand: studioPresets[0]?.brand ?? '#4f46e5', id: studioPresets[0]?.id ?? 'clavius', shape: 'machined' as ShapeName };
 const themes = ['light', 'dark'] as const;
 
-/** The existing product whose brand roles the preview re-points inline, so no CSS is generated at runtime. */
-export const previewProduct = 'harbor';
+/** The existing product the preview borrows, and the brand family whose roles it re-points inline, so no CSS is generated at runtime. */
+export const previewProduct = 'provider';
+const previewBrand = 'care';
 const typefaceRoles = ['display', 'text'] as const;
 
 function fromUrl(search: URLSearchParams) {
@@ -144,8 +145,8 @@ export function useThemeStudio() {
    */
   const previewStyle = (theme: ThemeName) =>
     Object.fromEntries([
-      ...brandRoles.map((role) => [`--brand-${previewProduct}-${role}`, color.ramp[color.roles[theme].roles[role]]]),
-      [`--brand-${previewProduct}-glow`, glowColor(color.ramp[color.roles[theme].roles.border], theme)],
+      ...brandRoles.map((role) => [`--brand-${previewBrand}-${role}`, color.ramp[color.roles[theme].roles[role]]]),
+      [`--brand-${previewBrand}-glow`, glowColor(color.ramp[color.roles[theme].roles.border], theme)],
       ...shapedComponents.map((component) => [`--${component}-radius`, `var(--radius-${shapes[shape].radii[component]})`]),
       ...typefaceRoles.map((role) => [`--typeface-${role}`, resolved(`typeface.${role}`, theme)]),
     ]) as CSSProperties;

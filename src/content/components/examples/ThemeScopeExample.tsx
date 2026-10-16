@@ -44,10 +44,10 @@ export function ThemeScopeExample() {
           <ThemeScope theme="dark" className={styles.frameBody}>
             <Sample />
           </ThemeScope>
-          <ThemeScope product="harbor" className={styles.frameBody}>
+          <ThemeScope product="provider" className={styles.frameBody}>
             <Sample />
           </ThemeScope>
-          <ThemeScope product="meadow" density="compact" className={styles.frameBody}>
+          <ThemeScope product="patient" density="compact" className={styles.frameBody}>
             <Sample />
           </ThemeScope>
         </Grid>
@@ -56,9 +56,9 @@ export function ThemeScopeExample() {
         title="Nested scopes"
         kind="recommended"
         sourcePath={source}
-        description="An inner scope inherits from the outer one, not from the page: here the inner region keeps Meadow and changes only the theme."
+        description="An inner scope inherits from the outer one, not from the page: here the inner region keeps the patient app’s profile and changes only the theme."
       >
-        <ThemeScope product="meadow" className={styles.frameBody}>
+        <ThemeScope product="patient" className={styles.frameBody}>
           <Stack gap="small">
             <ScopeReport />
             <ThemeScope theme="dark" className={styles.frameBody}>

@@ -15,11 +15,11 @@ describe('mode helpers', () => {
     const link = recordOf('text.link');
     const height = recordOf('control.height.medium');
     if (!radius || !link || !height) throw new Error('missing token');
-    expect(resolveFor(radius, { theme: 'dark', product: 'meadow', density: 'compact' }).authored).toBe('{radius.xl}');
-    expect(resolveFor(height, { theme: 'dark', product: 'meadow', density: 'compact' }).resolved).toBe('2.25rem');
-    expect(resolveFor(link, { theme: 'dark', product: 'harbor', density: 'compact' }).chain).toContain('brand.harbor.text');
-    expect(selectorFor(link, { theme: 'dark', product: 'harbor', density: 'compact' })).toBe("[data-theme='dark'][data-product='harbor']");
-    expect(selectorFor(height, { theme: 'light', product: 'harbor', density: 'compact' })).toBe("[data-density='compact']");
+    expect(resolveFor(radius, { theme: 'dark', product: 'provider', density: 'compact' }).authored).toBe('{radius.md}');
+    expect(resolveFor(height, { theme: 'dark', product: 'patient', density: 'compact' }).resolved).toBe('2.25rem');
+    expect(resolveFor(link, { theme: 'dark', product: 'provider', density: 'compact' }).chain).toContain('brand.care.text');
+    expect(selectorFor(link, { theme: 'dark', product: 'provider', density: 'compact' })).toBe("[data-theme='dark'][data-product='provider']");
+    expect(selectorFor(height, { theme: 'light', product: 'provider', density: 'compact' })).toBe("[data-density='compact']");
   });
 
   it('separates direct product overrides from aliases that follow them', () => {

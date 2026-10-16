@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { HbButton } from './HbButton';
-import wrapperSource from './HbButton.tsx?raw';
+import { PwButton } from './PwButton';
+import wrapperSource from './PwButton.tsx?raw';
 
-describe('HbButton, the hypothetical compatibility wrapper on the adoption page', () => {
+describe('PwButton, the hypothetical compatibility wrapper on the adoption page', () => {
   it('maps the old kind and small props to the shared appearance and size', () => {
     render(
       <>
-        <HbButton kind="primary">Save</HbButton>
-        <HbButton>Cancel</HbButton>
-        <HbButton kind="link" small>
+        <PwButton kind="primary">Save</PwButton>
+        <PwButton>Cancel</PwButton>
+        <PwButton kind="link" small>
           View history
-        </HbButton>
+        </PwButton>
       </>,
     );
     expect(screen.getByRole('button', { name: 'Save' }).className).toContain('primary');
@@ -26,7 +26,7 @@ describe('HbButton, the hypothetical compatibility wrapper on the adoption page'
     const onSubmit = vi.fn((event: Event) => event.preventDefault());
     render(
       <form onSubmit={(event) => onSubmit(event.nativeEvent)}>
-        <HbButton kind="primary">Save</HbButton>
+        <PwButton kind="primary">Save</PwButton>
       </form>,
     );
     expect(screen.getByRole('button', { name: 'Save' })).toHaveAttribute('type', 'submit');
@@ -37,9 +37,9 @@ describe('HbButton, the hypothetical compatibility wrapper on the adoption page'
   it('changes busy on purpose: focus and the accessible name stay while activation is ignored', async () => {
     const onClick = vi.fn();
     render(
-      <HbButton busy onClick={onClick}>
+      <PwButton busy onClick={onClick}>
         Save
-      </HbButton>,
+      </PwButton>,
     );
     const button = screen.getByRole('button', { name: 'Save' });
     expect(button).not.toBeDisabled();
@@ -51,7 +51,7 @@ describe('HbButton, the hypothetical compatibility wrapper on the adoption page'
   });
 
   it('is shown on the page from this exact source', () => {
-    expect(wrapperSource).toContain('export function HbButton(');
+    expect(wrapperSource).toContain('export function PwButton(');
     expect(wrapperSource).toMatch(/^\/\/ Hypothetical:/);
   });
 });

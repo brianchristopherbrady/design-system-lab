@@ -46,13 +46,13 @@ test.describe('design decisions', () => {
     const layers = page.getByRole('region', { name: 'Layer by layer' });
     const code = layers.getByRole('listitem').filter({ hasText: 'Component code (web)' });
     await expect(code).toContainText('use the same framework, so one library can serve both');
-    await page.getByRole('combobox', { name: 'Meadow is built as' }).selectOption('native');
+    await page.getByRole('combobox', { name: 'The patient app is built as' }).selectOption('native');
     await expect(code).toContainText('Keep separate');
     await expect(code).toContainText('Changed');
     await expect(page.getByRole('combobox', { name: 'Web frameworks' })).toBeDisabled();
     const changed = page.getByRole('region', { name: 'What changed' });
-    await expect(changed.getByRole('listitem').filter({ hasText: 'Component code (web)' })).toContainText('Why: Only Harbor is on the web');
-    await expect(page.getByRole('status').filter({ hasText: 'Meadow is built as: A native app.' })).toContainText('conclusions changed');
+    await expect(changed.getByRole('listitem').filter({ hasText: 'Component code (web)' })).toContainText('Why: Only the provider workspace is on the web');
+    await expect(page.getByRole('status').filter({ hasText: 'The patient app is built as: A native app.' })).toContainText('conclusions changed');
     await expect(page.getByRole('region', { name: 'A starting point for these constraints' })).toContainText('Would change if');
     await expectNoAxeViolations(page);
   });
@@ -64,7 +64,7 @@ test.describe('design decisions', () => {
     await preset.click();
     await expect(preset).toHaveAttribute('aria-pressed', 'true');
     await expect(page).toHaveURL(/mobile=both.*#explore$/);
-    await expect(page.getByRole('heading', { level: 4, name: 'Meadow’s native app' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 4, name: 'The native patient app' })).toBeVisible();
 
     await page.getByRole('combobox', { name: 'Controls with equivalent behavior' }).selectOption('many');
     await expect(preset).toHaveAttribute('aria-pressed', 'false');
@@ -75,37 +75,76 @@ test.describe('design decisions', () => {
 
     await page.getByRole('button', { name: 'Reset to the scenario' }).click();
     await expect(page).toHaveURL(/\/decisions\/sharing#explore$/);
-    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('web');
+    await expect(page.getByRole('combobox', { name: 'The patient app is built as' })).toHaveValue('web');
 
     await page.goto(copied);
-    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('both');
+    await expect(page.getByRole('combobox', { name: 'The patient app is built as' })).toHaveValue('both');
     await expect(page.getByRole('combobox', { name: 'Controls with equivalent behavior' })).toHaveValue('many');
     await expect(page.getByRole('region', { name: 'What changed' })).toHaveCount(0);
   });
 
   test('a scenario link with invalid values falls back to the defaults', async ({ page }) => {
     await page.goto('/decisions/sharing?mobile=tablet&brands=distinct#explore');
-    await expect(page.getByRole('combobox', { name: 'Meadow is built as' })).toHaveValue('web');
+    await expect(page.getByRole('combobox', { name: 'The patient app is built as' })).toHaveValue('web');
     await expect(page.getByRole('combobox', { name: 'Brands' })).toHaveValue('distinct');
     await expect(page).not.toHaveURL(/tablet/);
     await expect(page).toHaveURL(/brands=distinct.*#explore$/);
   });
 
-  test('the two product demonstrations share behavior and differ in presentation', async ({ page }) => {
+  test('the patient and provider examples share behavior and typeface, and differ in density', async ({ page }) => {
     await page.goto('/decisions/sharing#compositions');
-    const meadow = page.getByRole('region', { name: 'How should we keep you updated?' });
-    const harbor = page.getByRole('region', { name: 'Records to review' });
-    await meadow.getByRole('textbox', { name: 'Email address' }).fill('abc');
-    await meadow.getByRole('button', { name: 'Continue' }).click();
-    await harbor.getByRole('textbox', { name: 'Notify by email' }).fill('abc');
-    await harbor.getByRole('button', { name: 'Save' }).click();
+    const patient = page.getByRole('region', { name: 'How should we confirm your appointment?' });
+    const provider = page.getByRole('region', { name: 'Appointment requests' });
+    await expect(patient).toHaveAttribute('data-product', 'patient');
+    await expect(provider).toHaveAttribute('data-product', 'provider');
+    await patient.getByRole('textbox', { name: 'Email address' }).fill('abc');
+    await patient.getByRole('button', { name: 'Continue' }).click();
+    await provider.getByRole('textbox', { name: 'Notify by email' }).fill('abc');
+    await provider.getByRole('button', { name: 'Save' }).click();
     await expect(page.getByText('Enter an email address, like name@example.com.')).toHaveCount(2);
-    await expect(harbor.getByRole('textbox', { name: 'Notify by email' })).toBeFocused();
-    const fonts = await Promise.all([meadow, harbor].map((region) => region.getByRole('heading', { level: 3 }).evaluate((heading) => getComputedStyle(heading).fontFamily)));
-    expect(fonts[0]).not.toBe(fonts[1]);
-    await harbor.getByRole('textbox', { name: 'Filter records' }).fill('access');
-    await expect(harbor.getByText('Showing 2 of 5 records')).toBeVisible();
+    await expect(provider.getByRole('textbox', { name: 'Notify by email' })).toBeFocused();
+    const looks = await Promise.all(
+      [patient.getByRole('textbox', { name: 'Email address' }), provider.getByRole('textbox', { name: 'Notify by email' })].map((input) =>
+        input.evaluate((element) => {
+          const style = getComputedStyle(element);
+          return { font: style.fontFamily, height: element.getBoundingClientRect().height };
+        }),
+      ),
+    );
+    expect(looks[0]?.font).toBe(looks[1]?.font);
+    expect(looks[0]?.height).toBeGreaterThan(looks[1]?.height ?? Infinity);
+    await provider.getByRole('textbox', { name: 'Filter requests' }).fill('visit');
+    await expect(provider.getByText('Showing 2 of 5 requests')).toBeVisible();
     await expectNoAxeViolations(page);
+  });
+
+  test('the examples keep their state through a theme change, and stack on a narrow screen', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 720 });
+    await page.goto('/decisions/sharing#compositions');
+    const patient = page.getByRole('region', { name: 'How should we confirm your appointment?' });
+    const provider = page.getByRole('region', { name: 'Appointment requests' });
+    const row = provider.getByRole('checkbox', { name: 'R-2042 · Priya N. · Follow-up visit' });
+    await patient.getByText('Text message', { exact: true }).click();
+    await provider.getByRole('textbox', { name: 'Filter requests' }).fill('visit');
+    await row.check();
+
+    await page.getByRole('banner').getByRole('combobox', { name: 'Theme' }).selectOption('dark');
+    for (const region of [patient, provider]) await expect(region).toHaveAttribute('data-theme', 'dark');
+    await expect(patient).toHaveAttribute('data-product', 'patient');
+    await expect(provider).toHaveAttribute('data-density', 'compact');
+    await expect(patient.getByRole('radio', { name: /Text message/ })).toBeChecked();
+    await expect(provider.getByRole('textbox', { name: 'Filter requests' })).toHaveValue('visit');
+    await expect(row).toBeChecked();
+
+    const [top, bottom] = await Promise.all([patient.boundingBox(), provider.boundingBox()]);
+    expect(bottom?.y ?? 0).toBeGreaterThanOrEqual((top?.y ?? 0) + (top?.height ?? 0));
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0);
+    // WCAG 2.5.8: every button and text field in both examples is at least 24px tall.
+    for (const region of [patient, provider]) {
+      for (const control of await region.locator('button, input[type="email"], input[type="text"], input:not([type])').all()) {
+        expect((await control.boundingBox())?.height ?? 0).toBeGreaterThanOrEqual(24);
+      }
+    }
   });
 
   for (const { id } of pages.filter((entry) => entry.id !== 'sharing')) {
@@ -150,7 +189,7 @@ test.describe('design decisions', () => {
     // Six source files open at once make this a long page for axe to scan.
     test.slow();
     await page.goto('/decisions/operating');
-    for (const caption of ['Request: hide the Checkbox label in table rows', 'Exception EX-007: Harbor’s row-selection checkbox', 'Release note: shared core 3.0.0']) {
+    for (const caption of ['Request: hide the Checkbox label in table rows', 'Exception EX-007: the provider workspace’s row-selection checkbox', 'Release note: shared core 3.0.0']) {
       await expect(page.locator('figcaption', { hasText: caption })).toBeVisible();
     }
     await expect(page.locator('#releases figure', { hasText: 'Maturity labels in this repository' })).toContainText('Deprecate first, keep working for at least one minor release');

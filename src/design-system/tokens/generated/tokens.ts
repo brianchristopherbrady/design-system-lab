@@ -5,7 +5,7 @@ export type ModifierName = (typeof modifierNames)[number];
 
 export const themeNames = ["light","dark"] as const;
 export type ThemeName = (typeof themeNames)[number];
-export const productNames = ["system-lab","harbor","meadow"] as const;
+export const productNames = ["system-lab","patient","provider"] as const;
 export type ProductName = (typeof productNames)[number];
 export const densityNames = ["comfortable","compact"] as const;
 export type DensityName = (typeof densityNames)[number];
@@ -20,7 +20,7 @@ export interface ModifierInput {
 export const modifierDefaults: ModifierInput = {"theme":"light","product":"system-lab","density":"comfortable"};
 
 /** Token counts per tier, so summaries need not load the full manifest. */
-export const tokenCounts = {"total":361,"reference":153,"semantic":136,"component":72} as const;
+export const tokenCounts = {"total":338,"reference":138,"semantic":128,"component":72} as const;
 
 /** Direct children of `space`. */
 export const spaceTokens = ["2xs","xs","sm","md","lg","xl","2xl","3xl"] as const;
@@ -179,39 +179,24 @@ export type TokenPath =
   | 'duration.slower'
   | 'easing.standard'
   | 'easing.decelerate'
-  | 'color.harbor.50'
-  | 'color.harbor.100'
-  | 'color.harbor.200'
-  | 'color.harbor.300'
-  | 'color.harbor.400'
-  | 'color.harbor.500'
-  | 'color.harbor.600'
-  | 'color.harbor.700'
-  | 'color.harbor.800'
-  | 'color.harbor.900'
-  | 'color.harbor.950'
-  | 'color.harbor.975'
-  | 'color.meadow.50'
-  | 'color.meadow.100'
-  | 'color.meadow.200'
-  | 'color.meadow.300'
-  | 'color.meadow.400'
-  | 'color.meadow.500'
-  | 'color.meadow.600'
-  | 'color.meadow.700'
-  | 'color.meadow.800'
-  | 'color.meadow.900'
-  | 'color.meadow.950'
-  | 'color.harbor-glow'
-  | 'color.harbor-glow-soft'
-  | 'color.meadow-glow'
-  | 'color.meadow-glow-soft'
+  | 'color.care.50'
+  | 'color.care.100'
+  | 'color.care.200'
+  | 'color.care.300'
+  | 'color.care.400'
+  | 'color.care.500'
+  | 'color.care.600'
+  | 'color.care.700'
+  | 'color.care.800'
+  | 'color.care.900'
+  | 'color.care.950'
+  | 'color.care.975'
+  | 'color.care-glow'
+  | 'color.care-glow-soft'
   | 'size.compact.sm'
   | 'size.compact.md'
   | 'size.compact.lg'
   | 'font.family.plex-sans'
-  | 'font.family.fraunces'
-  | 'font.family.nunito'
   | 'spacing.extra-small'
   | 'spacing.small'
   | 'spacing.medium'
@@ -332,22 +317,14 @@ export type TokenPath =
   | 'elevation.medium'
   | 'elevation.high'
   | 'overlay.backdrop'
-  | 'brand.harbor.strong'
-  | 'brand.harbor.stronger'
-  | 'brand.harbor.strongest'
-  | 'brand.harbor.on-strong'
-  | 'brand.harbor.text'
-  | 'brand.harbor.subtle'
-  | 'brand.harbor.border'
-  | 'brand.harbor.glow'
-  | 'brand.meadow.strong'
-  | 'brand.meadow.stronger'
-  | 'brand.meadow.strongest'
-  | 'brand.meadow.on-strong'
-  | 'brand.meadow.text'
-  | 'brand.meadow.subtle'
-  | 'brand.meadow.border'
-  | 'brand.meadow.glow'
+  | 'brand.care.strong'
+  | 'brand.care.stronger'
+  | 'brand.care.strongest'
+  | 'brand.care.on-strong'
+  | 'brand.care.text'
+  | 'brand.care.subtle'
+  | 'brand.care.border'
+  | 'brand.care.glow'
   | 'button.primary.background'
   | 'button.primary.background-hover'
   | 'button.primary.background-active'

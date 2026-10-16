@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { Grid, Inline, ScrollRegion, Stack } from '@/design-system/layout';
 import { Button, Heading, Link, Switch, Text } from '@/design-system/primitives';
 import type { TokenPath } from '@/design-system/tokens';
-import { HbButton } from './HbButton';
+import { PwButton } from './PwButton';
 import styles from './decisions.module.css';
 
 interface Measured {
@@ -33,7 +33,7 @@ const mapping: readonly { legacy: string; token: string; here: (measured: Measur
   { legacy: 'background: #e0e0e0 when disabled', token: 'button.disabled.background', here: (m) => token(m.disabled, 'button.disabled.background'), result: 'Maps.' },
 ];
 
-/** Harbor's raw values beside the tokens that replace them, with what those tokens compute to on this page right now. */
+/** The provider workspace's raw values beside the tokens that replace them, with what those tokens compute to on this page right now. */
 export function TokenMapping() {
   const primary = useRef<HTMLButtonElement>(null);
   const disabled = useRef<HTMLButtonElement>(null);
@@ -68,7 +68,7 @@ export function TokenMapping() {
           <caption>Raw values and the tokens that replace them</caption>
           <thead>
             <tr>
-              <th scope="col">Harbor’s CSS</th>
+              <th scope="col">Provider workspace CSS</th>
               <th scope="col">Token</th>
               <th scope="col">On this page now</th>
               <th scope="col">Result</th>
@@ -118,16 +118,16 @@ export function WrapperBench() {
               Unchanged call sites, through the wrapper
             </Heading>
             <ul className={styles.callSites}>
-              <CallSite code='<HbButton kind="primary" busy={saving}>Save</HbButton>'>
-                <HbButton kind="primary" busy={saving}>
+              <CallSite code='<PwButton kind="primary" busy={saving}>Save</PwButton>'>
+                <PwButton kind="primary" busy={saving}>
                   Save
-                </HbButton>
+                </PwButton>
               </CallSite>
-              <CallSite code="<HbButton small>Export</HbButton>">
-                <HbButton small>Export</HbButton>
+              <CallSite code="<PwButton small>Export</PwButton>">
+                <PwButton small>Export</PwButton>
               </CallSite>
-              <CallSite code='<HbButton kind="link" onClick={openHistory}>View history</HbButton>'>
-                <HbButton kind="link">View history</HbButton>
+              <CallSite code='<PwButton kind="link" onClick={openHistory}>View history</PwButton>'>
+                <PwButton kind="link">View history</PwButton>
               </CallSite>
             </ul>
           </Stack>

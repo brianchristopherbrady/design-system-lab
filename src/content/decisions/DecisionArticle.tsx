@@ -94,7 +94,7 @@ function RecordView({ decision }: { decision: Decision }) {
     <DocSection id="record" title="Decision record">
       {decision.project && (
         <Text variant="bodySmall" tone="muted">
-          The same decision for the hypothetical Meadow and Harbor scenario. Statements about this repository are marked
+          The same decision for the hypothetical patient app and provider workspace scenario. Statements about this repository are marked
           Implemented.
         </Text>
       )}

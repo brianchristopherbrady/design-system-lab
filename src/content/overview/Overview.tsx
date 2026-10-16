@@ -3,7 +3,7 @@ import { Card } from '@/design-system/composites';
 import { Grid, ScrollRegion, Stack } from '@/design-system/layout';
 import { Heading, Icon, Link, Skeleton, Text } from '@/design-system/primitives';
 import { tokenCounts } from '@/design-system/tokens';
-import { catalog, entriesOfKind, productProfiles, summarizeCatalog, type ComponentLayer } from '@/domain/system';
+import { catalog, entriesOfKind, summarizeCatalog, type ComponentLayer } from '@/domain/system';
 import { DocSection, Note, Prose, SourceList } from '@/features/docs';
 import { Horizon } from './Horizon';
 import styles from './Overview.module.css';
@@ -98,7 +98,6 @@ export function OverviewActions({ author }: { author: OverviewAuthor }) {
 
 export function OverviewContent({ author }: { author: OverviewAuthor }) {
   const summary = summarizeCatalog(catalog);
-  const { harbor, meadow } = productProfiles;
   return (
     <Stack gap="extraExtraLarge">
       <DocSection id="review" title="Review the work">
@@ -260,11 +259,11 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
             and modes foundation and the Playground preview compare them too.
           </p>
           <p>
-            Harbor and Meadow are example product profiles for different product contexts. Harbor stands for{' '}
-            {harbor.audience.charAt(0).toLowerCase() + harbor.audience.slice(1)} Meadow stands for{' '}
-            {meadow.audience.charAt(0).toLowerCase() + meadow.audience.slice(1)} A profile restyles only the region it is
-            applied to, through its tokens: colors, typefaces and corner shapes change, while content and behavior stay.
-            The site itself always keeps its own profile.
+            The patient app and the provider workspace are the product profiles of one fictional healthcare organization,
+            used in the <Link href="/decisions/sharing#compositions">patient and provider examples</Link>. They share one
+            brand family; the provider workspace adds tighter corners and compact density for its dense rows. A profile
+            restyles only the region it is applied to, through its tokens, while content and behavior stay. The site itself
+            always keeps its own profile.
           </p>
         </Note>
         <Prose>

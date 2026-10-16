@@ -1,6 +1,6 @@
 /**
- * How sharing between Meadow (a guided consumer product, mostly on phones) and Harbor (a dense
- * professional desktop application) shifts with a few constraints. It lists reasons, strains and
+ * How sharing between the patient app (a guided product for patients, mostly on phones) and the provider workspace (a
+ * dense desktop tool for clinic staff) shifts with a few constraints. It lists reasons, strains and
  * open questions per layer and per approach, and offers a conditional starting point with the
  * evidence that would overturn it. It never scores the approaches.
  */
@@ -17,7 +17,7 @@ export interface Constraint {
 export const constraints: readonly Constraint[] = [
   {
     id: 'mobile',
-    label: 'Meadow is built as',
+    label: 'The patient app is built as',
     options: [
       { value: 'web', label: 'Responsive web' },
       { value: 'native', label: 'A native app' },
@@ -96,13 +96,13 @@ export const presets: readonly Preset[] = [
   {
     id: 'frameworks',
     name: 'Different web frameworks',
-    description: 'Meadow and Harbor on different web frameworks, such as React and Angular. Everything else as in the scenario.',
+    description: 'The patient app and the provider workspace on different web frameworks, such as React and Angular. Everything else as in the scenario.',
     values: { ...defaultConstraints, frameworks: 'different' },
   },
   {
     id: 'native-web',
     name: 'Native plus web',
-    description: 'Meadow ships a native app as well as its responsive web app. Harbor stays on the web, on the same framework as Meadow’s web app.',
+    description: 'The patient app ships a native app as well as its responsive web app. The provider workspace stays on the web, on the same framework as the patient web app.',
     values: { ...defaultConstraints, mobile: 'both' },
   },
   {
@@ -160,7 +160,7 @@ export function assessLayers(chosen: Constraints): LayerAssessment[] {
   const c = effective(chosen);
   const nativeOnly = c.mobile === 'native';
   const hasNative = c.mobile !== 'web';
-  const webPair = c.mobile === 'both' ? 'Meadow’s web app and Harbor' : 'Meadow and Harbor';
+  const webPair = c.mobile === 'both' ? 'The patient web app and the provider workspace' : 'The patient app and the provider workspace';
 
   const tokens: LayerAssessment =
     c.brands === 'family'
@@ -193,7 +193,7 @@ export function assessLayers(chosen: Constraints): LayerAssessment[] {
     code = {
       layer: 'Component code (web)',
       leaning: 'separate',
-      because: 'Only Harbor is on the web, so there is no second web product to share code with. Meadow’s native app shares tokens and specifications instead.',
+      because: 'Only the provider workspace is on the web, so there is no second web product to share code with. The native patient app shares tokens and specifications instead.',
     };
   } else if (c.frameworks === 'different') {
     code = {
@@ -212,7 +212,7 @@ export function assessLayers(chosen: Constraints): LayerAssessment[] {
   const native: LayerAssessment[] = hasNative
     ? [
         {
-          layer: 'Meadow’s native app',
+          layer: 'The native patient app',
           leaning: 'partial',
           because: 'Shares the exported tokens and the behavior specifications. Its code is native, so it is written and tested on its platform, not shared with either web product.',
         },
@@ -275,8 +275,8 @@ export function assessApproaches(chosen: Constraints): ApproachAssessment[] {
   add(library.fits, sameWeb, 'Both web products run the same framework, so one library can serve them.');
   add(library.fits, c.overlap === 'many', 'Many controls behave the same.');
   add(library.fits, c.releases === 'coordinated', 'Products upgrade together, so one supported version is enough.');
-  add(library.strains, nativeOnly, 'Only Harbor is on the web, so a web library has one consumer.');
-  add(library.strains, both, 'It serves Meadow’s web app and Harbor only; the native app needs specifications and exported tokens.');
+  add(library.strains, nativeOnly, 'Only the provider workspace is on the web, so a web library has one consumer.');
+  add(library.strains, both, 'It serves the patient web app and the provider workspace only; the native app needs specifications and exported tokens.');
   add(library.strains, c.frameworks === 'different', 'Different frameworks: one library needs framework-neutral components or an implementation per framework.');
   add(library.strains, c.overlap === 'few', 'Few equivalent controls: components would grow options for both audiences.');
   add(
@@ -291,8 +291,8 @@ export function assessApproaches(chosen: Constraints): ApproachAssessment[] {
   add(core.fits, c.overlap === 'few', 'Shares only the equivalent controls; each product extends the rest.');
   add(core.fits, c.releases === 'independent', 'A small, versioned core lets each product adopt changes when it is ready.');
   add(core.fits, c.brands === 'distinct', 'Product extensions and token overrides absorb brand differences.');
-  add(core.strains, nativeOnly, 'Only Harbor is on the web, so a shared core has one consumer.');
-  add(core.strains, both, 'The core serves the web products; Meadow’s native app follows its specifications instead.');
+  add(core.strains, nativeOnly, 'Only the provider workspace is on the web, so a shared core has one consumer.');
+  add(core.strains, both, 'The core serves the web products; the native patient app follows its specifications instead.');
   add(
     core.strains,
     c.frameworks === 'different',
@@ -324,7 +324,7 @@ export function assessApproaches(chosen: Constraints): ApproachAssessment[] {
 export const approachName = (id: ApproachId) => approaches.find((approach) => approach.id === id)?.name ?? id;
 
 export interface Recommendation {
-  /** `main` covers the web products, or both products when Meadow is native only; `native` is Meadow's native app beside its web app. */
+  /** `main` covers the web products, or both products when the patient app is native only; `native` is the native patient app beside its web app. */
   part: 'main' | 'native';
   scope: string;
   approach: ApproachId;
@@ -404,25 +404,25 @@ export function recommend(chosen: Constraints): Recommendation[] {
     return [
       {
         part: 'main',
-        scope: 'Meadow’s native app and Harbor on the web',
+        scope: 'The native patient app and the provider workspace on the web',
         approach: 'specs',
         because: [
-          'Meadow is a native app, so it cannot run Harbor’s web components.',
+          'The patient app is a native app, so it cannot run the provider workspace’s web components.',
           'Only tokens and behavior specifications cross from web to native.',
           ...(c.overlap === 'many' ? ['Many equivalent controls make a careful shared specification worth writing.'] : []),
         ],
-        overturnedBy: ['Meadow adds a web app, so two web products could share code.', 'Behavior drifts between platforms despite the specification, which calls for shared acceptance tests per control.'],
+        overturnedBy: ['The patient app adds a web app, so two web products could share code.', 'Behavior drifts between platforms despite the specification, which calls for shared acceptance tests per control.'],
       },
     ];
   }
-  const parts: Recommendation[] = [{ part: 'main', scope: c.mobile === 'both' ? 'Meadow’s web app and Harbor' : 'Meadow and Harbor on the web', ...webRecommendation(c) }];
+  const parts: Recommendation[] = [{ part: 'main', scope: c.mobile === 'both' ? 'The patient web app and the provider workspace' : 'The patient app and the provider workspace on the web', ...webRecommendation(c) }];
   if (c.mobile === 'both') {
     parts.push({
       part: 'native',
-      scope: 'Meadow’s native app',
+      scope: 'The native patient app',
       approach: 'specs',
       because: ['Native code cannot run the web components.', 'It uses the tokens exported to its platform’s format and follows the same behavior specifications.'],
-      overturnedBy: ['Meadow adopts a cross-platform framework that can share code with its web app.', 'Meadow retires its native app or its web app.'],
+      overturnedBy: ['The patient app adopts a cross-platform framework that can share code with its web app.', 'The patient app retires its native app or its web app.'],
     });
   }
   return parts;
@@ -500,7 +500,7 @@ export function compareOutcomes(before: Constraints, after: Constraints): Outcom
   const afterParts = recommend(after);
   for (const old of beforeParts) {
     if (!afterParts.some((part) => part.part === old.part)) {
-      const why = after.mobile === 'native' ? 'Meadow is now native only, so the starting point above covers it.' : 'Meadow no longer has a native app.';
+      const why = after.mobile === 'native' ? 'The patient app is now native only, so the starting point above covers it.' : 'The patient app no longer has a native app.';
       conclusions.push({ subject: `Starting point: ${old.scope}`, from: approachName(old.approach), why });
     }
   }

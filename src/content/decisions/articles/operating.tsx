@@ -27,27 +27,27 @@ const maturityRows = maturities.map((maturity) => {
 export const operating: Decision = {
   id: 'operating',
   stage: 'Validation and operating practices',
-  question: 'Once Meadow and Harbor depend on the shared core, how is it kept healthy, and how would anyone know it is working?',
+  question: 'Once the patient app and the provider workspace depend on the shared core, how is it kept healthy, and how would anyone know it is working?',
   matters: 'Without named owners and a record of exceptions, products quietly copy and change shared components, and the system stops being shared.',
   record: {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow and Harbor release on their own schedules and both depend on the versioned core. Their old controls stay in place until each screen moves over, and neither team can pause feature work for a migration.',
+        text: 'The patient app and the provider workspace release on their own schedules and both depend on the versioned core. Their old controls stay in place until each screen moves over, and neither team can pause feature work for a migration.',
       },
     ],
     choice: [
       { evidence: 'proposed', text: 'Name owners, log exceptions, migrate gradually and measure a few outcomes against baselines.' },
       {
         evidence: 'proposed',
-        text: 'A small core team owns the system, with one representative each from Meadow and Harbor. Changes follow one written contribution path, releases are versioned, and new parts start as experimental.',
+        text: 'A small core team owns the system, with one representative each from the patient app and the provider workspace. Changes follow one written contribution path, releases are versioned, and new parts start as experimental.',
       },
     ],
     alternatives: [
       {
         evidence: 'proposed',
         items: [
-          '**Harbor’s team shares its own library.** Quickest to start, but Meadow’s needs would always come second.',
+          '**The provider workspace’s team shares its own library.** Quickest to start, but the patient app’s needs would always come second.',
           '**Part-time owners from both products only.** Both have a say, but decisions stall without a core that writes them down.',
           '**Migrate everything at once.** One switch, but both products would pause feature work, and old and new focus handling would mix part-way through.',
         ],
@@ -110,7 +110,7 @@ export const operating: Decision = {
         {
           kind: 'note',
           title: 'When the system lacks something',
-          text: 'The product builds it, logs what it built and why, and owners review the log with product teams each month. If Meadow and Harbor both need the same thing, it becomes a candidate for the system. [An exception record](/decisions/operating#exceptions) shows what one entry holds.',
+          text: 'The product builds it, logs what it built and why, and owners review the log with product teams each month. If the patient app and the provider workspace both need the same thing, it becomes a candidate for the system. [An exception record](/decisions/operating#exceptions) shows what one entry holds.',
         },
         {
           kind: 'text',
@@ -127,24 +127,24 @@ export const operating: Decision = {
         {
           kind: 'text',
           evidence: 'hypothetical',
-          paragraphs: ['A date field, requested by Harbor and needed by both products. Each step produces something the next step reviews.'],
+          paragraphs: ['A date field, requested by the provider workspace and needed by both products. Each step produces something the next step reviews.'],
         },
         {
           kind: 'steps',
           items: [
             {
               title: 'Request',
-              text: 'Harbor’s representative asks for a shared date field. Both products already ask for dates: Meadow for a date of birth at sign-up, Harbor for a date range in its record filter. Before filing, they check the Components index and the exceptions log.',
+              text: 'The provider workspace’s representative asks for a shared date field. Both products already ask for dates: the patient app for a date of birth at sign-up, the provider workspace for a date range in its record filter. Before filing, they check the Components index and the exceptions log.',
               output: 'a request that links both local versions',
             },
             {
               title: 'Evidence',
-              text: 'The core team checks the first two criteria. It is **useful**: two products need it. It is **unique**: no shared part does it. The local versions also disagree. Meadow splits day, month and year into three boxes; Harbor’s native date input has no format hint, and its error is not tied to the field.',
+              text: 'The core team checks the first two criteria. It is **useful**: two products need it. It is **unique**: no shared part does it. The local versions also disagree. The patient app splits day, month and year into three boxes; the provider workspace’s native date input has no format hint, and its error is not tied to the field.',
               output: 'an evidence note: the need, the local versions and their defects',
             },
             {
               title: 'API proposal',
-              text: 'Harbor drafts the props before any code: `label`, `hint`, `error`, `required`, and `value` with `onChange` as ISO dates such as `2027-03-14`. There is no `format` prop, so the stored value never varies, and no calendar picker in the first version.',
+              text: 'The provider workspace drafts the props before any code: `label`, `hint`, `error`, `required`, and `value` with `onChange` as ISO dates such as `2027-03-14`. There is no `format` prop, so the stored value never varies, and no calendar picker in the first version.',
               output: 'a proposal reviewed before anyone writes the component',
             },
             {
@@ -154,7 +154,7 @@ export const operating: Decision = {
             },
             {
               title: 'Experimental release',
-              text: 'Core 2.6.0 ships `DateField` as experimental. Meadow uses it at sign-up and Harbor in one filter. Both note what they had to work around, and Meadow tests the sign-up step with a few of its users.',
+              text: 'Core 2.6.0 ships `DateField` as experimental. The patient app uses it at sign-up and the provider workspace in one filter. Both note what they had to work around, and the patient app tests the sign-up step with a few of its users.',
               output: 'a changelog entry, two screens using it and the workarounds both teams noted',
               note: {
                 evidence: 'implemented',
@@ -193,7 +193,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'Harbor asks for a `hideLabel` prop on the shared Checkbox, to select rows in its sortable table ([inventory finding I7](/decisions/planning#inventory)), where each row’s name already labels the box.',
+                  text: 'The provider workspace asks for a `hideLabel` prop on the shared Checkbox, to select rows in its sortable table ([inventory finding I7](/decisions/planning#inventory)), where each row’s name already labels the box.',
                 },
               ],
             },
@@ -203,8 +203,8 @@ export const operating: Decision = {
                 {
                   evidence: 'hypothetical',
                   items: [
-                    '**Harbor:** without it, the table keeps a local checkbox, which counts against adoption.',
-                    '**Meadow:** uses Checkbox for consent, where a hidden label would hide what people agree to. A general prop makes that easy.',
+                    '**The provider workspace:** without it, the table keeps a local checkbox, which counts against adoption.',
+                    '**The patient app:** uses Checkbox for consent, where a hidden label would hide what people agree to. A general prop makes that easy.',
                     '**Accessibility reviewer:** a box named by its row is fine. A hidden label on a form field is not, because people who rely on seeing the label lose it.',
                   ],
                 },
@@ -227,7 +227,7 @@ export const operating: Decision = {
                   items: [
                     'How many products need it: one.',
                     'The risk of adding it: a general way to remove visible labels from form fields.',
-                    'The risk of declining: low. A native checkbox named by its row header is accessible, and Harbor can style it with shared tokens.',
+                    'The risk of declining: low. A native checkbox named by its row header is accessible, and the provider workspace can style it with shared tokens.',
                     'The contribution criteria: it is not yet **useful** to more than one product.',
                   ],
                 },
@@ -238,7 +238,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'proposed',
-                  text: 'How often Harbor uses the table, or who asked first. Heavy use in one product argues for that product’s code, not for the core.',
+                  text: 'How often the provider workspace uses the table, or who asked first. Heavy use in one product argues for that product’s code, not for the core.',
                 },
               ],
             },
@@ -252,11 +252,11 @@ export const operating: Decision = {
               ],
             },
             {
-              label: 'How Harbor proceeds',
+              label: 'How the provider workspace proceeds',
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'Harbor keeps a native checkbox in its table, named by the row header and styled only with shared tokens, and logs it as [exception EX-007](/decisions/operating#exceptions).',
+                  text: 'The provider workspace keeps a native checkbox in its table, named by the row header and styled only with shared tokens, and logs it as [exception EX-007](/decisions/operating#exceptions).',
                 },
               ],
             },
@@ -274,11 +274,11 @@ export const operating: Decision = {
         },
         {
           kind: 'record',
-          caption: 'Exception EX-007: Harbor’s row-selection checkbox',
+          caption: 'Exception EX-007: the provider workspace’s row-selection checkbox',
           fields: [
             {
               label: 'What departs',
-              statements: [{ evidence: 'hypothetical', text: 'Harbor’s record table selects rows with a native checkbox instead of the shared Checkbox.' }],
+              statements: [{ evidence: 'hypothetical', text: 'The provider workspace’s record table selects rows with a native checkbox instead of the shared Checkbox.' }],
             },
             {
               label: 'Reason',
@@ -291,11 +291,11 @@ export const operating: Decision = {
             },
             {
               label: 'Owner',
-              statements: [{ evidence: 'hypothetical', text: 'Harbor’s engineering lead, who answers for it at each review.' }],
+              statements: [{ evidence: 'hypothetical', text: 'The provider workspace’s engineering lead, who answers for it at each review.' }],
             },
             {
               label: 'Affected products',
-              statements: [{ evidence: 'hypothetical', text: 'Harbor only. Meadow has no selectable rows.' }],
+              statements: [{ evidence: 'hypothetical', text: 'The provider workspace only. The patient app has no selectable rows.' }],
             },
             {
               label: 'Logged and review date',
@@ -306,7 +306,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'The core ships a part for row selection, or Harbor’s table moves to a shared table that includes one. Harbor then migrates and deletes its checkbox.',
+                  text: 'The core ships a part for row selection, or the provider workspace’s table moves to a shared table that includes one. The provider workspace then migrates and deletes its checkbox.',
                 },
               ],
             },
@@ -315,7 +315,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'Meadow or a third product needs selectable rows. Harbor’s version, its tests and this record become the evidence for a new contribution.',
+                  text: 'The patient app or a third product needs selectable rows. The provider workspace’s version, its tests and this record become the evidence for a new contribution.',
                 },
               ],
             },
@@ -377,9 +377,9 @@ export const operating: Decision = {
       blocks: [
         {
           kind: 'table',
-          caption: 'Practices in this project, and for Meadow and Harbor',
+          caption: 'Practices in this project, and for the patient app and the provider workspace',
           evidence: ['implemented', 'proposed'],
-          columns: ['Practice', 'In this project', 'For Meadow and Harbor'],
+          columns: ['Practice', 'In this project', 'For the patient app and the provider workspace'],
           rows: [
             ['Maturity labels', 'Implemented. Experimental, beta, stable and deprecated have written requirements, and tests check that stable components are tested and used.', 'The same, with the label shown wherever the component is documented.'],
             ['Versioning', 'Not applicable: one site, released together.', 'Semantic versioning: a major version for breaking changes, minor for features, patch for fixes.'],
@@ -421,7 +421,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: 'Meadow: 14 call sites still pass `variant`, found from the deprecation warnings. Harbor: none; it moved to `appearance` in 2.5.0. The counts are illustrative.',
+                  text: 'The patient app: 14 call sites still pass `variant`, found from the deprecation warnings. The provider workspace: none; it moved to `appearance` in 2.5.0. The counts are illustrative.',
                 },
               ],
             },
@@ -439,7 +439,7 @@ export const operating: Decision = {
               statements: [
                 {
                   evidence: 'hypothetical',
-                  text: '2.9.x receives fixes for severe defects and security problems for six months. Because tokens and markup are unchanged, Meadow and Harbor can upgrade on their own schedules.',
+                  text: '2.9.x receives fixes for severe defects and security problems for six months. Because tokens and markup are unchanged, the patient app and the provider workspace can upgrade on their own schedules.',
                 },
               ],
             },
@@ -485,7 +485,7 @@ export const operating: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'Four measures for Meadow and Harbor, each tied to a common reason for building a system. A **baseline definition** says what will be counted, where and when. A **measured baseline** is the dated result of running that definition. Every baseline here is a definition only: nothing has been measured, because this project has one author and no product teams.',
+            'Four measures for the patient app and the provider workspace, each tied to a common reason for building a system. A **baseline definition** says what will be counted, where and when. A **measured baseline** is the dated result of running that definition. Every baseline here is a definition only: nothing has been measured, because this project has one author and no product teams.',
           ],
         },
         {
@@ -524,7 +524,7 @@ export const operating: Decision = {
               'Open defects, by severity and component.',
               'Defects whose cause is in the shared core, whether reported by a product, an audit or a scan. Defects caused by product code stay with that product.',
               'Open defects in the controls the core replaces, counted from each product’s tracker and one audit before migration.',
-              'Not measured for Meadow and Harbor. This repository’s own ledger is a record of one audit, not a product baseline.',
+              'Not measured for the patient app and the provider workspace. This repository’s own ledger is a record of one audit, not a product baseline.',
               'Tracker labels for component and severity, automated scans, and a manual audit each quarter.',
               'Product QA leads, with the core team for fixes',
               'Quarterly; high severity on arrival',
@@ -579,13 +579,13 @@ export const operating: Decision = {
           columns: ['Field', 'Example'],
           rows: [
             ['Measure', 'Adoption of shared controls'],
-            ['Product', 'Harbor'],
+            ['Product', 'Provider workspace'],
             ['Measured on', '1 February 2027, on the main branch at a named commit, before the first migrated screen ships'],
             ['Method', 'Scan version 1.0, with the allowlist and exceptions log as they stood that day'],
             ['In scope', '138 call sites'],
             ['Excluded', '11: 8 allowlisted native elements and 3 logged exceptions'],
             ['Result', '42 of 127 counted call sites use shared components: 33%'],
-            ['Reviewed by', 'The core team and Harbor’s representative'],
+            ['Reviewed by', 'The core team and the provider workspace’s representative'],
           ],
         },
       ],

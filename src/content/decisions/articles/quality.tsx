@@ -47,7 +47,7 @@ export const quality: Decision = {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow wants the shared Tabs for account settings on phones; Harbor wants it for record details used all day from the keyboard. Each team assumes the other has tested it with assistive technology.',
+        text: 'The patient app wants the shared Tabs for appointment details on phones; the provider workspace wants it for request details used all day from the keyboard. Each team assumes the other has tested it with assistive technology.',
       },
     ],
     choice: [
@@ -220,11 +220,11 @@ export const quality: Decision = {
           kind: 'record',
           caption: 'Finding TAB-01 (hypothetical): hidden tabs on narrow screens',
           fields: [
-            { label: 'Observed', statements: [{ evidence: 'hypothetical', text: 'Harbor’s record view has seven tabs. At 320 pixels the last three are off-screen, and nothing shows they exist.' }] },
+            { label: 'Observed', statements: [{ evidence: 'hypothetical', text: 'The provider workspace’s record view has seven tabs. At 320 pixels the last three are off-screen, and nothing shows they exist.' }] },
             { label: 'Cause', statements: [{ evidence: 'implemented', text: 'The tab list scrolls sideways and hides its scrollbar (`Tabs.module.css`).', example: tabsDocs }] },
             { label: 'Affected criterion', statements: [{ evidence: 'proposed', text: 'Narrow screens, in the contract. Keyboard users still reach every tab with the arrow keys, so it is not a keyboard failure.' }] },
             { label: 'Severity and priority', statements: [{ evidence: 'proposed', text: 'Medium severity: content is hard to discover, not blocked. Priority before stable, because both products have narrow screens.' }] },
-            { label: 'Owner', statements: [{ evidence: 'hypothetical', text: 'The core team’s Tabs owner, with Harbor’s representative to confirm the fix.' }] },
+            { label: 'Owner', statements: [{ evidence: 'hypothetical', text: 'The core team’s Tabs owner, with the provider workspace’s representative to confirm the fix.' }] },
             { label: 'Accept when', statements: [{ evidence: 'proposed', text: 'At 320 pixels, a visible cue shows that more tabs exist, in both writing directions and in forced colors.' }] },
             { label: 'Status', statements: [{ evidence: 'hypothetical', text: 'Open. Recorded in the ledger and the acceptance matrix.' }] },
           ],

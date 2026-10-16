@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { productNames } from '@/design-system/tokens';
+import { inLane, productNames } from '@/design-system/tokens';
 import { tokenManifest } from '@/design-system/tokens/manifest';
 import {
   analyzeRamp,
@@ -159,7 +159,7 @@ describe('product ids', () => {
     expect(productNameOf('night-shift')).toBe('Night Shift');
   });
 
-  it.each(['', 'Aurora', '1st', 'night_shift', 'night--shift', 'night-', 'harbor', 'a'.repeat(33)])('rejects "%s"', (id) => {
+  it.each(['', 'Aurora', '1st', 'night_shift', 'night--shift', 'night-', 'provider', 'a'.repeat(33)])('rejects "%s"', (id) => {
     expect(productIdProblem(id, productNames)).toBeTypeOf('string');
   });
 });
@@ -193,11 +193,11 @@ describe('export', () => {
     for (const file of files.filter((candidate) => candidate.filename.endsWith('.json'))) expect(() => JSON.parse(file.content) as unknown).not.toThrow();
   });
 
-  it('only overrides tokens the product modifier already changes, as the resolver requires', () => {
-    const productDependent = new Set(tokenManifest.filter((record) => record.dependsOn.includes('product')).map((record) => record.path));
+  it('only overrides existing tokens inside the product lane, as the resolver and the policy require', () => {
+    const existing = new Set(tokenManifest.map((record) => record.path));
     for (const shape of shapeNames) {
       const paths = productPaths(shape);
-      expect(paths.filter((path) => !productDependent.has(path))).toEqual([]);
+      expect(paths.filter((path) => !existing.has(path) || !inLane('product', path))).toEqual([]);
     }
     expect(productPaths('machined')).toHaveLength(15);
     expect(productPaths('pill')).toHaveLength(15 + shapedComponents.length);
@@ -205,9 +205,8 @@ describe('export', () => {
 
   it('treats machined as the system default, so it exports no shape', () => {
     for (const component of shapedComponents) {
-      const authored = tokenManifest
-        .find((record) => record.path === `${component}.radius`)
-        ?.variants?.find((variant) => variant.input.product === 'system-lab')?.authored;
+      const record = tokenManifest.find((candidate) => candidate.path === `${component}.radius`);
+      const authored = record?.variants?.find((variant) => variant.input.product === 'system-lab')?.authored ?? record?.values.light.authored;
       expect(authored).toBe(`{radius.${shapes.machined.radii[component]}}`);
     }
   });

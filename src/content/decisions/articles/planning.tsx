@@ -48,21 +48,21 @@ export const planning: Decision = {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow and Harbor each built their own buttons, form fields and dialogs. The same control behaves differently in each product, accessibility fixes are made twice, and nobody has counted how much overlaps.',
+        text: 'The patient app and the provider workspace each built their own buttons, form fields and dialogs. The same control behaves differently in each product, accessibility fixes are made twice, and nobody has counted how much overlaps.',
       },
     ],
     choice: [
       { evidence: 'proposed', text: 'Inventory both products and write testable requirements before deciding what to share.' },
       {
         evidence: 'proposed',
-        text: 'Agree a few principles that settle the trade-off between Meadow’s guidance and Harbor’s density, address [form fields and their errors first](/decisions/planning#priorities), and test them in one [pilot form](/decisions/planning#pilot) in each product.',
+        text: 'Agree a few principles that settle the trade-off between the patient app’s guidance and the provider workspace’s density, address [form fields and their errors first](/decisions/planning#priorities), and test them in one [pilot form](/decisions/planning#pilot) in each product.',
       },
     ],
     alternatives: [
       {
         evidence: 'proposed',
         items: [
-          '**Promote one product’s components.** Fastest, but every control inherits Harbor’s density or Meadow’s step-by-step guidance.',
+          '**Promote one product’s components.** Fastest, but every control inherits the provider workspace’s density or the patient app’s step-by-step guidance.',
           '**Principles only.** Easy to agree, but nothing in them can pass or fail.',
           '**Choose the architecture first.** It settles what to share before anyone knows which controls are equivalent.',
           '**Build a full system up front.** Patterns, templates and a documentation site before one shared control is proven; [smaller options](/decisions/planning#scope) may be enough.',
@@ -86,7 +86,7 @@ export const planning: Decision = {
     reconsider: [
       {
         evidence: 'proposed',
-        text: 'The pilot shows Meadow and Harbor need different behavior from a control the requirements treat as shared, or a third product arrives whose people are unlike either.',
+        text: 'The pilot shows the patient app and the provider workspace need different behavior from a control the requirements treat as shared, or a third product arrives whose people are unlike either.',
       },
     ],
   },
@@ -144,10 +144,10 @@ export const planning: Decision = {
         },
         {
           kind: 'table',
-          caption: 'A Meadow and Harbor inventory. Findings are invented to show the method; version counts are illustrative, not measured.',
+          caption: 'An inventory of the patient app and the provider workspace. Findings are invented to show the method; version counts are illustrative, not measured.',
           evidence: 'hypothetical',
           stacked: true,
-          columns: ['Finding', 'Meadow', 'Harbor', 'Judgment'],
+          columns: ['Finding', 'Patient app', 'Provider workspace', 'Judgment'],
           rows: [
             [
               'I1 · Primary button (control, styling)',
@@ -159,7 +159,7 @@ export const planning: Decision = {
               'I2 · Text field errors (behavior)',
               'Validates as people type. Errors are red text, not tied to the field. A failed request clears the step.',
               'Validates on save. Errors are tied to fields, with a summary. A failed request keeps the values.',
-              '**Defect in Meadow, then duplication.** Losing input and color-only errors are not product differences.',
+              '**Defect in the patient app, then duplication.** Losing input and color-only errors are not product differences.',
             ],
             [
               'I3 · Error wording (terminology)',
@@ -171,7 +171,7 @@ export const planning: Decision = {
               'I4 · Confirmation dialog (control, behavior)',
               'A styled overlay. Focus can leave it, and closing sends focus to the top of the page.',
               'A native dialog. Focus stays inside and returns to the button that opened it.',
-              '**Defect in Meadow, and duplication.** One behavior is correct for everyone.',
+              '**Defect in the patient app, and duplication.** One behavior is correct for everyone.',
             ],
             [
               'I5 · Focus indicator (styling)',
@@ -211,9 +211,9 @@ export const planning: Decision = {
         },
         {
           kind: 'table',
-          caption: 'Meadow’s search step and Harbor’s list filter',
+          caption: 'The patient app’s search step and the provider workspace’s list filter',
           evidence: 'hypothetical',
-          columns: ['Aspect', 'Meadow search step', 'Harbor list filter'],
+          columns: ['Aspect', 'Patient app search step', 'Provider workspace list filter'],
           rows: [
             ['What it does', 'Asks one question, then moves to a results step', 'Narrows the visible list as people type, without leaving the page'],
             ['Results', 'A few ranked matches, with guidance when nothing fits', 'A count of matching rows, announced politely; no results shown inline'],
@@ -226,14 +226,14 @@ export const planning: Decision = {
           items: [
             '**Share** the text input, its label pattern and the tokens.',
             '**Keep in each product** the search component and its behavior.',
-            '**Revisit** if Meadow ever needs a list filter: it would reuse Harbor’s, because the behavior would then match.',
+            '**Revisit** if the patient app ever needs a list filter: it would reuse the provider workspace’s, because the behavior would then match.',
           ],
         },
         {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'The [Resource directory](/patterns/resource-directory) here behaves like Harbor’s filter: it narrows entries as you type and announces the count. The [Components index](/components) keeps the same filters in the URL.',
+            'The [Resource directory](/patterns/resource-directory) here behaves like the provider workspace’s filter: it narrows entries as you type and announces the count. The [Components index](/components) keeps the same filters in the URL.',
           ],
         },
       ],
@@ -258,8 +258,8 @@ export const planning: Decision = {
             [
               'Form field and its errors (I2, I3)',
               'High: most tasks in both products end in a form (assumption).',
-              'High: Meadow loses what people entered when a request fails.',
-              'High: Meadow’s errors are color only and not tied to fields.',
+              'High: the patient app loses what people entered when a request fails.',
+              'High: the patient app’s errors are color only and not tied to fields.',
               'High: two implementations, two error styles.',
               'Medium: many forms, but each can move on its own.',
               '**First.** The pilot.',
@@ -268,7 +268,7 @@ export const planning: Decision = {
               'Confirmation dialog (I4)',
               'Low: confirmations only.',
               'Medium: a lost place, not lost work.',
-              'High: focus escapes Meadow’s overlay.',
+              'High: focus escapes the patient app’s overlay.',
               'Medium: two implementations.',
               'Low: few call sites.',
               '**Second,** or first if an audit or a user report flags it.',
@@ -284,7 +284,7 @@ export const planning: Decision = {
             ],
             [
               'Search (I8)',
-              'High in Harbor, low in Meadow.',
+              'High in the provider workspace, low in the patient app.',
               'Medium.',
               'Medium.',
               'Low: similar look, different behavior.',
@@ -314,10 +314,10 @@ export const planning: Decision = {
         },
         {
           kind: 'table',
-          caption: 'Options, when each is enough, and where Meadow and Harbor land',
+          caption: 'Options, when each is enough, and where the patient app and the provider workspace land',
           evidence: ['proposed', 'hypothetical'],
           stacked: true,
-          columns: ['Option', 'Enough when', 'Not enough when', 'Meadow and Harbor'],
+          columns: ['Option', 'Enough when', 'Not enough when', 'The patient app and the provider workspace'],
           rows: [
             [
               'Shared tokens only',
@@ -398,12 +398,12 @@ export const planning: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'The documents below are written for Meadow and Harbor to show the level of detail, not real findings. The requirements are shown in full, each beside the closest working example in this repository, followed by a trace from every inventory finding to the plan.',
+            'The documents below are written for the patient app and the provider workspace to show the level of detail, not real findings. The requirements are shown in full, each beside the closest working example in this repository, followed by a trace from every inventory finding to the plan.',
           ],
         },
         {
           kind: 'table',
-          caption: 'Requirements for Meadow and Harbor, with acceptance criteria and the closest working example here',
+          caption: 'Requirements for the patient app and the provider workspace, with acceptance criteria and the closest working example here',
           evidence: ['hypothetical', 'implemented'],
           wide: true,
           columns: ['ID', 'Requirement', 'Accepted when', 'Priority', 'Closest working example here'],
@@ -427,7 +427,7 @@ export const planning: Decision = {
               'Products change brand and shape without forking components.',
               'Each product’s token file overrides only brand colors, typefaces and corner radii, and a test fails otherwise.',
               'Must',
-              '[What a product changes](/foundations/products#overrides): the Harbor and Meadow modes, held to that limit by a policy test.',
+              '[What a product changes](/foundations/products#overrides): the patient app and provider workspace profiles, held to that limit by a policy test.',
             ],
             [
               'R4',
@@ -481,8 +481,8 @@ export const planning: Decision = {
                   evidence: 'hypothetical',
                   columns: ['Part', 'Content'],
                   rows: [
-                    ['Problem', 'Meadow and Harbor rebuild the same controls with different behavior, and accessibility fixes are made twice ([inventory](/decisions/planning#inventory)).'],
-                    ['People', 'Meadow: occasional consumers completing guided tasks, mostly on phones. Harbor: professionals scanning and acting on dense information at desks.'],
+                    ['Problem', 'The patient app and the provider workspace rebuild the same controls with different behavior, and accessibility fixes are made twice ([inventory](/decisions/planning#inventory)).'],
+                    ['People', 'The patient app: patients requesting care a few times a year, mostly on phones. The provider workspace: providers and clinic staff reviewing requests at desks throughout the day.'],
                     ['In scope', 'Tokens, then a small collection: field, select, checkbox, button and alert, with the dialog next.'],
                     ['Out of scope', 'Product screens, workflows, search, tables, step progress and business logic.'],
                     ['Owner', 'A small core team, with one representative from each product (assumption).'],
@@ -531,7 +531,7 @@ export const planning: Decision = {
           rows: [
             [
               'Workflow',
-              'Entering and correcting details: text fields, a choice from a short list, a confirmation checkbox, an error summary and a failed request. In Meadow it is one step of a guided task on a phone; in Harbor, an edit panel beside a dense list, in compact density.',
+              'Entering and correcting details: text fields, a choice from a short list, a confirmation checkbox, an error summary and a failed request. In the patient app it is one step of a guided task on a phone; in the provider workspace, an edit panel beside a dense list, in compact density.',
             ],
             ['Shared controls', 'Field, text input, select, checkbox, button and alert.'],
             ['People', 'One designer and one engineer from each product, with the core team (assumption).'],
@@ -548,7 +548,7 @@ export const planning: Decision = {
             ['P1', 'R1', 'Completes each form with Tab, Shift+Tab, Enter, Space for the checkbox and arrow keys for the list; focus stays visible.'],
             ['P2', 'R2', 'Evaluates the flow criterion by criterion: automated scan, manual keyboard, focus, labels and error checks, and a screen-reader pass.'],
             ['P3', 'R3', 'Builds both forms from the same components; the product token files differ only in brand colors, typefaces and corner radii.'],
-            ['P4', 'R4', 'Renders Harbor’s panel in compact density and checks target sizes and contrast.'],
+            ['P4', 'R4', 'Renders the provider workspace’s panel in compact density and checks target sizes and contrast.'],
             ['P5', 'R5, R6', 'Submits invalid input: every value stays, focus moves to the error summary, and each message names the problem and the fix.'],
             ['P6', 'R5', 'Forces a request failure after valid input: every value stays, and focus moves to an alert that offers to retry.'],
           ],
@@ -572,7 +572,7 @@ export const planning: Decision = {
             ],
             [
               'Narrow the shared surface',
-              'A control needs product-specific behavior, not just styling, to pass, such as validating per step in Meadow and on save in Harbor.',
+              'A control needs product-specific behavior, not just styling, to pass, such as validating per step in the patient app and on save in the provider workspace.',
               'Take that control out of the shared collection. Share its tokens and a written specification; keep the rest.',
             ],
             [

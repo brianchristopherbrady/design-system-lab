@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react';
 import type { SourceId } from '@/domain/decisions';
 
-/** Whether material is built in this repository, part of the Meadow and Harbor scenario, proposed reasoning or a sketch. */
+/** Whether material is built in this repository, part of the patient app and provider workspace scenario, proposed reasoning or a sketch. */
 export type Evidence = 'implemented' | 'hypothetical' | 'proposed' | 'conceptual';
 
 /** A labelled statement. Implemented statements name the working example that supports them. */

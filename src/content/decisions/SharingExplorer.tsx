@@ -164,7 +164,7 @@ export function SharingExplorer() {
         {constraints.map((constraint) => {
           const applies = isApplicable(constraint.id, values);
           return (
-            <Field key={constraint.id} label={constraint.label} description={applies ? undefined : 'Only Harbor is on the web.'}>
+            <Field key={constraint.id} label={constraint.label} description={applies ? undefined : 'Only the provider workspace is on the web.'}>
               {(control) => (
                 <Select
                   {...control}

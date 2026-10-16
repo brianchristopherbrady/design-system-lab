@@ -71,14 +71,14 @@ component) always apply; three **modifiers** add or replace tokens by context:
 | Modifier | Contexts | Sources | Rule |
 | --- | --- | --- | --- |
 | `theme` | light, dark | `theme.*.tokens.json`, `brands.*.tokens.json` | `complete`: every context defines the same tokens |
-| `product` | system-lab (default, empty), harbor, meadow | `product.*.tokens.json` | `overrides`: may only replace existing tokens; brand roles, typefaces and shape only |
+| `product` | system-lab (default, empty), patient, provider | `product.*.tokens.json` | `overrides`: may only replace existing tokens; brand roles, typefaces, signal and shape only |
 | `density` | comfortable (default, empty), compact | `density.compact.tokens.json` | `overrides` |
 
 The pipeline resolves every permutation (3 × 2 × 2 = 12), then compares each token's resolved
 signature across them to find the modifiers it actually **depends on**. CSS is emitted
 dependency-minimal: a token that never changes is written once in `:root`; one that depends on
 product and theme is written once per product × theme combination under
-`[data-theme='…'][data-product='…']`, and so on. The output is 791 lines for 349 tokens rather than
+`[data-theme='…'][data-product='…']`, and so on. The output is 878 lines for 338 tokens rather than
 12 copies of every token. Override files that introduce a new path, or change a token's type or
 tier, fail the build with "overrides nothing".
 
@@ -113,7 +113,8 @@ property with the component token as fallback, for example
 `background-color: var(--_background, var(--card-background))`. That is the documented precedence:
 an explicit prop wins, an unset prop uses the component token. Example trace:
 `appearance="primary"` → `--button-primary-background` → `--action-primary-background` →
-`--color-neutral-950` (Design System Lab, light) / `--brand-harbor-strong` (Harbor, either theme).
+`--color-neutral-950` (Design System Lab, light) / `--brand-care-strong` (Patient app and Provider
+workspace, either theme).
 
 Option arrays (`buttonAppearances`, `badgeSizes`, `gridColumnCounts` …) and default objects are
 exported next to each component. The component, its docs and its playground story all import the

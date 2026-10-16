@@ -27,7 +27,7 @@ export function Rich({ text }: { text: string }) {
 /** The four labels used throughout Design decisions, with what each one promises. */
 export const evidenceLabels: Record<Evidence, { label: string; tone: 'success' | 'warning' | 'info' | 'neutral'; meaning: string }> = {
   implemented: { label: 'Implemented', tone: 'success', meaning: 'Built and checked in this repository. A link leads to the working example.' },
-  hypothetical: { label: 'Hypothetical', tone: 'warning', meaning: 'Part of the Meadow and Harbor scenario: invented to illustrate, not findings from real products.' },
+  hypothetical: { label: 'Hypothetical', tone: 'warning', meaning: 'Part of the patient app and provider workspace scenario: invented to illustrate, not findings from real products.' },
   proposed: { label: 'Proposed', tone: 'info', meaning: 'Reasoning, plans or targets I would recommend. Not carried out or measured here.' },
   conceptual: { label: 'Conceptual', tone: 'neutral', meaning: 'A sketch of an approach this repository does not implement.' },
 };

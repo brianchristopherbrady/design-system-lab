@@ -8,7 +8,7 @@ const fontFamily = (locator: Locator) => locator.evaluate((element) => getComput
 test.describe('products and modes', () => {
   test('the header sets only the theme, and an old saved product or density no longer restyles the site', async ({ page }) => {
     await page.addInitScript(() => {
-      localStorage.setItem('system-lab:product', 'harbor');
+      localStorage.setItem('system-lab:product', 'provider');
       localStorage.setItem('system-lab:density', 'compact');
     });
     await page.goto('/components/button');
@@ -28,23 +28,25 @@ test.describe('products and modes', () => {
   test('the matrix renders every product and theme combination from tokens alone', async ({ page }) => {
     await page.goto('/foundations/products');
     await expect(page.getByRole('heading', { name: 'Products × themes' })).toBeVisible();
-    const colors = new Set<string>();
-    for (const product of ['system-lab', 'harbor', 'meadow']) {
+    const colors = new Map<string, string>();
+    for (const product of ['system-lab', 'patient', 'provider']) {
       for (const theme of ['light', 'dark']) {
         const scope = page.locator(`#matrix [data-product="${product}"][data-theme="${theme}"]`).first();
         await expect(scope).toBeVisible();
-        colors.add(await background(scope.getByRole('button', { name: 'Approve' })));
+        colors.set(`${product} ${theme}`, await background(scope.getByRole('button', { name: 'Approve' })));
       }
     }
-    expect(colors.size).toBe(6);
+    // The patient app and the provider workspace share one brand family.
+    expect(new Set(colors.values()).size).toBe(4);
+    for (const theme of ['light', 'dark']) expect(colors.get(`patient ${theme}`)).toBe(colors.get(`provider ${theme}`));
   });
 
   test('the playground preview takes its own product without changing the site', async ({ page }) => {
     await page.goto('/playground?component=button');
     const preview = page.getByTestId('playground-preview');
     await page.locator('summary', { hasText: 'Preview settings' }).click();
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
-    await expect(preview).toHaveAttribute('data-product', 'meadow');
+    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
+    await expect(preview).toHaveAttribute('data-product', 'patient');
     await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
   });
 
@@ -53,30 +55,30 @@ test.describe('products and modes', () => {
     const composer = page.locator('#composer');
     const preview = page.getByTestId('composer-preview');
     await composer.getByRole('radio', { name: 'Dark' }).check();
-    await composer.getByRole('radio', { name: 'Harbor' }).check();
+    await composer.getByRole('radio', { name: 'Provider workspace' }).check();
     await composer.getByRole('radio', { name: 'Compact' }).check();
     await expect(preview).toHaveAttribute('data-theme', 'dark');
-    await expect(preview).toHaveAttribute('data-product', 'harbor');
+    await expect(preview).toHaveAttribute('data-product', 'provider');
     await expect(preview).toHaveAttribute('data-density', 'compact');
-    await expect(composer.getByText('product="harbor"')).toBeVisible();
+    await expect(composer.getByText('product="provider"')).toBeVisible();
     const radius = composer.getByRole('row', { name: /^control\.radius/ });
     await expect(radius).toContainText('0.125rem');
-    await expect(radius).toContainText("[data-product='harbor']");
+    await expect(radius).toContainText("[data-product='provider']");
     await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
   });
 
   test('the product diff and nested scopes are computed, not written by hand', async ({ page }) => {
     await page.goto('/foundations/products');
     const diff = page.getByRole('region', { name: /Product overrides/ });
-    await expect(diff.getByRole('row')).toHaveCount(23);
+    await expect(diff.getByRole('row')).toHaveCount(22);
     await page.locator('#overrides').getByRole('radio', { name: 'Dark' }).check();
     await expect(page.locator('#diff-caption')).toHaveText('Product overrides, dark theme');
     const nested = page.locator('#inheritance');
-    await expect(nested.locator('[data-density="compact"][data-product="harbor"][data-theme="light"]')).toBeVisible();
+    await expect(nested.locator('[data-density="compact"][data-product="provider"][data-theme="light"]')).toBeVisible();
     await expect(nested.getByText('set here', { exact: true })).toHaveCount(4);
   });
 
-  for (const product of ['harbor', 'meadow'] as const) {
+  for (const product of ['patient', 'provider'] as const) {
     for (const colorScheme of ['light', 'dark'] as const) {
       test(`axe scan of ${product} previews in the ${colorScheme} theme`, async ({ page }) => {
         test.slow();
@@ -114,9 +116,9 @@ test.describe('theme studio', () => {
   test('invalid input is explained and never reaches the export', async ({ page }) => {
     await page.goto('/foundations/theme-studio');
     const id = page.getByRole('textbox', { name: 'Product id' });
-    await id.fill('harbor');
+    await id.fill('provider');
     await expect(id).toHaveAttribute('aria-invalid', 'true');
-    await expect(page.getByText('“harbor” is already a product.')).toBeVisible();
+    await expect(page.getByText('“provider” is already a product.')).toBeVisible();
     await expect(page.getByRole('tabpanel')).toContainText('product.clavius.tokens.json');
 
     const brand = page.getByRole('textbox', { name: 'Brand color', exact: true });

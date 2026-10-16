@@ -55,11 +55,11 @@ describe('sharing comparison', () => {
     const nativeOnly = { ...defaultConstraints, mobile: 'native' };
     const both = { ...defaultConstraints, mobile: 'both' };
     expect(layer(nativeOnly, 'Component code (web)')?.leaning).toBe('separate');
-    expect(layer(nativeOnly, 'Meadow’s native app')?.because).toMatch(/tokens and the behavior specifications/);
+    expect(layer(nativeOnly, 'The native patient app')?.because).toMatch(/tokens and the behavior specifications/);
     expect(layer(both, 'Component code (web)')?.leaning).not.toBe('separate');
-    expect(layer(both, 'Component code (web)')?.because).toMatch(/Meadow’s web app and Harbor/);
-    expect(layer(both, 'Meadow’s native app')?.leaning).toBe('partial');
-    expect(layer(defaultConstraints, 'Meadow’s native app')).toBeUndefined();
+    expect(layer(both, 'Component code (web)')?.because).toMatch(/the patient web app and the provider workspace/i);
+    expect(layer(both, 'The native patient app')?.leaning).toBe('partial');
+    expect(layer(defaultConstraints, 'The native patient app')).toBeUndefined();
   });
 
   it('ignores web frameworks when only one product is on the web', () => {
@@ -122,8 +122,8 @@ describe('starting recommendation', () => {
 
   it('explains each part of a product that is both native and web', () => {
     const [web, native] = recommend({ ...defaultConstraints, mobile: 'both' });
-    expect(web?.scope).toBe('Meadow’s web app and Harbor');
-    expect(native?.scope).toBe('Meadow’s native app');
+    expect(web?.scope).toBe('The patient web app and the provider workspace');
+    expect(native?.scope).toBe('The native patient app');
     expect(native?.because.join(' ')).toMatch(/cannot run the web components/);
   });
 });
@@ -168,12 +168,12 @@ describe('what changed', () => {
 
   it('names each changed conclusion, its old and new value, and why', () => {
     const native = { ...defaultConstraints, mobile: 'native' };
-    expect(changedConstraints(defaultConstraints, native)).toEqual([{ id: 'mobile', label: 'Meadow is built as', from: 'Responsive web', to: 'A native app' }]);
+    expect(changedConstraints(defaultConstraints, native)).toEqual([{ id: 'mobile', label: 'The patient app is built as', from: 'Responsive web', to: 'A native app' }]);
     const { conclusions } = compareOutcomes(defaultConstraints, native);
     const code = conclusions.find((change) => change.subject === 'Component code (web)');
     expect(code).toMatchObject({ from: 'Share in part', to: 'Keep separate' });
-    expect(code?.why).toMatch(/Only Harbor is on the web/);
-    expect(conclusions).toContainEqual(expect.objectContaining({ subject: 'Meadow’s native app', to: 'Share in part' }));
+    expect(code?.why).toMatch(/Only the provider workspace is on the web/);
+    expect(conclusions).toContainEqual(expect.objectContaining({ subject: 'The native patient app', to: 'Share in part' }));
     expect(conclusions).toContainEqual(
       expect.objectContaining({ from: 'Shared core with product extensions', to: 'Shared tokens and guidelines, separate implementations' }),
     );
@@ -182,10 +182,10 @@ describe('what changed', () => {
   it('reports parts that appear and disappear', () => {
     const both = { ...defaultConstraints, mobile: 'both' };
     expect(compareOutcomes(defaultConstraints, both).conclusions.map((change) => change.subject)).toEqual(
-      expect.arrayContaining(['Meadow’s native app', 'Starting point: Meadow’s native app']),
+      expect.arrayContaining(['The native patient app', 'Starting point: The native patient app']),
     );
     const removed = compareOutcomes(both, defaultConstraints).conclusions.filter((change) => change.to === undefined);
-    expect(removed.map((change) => change.subject)).toEqual(['Meadow’s native app', 'Starting point: Meadow’s native app']);
+    expect(removed.map((change) => change.subject)).toEqual(['The native patient app', 'Starting point: The native patient app']);
   });
 
   it('separates a changed conclusion from changed reasoning', () => {

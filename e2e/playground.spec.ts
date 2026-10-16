@@ -76,14 +76,14 @@ test.describe('playground', () => {
     await expect(context).toContainText('Same as site');
 
     await openPreviewSettings(page);
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
-    await expect(context).toContainText('Meadow');
+    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
+    await expect(context).toContainText('Patient app');
     await expect(context).toContainText('Overrides product');
     await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
 
     await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
     await expect(preview).toHaveAttribute('data-theme', 'dark');
-    await expect(preview).toHaveAttribute('data-product', 'meadow');
+    await expect(preview).toHaveAttribute('data-product', 'patient');
     await expect(context).toContainText('Dark');
   });
 
@@ -92,15 +92,15 @@ test.describe('playground', () => {
     const preview = page.getByTestId('playground-preview');
     const scope = preview.locator('[data-product]').first();
     await openPreviewSettings(page);
-    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
-    await expect(preview).toHaveAttribute('data-product', 'meadow');
-    await expect(scope).toHaveAttribute('data-product', 'harbor');
+    await page.getByRole('combobox', { name: 'Preview product' }).selectOption('patient');
+    await expect(preview).toHaveAttribute('data-product', 'patient');
+    await expect(scope).toHaveAttribute('data-product', 'provider');
 
     await page.getByRole('combobox', { name: 'product', exact: true }).selectOption('');
-    await expect(scope).toHaveAttribute('data-product', 'meadow');
+    await expect(scope).toHaveAttribute('data-product', 'patient');
     const chain = page.getByRole('table', { name: 'Where ThemeScope gets each setting' });
     await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Design System Lab');
-    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Meadow from preview');
+    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Patient app from preview');
     await expect(page.getByTestId('playground-snippet')).not.toContainText('product=');
   });
 

@@ -61,8 +61,8 @@ leave the browser; their outcomes come from `outcomeFor(scenario, attempt)`.
 - Its color-vision simulation uses the Machado et al. (2009) matrices at full severity, and its
   status warning threshold (0.1 ΔEOK) is a review heuristic. Neither is a substitute for testing
   with people who have color-vision deficiencies.
-- The studio previews by re-pointing Harbor's brand roles and radii inline, and resets Harbor's
-  typefaces to the system's, which a generated product inherits. It does not choose typefaces; set
+- The studio previews by re-pointing the provider workspace's brand roles and radii inline, and
+  resets its typefaces to the system's, which a generated product inherits. It does not choose typefaces; set
   `typeface.*` in the product file by hand. A product only becomes real CSS through the token
   files and the pipeline.
 - The query registry parses CSS with a regular expression that understands this codebase's

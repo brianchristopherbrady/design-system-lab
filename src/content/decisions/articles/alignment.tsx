@@ -46,7 +46,7 @@ export const alignment: Decision = {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow’s and Harbor’s designers work from a design-tool library of the shared components, engineers work from the code, and both read the documentation site. Until now, whoever changed one of them last decided what it said.',
+        text: 'The patient app’s and the provider workspace’s designers work from a design-tool library of the shared components, engineers work from the code, and both read the documentation site. Until now, whoever changed one of them last decided what it said.',
       },
     ],
     choice: [
@@ -211,19 +211,19 @@ export const alignment: Decision = {
         {
           kind: 'text',
           evidence: 'hypothetical',
-          paragraphs: ['Meadow’s designer finds small badges hard to read on phones. The steps are invented; the files, token names and policy they run into are real.'],
+          paragraphs: ['The patient app’s designer finds small badges hard to read on phones. The steps are invented; the files, token names and policy they run into are real.'],
         },
         {
           kind: 'steps',
           items: [
             {
               title: 'Proposal',
-              text: 'Meadow proposes larger text for `size="small"` badges in Meadow only, with screenshots and the design-tool variant change.',
+              text: 'The patient app proposes larger text for `size="small"` badges in the patient app only, with screenshots and the design-tool variant change.',
               output: 'a proposal naming the token it would change: `badge.font-size.small`',
             },
             {
               title: 'Review',
-              text: 'The engineer points out that products may only change brand roles, typefaces and shape, so a Meadow-only size breaks the token policy. The group weighs three options: raise it for every product, have Meadow use `size="medium"`, or widen the policy. Harbor checks its densest table with larger small badges, and it still fits.',
+              text: 'The engineer points out that products may only change brand roles, typefaces and shape, so a patient-app-only size breaks the token policy. The group weighs three options: raise it for every product, have the patient app use `size="medium"`, or widen the policy. The provider workspace checks its densest table with larger small badges, and it still fits.',
               output: 'a decision: raise `badge.font-size.small` for every product',
               note: {
                 evidence: 'implemented',

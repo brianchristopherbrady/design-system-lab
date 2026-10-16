@@ -144,7 +144,7 @@ function Specimen({ heading }: { heading: string }) {
     >
       <Stack gap="small">
         <Text variant="bodySmall">
-          Two invoices need review. <Link href="#matrix">Open queue</Link>
+          Two appointment requests need review. <Link href="#matrix">Open queue</Link>
         </Text>
         <Switch label="Notify the team" defaultChecked />
       </Stack>
@@ -206,9 +206,9 @@ function ComposerSpecimen() {
       header={
         <Inline gap="extraSmall" justify="between">
           <Heading level={3} size="small">
-            Invoice INV-2041
+            Appointment request R-2041
           </Heading>
-          <Badge tone="brand">Pending</Badge>
+          <Badge tone="brand">Requested</Badge>
         </Inline>
       }
       footer={
@@ -220,10 +220,10 @@ function ComposerSpecimen() {
     >
       <Stack gap="medium">
         <Text variant="bodySmall">
-          Northwind Traders, €12,480.00, due in 6 days. <Link href="#composer">View history</Link>
+          Sam K., annual check-up, weekday mornings. <Link href="#composer">View history</Link>
         </Text>
-        <Field label="Approver note">{(control) => <Input {...control} defaultValue="Matches PO-7781" />}</Field>
-        <Checkbox label="Notify the requester" defaultChecked />
+        <Field label="Provider note">{(control) => <Input {...control} defaultValue="Prefers early slots" />}</Field>
+        <Checkbox label="Notify the patient" defaultChecked />
       </Stack>
     </Card>
   );
@@ -421,7 +421,7 @@ function NestSample() {
   );
 }
 
-const nestingSnippet = `<ThemeScope theme="dark" product="harbor">
+const nestingSnippet = `<ThemeScope theme="dark" product="provider">
   <ThemeScope theme="light">
     <ThemeScope density="compact">`;
 
@@ -431,7 +431,7 @@ function NestedScopes() {
       <ScrollRegion as="pre" className={styles.code} data-theme="dark" aria-label="Nested scope markup">
         <code>{nestingSnippet}</code>
       </ScrollRegion>
-      <ThemeScope theme="dark" product="harbor" className={styles.nest}>
+      <ThemeScope theme="dark" product="provider" className={styles.nest}>
         <ScopeReport set={['theme', 'product']} />
         <NestSample />
         <ThemeScope theme="light" className={styles.nest}>
@@ -663,7 +663,7 @@ function ProductsContent() {
                 <Text variant="caption" tone="muted">
                   {densityLabels[density]}
                 </Text>
-                <Field label="Invoice number">{(control) => <Input {...control} defaultValue="INV-2041" />}</Field>
+                <Field label="Request number">{(control) => <Input {...control} defaultValue="R-2041" />}</Field>
                 <Checkbox label="Mark as reviewed" />
                 <Inline gap="small">
                   <Button appearance="primary">Save</Button>
@@ -730,7 +730,7 @@ function ProductsContent() {
         <SourceList
           sources={[
             { path: 'src/design-system/tokens/source/system-lab.resolver.json', note: 'Modifiers and resolution order' },
-            { path: 'src/design-system/tokens/source/product.harbor.tokens.json', note: 'A whole product in about 50 lines' },
+            { path: 'src/design-system/tokens/source/product.provider.tokens.json', note: 'A whole product in about 50 lines' },
             { path: 'src/design-system/tokens/source/brands.light.tokens.json', note: 'Brand roles per theme' },
             { path: 'src/design-system/tokens/source/density.compact.tokens.json', note: 'Compact density' },
             { path: 'scripts/tokens/pipeline.mjs', note: 'Permutations and dependency-minimal emission' },

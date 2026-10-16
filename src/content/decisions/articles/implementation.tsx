@@ -22,7 +22,7 @@ const pipeline = { label: 'Token pipeline', href: '/foundations/tokens#pipeline'
 export const implementation: Decision = {
   id: 'implementation',
   stage: 'Implementation choices',
-  question: 'How should the shared components reach Meadow and Harbor, and what changes if their frameworks diverge?',
+  question: 'How should the shared components reach the patient app and the provider workspace, and what changes if their frameworks diverge?',
   matters: 'Every framework a system supports adds integration and testing work in each product that uses it.',
   project: {
     choice:
@@ -46,7 +46,7 @@ export const implementation: Decision = {
     context: [
       {
         evidence: 'hypothetical',
-        text: 'Meadow and Harbor are web apps on the same framework. The sharing decision puts form fields, buttons, alerts and dialogs in a versioned core, and tokens in one source.',
+        text: 'The patient app and the provider workspace are web apps on the same framework. The sharing decision puts form fields, buttons, alerts and dialogs in a versioned core, and tokens in one source.',
       },
     ],
     choice: [
@@ -544,7 +544,7 @@ export const implementation: Decision = {
       id: 'deciding',
       title: 'How I would decide',
       blocks: [
-        { kind: 'text', evidence: 'proposed', paragraphs: ['Each step below ends with where Meadow and Harbor land.'] },
+        { kind: 'text', evidence: 'proposed', paragraphs: ['Each step below ends with where the patient app and the provider workspace land.'] },
         {
           kind: 'steps',
           items: [
