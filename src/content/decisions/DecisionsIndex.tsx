@@ -52,9 +52,9 @@ export function DecisionsIndex() {
           <EvidenceBadge evidence="hypothetical" />
           <Prose>
             <p>
-              Every decision page applies its choice to one fictional healthcare company with two products: a patient app
-              for requesting care and a provider workspace for reviewing requests. These pages go further, into how that
-              company would plan a system, move onto it and keep it healthy.{' '}
+              These pages apply the approach to one fictional healthcare company with a patient app for requesting care
+              and a provider workspace for reviewing requests. They cover how the company would plan a system, move onto
+              it and keep it healthy.{' '}
               <Link href="/decisions/sharing#compositions">Try both product examples</Link>
             </p>
           </Prose>

@@ -24,48 +24,6 @@ export const sharing: Decision = {
       'A policy test keeps each product’s overrides to brand roles, typefaces, the signal and corner radii, and a browser test checks that both examples show the same error in the same typeface while their density differs. The organization, the scenario and the constraints explorer below are hypothetical and proposed.',
     lead: ['compositions', 'this-site'],
   },
-  record: {
-    context: [
-      {
-        evidence: 'hypothetical',
-        text: 'The patient app is used occasionally, mostly on phones, touch first and one step at a time. The provider workspace is used all day at a desk, keyboard first, with tables and bulk actions. Both are web apps on the same framework with related brands, each releases on its own schedule, and the inventory found that only form fields, buttons, alerts and dialogs behave the same in both.',
-      },
-    ],
-    choice: [
-      { evidence: 'proposed', text: 'Share principles and tokens, share component code only for controls that behave the same in both products, and keep screens separate.' },
-      { evidence: 'proposed', text: 'In approach terms: a versioned shared core with product extensions, so each product upgrades on its own schedule.' },
-    ],
-    alternatives: [
-      {
-        evidence: 'proposed',
-        items: [
-          '**One broad shared library.** Every control would carry options for both audiences. Versioning lets each product upgrade when it is ready, but every breaking change still costs both products a migration.',
-          '**Shared tokens and guidelines only.** Keyboard and accessibility behavior for the equivalent controls would be built and fixed twice.',
-          '**Separate systems.** The least coordination, but status colors, focus styles and fixes would drift apart.',
-        ],
-      },
-    ],
-    consequences: [
-      {
-        evidence: 'proposed',
-        text: 'Someone must own and version the core and decide what belongs in it. Some duplication stays on purpose: the provider workspace’s tables and the patient app’s guided steps are built separately.',
-      },
-    ],
-    validation: [
-      { evidence: 'hypothetical', text: 'The pilot form is built from the core in both products. It passes if neither product forks a core control and each keeps its own layout.' },
-      {
-        evidence: 'implemented',
-        text: 'In this repository, one component tree renders in every product mode with nothing styled per product, and a policy test keeps each product’s overrides to brand colors, typefaces and corner radii.',
-        example: { label: 'Products × themes', href: '/foundations/products#matrix' },
-      },
-    ],
-    reconsider: [
-      {
-        evidence: 'proposed',
-        text: 'The patient app ships a native app, which can share tokens and specifications but not web components, while its web app could still share code with the provider workspace; the products move to different frameworks; or the exceptions log shows both products overriding the same core control.',
-      },
-    ],
-  },
   sections: [
     {
       id: 'scenario',

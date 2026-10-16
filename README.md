@@ -32,9 +32,9 @@ Sections:
 - **Design decisions** — why this project is built the way it is (implementation, component APIs,
   design and code alignment, quality, and sharing across products), each page opening with the choice
   and a working example, then how the approach would apply to a product team (planning, adoption and
-  operating). Each page also has a short decision record set in one hypothetical scenario: a
-  fictional healthcare company with a patient app for requesting care and a provider workspace for
-  reviewing requests. Material is labelled implemented, hypothetical, proposed or conceptual.
+  operating), set in one hypothetical scenario: a fictional healthcare company with a patient app for
+  requesting care and a provider workspace for reviewing requests. Material is labelled implemented,
+  hypothetical, proposed or conceptual.
 
 The header's only appearance setting is the theme: System, Light or Dark. Product profiles (Design
 System Lab, Patient app, Provider workspace) and densities are applied to the examples that show

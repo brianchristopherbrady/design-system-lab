@@ -15,17 +15,17 @@ const recordFields: readonly { key: keyof DecisionRecord; label: string }[] = [
   { key: 'reconsider', label: 'Reconsider when' },
 ];
 
-type Part = { kind: 'project'; project: ProjectOpening } | { kind: 'record' } | { kind: 'section'; section: DecisionSection };
+type Part = { kind: 'project'; project: ProjectOpening } | { kind: 'record'; record: DecisionRecord } | { kind: 'section'; section: DecisionSection };
 
-/** Reading order. A page about this repository's own choice opens with them; the scenario's record follows. */
+/** Reading order: this repository's choice, then its lead sections; or the scenario's record. Other sections follow. */
 function partsOf(decision: Decision): Part[] {
-  const { project } = decision;
-  const lead = project?.lead ?? [];
   const section = (item: DecisionSection): Part => ({ kind: 'section', section: item });
+  if (!decision.project) return [{ kind: 'record', record: decision.record }, ...decision.sections.map(section)];
+  const { project } = decision;
+  const lead = project.lead ?? [];
   return [
-    ...(project ? [{ kind: 'project', project } as const] : []),
+    { kind: 'project', project },
     ...lead.flatMap((id) => decision.sections.filter((item) => item.id === id)).map(section),
-    { kind: 'record' },
     ...decision.sections.filter((item) => !lead.includes(item.id)).map(section),
   ];
 }
@@ -78,17 +78,11 @@ function ProjectView({ project }: { project: ProjectOpening }) {
   );
 }
 
-/** The decision in six labelled parts, before the reasoning that supports it. */
-function RecordView({ decision }: { decision: Decision }) {
+/** The scenario's decision in six labelled parts, before the reasoning that supports it. */
+function RecordView({ record }: { record: DecisionRecord }) {
   return (
     <DocSection id="record" title="Decision record">
-      {decision.project && (
-        <Text variant="bodySmall" tone="muted">
-          The same decision for the hypothetical patient app and provider workspace scenario. Statements about this repository are marked
-          Implemented.
-        </Text>
-      )}
-      <RecordFields fields={recordFields.map(({ key, label }) => ({ label, statements: decision.record[key] }))} />
+      <RecordFields fields={recordFields.map(({ key, label }) => ({ label, statements: record[key] }))} />
       <Text variant="bodySmall" tone="muted">
         <Link href="/decisions#labels">What the labels mean</Link>
       </Text>
@@ -102,7 +96,7 @@ export function DecisionArticle({ decision }: { decision: Decision }) {
       <Stack gap="extraLarge">
         {partsOf(decision).map((part) => {
           if (part.kind === 'project') return <ProjectView key="project" project={part.project} />;
-          if (part.kind === 'record') return <RecordView key="record" decision={decision} />;
+          if (part.kind === 'record') return <RecordView key="record" record={part.record} />;
           return (
             <DocSection key={part.section.id} id={part.section.id} title={part.section.title}>
               {part.section.blocks.map((block, index) => (

@@ -19,13 +19,14 @@ describe('design decisions', () => {
   it('states a question, a one-sentence decision and why it matters on every page', () => {
     for (const decision of decisions) {
       expect(decision.question.endsWith('?'), decision.id).toBe(true);
-      expect(sentences(decision.record.choice[0]?.text ?? ''), decision.id).toBe(1);
+      if (decision.record) expect(sentences(decision.record.choice[0]?.text ?? ''), decision.id).toBe(1);
       expect(sentences(decision.matters), decision.id).toBe(1);
     }
   });
 
-  it('keeps a complete decision record on every page, set in the same scenario', () => {
+  it('keeps a complete decision record on every product-team page, set in the same scenario', () => {
     for (const decision of decisions) {
+      if (!decision.record) continue;
       for (const field of fields) {
         const statements = decision.record[field];
         expect(statements.length, `${decision.id} ${field}`).toBeGreaterThan(0);
@@ -35,8 +36,12 @@ describe('design decisions', () => {
     }
   });
 
+  it('names recorded decisions in plain words rather than by number', () => {
+    expect(JSON.stringify(decisions)).not.toMatch(/\bADRs? ?\d/);
+  });
+
   it('links every implemented statement to a working example on this site', () => {
-    const statements = decisions.flatMap((decision) => fields.flatMap((field) => decision.record[field]));
+    const statements = decisions.flatMap((decision) => fields.flatMap((field) => decision.record?.[field] ?? []));
     const implemented = [
       ...statements,
       ...allBlocks.flatMap((block) => (block.kind === 'steps' ? block.items.flatMap((item) => (item.note ? [item.note] : [])) : [])),
@@ -169,13 +174,18 @@ describe('design decisions', () => {
     for (const id of requirements) expect(ids(checks.map((row) => row[1] ?? '')), id).toContain(id);
   });
 
-  it.each(decisionTopics.map((topic) => [topic.id, topic] as const))('renders %s with its decision record and every section', (_, topic) => {
+  it.each(decisionTopics.map((topic) => [topic.id, topic] as const))('renders %s with its opening or decision record and every section', (_, topic) => {
     const { container } = render(
       <MemoryRouter initialEntries={[`/decisions/${topic.id}`]}>
         <topic.Content />
       </MemoryRouter>,
     );
     for (const section of topic.sections) expect(screen.getByRole('heading', { level: 2, name: section.label })).toBeInTheDocument();
+    if (topic.project) {
+      expect(container.querySelector('#project')).not.toBeNull();
+      expect(container.querySelector('#record')).toBeNull();
+      return;
+    }
     const record = container.querySelector<HTMLElement>('#record');
     if (!record) throw new Error(`${topic.id} has no decision record`);
     for (const term of ['Context', 'Choice', 'Alternatives considered', 'Consequences', 'Validation', 'Reconsider when']) expect(within(record).getByText(term, { selector: 'dt' })).toBeInTheDocument();
@@ -195,7 +205,7 @@ describe('design decisions', () => {
     expect(screen.queryByRole('link', { name: /^Previous/ })).not.toBeInTheDocument();
   });
 
-  it('leads with this repository’s own decisions, each opening with one screen before the scenario', () => {
+  it('leads with this repository’s own decisions, each opening with one screen', () => {
     const own = decisions.filter((decision) => decision.project);
     expect(own.map((decision) => decision.id)).toEqual(['implementation', 'component-apis', 'alignment', 'quality', 'sharing']);
     expect(decisions.slice(0, own.length)).toEqual(own);
@@ -210,7 +220,8 @@ describe('design decisions', () => {
         continue;
       }
       const lead = project.lead ?? [];
-      expect(ids.slice(0, lead.length + 2), decision.id).toEqual(['project', ...lead, 'record']);
+      expect(ids.slice(0, lead.length + 1), decision.id).toEqual(['project', ...lead]);
+      expect(ids, decision.id).not.toContain('record');
       const parts = [project.choice, project.constraint, project.tryIt.text, project.tradeoff, project.evidence];
       for (const part of parts) expect(part.trim().length, decision.id).toBeGreaterThan(0);
       expect(parts.join(' ').split(/\s+/).length, decision.id).toBeLessThanOrEqual(200);

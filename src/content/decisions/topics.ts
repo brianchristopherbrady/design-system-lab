@@ -15,7 +15,7 @@ export interface DecisionTopic {
   id: string;
   stage: string;
   question: string;
-  /** The decision in one sentence. */
+  /** The decision as the page states it. */
   choice: string;
   matters: string;
   /** Present when the page is about this repository's own choice. */
@@ -31,7 +31,7 @@ export const decisionTopics: readonly DecisionTopic[] = decisions.map((decision)
   id: decision.id,
   stage: decision.stage,
   question: decision.question,
-  choice: decision.record.choice[0]?.text ?? '',
+  choice: decision.project?.choice ?? decision.record?.choice[0]?.text ?? '',
   matters: decision.matters,
   project: decision.project,
   sections: decisionSections(decision),

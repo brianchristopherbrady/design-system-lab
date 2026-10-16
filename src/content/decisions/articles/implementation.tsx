@@ -28,7 +28,7 @@ export const implementation: Decision = {
     choice:
       'I build the components in React 19 and strict TypeScript, styled with CSS Modules, over tokens generated from framework-free DTCG JSON. There are no Web Components and no component or headless library.',
     constraint:
-      'The brief asked for React, a small dependency list and the project’s own design-system surface rather than a styled library (ADR 0001), and for one token source whose build fails on broken references (ADR 0002).',
+      'The brief asked for React, a small dependency list and the project’s own design-system surface rather than a styled library, and for one token source whose build fails on broken references. Both are in the project’s recorded decisions.',
     tryIt: {
       text: 'Change Button’s appearance in the Playground, then follow the same value from its token file to the CSS. Card’s patient and provider examples show one component in two product profiles.',
       links: [
@@ -40,54 +40,8 @@ export const implementation: Decision = {
     tradeoff:
       'Components work only in React, and every keyboard model and focus rule is written and tested here, with no upstream library to share fixes. The tokens stay portable to any framework.',
     evidence:
-      'ADR 0001 and 0002 record the constraints and the token alternatives. No record explains why Dialog and Tabs were later written by hand, and the repository’s record below says so rather than supplying a history. Lint rejects raw colors in stylesheets, and the token generator fails on DTCG features it does not support.',
+      'The recorded decisions on the stack and on tokens state the constraints and the token alternatives. None explains why Dialog and Tabs were later written by hand, and the section below says so rather than supplying a history. Lint rejects raw colors in stylesheets, and the token generator fails on DTCG features it does not support.',
     lead: ['current'],
-  },
-  record: {
-    context: [
-      {
-        evidence: 'hypothetical',
-        text: 'The patient app and the provider workspace are web apps on the same framework. The sharing decision puts form fields, buttons, alerts and dialogs in a versioned core, and tokens in one source.',
-      },
-    ],
-    choice: [
-      { evidence: 'proposed', text: 'Build components for the one framework both products use, and keep tokens framework-free.' },
-      {
-        evidence: 'implemented',
-        text: 'This repository makes the same choice: React 19 components styled with CSS Modules, reading tokens generated from DTCG JSON as CSS custom properties.',
-        example: pipeline,
-      },
-    ],
-    alternatives: [
-      {
-        evidence: 'proposed',
-        items: [
-          '**Web Components, used directly or with thin adapters.** One implementation for any framework, but testing in every host, adapters for forms and typing, and server rendering cost more than one framework needs.',
-          '**A separate implementation per framework.** Every fix made twice, for a framework neither product uses.',
-          '**Shared tokens and CSS only.** Each product would rebuild keyboard and accessibility behavior for the shared controls.',
-        ],
-      },
-    ],
-    consequences: [
-      {
-        evidence: 'proposed',
-        text: 'A fix to a shared control is made once and reaches each product when it upgrades. A product that moved to another framework would get tokens and CSS, not components, until the decision is revisited.',
-      },
-    ],
-    validation: [
-      { evidence: 'hypothetical', text: 'The pilot form is built in both products from the same components, with no wrapper or fork.' },
-      {
-        evidence: 'implemented',
-        text: 'In this repository, each component renders in any product mode, theme and density without a code change, and lint rejects raw colors and palette variables in stylesheets.',
-        example: { label: 'Button in the Playground', href: '/playground?component=button' },
-      },
-    ],
-    reconsider: [
-      {
-        evidence: 'proposed',
-        text: 'Either product adopts a second framework that must share complex controls, such as a combobox or date picker. Run the prototype acceptance matrix below before committing.',
-      },
-    ],
   },
   sections: [
     {
@@ -99,24 +53,24 @@ export const implementation: Decision = {
           evidence: 'implemented',
           paragraphs: [
             'Design System Lab builds its own React 19 components over framework-free tokens. It has no Web Components and no adapters for other frameworks.',
-            'The record below separates what the repository’s decision records state from current analysis. Where the original reasoning was not written down, the statement says so rather than supplying a history.',
+            'The record below separates what the project’s recorded decisions state from current analysis. Where the original reasoning was not written down, it says so rather than supplying a history.',
           ],
         },
         {
           kind: 'record',
-          caption: 'Decision record: how Design System Lab implements its components',
+          caption: 'How Design System Lab implements its components',
           fields: [
             {
               label: 'Constraints',
               statements: [
                 {
                   evidence: 'implemented',
-                  text: 'From ADR 0001: the brief asked for React, strict TypeScript, Vite, and CSS Modules with native custom properties, a small and justified dependency list, and the project’s own design-system surface instead of a styled library.',
+                  text: 'From the stack decision: the brief asked for React, strict TypeScript, Vite, and CSS Modules with native custom properties, a small and justified dependency list, and the project’s own design-system surface instead of a styled library.',
                   example: { label: 'Components', href: '/components' },
                 },
                 {
                   evidence: 'implemented',
-                  text: 'From ADR 0002: one token source, preferably in the DTCG format, generating CSS custom properties and TypeScript keys, with a build that fails on missing references or cycles.',
+                  text: 'From the token decision: one token source, preferably in the DTCG format, generating CSS custom properties and TypeScript keys, with a build that fails on missing references or cycles.',
                   example: pipeline,
                 },
               ],
@@ -126,17 +80,17 @@ export const implementation: Decision = {
               statements: [
                 {
                   evidence: 'implemented',
-                  text: 'React 19 function components in strict TypeScript, styled with CSS Modules in cascade layers. No CSS-in-JS runtime and no utility framework (ADR 0001).',
+                  text: 'React 19 function components in strict TypeScript, styled with CSS Modules in cascade layers. No CSS-in-JS runtime and no utility framework.',
                   example: { label: 'Button in the Playground', href: '/playground?component=button' },
                 },
                 {
                   evidence: 'implemented',
-                  text: 'Tokens are DTCG JSON that the project’s own generator turns into CSS custom properties, TypeScript keys and a manifest. ADR 0002 passes over Style Dictionary and Terrazzo here because they would hide the mechanics the site shows.',
+                  text: 'Tokens are DTCG JSON that the project’s own generator turns into CSS custom properties, TypeScript keys and a manifest. The token decision passes over Style Dictionary and Terrazzo here because they would hide the mechanics the site shows.',
                   example: pipeline,
                 },
                 {
                   evidence: 'implemented',
-                  text: 'No component or headless library. ADR 0001 records that native elements covered every interaction at the time, and prefers a proven accessible headless implementation if a complex widget becomes necessary.',
+                  text: 'No component or headless library. The stack decision records that native elements covered every interaction at the time, and prefers a proven accessible headless implementation if a complex widget becomes necessary.',
                   example: { label: 'Switch, on a native checkbox', href: '/components/switch' },
                 },
                 {
@@ -150,7 +104,7 @@ export const implementation: Decision = {
               statements: [
                 {
                   evidence: 'implemented',
-                  text: 'Recorded for tokens in ADR 0002: Style Dictionary or Terrazzo, which it says would be the right call for multi-platform output; hand-written CSS and TypeScript maps, rejected because two sources drift; and `light-dark()` in one block, which shows nested theme scopes less clearly.',
+                  text: 'Recorded in the token decision: Style Dictionary or Terrazzo, which it says would be the right call for multi-platform output; hand-written CSS and TypeScript maps, rejected because two sources drift; and `light-dark()` in one block, which shows nested theme scopes less clearly.',
                   example: pipeline,
                 },
                 {
@@ -179,7 +133,7 @@ export const implementation: Decision = {
                 },
                 {
                   evidence: 'implemented',
-                  text: 'The generator supports only the DTCG features the project uses, and fails on others (ADR 0002).',
+                  text: 'The generator supports only the DTCG features the project uses, and fails on others.',
                   example: pipeline,
                 },
               ],
@@ -191,8 +145,8 @@ export const implementation: Decision = {
                   evidence: 'proposed',
                   text: 'A second framework must render the shared components, not only read tokens. Run the [prototype acceptance matrix](/decisions/implementation#matrix) before choosing an approach.',
                 },
-                { evidence: 'proposed', text: 'A widget needs behavior beyond native elements and documented patterns, such as a combobox or date picker. ADR 0001 already points to a proven headless implementation.' },
-                { evidence: 'proposed', text: 'Tokens are needed on another platform, such as native apps. ADR 0002 names Style Dictionary or Terrazzo as the right tools for that.' },
+                { evidence: 'proposed', text: 'A widget needs behavior beyond native elements and documented patterns, such as a combobox or date picker. The stack decision already points to a proven headless implementation.' },
+                { evidence: 'proposed', text: 'Tokens are needed on another platform, such as native apps. The token decision names Style Dictionary or Terrazzo as the right tools for that.' },
                 { evidence: 'proposed', text: 'Fixing behavior here costs more than adopting and retesting a library’s, judged by defects and fixes in shared components over a release cycle.' },
               ],
             },
@@ -201,7 +155,7 @@ export const implementation: Decision = {
         {
           kind: 'visual',
           evidence: 'implemented',
-          caption: 'The decision records and code behind this record. Each file opens in place.',
+          caption: 'The recorded decisions and code behind this record. Each file opens in place.',
           Visual: RecordedEvidence,
         },
       ],
@@ -295,7 +249,7 @@ export const implementation: Decision = {
           kind: 'text',
           evidence: 'proposed',
           paragraphs: [
-            'Directly authored components cost the most to maintain and the least to change. That suits a small surface built mostly on native elements, which is what this repository has. Behavioral primitives become the better trade once a widget’s keyboard and focus model outgrows native elements, as ADR 0001 anticipates.',
+            'Directly authored components cost the most to maintain and the least to change. That suits a small surface built mostly on native elements, which is what this repository has. Behavioral primitives become the better trade once a widget’s keyboard and focus model outgrows native elements, as the stack decision anticipates.',
           ],
         },
       ],

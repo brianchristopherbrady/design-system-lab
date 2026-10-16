@@ -42,54 +42,6 @@ export const quality: Decision = {
       'Unit tests and Chromium browser tests cover the keyboard pattern, including mirrored arrows in right to left; token tests cover contrast in every product and theme; axe scans run in both themes. Passing them is not a conformance claim, and screen readers, other browsers and a cue for overflowing tabs remain open.',
     lead: ['contract', 'demo'],
   },
-  record: {
-    context: [
-      {
-        evidence: 'hypothetical',
-        text: 'The patient app wants the shared Tabs for appointment details on phones; the provider workspace wants it for request details used all day from the keyboard. Each team assumes the other has tested it with assistive technology.',
-      },
-    ],
-    choice: [
-      {
-        evidence: 'proposed',
-        text: 'Write each component’s behavior as acceptance criteria, name the check that proves each one, and promote a component only when every criterion has evidence or a recorded gap that its owner has accepted.',
-      },
-      {
-        evidence: 'implemented',
-        text: 'This repository proves part of that automatically: unit and browser tests cover the Tabs keyboard pattern, token tests cover its contrast in every product and theme, and axe scans run in both themes. No screen reader has been used.',
-        example: tabsDocs,
-      },
-    ],
-    alternatives: [
-      {
-        evidence: 'proposed',
-        items: [
-          '**A clean axe scan as the bar.** Cheap and repeatable, but it cannot tell whether names make sense, focus moves sensibly or a screen reader announces the state.',
-          '**A full manual audit for every change.** Thorough, and too slow to run on each release, so it would be skipped.',
-          '**Leave acceptance to each product.** Every product repeats the same checks, and the component’s own guarantees are never written down.',
-        ],
-      },
-    ],
-    consequences: [
-      {
-        evidence: 'proposed',
-        text: 'Promotion takes longer, because manual evaluations need people and time. In return, products know exactly what the component guarantees and what is still theirs to check.',
-      },
-    ],
-    validation: [
-      {
-        evidence: 'implemented',
-        text: 'A browser test on this page checks that the arrow keys mirror in right to left, which no earlier test covered.',
-        example: { label: 'Try the contract', href: '/decisions/quality#demo' },
-      },
-    ],
-    reconsider: [
-      {
-        evidence: 'proposed',
-        text: 'A product reports a defect that a criterion should have caught, a new supported environment is added, or the cost of manual evaluation starts delaying every release.',
-      },
-    ],
-  },
   sections: [
     {
       id: 'contract',
@@ -303,6 +255,22 @@ export const quality: Decision = {
           evidence: 'proposed',
           paragraphs: [
             'Reporting, containment and the patch release follow the [urgent defect path](/decisions/operating#defects) in Operating. Two steps belong to quality: write the check that would have caught the regression and see it fail before fixing the component, then update the acceptance matrix and ask why it allowed the regression, whether a row was missing or marked met too early.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'alternatives',
+      title: 'Alternatives, and when to revisit',
+      blocks: [
+        {
+          kind: 'text',
+          evidence: 'proposed',
+          paragraphs: [
+            '**A clean axe scan as the bar.** Cheap and repeatable, but it cannot tell whether names make sense, focus moves sensibly or a screen reader announces the state.',
+            '**A full manual audit for every change.** Thorough, and too slow to run on each release, so it would be skipped.',
+            '**Leave acceptance to each product.** Every product repeats the same checks, and the component’s own guarantees are never written down.',
+            '**When to revisit.** A product reports a defect that a criterion should have caught, a new supported environment is added, or the cost of manual evaluation starts delaying every release.',
           ],
         },
       ],

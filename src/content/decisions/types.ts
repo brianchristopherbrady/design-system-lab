@@ -67,11 +67,11 @@ export interface ProjectOpening {
   tradeoff: string;
   /** What the checks establish, and what they leave open. */
   evidence: string;
-  /** Ids of sections about this repository that come before the scenario's decision record. */
+  /** Ids of sections shown right after the opening, ahead of the rest. */
   lead?: readonly string[];
 }
 
-export interface Decision {
+interface DecisionBase {
   /** Catalog id; the page title and summary come from the catalog entry. */
   id: string;
   /** The stage of the scenario the decision belongs to. */
@@ -79,9 +79,9 @@ export interface Decision {
   question: string;
   /** Why the decision matters, in one sentence. */
   matters: string;
-  /** Present on pages about this repository's own choices, which lead the section. */
-  project?: ProjectOpening;
-  record: DecisionRecord;
   sections: readonly DecisionSection[];
   sources?: readonly SourceId[];
 }
+
+/** A page about this repository's own choice opens with it; a page about the product-team scenario opens with its record. */
+export type Decision = DecisionBase & ({ project: ProjectOpening; record?: undefined } | { project?: undefined; record: DecisionRecord });

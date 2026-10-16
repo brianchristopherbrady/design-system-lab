@@ -48,51 +48,6 @@ export const componentApis: Decision = {
     evidence:
       'Playground controls use the option arrays the components export, and a test fails if they drift. TypeScript checks each props table against the component’s own props, and tests check that each documented token trace names a token the component reads. Descriptions and displayed type strings are written by hand and still need review.',
   },
-  record: {
-    context: [
-      {
-        evidence: 'hypothetical',
-        text: 'The patient app and the provider workspace will build screens from the same Button, Card and Dialog. Each team will ask for options its own screens need, and any option added stays in the shared API for both.',
-      },
-    ],
-    choice: [
-      { evidence: 'proposed', text: 'Give each component a small contract of named, token-backed options and content regions, and keep one product’s needs in that product’s components.' },
-      {
-        evidence: 'implemented',
-        text: 'Button, Card and Dialog in this repository follow that rule: props take named values that resolve to tokens, unset styling props fall back to component tokens, and regions such as `header` and `footer` take content instead of more props.',
-        example: { label: 'Card in the Playground', href: '/playground?component=card' },
-      },
-    ],
-    alternatives: [
-      {
-        evidence: 'proposed',
-        items: [
-          '**Accept raw CSS values** such as `padding="13px"`. Flexible, but products leave the scale and no theme can retune them.',
-          '**Add a prop for every request.** Fast the first time; every prop is permanent, and combinations multiply.',
-          '**Fork per product.** Each team gets exactly what it asks for, and every fix is made twice.',
-        ],
-      },
-    ],
-    consequences: [
-      {
-        evidence: 'proposed',
-        text: 'Some requests are answered with composition or a product component instead of a new prop, which takes longer to explain than to add. In return, the shared API stays small enough to test every combination.',
-      },
-    ],
-    validation: [
-      {
-        evidence: 'implemented',
-        text: 'Playground controls are built from the same exported option arrays as the components, and a test fails if they drift apart. Documentation tests check that each documented prop traces to a token the component’s own files read.',
-        example: { label: 'Button in the Playground', href: '/playground?component=button' },
-      },
-    ],
-    reconsider: [
-      {
-        evidence: 'proposed',
-        text: 'Several products need the same variation, or a component’s props start mixing visual choices with behavior that belongs to a different task.',
-      },
-    ],
-  },
   sections: [
     {
       id: 'where',
@@ -493,6 +448,22 @@ export const componentApis: Decision = {
           kind: 'text',
           paragraphs: [
             'If the patient app needed the same summary, the composition would become a candidate for a shared pattern, not a set of Card props. Until then it is the provider workspace’s component. See [what the system lacks](/decisions/operating#ownership).',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'alternatives',
+      title: 'Alternatives, and when to revisit',
+      blocks: [
+        {
+          kind: 'text',
+          evidence: 'proposed',
+          paragraphs: [
+            '**Accept raw CSS values** such as `padding="13px"`. Flexible, but products leave the scale and no theme can retune them.',
+            '**Add a prop for every request.** Fast the first time; every prop is permanent, and combinations multiply.',
+            '**Fork per product.** Each team gets exactly what it asks for, and every fix is made twice.',
+            '**When to revisit.** Several products need the same variation, or a component’s props start mixing visual choices with behavior that belongs to a different task.',
           ],
         },
       ],

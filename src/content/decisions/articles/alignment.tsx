@@ -17,8 +17,6 @@ function AlignmentEvidence() {
   );
 }
 
-const tokens = { label: 'Token pipeline', href: '/foundations/tokens#pipeline' };
-
 export const alignment: Decision = {
   id: 'alignment',
   stage: 'Design and code alignment',
@@ -39,56 +37,8 @@ export const alignment: Decision = {
     tradeoff:
       'The compiler checks names and types, not meaning. Descriptions and displayed type strings are prose that still need review, and nothing here checks a design file.',
     evidence:
-      'Props tables are typed against each component (ADR 0004), Playground controls must use the exported option arrays, each prop-to-token trace must name a token the component’s files read, and lint fails if generated token output is stale. The design-tool practices later on this page are proposed.',
+      'Props tables are typed against each component, Playground controls must use the exported option arrays, each prop-to-token trace must name a token the component’s files read, and lint fails if generated token output is stale. The design-tool practices later on this page are proposed.',
     lead: ['today'],
-  },
-  record: {
-    context: [
-      {
-        evidence: 'hypothetical',
-        text: 'The patient app’s and the provider workspace’s designers work from a design-tool library of the shared components, engineers work from the code, and both read the documentation site. Until now, whoever changed one of them last decided what it said.',
-      },
-    ],
-    choice: [
-      {
-        evidence: 'proposed',
-        text: 'Give each kind of information one owning artifact, name design-tool properties and values exactly as the props in code, and review a change to any of them together before it ships.',
-      },
-      {
-        evidence: 'implemented',
-        text: 'What this repository automates runs between token files, component code and this documentation.',
-        example: tokens,
-      },
-    ],
-    alternatives: [
-      {
-        evidence: 'proposed',
-        items: [
-          '**The design file as the source of truth.** Designers change things directly, but behavior, types and accessibility cannot live in a drawing.',
-          '**Code as the only truth.** No drift by definition, but designers redraw from screenshots and lose their own library.',
-          '**Two-way synchronization tooling.** Appealing, but it copies mismatched names as faithfully as matching ones, and still needs someone to decide which side is right.',
-        ],
-      },
-    ],
-    consequences: [
-      {
-        evidence: 'proposed',
-        text: 'Renaming design-tool properties to match code is one-off work for designers, and every component change needs a short joint review. Afterwards, a prop name in a design hand-off can be pasted into code unchanged.',
-      },
-    ],
-    validation: [
-      {
-        evidence: 'implemented',
-        text: 'Playground controls, props tables and prop-to-token traces fail tests when they drift from the component code, so the code-to-documentation side is checked on every run.',
-        example: { label: 'Badge in the Playground', href: '/playground?component=badge' },
-      },
-    ],
-    reconsider: [
-      {
-        evidence: 'proposed',
-        text: 'The design tool can export its component properties in a form a test can read, or mismatches keep reaching products despite the review.',
-      },
-    ],
   },
   sections: [
     {
@@ -103,7 +53,7 @@ export const alignment: Decision = {
           columns: ['Link', 'In this repository', 'How'],
           rows: [
             ['Token files to CSS and TypeScript', 'Automated', 'The generator writes both from the DTCG files, and lint fails if the committed output is stale.'],
-            ['Component types to props tables', 'Checked by the compiler', 'Each props table is typed against the component’s own props, so a new or renamed prop is a type error (ADR 0004). Descriptions are prose.'],
+            ['Component types to props tables', 'Checked by the compiler', 'Each props table is typed against the component’s own props, so a new or renamed prop is a type error. Descriptions are prose.'],
             ['Option arrays to Playground controls', 'Tested', 'Controls must use the arrays the component exports, so a new value appears in the Playground automatically.'],
             ['Props to tokens', 'Tested', 'Each documented prop-to-token trace must name a token the component’s own files read.'],
             ['Code to source views', 'Automated', 'Documentation pages show the real files, read at build time.'],
@@ -279,6 +229,22 @@ export const alignment: Decision = {
           evidence: 'implemented',
           caption: 'The checks and files behind this page. Each file opens in place.',
           Visual: AlignmentEvidence,
+        },
+      ],
+    },
+    {
+      id: 'alternatives',
+      title: 'Alternatives, and when to revisit',
+      blocks: [
+        {
+          kind: 'text',
+          evidence: 'proposed',
+          paragraphs: [
+            '**The design file as the source of truth.** Designers change things directly, but behavior, types and accessibility cannot live in a drawing.',
+            '**Code as the only truth.** No drift by definition, but designers redraw from screenshots and lose their own library.',
+            '**Two-way synchronization tooling.** Appealing, but it copies mismatched names as faithfully as matching ones, and still needs someone to decide which side is right.',
+            '**When to revisit.** The design tool can export its component properties in a form a test can read, or mismatches keep reaching products despite the review.',
+          ],
         },
       ],
     },

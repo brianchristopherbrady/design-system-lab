@@ -27,7 +27,7 @@ test.describe('design decisions', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'Sharing across products' })).toBeFocused();
   });
 
-  test('each page about this project explains its choice in one screen before the scenario', async ({ page }) => {
+  test('each page about this project explains its choice in one screen', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     for (const { id } of pages.filter((entry) => entry.own)) {
       await page.goto(`/decisions/${id}`);
@@ -37,7 +37,7 @@ test.describe('design decisions', () => {
       expect(box, id).toBeLessThanOrEqual(900);
       const order = await page.locator('main h2').evaluateAll((headings) => headings.map((heading) => heading.textContent));
       expect(order[0], id).toBe('In this project');
-      expect(order.indexOf('Decision record'), id).toBeGreaterThan(0);
+      expect(order, id).not.toContain('Decision record');
     }
   });
 
@@ -301,7 +301,6 @@ test.describe('design decisions', () => {
       else await expect(pager.getByRole('link', { name: /^Next/ })).toHaveCount(0);
       const anchors = await page.getByRole('navigation', { name: 'On this page' }).getByRole('link').evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
       expect(anchors[0], current.id).toBe(current.own ? '#project' : '#record');
-      expect(anchors, current.id).toContain('#record');
       for (const anchor of anchors) await expect(page.locator(anchor), `${current.id} ${anchor}`).toHaveCount(1);
     }
     await page.getByRole('navigation', { name: 'Previous and next decisions' }).getByRole('link', { name: /^Previous/ }).click();
