@@ -54,12 +54,14 @@ function EvidenceBadges({ evidence }: { evidence: Evidence | readonly Evidence[]
 }
 
 /** One labelled statement, with the working example that supports it beside the claim. */
-export function StatementView({ statement }: { statement: Statement }) {
+export function StatementView({ statement, showEvidence = true, showExample = true }: { statement: Statement; showEvidence?: boolean; showExample?: boolean }) {
   return (
     <div className={styles.statement}>
-      <p>
-        <EvidenceBadge evidence={statement.evidence} /> {statement.text && <Rich text={statement.text} />}
-      </p>
+      {(showEvidence || statement.text) && (
+        <p>
+          {showEvidence && <EvidenceBadge evidence={statement.evidence} />} {statement.text && <Rich text={statement.text} />}
+        </p>
+      )}
       {statement.items && (
         <ul>
           {statement.items.map((item) => (
@@ -69,7 +71,7 @@ export function StatementView({ statement }: { statement: Statement }) {
           ))}
         </ul>
       )}
-      {statement.example && (
+      {showExample && statement.example && (
         <Link href={statement.example.href} className={styles.exampleLink}>
           {statement.example.label} <Icon name="arrowRight" />
         </Link>
@@ -78,23 +80,60 @@ export function StatementView({ statement }: { statement: Statement }) {
   );
 }
 
-/** Labelled fields of a decision record, each holding one or more labelled statements. */
+function mostCommon(all: readonly Evidence[]): Evidence | undefined {
+  const counts = new Map<Evidence, number>();
+  for (const evidence of all) counts.set(evidence, (counts.get(evidence) ?? 0) + 1);
+  return [...counts].sort((a, b) => b[1] - a[1])[0]?.[0];
+}
+
+/**
+ * Labelled fields of a decision record. The record's usual label is stated once; a field or statement
+ * carries its own only where it differs, and each working example is linked once.
+ */
 export function RecordFields({ fields, label }: { fields: readonly RecordField[]; label?: string }) {
+  const usual = mostCommon(fields.flatMap((field) => field.statements.map((statement) => statement.evidence)));
+  const linked = new Set<string>();
+  const rows = fields.map((field) => {
+    const kinds = new Set(field.statements.map((statement) => statement.evidence));
+    const own = kinds.size === 1 ? field.statements[0]?.evidence : undefined;
+    const statements = field.statements.map((statement) => {
+      const href = statement.example?.href;
+      const showExample = href !== undefined && !linked.has(href);
+      if (href) linked.add(href);
+      return { statement, showEvidence: own === undefined && statement.evidence !== usual, showExample };
+    });
+    return { field, badge: own !== undefined && own !== usual ? own : undefined, statements };
+  });
+  const exceptions = rows.some((row) => row.badge || row.statements.some((item) => item.showEvidence));
   return (
-    <dl className={styles.decisionRecord} aria-label={label}>
-      {fields.map((field) => (
-        <div key={field.label}>
-          <Text as="dt" variant="caption" tone="muted">
-            {field.label}
-          </Text>
-          <dd>
-            {field.statements.map((statement, index) => (
-              <StatementView key={index} statement={statement} />
-            ))}
-          </dd>
-        </div>
-      ))}
-    </dl>
+    <div className={styles.recordBody}>
+      {usual && (
+        <Text variant="bodySmall" tone="muted">
+          <EvidenceBadge evidence={usual} />
+          {exceptions && ' unless marked otherwise'}
+        </Text>
+      )}
+      <dl className={styles.decisionRecord} aria-label={label}>
+        {rows.map(({ field, badge, statements }) => (
+          <div key={field.label}>
+            <dt>
+              {field.label}
+              {badge && (
+                <>
+                  {' '}
+                  <EvidenceBadge evidence={badge} />
+                </>
+              )}
+            </dt>
+            <dd>
+              {statements.map((item, index) => (
+                <StatementView key={index} {...item} />
+              ))}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
   );
 }
 
@@ -285,7 +324,7 @@ export function BlockView({ block }: { block: Block }) {
     case 'record':
       return (
         <figure className={styles.figure}>
-          <figcaption>{block.caption}</figcaption>
+          <figcaption className={styles.recordCaption}>{block.caption}</figcaption>
           <RecordFields fields={block.fields} label={block.caption} />
         </figure>
       );

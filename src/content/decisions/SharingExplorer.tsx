@@ -293,7 +293,7 @@ export function SharingExplorer() {
                 </Text>
                 <dl>
                   <div>
-                    <Text as="dt" variant="caption" tone="muted">
+                    <Text as="dt" variant="label">
                       Supported by
                     </Text>
                     <dd>
@@ -305,7 +305,7 @@ export function SharingExplorer() {
                     </dd>
                   </div>
                   <div>
-                    <Text as="dt" variant="caption" tone="muted">
+                    <Text as="dt" variant="label">
                       Would change if
                     </Text>
                     <dd>
