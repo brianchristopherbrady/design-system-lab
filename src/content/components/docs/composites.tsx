@@ -1,4 +1,5 @@
 import type { AlertOwnProps, CardOwnProps, DialogOwnProps, DisclosureOwnProps, EmptyStateProps, FieldProps, PageHeaderProps, RadioGroupOwnProps, TabsProps } from '@/design-system/composites';
+import { Link } from '@/design-system/primitives';
 import { propsTable, type ComponentDoc } from '@/features/docs';
 import {
   AlertExample,
@@ -165,6 +166,14 @@ export const compositeDocs: ComponentDoc[] = [
     states: ['Selected, unselected, hover, focus-visible.'],
     accessibility: ['One tab stop for the list; arrow keys (reversed in right-to-left), Home and End move and select.', 'Panels are focusable so keyboard users can reach content without interactive elements.', 'Hidden panels stay mounted to preserve their state.'],
     responsive: ['The tab list scrolls horizontally instead of wrapping into multiple rows.'],
+    knownGaps: [
+      'On a narrow screen nothing shows that more tabs are off-screen: the list scrolls sideways with its scrollbar hidden. Arrow keys still reach every tab.',
+      'Automatic activation suits the light panels used here. A slow panel may need manual activation, which would change the API.',
+      <>
+        The keyboard pattern is tested in Chromium only, and no screen reader has been tried.{' '}
+        <Link href="/decisions/quality#unverified">What remains unverified</Link> lists the rest.
+      </>,
+    ],
     mistakes: ['Putting critical content in a non-default tab.'],
     tradeoffs: ['Automatic activation suits light panels; heavy panels would need manual activation.'],
     sourcePaths: ['src/design-system/composites/Tabs/Tabs.tsx', 'src/design-system/composites/Tabs/Tabs.module.css'],

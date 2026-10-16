@@ -1,7 +1,7 @@
 import { useCallback, useRef, type RefObject } from 'react';
 import { Button, Input, Select } from '@/design-system/primitives';
 import { Field } from '@/design-system/composites';
-import { kindLabels, maturities, maturityLabels, type ComponentLayer, type EntryKind } from '@/domain/system';
+import { kindLabels, type ComponentLayer, type EntryKind } from '@/domain/system';
 import { defaultFilters, hasActiveFilters, withType, type DirectoryFilters as Filters } from './filters';
 import styles from './DirectoryFilters.module.css';
 
@@ -102,22 +102,6 @@ export function DirectoryFilters({ filters, onChange, types, layers, resultCount
             )}
           </Field>
         )}
-        <Field label="Maturity">
-          {(control) => (
-            <Select
-              {...control}
-              value={filters.maturity}
-              onChange={(event) => onChange({ ...filters, maturity: event.target.value as Filters['maturity'] })}
-            >
-              <option value="all">Any maturity</option>
-              {maturities.map((maturity) => (
-                <option key={maturity} value={maturity}>
-                  {maturityLabels[maturity]}
-                </option>
-              ))}
-            </Select>
-          )}
-        </Field>
       </div>
       <div className={styles.summary}>
         <p role="status" className={styles.count}>

@@ -20,14 +20,9 @@ export {
   entryKinds,
   findEntry,
   kindLabels,
-  maturities,
-  maturityLabels,
   type CatalogEntry,
   type ComponentLayer,
   type EntryKind,
-  type Maturity,
 } from './catalog';
 export { EntryCard, type EntryCardProps } from './EntryCard';
-export { MaturityBadge } from './MaturityBadge';
-export { maturityDefinitions, type MaturityDefinition } from './maturity';
 export { densityLabels, productProfiles, type ProductProfile } from './products';

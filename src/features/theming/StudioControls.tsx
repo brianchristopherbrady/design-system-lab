@@ -39,7 +39,7 @@ function StudioResult({ studio }: { studio: ThemeStudioState }) {
               New
             </Badge>
             <span className={styles.resultExtra}>
-              <Badge tone="brand">Beta</Badge>
+              <Badge tone="brand">Draft</Badge>
               <Link href="#preview">Details</Link>
             </span>
           </ThemeScope>

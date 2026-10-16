@@ -686,9 +686,9 @@ function ThemePreview() {
   return (
     <Stack gap="small">
       <Inline gap="extraSmall">
-        <Badge tone="success">Stable</Badge>
+        <Badge tone="success">Passed</Badge>
         <Badge tone="warning" appearance="outlined">
-          Beta
+          In review
         </Badge>
       </Inline>
       <Text>Text, surfaces, borders and actions all switch together.</Text>

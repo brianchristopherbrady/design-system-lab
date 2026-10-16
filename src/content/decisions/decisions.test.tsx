@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
 import { badgeAppearances, badgeSizes } from '@/design-system/primitives';
 import { toneScale } from '@/design-system/tokens';
-import { entriesOfKind, findEntry, maturities, maturityDefinitions, maturityLabels } from '@/domain/system';
+import { entriesOfKind, findEntry } from '@/domain/system';
 import { badgeMapping, differences } from './AlignmentExamples';
 import { DecisionPager } from './DecisionPager';
 import { DecisionsIndex } from './DecisionsIndex';
@@ -133,11 +133,9 @@ describe('design decisions', () => {
     expect(labels('releases')).toEqual(expect.arrayContaining(['Changes', 'Affected consumers', 'Migration', 'Compatibility support', 'Rollback']));
     expect(tables('defects')[0]?.columns).toEqual(['Aspect', 'Urgent defect', 'Scheduled contribution']);
 
-    const maturity = tables('releases').find((table) => table.columns[0] === 'Label');
-    expect(maturity?.evidence).toBe('implemented');
-    expect(maturity?.rows.map((row) => [row[0], row[1], row[3]])).toEqual(
-      maturities.map((level) => [maturityLabels[level], maturityDefinitions[level].promise, maturityDefinitions[level].change]),
-    );
+    const lifecycle = tables('releases').find((table) => table.columns[0] === 'Label');
+    expect(lifecycle?.evidence).toBe('proposed');
+    expect(lifecycle?.rows.map((row) => row[0])).toEqual(['Experimental', 'Beta', 'Stable', 'Deprecated']);
 
     const [measures, adoption, illustration] = tables('measures');
     for (const column of ['Unit', 'Scope', 'Baseline definition', 'Measured baseline', 'How to collect', 'Owner', 'Review', 'Could mislead because', 'If the result is worrying']) {

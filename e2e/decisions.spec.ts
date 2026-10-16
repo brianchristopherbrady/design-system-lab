@@ -192,7 +192,7 @@ test.describe('design decisions', () => {
     for (const caption of ['Request: hide the Checkbox label in table rows', 'Exception EX-007: the provider workspace’s row-selection checkbox', 'Release note: shared core 3.0.0']) {
       await expect(page.locator('figcaption', { hasText: caption })).toBeVisible();
     }
-    await expect(page.locator('#releases figure', { hasText: 'Maturity labels in this repository' })).toContainText('Deprecate first, keep working for at least one minor release');
+    await expect(page.locator('#releases figure', { hasText: 'Proposed maturity labels for the shared core' })).toContainText('Deprecate first, keep working for at least one minor release');
 
     const links = await page.locator('main a[href^="/decisions/"]').evaluateAll((elements) => elements.map((element) => element.getAttribute('href') ?? ''));
     for (const href of new Set(links.filter((link) => link.includes('#')))) {
@@ -203,12 +203,12 @@ test.describe('design decisions', () => {
 
     await page.goto('/decisions/operating#checked');
     const files = page.locator('#checked details');
-    await expect(files).toHaveCount(6);
+    await expect(files).toHaveCount(5);
     for (const file of await files.all()) {
       await file.locator('summary').click();
       await expect(file).toHaveJSProperty('open', true);
     }
-    await expect(files.first()).toContainText('maturityDefinitions');
+    await expect(files.first()).toContainText('every component meets the documentation baseline');
     await page.getByText('Sources', { exact: true }).click();
     await expect(page.getByRole('link', { name: 'Contribution criteria', exact: true })).toBeVisible();
     await expectNoAxeViolations(page);

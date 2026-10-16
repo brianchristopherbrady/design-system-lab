@@ -1,4 +1,3 @@
-import { maturities, maturityDefinitions, maturityLabels } from '@/domain/system';
 import { SourceList } from '@/features/docs';
 import type { Decision } from '../types';
 
@@ -6,8 +5,7 @@ function RepositoryEvidence() {
   return (
     <SourceList
       sources={[
-        { path: 'src/domain/system/maturity.ts', note: 'What each maturity label promises, requires and allows to change' },
-        { path: 'src/test/documentation.test.ts', note: 'Checks the maturity requirements marked “checked”, and every link and anchor' },
+        { path: 'src/test/documentation.test.ts', note: 'The documentation baseline every component meets, and checks on every link and anchor' },
         { path: 'src/domain/system/activity.ts', note: 'The changelog the activity dashboard reads' },
         { path: 'docs/contributing.md', note: 'The contribution checklist, and why a breaking change updates every consumer at once here' },
         { path: 'docs/accessibility/accessibility-audit.md', note: 'The audit behind the defect ledger, and what it could not verify' },
@@ -19,10 +17,37 @@ function RepositoryEvidence() {
 
 const checked = { label: 'What this project checks', href: '/decisions/operating#checked' };
 
-const maturityRows = maturities.map((maturity) => {
-  const definition = maturityDefinitions[maturity];
-  return [maturityLabels[maturity], definition.promise, definition.requires.join(' '), definition.change, definition.limits];
-});
+/** The lifecycle proposed for the scenario's shared core. This repository shows no maturity labels. */
+const lifecycleRows = [
+  [
+    'Experimental',
+    'An approach being tried, usable in opted-in screens to learn from real use.',
+    'A documented purpose and its known gaps. No product depends on it without the owning team agreeing.',
+    'Any release may change or remove it, without a deprecation period.',
+    'Any accessibility, browser or performance guarantee beyond what its page states.',
+  ],
+  [
+    'Beta',
+    'Complete for its documented uses. Safe to adopt, expecting small API changes.',
+    'Props documented from its types, each prop traced to a token, and keyboard, screen-reader and responsive behavior written down.',
+    'A changelog entry and a migration note in the same release.',
+    'Tests for every state, or use in more than one product.',
+  ],
+  [
+    'Stable',
+    'Safe for product code. The API, tokens and markup structure change only through deprecation.',
+    'Everything beta requires, plus behavior tests for its contract, use in both products, and a recorded evaluation in each supported browser and screen-reader pairing.',
+    'Deprecate first, keep working for at least one minor release, then remove in a major release.',
+    'WCAG conformance of the screens that use it.',
+  ],
+  [
+    'Deprecated',
+    'Still works, but is scheduled for removal and hidden from the index.',
+    'A named replacement, a migration note and the release that removes it.',
+    'Removed in the announced major release.',
+    'Fixes beyond severe defects.',
+  ],
+];
 
 export const operating: Decision = {
   id: 'operating',
@@ -67,7 +92,7 @@ export const operating: Decision = {
       },
       {
         evidence: 'implemented',
-        text: 'This repository checks its own rules in every build and test run: maturity labels have tested requirements, documentation is tested against the code, and browser tests run accessibility scans, keyboard checks and 320 pixel reflow. Adoption and delivery time are not measured, because there are no product teams.',
+        text: 'This repository checks its own rules in every build and test run: documentation is tested against the code, every component meets a documentation baseline, and browser tests run accessibility scans, keyboard checks and 320 pixel reflow. Adoption and delivery time are not measured, because there are no product teams.',
         example: checked,
       },
     ],
@@ -96,7 +121,7 @@ export const operating: Decision = {
             ['Text and control contrast in every product and theme', 'Unit tested', '[Contrast](/foundations/color#contrast)'],
             ['Keyboard, focus, reflow at 320 pixels and automated accessibility scans', 'Browser tests on the production build; the tests tagged `@employer-path` must pass before the site deploys', '`e2e/`'],
             ['Documentation agrees with the implementation', 'Unit tested', '`src/test/documentation.test.ts`'],
-            ['Stable components are named in a test and used outside their own page', 'Unit tested', '`src/test/documentation.test.ts`'],
+            ['Every component documents keyboard, screen-reader and responsive behavior, is named in a test and is used outside its own page', 'Unit tested. A documentation baseline, not evidence of behavior.', '`src/test/documentation.test.ts`'],
             ['Accessibility defects found by the October 2026 audit', 'Recorded: eight issues, all fixed and awaiting independent verification', '`docs/accessibility/accessibility-audit.md`'],
             ['Adoption, overrides, delivery time, defect trends, user research and production use', 'Not measured: no product teams or users', 'None'],
           ],
@@ -195,17 +220,17 @@ export const operating: Decision = {
               output: 'a changelog entry, two screens using it and the workarounds both teams noted',
               note: {
                 evidence: 'implemented',
-                text: 'This repository writes down what each label promises, requires and allows to change, and the table under Versions, maturity and retirement is read from that code.',
-                example: { label: 'Maturity labels', href: '/decisions/operating#releases' },
+                text: 'This repository shows no maturity labels: the site is released as a whole, with no consumer to warn. The lifecycle under Versions, maturity and retirement is the one proposed for the shared core.',
+                example: { label: 'Proposed lifecycle', href: '/decisions/operating#releases' },
               },
             },
             {
               title: 'Stable acceptance',
-              text: 'Two minor releases later, with no forks and no open high-severity defects, the core team checks the stable requirements: props documented from its types, each prop traced to a token, keyboard, screen-reader and responsive notes, named in automated tests, and used outside its own page. Core 2.8.0 marks it stable; from then on it changes only through deprecation.',
+              text: 'Two minor releases later, with no forks and no open high-severity defects, the core team checks the stable requirements: behavior tests for its contract, use in both products, and a recorded evaluation in each supported browser and screen-reader pairing. Core 2.8.0 marks it stable; from then on it changes only through deprecation.',
               output: 'the stable label, with the evidence that earned it',
               note: {
                 evidence: 'implemented',
-                text: 'Here, `documentation.test.ts` fails if a stable component is not named in an automated test or not used outside its own documentation.',
+                text: 'Here, `documentation.test.ts` holds every component to part of the beta baseline: documented keyboard, screen-reader and responsive behavior, a mention in a test and use outside its own page. It checks the documentation, not the behavior.',
                 example: checked,
               },
             },
@@ -418,20 +443,20 @@ export const operating: Decision = {
           evidence: ['implemented', 'proposed'],
           columns: ['Practice', 'In this project', 'For the patient app and the provider workspace'],
           rows: [
-            ['Maturity labels', 'Implemented. Experimental, beta, stable and deprecated have written requirements, and tests check that stable components are tested and used.', 'The same, with the label shown wherever the component is documented.'],
+            ['Maturity labels', 'Not shown. The site is released as a whole, with no consumer to warn; the Components index states what is verified, and a component page lists known gaps.', 'Experimental, beta, stable and deprecated, with the requirements below, shown wherever the component is documented.'],
             ['Versioning', 'Not applicable: one site, released together.', 'Semantic versioning: a major version for breaking changes, minor for features, patch for fixes.'],
             ['Changelog', 'Implemented. The catalog’s changelog feeds the [activity dashboard](/patterns/activity-dashboard) pattern.', 'Every release says what changed and why, with migration notes for breaking changes.'],
-            ['Deprecation', 'Supported by the deprecated label; nothing is deprecated yet.', 'A deprecation names its replacement and the release that removes it.'],
+            ['Deprecation', 'Not applicable: removing a component updates every use in the same change.', 'A deprecation names its replacement and the release that removes it.'],
             ['Design-to-code alignment', 'Not applicable: there is no design-tool library.', 'Component properties in the design tool use the same names and values as props in code, and reviews check them ([alignment](/decisions/alignment)).'],
           ],
         },
         {
           kind: 'table',
-          caption: 'Maturity labels in this repository, read from the code that defines them',
-          evidence: 'implemented',
+          caption: 'Proposed maturity labels for the shared core',
+          evidence: 'proposed',
           stacked: true,
           columns: ['Label', 'Promise', 'Requires', 'Breaking changes', 'Does not claim'],
-          rows: maturityRows,
+          rows: lifecycleRows,
         },
         {
           kind: 'text',

@@ -164,6 +164,12 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
           <h3>Responsive behavior</h3>
           <BulletList items={doc.responsive} />
         </Prose>
+        {doc.knownGaps && doc.knownGaps.length > 0 && (
+          <Prose>
+            <h3>Known gaps</h3>
+            <BulletList items={doc.knownGaps} />
+          </Prose>
+        )}
       </DocSection>
 
       <DocSection id="guidance" title="Guidance">

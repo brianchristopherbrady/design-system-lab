@@ -121,9 +121,10 @@ test.describe('URL state', () => {
     await page.goForward();
     await expect(page.getByRole('combobox', { name: 'Component layer' })).toHaveValue('Composite');
 
-    // A link shared before the filter was renamed still applies.
+    // A link shared before the filter was renamed still applies; the retired maturity filter is ignored.
     await page.goto('/components?layer=Layout&maturity=beta');
     await expect(page.getByRole('combobox', { name: 'Component layer' })).toHaveValue('Layout');
+    await expect(page.getByRole('combobox', { name: 'Maturity' })).toHaveCount(0);
     await expect(page.getByRole('heading', { level: 2, name: /^Layout/ })).toBeVisible();
     await expect(page.getByRole('heading', { level: 2, name: /^Composite/ })).toHaveCount(0);
 

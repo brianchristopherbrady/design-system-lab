@@ -1,13 +1,4 @@
-import {
-  componentLayers,
-  entryKinds,
-  kindLabels,
-  maturities,
-  type CatalogEntry,
-  type ComponentLayer,
-  type EntryKind,
-  type Maturity,
-} from '@/domain/system';
+import { componentLayers, entryKinds, kindLabels, type CatalogEntry, type ComponentLayer, type EntryKind } from '@/domain/system';
 
 export interface DirectoryFilters {
   query: string;
@@ -15,13 +6,12 @@ export interface DirectoryFilters {
   type: EntryKind | 'all';
   /** Component layer. Only components have one, so a specific layer matches only components. */
   layer: ComponentLayer | 'all';
-  maturity: Maturity | 'all';
 }
 
-export const defaultFilters: DirectoryFilters = { query: '', type: 'all', layer: 'all', maturity: 'all' };
+export const defaultFilters: DirectoryFilters = { query: '', type: 'all', layer: 'all' };
 
-/** URL parameter names. Short and stable, because people share these URLs. */
-const params = { query: 'q', type: 'type', layer: 'layer', maturity: 'maturity' } as const;
+/** URL parameter names. Short and stable, because people share these URLs. Older links may carry `maturity`, which is ignored. */
+const params = { query: 'q', type: 'type', layer: 'layer' } as const;
 
 /** Resource types that older links passed as a layer, before type and layer were separate filters. */
 const legacyLayerTypes: Readonly<Record<string, EntryKind>> = { Decision: 'decision', Foundation: 'foundation', Pattern: 'pattern' };
@@ -34,20 +24,14 @@ function isLayer(value: string | null): value is ComponentLayer {
   return componentLayers.includes(value as ComponentLayer);
 }
 
-function isMaturity(value: string | null): value is Maturity {
-  return maturities.includes(value as Maturity);
-}
-
 /** Reads filters from the URL. Unknown values fall back to defaults instead of failing. */
 export function parseFilters(search: URLSearchParams): DirectoryFilters {
   const layer = search.get(params.layer);
-  const maturity = search.get(params.maturity);
   const type = search.get(params.type) ?? (layer ? legacyLayerTypes[layer] : undefined);
   return {
     query: search.get(params.query) ?? '',
     type: isType(type) ? type : 'all',
     layer: isLayer(layer) ? layer : 'all',
-    maturity: isMaturity(maturity) ? maturity : 'all',
   };
 }
 
@@ -57,7 +41,6 @@ export function toSearchParams(filters: DirectoryFilters): URLSearchParams {
   if (filters.query) search.set(params.query, filters.query);
   if (filters.type !== 'all') search.set(params.type, filters.type);
   if (filters.layer !== 'all') search.set(params.layer, filters.layer);
-  if (filters.maturity !== 'all') search.set(params.maturity, filters.maturity);
   return search;
 }
 
@@ -67,7 +50,7 @@ export function withType(filters: DirectoryFilters, type: DirectoryFilters['type
 }
 
 export function hasActiveFilters(filters: DirectoryFilters): boolean {
-  return filters.query.trim() !== '' || filters.type !== 'all' || filters.layer !== 'all' || filters.maturity !== 'all';
+  return filters.query.trim() !== '' || filters.type !== 'all' || filters.layer !== 'all';
 }
 
 /** Every whitespace-separated term must appear in the name, summary, resource type, component layer or a tag. */
@@ -84,7 +67,6 @@ export function filterEntries(entries: readonly CatalogEntry[], filters: Directo
     (entry) =>
       matchesQuery(entry, filters.query) &&
       (filters.type === 'all' || entry.kind === filters.type) &&
-      (filters.layer === 'all' || entry.layer === filters.layer) &&
-      (filters.maturity === 'all' || entry.maturity === filters.maturity),
+      (filters.layer === 'all' || entry.layer === filters.layer),
   );
 }

@@ -1,6 +1,6 @@
 import { EmptyState } from '@/design-system/composites';
 import { Grid, Stack } from '@/design-system/layout';
-import { Button, Heading, Text } from '@/design-system/primitives';
+import { Button, Heading, Link, Text } from '@/design-system/primitives';
 import { componentLayers, EntryCard, entriesOfKind, type ComponentLayer } from '@/domain/system';
 import { DirectoryFilters, filterEntries, useClearDirectoryFilters, useUrlDirectoryFilters } from '@/features/directory';
 import { paths } from '../paths';
@@ -27,6 +27,11 @@ export function ComponentsIndexPage() {
       description="Every component with its props, defaults, token traces, live examples, accessibility notes and source. Filters are stored in the URL so a filtered view can be shared."
     >
       <Stack gap="extraLarge">
+        <Text variant="bodySmall" tone="muted">
+          Every component here is used by this site and covered by unit tests, browser tests in Chromium and automated
+          accessibility scans. Screen-reader evaluation has not been performed. A component page lists any known gaps, and{' '}
+          <Link href="/decisions/operating#checked">What this project checks</Link> lists every check.
+        </Text>
         <DirectoryFilters
           filters={filters}
           onChange={setFilters}

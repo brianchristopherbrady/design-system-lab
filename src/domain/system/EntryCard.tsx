@@ -1,9 +1,7 @@
 import { Card } from '@/design-system/composites';
-import { Inline } from '@/design-system/layout';
 import { Badge, Button, Icon, Link, Text, VisuallyHidden } from '@/design-system/primitives';
 import { formatDate } from './activity';
 import { classificationOf, type CatalogEntry } from './catalog';
-import { MaturityBadge } from './MaturityBadge';
 import styles from './EntryCard.module.css';
 
 export interface EntryCardProps {
@@ -26,12 +24,11 @@ export function EntryCard({ entry, href, pinned, onTogglePin, headingLevel = 3 }
     <Card as="article" padding="medium" className={styles.card}>
       <div className={styles.layout}>
         <div className={styles.main}>
-          <Inline gap="extraSmall">
+          <div>
             <Badge appearance="outlined" size="small">
               {classificationOf(entry)}
             </Badge>
-            <MaturityBadge maturity={entry.maturity} size="small" />
-          </Inline>
+          </div>
           <Title className={styles.title}>
             <Link href={href} variant="standalone">
               {entry.name}

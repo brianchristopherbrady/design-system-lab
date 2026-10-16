@@ -37,14 +37,11 @@ export function CardExample() {
             as="article"
             header={
               <Stack gap="extraSmall">
-                <Inline gap="extraSmall">
-                  <Badge tone="success" size="small">
-                    Stable
-                  </Badge>
+                <div>
                   <Badge tone="info" size="small" appearance="outlined">
                     Foundation
                   </Badge>
-                </Inline>
+                </div>
                 <Heading level={3} size="small">
                   <Link href="/foundations/tokens" variant="standalone">
                     Token architecture

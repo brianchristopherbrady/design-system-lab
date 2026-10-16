@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Alert, Card, Dialog, EmptyState, Tabs } from '@/design-system/composites';
 import { Grid, Inline, Stack } from '@/design-system/layout';
 import { Badge, Button, Heading, Icon, Link, Skeleton, Text } from '@/design-system/primitives';
-import { ActivityList, classificationOf, findEntry, formatDate, MaturityBadge } from '@/domain/system';
+import { ActivityList, classificationOf, findEntry, formatDate } from '@/domain/system';
 import { useRequest, useScenarioStatus, type DemoScenario } from '@/features/scenarios';
 import { archiveEntry, fetchEntryDetail, type ScenarioRequest } from './fixtures';
 
@@ -164,7 +164,6 @@ function Detail({
         </Inline>
         <Inline gap="extraSmall">
           <Badge appearance="outlined">{classificationOf(entry)}</Badge>
-          <MaturityBadge maturity={entry.maturity} />
           {archived && (
             <Badge tone="neutral" appearance="filled" icon={<Icon name="archive" />}>
               Archived

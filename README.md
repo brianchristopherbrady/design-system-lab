@@ -78,7 +78,7 @@ src/
     primitives/    Text, Heading, Button, Badge, Icon, Link, Input, Select, Checkbox, Switch,
                    Progress, Skeleton, VisuallyHidden
     composites/    Card, Dialog, Alert, Tabs, Field, PageHeader, EmptyState, Disclosure, RadioGroup
-  domain/system/   the catalog and changelog, EntryCard, ActivityList, MaturityBadge
+  domain/system/   the catalog and changelog, EntryCard, ActivityList
   domain/decisions/ sources and the sharing comparison's reasoning (pure functions, tested)
   features/
     docs/          ComponentReference, LiveExample, SourceViewer, ApiTable, TokenChain, TokenExplorer

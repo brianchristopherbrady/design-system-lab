@@ -33,7 +33,7 @@ export interface PropTokenTrace {
 }
 
 export interface ComponentDoc {
-  /** Catalog id. Name, layer, maturity and summary come from the catalog entry. */
+  /** Catalog id. Name, layer and summary come from the catalog entry. */
   id: string;
   purpose: string;
   whenToUse: string[];
@@ -48,6 +48,8 @@ export interface ComponentDoc {
   states: string[];
   accessibility: string[];
   responsive: string[];
+  /** Specific behavior that is unverified or undecided, beyond the site-wide limits stated on the Components index. */
+  knownGaps?: ReactNode[];
   mistakes: string[];
   tradeoffs: string[];
   /** Implementation files, shown as source. */

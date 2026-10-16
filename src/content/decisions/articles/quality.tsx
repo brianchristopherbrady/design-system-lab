@@ -10,8 +10,7 @@ function QualityEvidence() {
         { path: 'src/design-system/composites/Tabs/Tabs.test.tsx', note: 'Unit tests: tab stops, arrow keys, Home, End, wrapping, Tab to the panel' },
         { path: 'e2e/accessibility.spec.ts', note: 'Browser tests: the Tabs keyboard pattern, and axe scans in both themes' },
         { path: 'src/design-system/tokens/contrast.test.ts', note: 'Text, focus ring and selected-tab indicator contrast in every product and theme' },
-        { path: 'src/domain/system/maturity.ts', note: 'What beta and stable promise and require' },
-        { path: 'src/test/documentation.test.ts', note: 'The maturity requirements that are checked automatically' },
+        { path: 'src/test/documentation.test.ts', note: 'The documentation baseline every component meets, which is not evidence of behavior' },
         { path: 'docs/accessibility.md', note: 'What was verified, how, and the known gaps' },
         { path: 'docs/accessibility/accessibility-audit.md', note: 'The audit: scope, methods, findings and what it could not test' },
       ]}
@@ -38,7 +37,7 @@ export const quality: Decision = {
       ],
     },
     tradeoff:
-      'Writing criteria and evaluating by hand slows promotion. In return, each guarantee and each gap is written down, and an untested area is listed rather than assumed to pass.',
+      'Writing criteria and evaluating by hand takes time. In return, each guarantee and each gap is written down, and an untested area is listed rather than assumed to pass.',
     evidence:
       'Unit tests and Chromium browser tests cover the keyboard pattern, including mirrored arrows in right to left; token tests cover contrast in every product and theme; axe scans run in both themes. Passing them is not a conformance claim, and screen readers, other browsers and a cue for overflowing tabs remain open.',
     lead: ['contract', 'demo'],
@@ -99,7 +98,7 @@ export const quality: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'Tabs is beta, interactive and used outside its own page, in the [resource detail](/patterns/resource-detail) pattern and the theme studio’s export panel. Its contract follows the ARIA tabs pattern. The [Tabs page](/components/tabs#behavior) is the reference; this table restates it only as criteria that can pass or fail.',
+            'Tabs is interactive and used outside its own page, in the [resource detail](/patterns/resource-detail) pattern and the theme studio’s export panel. Its contract follows the ARIA tabs pattern. The [Tabs page](/components/tabs#behavior) is the reference; this table restates it only as criteria that can pass or fail.',
           ],
         },
         {
@@ -150,7 +149,7 @@ export const quality: Decision = {
             ['Automated scans', 'No machine-detectable WCAG A and AA rule failures on pages that use Tabs, in light and dark.', 'Whether names make sense, whether the keyboard model is right, or conformance.', 'Implemented: axe-core on the resource detail pattern and other routes.'],
             ['Token contrast tests', 'Tab text, the focus outline and the selected indicator meet their ratios on every surface, in every product and theme.', 'Contrast of what products put inside panels.', 'Implemented: `contrast.test.ts`.'],
             ['Manual evaluation', 'Keyboard behavior as a person uses it, forced colors and reduced motion.', 'Screen-reader output, real Windows contrast themes, real zoom.', 'Done once, in the audit, in Edge with emulated modes.'],
-            ['Screen-reader evaluation', 'What is announced when a tab is focused and selected, and whether the panel is reachable.', 'Other screen reader and browser pairings than those tried.', 'Not done. Proposed before stable.'],
+            ['Screen-reader evaluation', 'What is announced when a tab is focused and selected, and whether the panel is reachable.', 'Other screen reader and browser pairings than those tried.', 'Not done.'],
           ],
         },
         {
@@ -200,7 +199,7 @@ export const quality: Decision = {
             ['States', 'Selection is exposed and announced; hidden panels are not reachable.', 'Unit tests for `aria-selected` and visibility.', 'Exposure met; announcement not verified.'],
             ['Contrast', 'Text 4.5:1; indicator and focus outline 3:1, on every surface.', '`contrast.test.ts` in every product and theme.', 'Met.'],
             ['Motion preferences', 'With reduced motion, the indicator moves without animating.', 'The audit measured no long transitions under emulated reduced motion.', 'Met once, by hand; not automated.'],
-            ['Supported environments', 'The rows above hold in each supported browser, with at least two screen-reader pairings, in forced colors and at 400% zoom.', 'Chromium only; emulated modes.', 'Not met. Blocks stable.'],
+            ['Supported environments', 'The rows above hold in each supported browser, with at least two screen-reader pairings, in forced colors and at 400% zoom.', 'Chromium only; emulated modes.', 'Not met.'],
           ],
         },
       ],
@@ -244,13 +243,13 @@ export const quality: Decision = {
     },
     {
       id: 'promotion',
-      title: 'What keeps Tabs at beta',
+      title: 'What Tabs still lacks',
       blocks: [
         {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'The stable requirements that are checked automatically would already pass for Tabs: it is named in automated tests and used outside its own page. Automation is not what holds it back. These gaps in this repository do:',
+            'Tabs meets the documentation baseline every component here is held to: its keyboard, screen-reader and responsive behavior is written down, it is named in tests and it is used outside its own page. That baseline says nothing about other environments. These gaps remain:',
           ],
         },
         {
@@ -259,7 +258,6 @@ export const quality: Decision = {
             'The supported-environments row of the matrix: other browsers, two screen-reader pairings, real forced colors and zoom.',
             'No cue that more tabs are off-screen on a narrow screen.',
             'A decision on manual activation for heavy panels, since adding it later would change the API.',
-            'Use in more than one product context, which the beta label says it has not yet had.',
           ],
         },
         {
@@ -270,7 +268,7 @@ export const quality: Decision = {
         {
           kind: 'text',
           evidence: 'proposed',
-          paragraphs: ['Promote when every matrix row is met or has a recorded gap that the component owner and both product representatives accept, with a date to revisit it.'],
+          paragraphs: ['In the shared core\u2019s [proposed lifecycle](/decisions/operating#releases), promote Tabs to stable when every matrix row is met or has a recorded gap that the component owner and both product representatives accept, with a date to revisit it.'],
         },
       ],
     },

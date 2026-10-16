@@ -115,6 +115,7 @@ function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[];
   const searchRef = useRef<HTMLInputElement>(null);
   const summary = summarizeCatalog(catalog);
   const byKind = countActivityByKind(events);
+  const changedEntries = new Set(events.map((event) => event.entryId)).size;
   const terms = query.trim().toLowerCase();
   const visible = events.filter(
     (event) =>
@@ -132,8 +133,8 @@ function Dashboard({ events, initialQuery }: { events: readonly ActivityEvent[];
               .join(' · ')}
           </Text>
         </Metric>
-        <Metric label="Stable" value={`${summary.byMaturity.stable} of ${summary.total}`}>
-          <Progress label="Share of entries that are stable" value={summary.byMaturity.stable} max={summary.total} />
+        <Metric label="Entries changed" value={`${changedEntries} of ${summary.total}`}>
+          <Progress label="Share of entries with a recorded change" value={changedEntries} max={summary.total} />
         </Metric>
         <Metric label="Recorded changes" value={String(events.length)}>
           <Inline gap="extraSmall">

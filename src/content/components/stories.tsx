@@ -197,7 +197,7 @@ export const playgroundStories: readonly AnyStory[] = [
     presets: [
       { name: 'Success', values: { tone: 'success', children: 'Passed', icon: 'check' } },
       { name: 'Danger filled', values: { tone: 'danger', appearance: 'filled', children: 'Blocked', icon: 'danger' } },
-      { name: 'Info outlined', values: { tone: 'info', appearance: 'outlined', children: 'Beta' } },
+      { name: 'Info outlined', values: { tone: 'info', appearance: 'outlined', children: 'New' } },
       { name: 'Square tag', values: { tone: 'brand', radius: 'small', size: 'small', children: 'tokens' } },
     ],
     render: (props) => <Badge {...props} />,

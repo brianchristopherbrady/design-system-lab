@@ -135,7 +135,7 @@ export const primitiveDocs: ComponentDoc[] = [
     id: 'badge',
     purpose:
       'Badge labels status or category. A tone provides five roles (text, surface, border, solid, on-solid) and the appearance decides which of them become the background, foreground and border.',
-    whenToUse: ['Maturity, status and category labels.', 'Counts and short tags next to titles.'],
+    whenToUse: ['Status, category and tag labels.', 'Counts and short tags next to titles.'],
     whenNotToUse: ['Anything clickable: Badge is not interactive.', 'Long messages: use Alert.'],
     props: propsTable<BadgeOwnProps>({
       tone: { type: tone, defaultValue: '"neutral"', description: 'Color role from tone.* tokens.' },
@@ -153,7 +153,7 @@ export const primitiveDocs: ComponentDoc[] = [
       { prop: 'tone="info" appearance="outlined"', property: 'border-color', token: 'tone.info.border' },
       { prop: 'size="small"', property: 'min-block-size', token: 'badge.height.small' },
     ],
-    composition: ['MaturityBadge in the domain layer maps a maturity to a tone, so pages never choose status colors by hand.'],
+    composition: ['The appointment examples map each request status to a tone in one place (`appointmentStatusTones`), so screens never choose status colors by hand.'],
     states: ['None.'],
     accessibility: ['The label states the meaning; tone only repeats it.', 'Text on surface and on-solid on solid meet 4.5:1 in both themes.'],
     responsive: ['Badges do not wrap internally (white-space: nowrap); put them in an Inline so the group wraps.'],

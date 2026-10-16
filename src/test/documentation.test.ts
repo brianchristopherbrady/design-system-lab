@@ -110,7 +110,8 @@ describe('component docs agree with the implementation', () => {
   });
 });
 
-describe('maturity labels match their requirements', () => {
+// A documentation baseline for every component. Naming a component in a test is not evidence of its behavior.
+describe('every component meets the documentation baseline', () => {
   const walk = (dir: string): string[] =>
     readdirSync(dir, { withFileTypes: true }).flatMap((entry) => (entry.isDirectory() ? walk(join(dir, entry.name)) : [join(dir, entry.name)]));
   const tests = [...walk('src'), ...walk('e2e'), ...walk('scripts')]
@@ -122,9 +123,8 @@ describe('maturity labels match their requirements', () => {
     .map((file) => ({ file, text: readFileSync(file, 'utf8') }));
   const components = entriesOfKind('component');
 
-  it('documents keyboard, screen-reader and responsive behavior for beta and stable components', () => {
+  it('documents keyboard, screen-reader and responsive behavior for every component', () => {
     const missing = components
-      .filter((entry) => entry.maturity === 'beta' || entry.maturity === 'stable')
       .filter((entry) => {
         const doc = componentDocs.find((candidate) => candidate.id === entry.id);
         return !doc || doc.accessibility.length === 0 || doc.responsive.length === 0;
@@ -133,17 +133,15 @@ describe('maturity labels match their requirements', () => {
     expect(missing).toEqual([]);
   });
 
-  it('names every stable component in at least one automated test', () => {
+  it('names every component in at least one automated test', () => {
     const untested = components
-      .filter((entry) => entry.maturity === 'stable')
       .filter((entry) => !tests.some((text) => new RegExp(`\\b${entry.name}\\b`).test(text)))
       .map((entry) => entry.name);
     expect(untested).toEqual([]);
   });
 
-  it('uses every stable component somewhere other than its own documentation', () => {
+  it('uses every component somewhere other than its own documentation', () => {
     const unused = components
-      .filter((entry) => entry.maturity === 'stable')
       .filter((entry) => {
         const folder = entry.sourcePath.slice(0, entry.sourcePath.lastIndexOf('/'));
         return !usage.some(({ file, text }) => !file.startsWith(`${folder}/${entry.name}`) && file !== entry.sourcePath && new RegExp(`<${entry.name}\\b`).test(text));

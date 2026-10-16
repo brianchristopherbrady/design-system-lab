@@ -8,11 +8,11 @@ import { EntryCard } from './EntryCard';
 const button = catalog.find((entry) => entry.id === 'button')!;
 
 describe('EntryCard', () => {
-  it('links the title and states maturity in text', () => {
+  it('links the title and states the classification in text', () => {
     render(<EntryCard entry={button} href="/components/button" />);
     expect(screen.getByRole('heading', { level: 3, name: 'Button' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Button' })).toHaveAttribute('href', '/components/button');
-    expect(screen.getByText('Stable')).toBeInTheDocument();
+    expect(screen.getByText('Primitive component')).toBeInTheDocument();
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
@@ -33,11 +33,10 @@ describe('catalog data', () => {
     for (const event of activity) expect(ids).toContain(event.entryId);
   });
 
-  it('summarizes counts by kind and maturity', () => {
+  it('summarizes counts by kind', () => {
     const summary = summarizeCatalog(catalog);
     expect(summary.total).toBe(catalog.length);
     expect(Object.values(summary.byKind).reduce((total, count) => total + count, 0)).toBe(catalog.length);
-    expect(Object.values(summary.byMaturity).reduce((total, count) => total + count, 0)).toBe(catalog.length);
   });
 
   it('breaks the catalog total down by every resource type, design decisions included', () => {

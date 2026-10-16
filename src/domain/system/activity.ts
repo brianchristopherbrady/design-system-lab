@@ -1,5 +1,5 @@
-import type { CatalogEntry, EntryKind, Maturity } from './catalog';
-import { entryKinds, kindLabels, maturities } from './catalog';
+import type { CatalogEntry, EntryKind } from './catalog';
+import { entryKinds, kindLabels } from './catalog';
 
 export const activityKinds = ['added', 'changed', 'fixed', 'documented'] as const;
 export type ActivityKind = (typeof activityKinds)[number];
@@ -23,10 +23,10 @@ export interface ActivityEvent {
 
 /** The system's changelog, newest first. Fixed data, so every demo renders the same output. */
 export const activity: readonly ActivityEvent[] = [
-  { id: 'a23', entryId: 'activity-dashboard', kind: 'changed', summary: 'Activity dashboard is stable, with axe scans in both themes alongside its state tests.', date: '2026-10-08' },
-  { id: 'a22', entryId: 'resource-detail', kind: 'changed', summary: 'Resource detail is stable, with axe scans in both themes alongside its archive-failure tests.', date: '2026-10-08' },
-  { id: 'a21', entryId: 'theme-studio', kind: 'changed', summary: 'Theme studio is stable: shapes, presets, shareable links, gamut chart, color-vision checks and a complete six-part export.', date: '2026-10-08' },
-  { id: 'a20', entryId: 'products', kind: 'changed', summary: 'Products and modes is stable: a mode composer, a computed product diff, nested scopes, density measurements and an add-a-product guide.', date: '2026-10-08' },
+  { id: 'a23', entryId: 'activity-dashboard', kind: 'changed', summary: 'Activity dashboard gained axe scans in both themes alongside its state tests.', date: '2026-10-08' },
+  { id: 'a22', entryId: 'resource-detail', kind: 'changed', summary: 'Resource detail gained axe scans in both themes alongside its archive-failure tests.', date: '2026-10-08' },
+  { id: 'a21', entryId: 'theme-studio', kind: 'changed', summary: 'Theme studio gained shapes, presets, shareable links, a gamut chart, color-vision checks and a complete six-part export.', date: '2026-10-08' },
+  { id: 'a20', entryId: 'products', kind: 'changed', summary: 'Products and modes gained a mode composer, a computed product diff, nested scopes, density measurements and an add-a-product guide.', date: '2026-10-08' },
   { id: 'a19', entryId: 'theme-studio', kind: 'added', summary: 'Added the theme studio: OKLCH ramps, contrast-driven brand roles, WCAG 2 and APCA checks, DTCG export.', date: '2026-10-08' },
   { id: 'a18', entryId: 'theme-scope', kind: 'added', summary: 'Added ThemeScope, which re-themes a region by theme, product and density.', date: '2026-10-08' },
   { id: 'a17', entryId: 'products', kind: 'added', summary: 'Added product and density modifiers; the pipeline now emits dependency-minimal CSS for 12 permutations.', date: '2026-10-08' },
@@ -51,18 +51,13 @@ export const activity: readonly ActivityEvent[] = [
 export interface CatalogSummary {
   total: number;
   byKind: Record<EntryKind, number>;
-  byMaturity: Record<Maturity, number>;
 }
 
 /** Counts derived from the catalog. Nothing here is stored. */
 export function summarizeCatalog(entries: readonly CatalogEntry[]): CatalogSummary {
   const byKind = Object.fromEntries(entryKinds.map((kind) => [kind, 0])) as Record<EntryKind, number>;
-  const byMaturity = Object.fromEntries(maturities.map((maturity) => [maturity, 0])) as Record<Maturity, number>;
-  for (const entry of entries) {
-    byKind[entry.kind] += 1;
-    byMaturity[entry.maturity] += 1;
-  }
-  return { total: entries.length, byKind, byMaturity };
+  for (const entry of entries) byKind[entry.kind] += 1;
+  return { total: entries.length, byKind };
 }
 
 /** Every resource type with entries, largest first, worded as a count such as “4 design decisions”. */

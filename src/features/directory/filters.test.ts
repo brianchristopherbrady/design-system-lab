@@ -5,7 +5,7 @@ import { defaultFilters, filterEntries, hasActiveFilters, parseFilters, toSearch
 
 describe('directory filters', () => {
   it('round-trips through URL parameters and drops defaults', () => {
-    const filters = { query: 'focus', type: 'component', layer: 'Composite', maturity: 'beta' } as const;
+    const filters = { query: 'focus', type: 'component', layer: 'Composite' } as const;
     expect(parseFilters(toSearchParams(filters))).toEqual(filters);
     expect(toSearchParams(defaultFilters).toString()).toBe('');
   });
@@ -19,8 +19,9 @@ describe('directory filters', () => {
     expect(parseFilters(new URLSearchParams('layer=Decision&type=foundation'))).toEqual({ ...defaultFilters, type: 'foundation' });
   });
 
-  it('falls back to defaults for unknown values', () => {
-    expect(parseFilters(new URLSearchParams('layer=Widget&type=page&maturity=gold'))).toEqual(defaultFilters);
+  it('falls back to defaults for unknown values, and ignores the retired maturity filter', () => {
+    expect(parseFilters(new URLSearchParams('layer=Widget&type=page&maturity=beta'))).toEqual(defaultFilters);
+    expect(toSearchParams(parseFilters(new URLSearchParams('q=tabs&maturity=stable'))).toString()).toBe('q=tabs');
   });
 
   it('matches every term against name, summary, resource type, component layer and tags', () => {
@@ -29,8 +30,8 @@ describe('directory filters', () => {
     expect(filterEntries(catalog, { ...defaultFilters, query: 'design decision' }).every((entry) => entry.kind === 'decision')).toBe(true);
   });
 
-  it('combines query, resource type, component layer and maturity', () => {
-    const result = filterEntries(catalog, { query: 'status', type: 'component', layer: 'Primitive', maturity: 'stable' });
+  it('combines query, resource type and component layer', () => {
+    const result = filterEntries(catalog, { query: 'status', type: 'component', layer: 'Primitive' });
     expect(result.map((entry) => entry.id)).toEqual(['badge', 'progress']);
     expect(filterEntries(catalog, { ...defaultFilters, type: 'foundation' }).every((entry) => entry.kind === 'foundation')).toBe(true);
   });
