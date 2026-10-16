@@ -134,8 +134,8 @@ export function DecisionsIndex() {
         </div>
         <Note title="Not the same as this site’s product modes">
           <p>
-            <EvidenceBadge evidence="implemented" /> In this repository, Harbor and Meadow are product modes, not products. The
-            Product control in the header switches this same site between them, and each changes only presentation:
+            <EvidenceBadge evidence="implemented" /> In this repository, Harbor and Meadow are product profiles, not products.
+            They restyle scoped examples, such as the compositions on the Sharing page, and each changes only presentation:
           </p>
           <ul>
             <li>

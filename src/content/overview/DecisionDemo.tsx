@@ -1,8 +1,8 @@
 import { Fragment, useState, type ReactNode } from 'react';
-import { Card, Disclosure } from '@/design-system/composites';
-import { Stack, useThemeScope } from '@/design-system/layout';
-import { Button, Heading, Text, VisuallyHidden } from '@/design-system/primitives';
-import { productNames, tokenValueIn, type TokenPath } from '@/design-system/tokens';
+import { Card, Disclosure, Field } from '@/design-system/composites';
+import { Stack, ThemeScope, useThemeScope } from '@/design-system/layout';
+import { Button, Heading, Select, Text, VisuallyHidden } from '@/design-system/primitives';
+import { productNames, tokenValueIn, type ProductName, type TokenPath } from '@/design-system/tokens';
 import { tokenManifest, type TokenRecord } from '@/design-system/tokens/manifest';
 import { productProfiles } from '@/domain/system';
 import { Prose, TokenChain, TokenSwatch, contextLabel } from '@/features/docs';
@@ -55,20 +55,34 @@ function Step({ number, title, children }: { number: number; title: string; chil
 }
 
 /**
- * One real chain, read from the token manifest for the Product, Theme and Density in effect:
- * a semantic decision, the Button token that aliases it, and the live Button that paints it.
+ * One real chain, read from the token manifest for the site's theme and a product profile chosen
+ * here: a semantic decision, the Button token that aliases it, and the live Button that paints it.
+ * The profile scopes only this demonstration.
  */
 export function DecisionDemo() {
-  const scope = useThemeScope();
+  const site = useThemeScope();
+  const [product, setProduct] = useState<ProductName>(site.product);
   const [presses, setPresses] = useState(0);
+  const scope = { ...site, product };
   const value = tokenValueIn(decision, scope);
   const background = tokenValueIn(buttonBackground, scope);
   const height = tokenValueIn(buttonHeight, scope);
 
   return (
     <div className={styles.demo}>
+      <Field label="Product profile" description="Applies only to this demonstration. The rest of the site keeps its own profile.">
+        {(control) => (
+          <Select {...control} value={product} onChange={(event) => setProduct(event.target.value as ProductName)}>
+            {productNames.map((name) => (
+              <option key={name} value={name}>
+                {productProfiles[name].name}
+              </option>
+            ))}
+          </Select>
+        )}
+      </Field>
       <Text variant="bodySmall" tone="muted">
-        Values below are read from the token manifest for this page’s current settings: {contextLabel(scope)}.
+        Values below are read from the token manifest for {contextLabel(scope)}.
       </Text>
       <Stack as="ol" gap="medium" aria-label="From a design decision to a working interface">
         <Step number={1} title="A design decision sets the primary action’s color">
@@ -98,14 +112,14 @@ export function DecisionDemo() {
             Button’s stylesheet names no color. Its primary appearance reads Button’s own component token, which points
             to the decision above. Its height reads a control size that the Density setting changes.
           </Text>
-          <div className={styles.specimen}>
+          <ThemeScope product={product} className={styles.specimen}>
             <Button appearance="primary" onClick={() => setPresses((count) => count + 1)}>
               Save changes
             </Button>
             <Text variant="bodySmall" tone="muted" role="status">
               {presses === 0 ? 'Not pressed yet.' : `Pressed ${presses} ${presses === 1 ? 'time' : 'times'}.`}
             </Text>
-          </div>
+          </ThemeScope>
           <dl className={styles.facts}>
             <div>
               <dt>Background</dt>
@@ -141,9 +155,9 @@ export function DecisionDemo() {
 
         <Step number={4} title="A product profile changes the presentation, not the behavior">
           <Text variant="bodySmall">
-            Change the Product control in the header (under Display on small screens). The decision maps to a different
-            value in each product, while Button’s markup, keyboard behavior and accessible name stay the same. Press the
-            button first: the count survives the switch, because only styles change.
+            Choose another product profile at the top of this demonstration. The decision maps to a different value in
+            each product, while Button’s markup, keyboard behavior and accessible name stay the same. Press the button
+            first: the count survives the switch, because only styles change. The rest of the site keeps its own profile.
           </Text>
           <Prose>
             <table>
@@ -155,13 +169,13 @@ export function DecisionDemo() {
                 </tr>
               </thead>
               <tbody>
-                {productNames.map((product) => {
-                  const current = product === scope.product;
-                  const resolved = tokenValueIn(decision, { ...scope, product }).resolved;
+                {productNames.map((name) => {
+                  const current = name === scope.product;
+                  const resolved = tokenValueIn(decision, { ...scope, product: name }).resolved;
                   return (
-                    <tr key={product} aria-current={current || undefined} className={current ? styles.currentRow : undefined}>
+                    <tr key={name} aria-current={current || undefined} className={current ? styles.currentRow : undefined}>
                       <th scope="row">
-                        {productProfiles[product].name}
+                        {productProfiles[name].name}
                         {current && <span> (current)</span>}
                       </th>
                       <td>
@@ -178,9 +192,11 @@ export function DecisionDemo() {
           </Prose>
         </Step>
       </Stack>
-      <Disclosure summary="Full trace, including the value this browser computes" lazy>
-        <TokenChain path="button.primary.background" />
-      </Disclosure>
+      <ThemeScope product={product}>
+        <Disclosure summary="Full trace, including the value this browser computes" lazy>
+          <TokenChain path="button.primary.background" />
+        </Disclosure>
+      </ThemeScope>
     </div>
   );
 }

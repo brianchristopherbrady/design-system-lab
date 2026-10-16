@@ -139,7 +139,7 @@ export function ComponentReference({ entry, doc, playgroundHref }: ComponentRefe
           <p>
             Derived from this component’s own source files, not listed by hand: <code>var()</code> reads in its stylesheet
             and the prop vocabularies its code calls. Values are for the context this page is rendered in; change the
-            product, theme or density in the header to compare.
+            theme in the header to compare.
           </p>
         </Prose>
         <TokensRead sourcePaths={doc.sourcePaths} />

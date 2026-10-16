@@ -38,11 +38,10 @@ Router, Vitest and jsdom require Node 22: upgrade Node first, then those package
 | Key | Shape | Owner |
 | --- | --- | --- |
 | `system-lab:theme` | `"light"` or `"dark"` (absent means system) | `src/app/providers/ThemeProvider.tsx` |
-| `system-lab:product` | `"system-lab"`, `"harbor"` or `"meadow"` (absent means system-lab) | `src/app/providers/ThemeProvider.tsx` |
-| `system-lab:density` | `"comfortable"` or `"compact"` (absent means comfortable) | `src/app/providers/ThemeProvider.tsx` |
 
-Nothing else is stored. Demo pins, archives and form submissions live in component state and reset
-with the demo.
+Nothing else is stored. `system-lab:product` and `system-lab:density`, saved when the header also
+chose a product and density, are removed on load so an old choice cannot restyle the site. Demo pins,
+archives and form submissions live in component state and reset with the demo.
 
 ## Fixtures
 

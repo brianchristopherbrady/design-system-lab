@@ -192,8 +192,10 @@ test.describe('design decisions', () => {
     await page.goto('/decisions/adoption#tokens');
     const radius = page.locator('#tokens tbody tr', { hasText: 'button.radius' }).locator('td').nth(1);
     await expect(radius).toHaveText('4px');
-    await page.evaluate(() => (document.documentElement.dataset.product = 'harbor'));
-    await expect(radius).toHaveText('2px');
+    const background = page.locator('#tokens tbody tr', { hasText: 'button.primary.background' }).locator('td').nth(1);
+    const light = (await background.textContent()) ?? '';
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
+    await expect(background).not.toHaveText(light);
 
     await page.goto('/decisions/adoption#replace');
     await page.getByRole('switch', { name: 'Saving' }).check();

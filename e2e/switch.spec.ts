@@ -67,10 +67,11 @@ async function expectState(input: Locator, changes: () => Promise<number>, on: b
   expect(await changes()).toBe(count);
 }
 
+/** Compact density exists only in scoped previews, so that mode uses the Playground's Switch story. */
 const modes = [
-  { name: 'light, comfortable', theme: 'light', density: 'comfortable', forcedColors: 'none' },
-  { name: 'dark, compact', theme: 'dark', density: 'compact', forcedColors: 'none' },
-  { name: 'forced colors', theme: 'light', density: 'comfortable', forcedColors: 'active' },
+  { name: 'light, comfortable', theme: 'light', path: '/components/switch', forcedColors: 'none' },
+  { name: 'dark, compact', theme: 'dark', path: '/playground?component=switch&v=1&preview.density=compact', forcedColors: 'none' },
+  { name: 'forced colors', theme: 'light', path: '/components/switch', forcedColors: 'active' },
 ] as const;
 
 test.describe('Switch pointer interaction', () => {
@@ -79,11 +80,8 @@ test.describe('Switch pointer interaction', () => {
       test.use({ forcedColors: mode.forcedColors });
 
       test('the thumb and the track toggle in both states, once per click', async ({ page }) => {
-        await page.addInitScript(({ theme, density }) => {
-          localStorage.setItem('system-lab:theme', theme);
-          localStorage.setItem('system-lab:density', density);
-        }, mode);
-        await page.goto('/components/switch');
+        await page.addInitScript((theme) => localStorage.setItem('system-lab:theme', theme), mode.theme);
+        await page.goto(mode.path);
         // A controlled switch: it only stays toggled if its change callback updates state.
         const input = page.getByRole('main').getByRole('switch', { name: 'Compact rows' });
         const changes = await countChanges(input);

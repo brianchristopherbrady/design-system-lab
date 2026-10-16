@@ -17,7 +17,7 @@ export function PlaygroundPage() {
       title="Playground"
       eyebrow="Design system"
       width="wide"
-      description="Choose a component, edit its props and copy the code. Header settings restyle the whole site; preview settings change only the example."
+      description="Choose a component, edit its props and copy the code. The header’s theme applies to the whole site; preview settings change only the example."
     >
       {playground.config && (
         <Playground

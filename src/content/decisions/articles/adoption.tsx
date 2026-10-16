@@ -187,7 +187,7 @@ export const adoption: Decision = {
         {
           kind: 'visual',
           evidence: ['hypothetical', 'implemented'],
-          caption: 'Harbor’s values are invented; the tokens and the values in the third column are real, measured from the two buttons above. Switch product, theme or density in the header and they update.',
+          caption: 'Harbor’s values are invented; the tokens and the values in the third column are real, measured from the two buttons above. Switch the theme in the header and they update.',
           Visual: TokenMapping,
         },
       ],

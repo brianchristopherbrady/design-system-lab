@@ -79,19 +79,18 @@ test.describe('playground', () => {
     await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
     await expect(context).toContainText('Meadow');
     await expect(context).toContainText('Overrides product');
-    await expect(page.getByRole('combobox', { name: 'Product', exact: true })).toHaveValue('system-lab');
+    await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
 
-    await page.getByRole('combobox', { name: 'Density', exact: true }).selectOption('compact');
-    await expect(preview).toHaveAttribute('data-density', 'compact');
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
+    await expect(preview).toHaveAttribute('data-theme', 'dark');
     await expect(preview).toHaveAttribute('data-product', 'meadow');
-    await expect(context).toContainText('Compact');
+    await expect(context).toContainText('Dark');
   });
 
   test('ThemeScope props override the preview, and unset ones inherit it', async ({ page }) => {
     await page.goto('/playground?component=theme-scope');
     const preview = page.getByTestId('playground-preview');
     const scope = preview.locator('[data-product]').first();
-    await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption('harbor');
     await openPreviewSettings(page);
     await page.getByRole('combobox', { name: 'Preview product' }).selectOption('meadow');
     await expect(preview).toHaveAttribute('data-product', 'meadow');
@@ -100,7 +99,7 @@ test.describe('playground', () => {
     await page.getByRole('combobox', { name: 'product', exact: true }).selectOption('');
     await expect(scope).toHaveAttribute('data-product', 'meadow');
     const chain = page.getByRole('table', { name: 'Where ThemeScope gets each setting' });
-    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Harbor');
+    await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Design System Lab');
     await expect(chain.getByRole('row', { name: /^product/ })).toContainText('Meadow from preview');
     await expect(page.getByTestId('playground-snippet')).not.toContainText('product=');
   });

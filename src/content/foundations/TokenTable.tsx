@@ -1,5 +1,5 @@
 import { useId, type ReactNode } from 'react';
-import { themeNames, tokenValueIn, type TokenPath } from '@/design-system/tokens';
+import { modifierDefaults, themeNames, tokenValueIn, type TokenPath } from '@/design-system/tokens';
 import { tokenManifest } from '@/design-system/tokens/manifest';
 import { ScrollRegion, useThemeScope } from '@/design-system/layout';
 import { densityLabels, productProfiles } from '@/domain/system';
@@ -21,14 +21,16 @@ export interface TokenTableProps {
 
 /**
  * Tokens with their authored and resolved values, read from the generated manifest for the product and
- * density in effect. Light and Dark columns appear only when a token in the table varies by theme.
+ * density in effect, which the caption names inside a scope other than the site's own. Light and Dark
+ * columns appear only when a token in the table varies by theme.
  */
 export function TokenTable({ caption, paths, preview }: TokenTableProps) {
   const captionId = useId();
   const scope = useThemeScope();
   const records = paths.flatMap((path) => byPath.get(path) ?? []);
   const themes = records.some((record) => record.dependsOn.includes('theme')) ? themeNames : null;
-  const contextual = records.some((record) => record.dependsOn.some((name) => name !== 'theme'));
+  const scoped = scope.product !== modifierDefaults.product || scope.density !== modifierDefaults.density;
+  const contextual = scoped && records.some((record) => record.dependsOn.some((name) => name !== 'theme'));
   return (
     <ScrollRegion aria-labelledby={captionId}>
       <table className={styles.table}>

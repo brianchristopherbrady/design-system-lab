@@ -75,7 +75,7 @@ test.describe('playground configuration', () => {
   test('a copied link reproduces the example in a fresh browser without changing its site settings', async ({ page, browser }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await configureButton(page);
-    await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption('harbor');
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('light');
     await page.getByRole('button', { name: 'Copy example link' }).click();
     await expect(page.getByRole('status').filter({ hasText: 'Example link copied.' })).toBeVisible();
     const link = await page.evaluate(() => navigator.clipboard.readText());
@@ -85,23 +85,22 @@ test.describe('playground configuration', () => {
     const other = await visitor.newPage();
     await other.goto(link);
     await expectConfiguredButton(other);
-    await expect(other.getByRole('combobox', { name: 'Product', exact: true })).toHaveValue('system-lab');
     await expect(other.getByRole('combobox', { name: 'Theme', exact: true })).toHaveValue('system');
-    await expect(other.getByRole('combobox', { name: 'Density', exact: true })).toHaveValue('comfortable');
+    await expect(other.locator('html')).toHaveAttribute('data-product', 'system-lab');
+    await expect(other.locator('html')).toHaveAttribute('data-density', 'comfortable');
     await visitor.close();
   });
 
   test('a link from an inherited preview captures its appearance but leaves the author inheriting', async ({ page }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.goto('/playground?component=theme-scope');
-    await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption('meadow');
-    await page.getByRole('combobox', { name: 'Density', exact: true }).selectOption('compact');
+    await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption('dark');
     await page.getByRole('combobox', { name: 'product', exact: true }).selectOption('');
     await page.getByRole('button', { name: 'Copy example link' }).click();
     const link = new URL(await page.evaluate(() => navigator.clipboard.readText()));
-    expect(link.searchParams.get('preview.product')).toBe('meadow');
-    expect(link.searchParams.get('preview.theme')).toBe('light');
-    expect(link.searchParams.get('preview.density')).toBe('compact');
+    expect(link.searchParams.get('preview.product')).toBe('system-lab');
+    expect(link.searchParams.get('preview.theme')).toBe('dark');
+    expect(link.searchParams.get('preview.density')).toBe('comfortable');
     // The ThemeScope prop stays unset, so it keeps inheriting from the captured preview.
     expect(link.searchParams.get('p.product')).toBe('');
 

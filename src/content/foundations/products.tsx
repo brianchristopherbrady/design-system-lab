@@ -550,7 +550,8 @@ function ProductsContent() {
           <p>
             Pick one context per modifier to land on one of the {permutationCount} permutations. The preview is a single
             ThemeScope; the table lists what a few tokens resolve to here and the selector each one was declared under.
-            It starts from this site’s own display settings.
+            It starts from this site’s own settings: the Design System Lab profile, comfortable density and the theme in
+            effect.
           </p>
         </Prose>
         <ModeComposer />
@@ -718,7 +719,8 @@ function ProductsContent() {
             <span className={styles.stepTitle}>Build and verify</span>
             <Text variant="bodySmall" tone="muted">
               <code>npm run tokens</code> regenerates CSS, types and the manifest. <code>npm test</code> runs the contrast
-              suite for the new product in both themes, and the header’s Product setting offers it immediately.
+              suite for the new product in both themes, and the product cards and mode composer on this page offer it
+              immediately.
             </Text>
           </li>
         </ol>

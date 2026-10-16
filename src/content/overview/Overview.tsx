@@ -168,8 +168,8 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
         <Prose>
           <p>
             One real chain from this system: a named decision, the component that uses it, a pattern built from that
-            component, and a product profile that restyles it. The values follow the Product, Theme and Density controls in
-            the header.
+            component, and a product profile that restyles it. The values follow the theme set in the header and the
+            product profile chosen in the demonstration.
           </p>
         </Prose>
         <Suspense fallback={<Skeleton shape="block" size="large" />}>
@@ -256,15 +256,15 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
         </Prose>
         <Note title="Try it">
           <p>
-            Change the Product control above to see the same components use a different product profile. On small screens
-            it is under Display.
+            Choose a product profile in the demonstration above to see the same components use a different one. The Products
+            and modes foundation and the Playground preview compare them too.
           </p>
           <p>
             Harbor and Meadow are example product profiles for different product contexts. Harbor stands for{' '}
             {harbor.audience.charAt(0).toLowerCase() + harbor.audience.slice(1)} Meadow stands for{' '}
-            {meadow.audience.charAt(0).toLowerCase() + meadow.audience.slice(1)} Switching profiles restyles this same site
-            through its tokens: colors, typefaces and corner shapes change, while the name, logo and content stay. It does
-            not open a separate application.
+            {meadow.audience.charAt(0).toLowerCase() + meadow.audience.slice(1)} A profile restyles only the region it is
+            applied to, through its tokens: colors, typefaces and corner shapes change, while content and behavior stay.
+            The site itself always keeps its own profile.
           </p>
         </Note>
         <Prose>
@@ -277,8 +277,8 @@ export function OverviewContent({ author }: { author: OverviewAuthor }) {
             <li>Token tables, alias chains and contrast ratios are rendered from the generated token manifest.</li>
             <li>Props tables are typed against the components’ own props, and source panels load the real files, so the code shown is the code that runs.</li>
             <li>
-              The Product, Theme and Density controls set attributes on the page. No component knows which one is active;
-              the change happens in CSS custom properties.
+              The Theme control sets an attribute on the page; product profiles and densities are set on the regions that
+              preview them. No component knows which one is active; the change happens in CSS custom properties.
             </li>
           </ul>
         </Prose>

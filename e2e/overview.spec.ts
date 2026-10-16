@@ -74,29 +74,29 @@ test.describe('overview', () => {
     await expect(header.getByRole('link', { name: 'Case study' })).toHaveAttribute('href', 'https://brianbrady.dev/projects/system-lab.html');
   });
 
-  test('the demonstration reports what the live Button paints in every product, theme and density', async ({ page }) => {
+  test('the demonstration reports what the live Button paints in each product profile and theme, without restyling the site', async ({ page }) => {
     await page.goto('/');
     const demo = demoList(page);
     const button = demo.getByRole('button', { name: 'Save changes' });
     await button.click();
     await expect(demo.getByRole('status')).toHaveText('Pressed 1 time.');
 
-    for (const [product, theme, density] of [
-      ['system-lab', 'light', 'comfortable'],
-      ['harbor', 'light', 'comfortable'],
-      ['meadow', 'dark', 'compact'],
+    for (const [product, theme] of [
+      ['system-lab', 'light'],
+      ['harbor', 'light'],
+      ['meadow', 'dark'],
     ] as const) {
-      await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption(product);
+      await page.getByRole('combobox', { name: 'Product profile' }).selectOption(product);
       await page.getByRole('combobox', { name: 'Theme', exact: true }).selectOption(theme);
-      await page.getByRole('combobox', { name: 'Density', exact: true }).selectOption(density);
-      await expect(page.locator('html')).toHaveAttribute('data-product', product);
+      await expect(demo.locator('[data-product]').first()).toHaveAttribute('data-product', product);
+      await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
       // The background transitions, so wait for the painted color to settle on the reported one.
       await expect.poll(async () => {
         const reading = await readDemo(page);
         return reading.painted === reading.reported;
       }, { message: `${product} ${theme}` }).toBe(true);
       const reading = await readDemo(page);
-      expect(parseFloat(reading.height) * reading.rootFontSize, `${density} height`).toBeCloseTo(reading.paintedHeight, 0);
+      expect(parseFloat(reading.height) * reading.rootFontSize, `${product} height`).toBeCloseTo(reading.paintedHeight, 0);
     }
 
     // Only styles changed, so the component kept its state.

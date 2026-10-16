@@ -144,7 +144,7 @@ function TokensContent() {
           title="Alias chain in this context"
           kind="recommended"
           showHtml={false}
-          description="Choose a component token to follow it to a reference value for the product, theme and density set in the header, then compare the authored, resolved and computed readings."
+          description="Choose a component token to follow it to a reference value for the theme set in the header, then compare the authored, resolved and computed readings."
           controls={
             <Field label="Token">
               {(control) => (

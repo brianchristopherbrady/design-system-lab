@@ -18,7 +18,7 @@ const chain = [
   },
   {
     stage: 'Validation',
-    text: '`check-styles.mjs` (run by lint) and the [token pipeline and policy tests](/foundations/tokens#source) fail when a rule breaks; [What this project checks](/decisions/operating#checked) lists every check. To see the result, switch **Product** in the header or compare [Products × themes](/foundations/products#matrix): every component restyles without a code change.',
+    text: '`check-styles.mjs` (run by lint) and the [token pipeline and policy tests](/foundations/tokens#source) fail when a rule breaks; [What this project checks](/decisions/operating#checked) lists every check. To see the result, compare [Products × themes](/foundations/products#matrix): every component restyles without a code change.',
   },
 ] as const;
 

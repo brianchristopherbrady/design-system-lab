@@ -37,9 +37,10 @@ Sections:
   product modes this site implements. Material is labelled implemented, hypothetical, proposed or
   conceptual.
 
-The header switches the whole site between products (Design System Lab, Harbor, Meadow), themes and
-densities. A product changes brand colors, typefaces and corner shapes, not the site's name, logo or
-content; nothing in a component knows which one is active.
+The header's only appearance setting is the theme: System, Light or Dark. Product profiles (Design
+System Lab, Harbor, Meadow) and densities are applied to the examples that show them, such as Products
+and modes, the Playground preview and the Sharing compositions, never to the site itself. A product
+changes brand colors, typefaces and corner shapes; nothing in a component knows which one is active.
 
 ## Run it
 

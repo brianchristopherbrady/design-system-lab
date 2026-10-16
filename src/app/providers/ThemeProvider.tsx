@@ -1,34 +1,36 @@
-import { createContext, useContext, useLayoutEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { ThemeScopeProvider } from '@/design-system/layout';
-import {
-  densityNames,
-  modifierDefaults,
-  productNames,
-  type DensityName,
-  type ModifierInput,
-  type ProductName,
-  type ThemeName,
-} from '@/design-system/tokens';
+import { modifierDefaults, type ModifierInput, type ThemeName } from '@/design-system/tokens';
 
 export type ThemePreference = 'system' | ThemeName;
 
-const keys = { theme: 'system-lab:theme', product: 'system-lab:product', density: 'system-lab:density' } as const;
+const themeKey = 'system-lab:theme';
+/** Saved when the header also chose a product and density; removed so an old choice cannot restyle the site. */
+const retiredKeys = ['system-lab:product', 'system-lab:density'] as const;
 
-function read<T extends string>(key: string, allowed: readonly T[], fallback: T): T {
+function readPreference(): ThemePreference {
   try {
-    const stored = window.localStorage.getItem(key);
-    return allowed.includes(stored as T) ? (stored as T) : fallback;
+    const stored = window.localStorage.getItem(themeKey);
+    return stored === 'light' || stored === 'dark' ? stored : 'system';
   } catch {
-    return fallback;
+    return 'system';
   }
 }
 
-function write(key: string, value: string, fallback: string) {
+function writePreference(preference: ThemePreference) {
   try {
-    if (value === fallback) window.localStorage.removeItem(key);
-    else window.localStorage.setItem(key, value);
+    if (preference === 'system') window.localStorage.removeItem(themeKey);
+    else window.localStorage.setItem(themeKey, preference);
   } catch {
     // Storage unavailable: the choice still applies for this visit.
+  }
+}
+
+function forgetRetiredSettings() {
+  try {
+    for (const key of retiredKeys) window.localStorage.removeItem(key);
+  } catch {
+    // Storage unavailable: nothing was saved.
   }
 }
 
@@ -43,27 +45,24 @@ const systemTheme = (): ThemeName => (window.matchMedia?.(darkQuery).matches ? '
 interface ThemeValue {
   preference: ThemePreference;
   setPreference: (preference: ThemePreference) => void;
-  product: ProductName;
-  setProduct: (product: ProductName) => void;
-  density: DensityName;
-  setDensity: (density: DensityName) => void;
-  /** The modifiers actually applied to the page. */
-  resolved: ModifierInput;
 }
 
 const ThemeContext = createContext<ThemeValue | null>(null);
 
+/** The site always uses its own product profile and documentation density; examples scope their own. */
+const { product, density } = modifierDefaults;
+
 /**
- * Application-level theme, product and density. Writes all three attributes on `<html>` (the
- * generated CSS needs every modifier present on a scope), resolving "system" through
- * prefers-color-scheme, and publishes them to ThemeScope so nested scopes can inherit.
+ * The site's theme preference, resolving "system" through prefers-color-scheme. Writes all three
+ * modifier attributes on `<html>` (the generated CSS needs every modifier present on a scope) and
+ * publishes them to ThemeScope so nested scopes can inherit.
  */
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [preference, setPreference] = useState<ThemePreference>(() => read(keys.theme, ['light', 'dark'], 'system'));
-  const [product, setProduct] = useState<ProductName>(() => read(keys.product, productNames, modifierDefaults.product));
-  const [density, setDensity] = useState<DensityName>(() => read(keys.density, densityNames, modifierDefaults.density));
+  const [preference, setPreference] = useState<ThemePreference>(readPreference);
   const system = useSyncExternalStore(subscribeToScheme, systemTheme, () => modifierDefaults.theme);
   const theme = preference === 'system' ? system : preference;
+
+  useEffect(forgetRetiredSettings, []);
 
   // Layout effect: apply before the browser paints, so the page never flashes another theme.
   useLayoutEffect(() => {
@@ -71,16 +70,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     root.dataset.theme = theme;
     root.dataset.product = product;
     root.dataset.density = density;
-    write(keys.theme, preference, 'system');
-    write(keys.product, product, modifierDefaults.product);
-    write(keys.density, density, modifierDefaults.density);
-  }, [theme, preference, product, density]);
+    writePreference(preference);
+  }, [theme, preference]);
 
-  const resolved = useMemo<ModifierInput>(() => ({ theme, product, density }), [theme, product, density]);
-  const value = useMemo(
-    () => ({ preference, setPreference, product, setProduct, density, setDensity, resolved }),
-    [preference, product, density, resolved],
-  );
+  const resolved = useMemo<ModifierInput>(() => ({ theme, product, density }), [theme]);
+  const value = useMemo(() => ({ preference, setPreference }), [preference]);
   return (
     <ThemeContext value={value}>
       <ThemeScopeProvider value={resolved}>{children}</ThemeScopeProvider>

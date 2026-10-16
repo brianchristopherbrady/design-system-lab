@@ -12,7 +12,7 @@ export const sharing: Decision = {
       'One component tree serves every product mode. A product changes brand colors, typefaces and corner radii through tokens, density changes sizes, and no component is forked or restyled per product.',
     constraint: 'Share behavior only where it is genuinely the same, and let tokens carry what varies, so one fix reaches every product mode.',
     tryIt: {
-      text: 'Submit “abc” in both compositions below: the same message and error wiring, in two different presentations. Then change the Product control in the header and watch this whole site restyle.',
+      text: 'Submit “abc” in both compositions below: the same message and error wiring, in two different presentations. Then compare every product and theme side by side in Products and modes.',
       links: [
         { label: 'Two compositions', href: '/decisions/sharing#compositions' },
         { label: 'Products × themes', href: '/foundations/products#matrix' },
@@ -236,7 +236,7 @@ export const sharing: Decision = {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'The header switches this site between three product modes (Design System Lab, Harbor and Meadow), light and dark themes, and comfortable and compact density. One token source drives all twelve combinations, and no component knows which one is active.',
+            'This site has three product profiles (Design System Lab, Harbor and Meadow), light and dark themes, and comfortable and compact density. One token source drives all twelve combinations, and no component knows which one is active. The site itself always uses its own profile; the other profiles are applied only to the examples that show them, such as the compositions above.',
             'Here Harbor and Meadow are presentation modes only; the scenario borrows their names. They demonstrate **configurable presentation**: brand colors, typefaces, shape and density vary without forking components. They do not show that a guided consumer product and a dense professional application should share workflows or component behavior. That needs evidence from their users and a pilot.',
           ],
         },

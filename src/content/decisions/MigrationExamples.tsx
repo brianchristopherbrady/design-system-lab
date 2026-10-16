@@ -44,9 +44,9 @@ export function TokenMapping() {
       if (primary.current && disabled.current) setMeasured({ primary: getComputedStyle(primary.current), disabled: getComputedStyle(disabled.current) });
     };
     measure();
-    // The header's theme, product and density controls change these attributes on the root element.
+    // The header's theme setting changes data-theme on the root element.
     const observer = new MutationObserver(measure);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-product', 'data-density'] });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     return () => observer.disconnect();
   }, []);
 

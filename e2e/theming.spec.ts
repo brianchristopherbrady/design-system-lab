@@ -4,39 +4,25 @@ import { expectNoAxeViolations } from './axe';
 const background = (locator: Locator) =>
   locator.evaluate((element) => getComputedStyle(element).backgroundColor);
 const fontFamily = (locator: Locator) => locator.evaluate((element) => getComputedStyle(element).fontFamily);
-const signal = (locator: Locator) => locator.evaluate((element) => getComputedStyle(element, '::after').backgroundColor);
 
 test.describe('products and modes', () => {
-  test('the header product and density selects re-theme the site and persist', async ({ page }) => {
+  test('the header sets only the theme, and an old saved product or density no longer restyles the site', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem('system-lab:product', 'harbor');
+      localStorage.setItem('system-lab:density', 'compact');
+    });
     await page.goto('/components/button');
     const html = page.locator('html');
     await expect(html).toHaveAttribute('data-product', 'system-lab');
     await expect(html).toHaveAttribute('data-density', 'comfortable');
+    expect(await fontFamily(page.getByRole('heading', { level: 1 }))).toMatch(/^"Jost Variable"/);
 
-    const primary = page.getByRole('main').getByRole('button', { name: 'Save changes' }).first();
-    const heading = page.getByRole('heading', { level: 1 });
-    const wordmark = page.getByRole('banner').getByRole('link', { name: 'Design System Lab' }).locator('span').last();
-    const current = page.getByRole('navigation', { name: 'Sections' }).locator('[aria-current]');
-    const before = { color: await background(primary), height: (await primary.boundingBox())!.height, signal: await signal(current) };
-    expect(await fontFamily(heading)).toMatch(/^"Jost Variable"/);
-
-    await page.getByRole('combobox', { name: 'Product' }).selectOption('harbor');
-    await page.getByRole('combobox', { name: 'Density' }).selectOption('compact');
-    await expect(html).toHaveAttribute('data-product', 'harbor');
-    await expect(html).toHaveAttribute('data-density', 'compact');
-    expect(await background(primary)).not.toBe(before.color);
-    expect((await primary.boundingBox())!.height).toBeLessThan(before.height);
-    expect(await fontFamily(heading)).toMatch(/^"IBM Plex Sans Variable"/);
-    expect(await fontFamily(primary)).toMatch(/^"IBM Plex Sans Variable"/);
-    // Controls inherit the x-height normalization rather than resetting it with `font: inherit`.
-    expect(await primary.evaluate((element) => getComputedStyle(element).fontSizeAdjust)).toBe('0.46');
-    expect(await fontFamily(wordmark)).toMatch(/^"Jost Variable"/);
-    expect(await signal(current)).not.toBe(before.signal);
-
-    await page.reload();
-    await expect(html).toHaveAttribute('data-product', 'harbor');
-    await expect(html).toHaveAttribute('data-density', 'compact');
-    await expect(page.getByRole('combobox', { name: 'Product' })).toHaveValue('harbor');
+    const banner = page.getByRole('banner');
+    await expect(banner.getByRole('combobox')).toHaveCount(1);
+    await expect(banner.getByRole('combobox', { name: 'Theme' })).toHaveValue('system');
+    await expect
+      .poll(() => page.evaluate(() => [localStorage.getItem('system-lab:product'), localStorage.getItem('system-lab:density')]))
+      .toEqual([null, null]);
   });
 
   test('the matrix renders every product and theme combination from tokens alone', async ({ page }) => {
@@ -92,17 +78,13 @@ test.describe('products and modes', () => {
 
   for (const product of ['harbor', 'meadow'] as const) {
     for (const colorScheme of ['light', 'dark'] as const) {
-      test(`axe scan with the ${product} product in the ${colorScheme} theme`, async ({ page }) => {
+      test(`axe scan of ${product} previews in the ${colorScheme} theme`, async ({ page }) => {
         test.slow();
         await page.emulateMedia({ colorScheme });
-        await page.addInitScript((value) => localStorage.setItem('system-lab:product', value), product);
-        for (const [path, ready] of [
-          ['/components/button', 'From prop to token'],
-          ['/patterns/resource-directory', 'System directory'],
-        ] as const) {
-          await page.goto(path);
-          await expect(page.getByRole('heading', { name: ready }).first()).toBeVisible();
-          await expect(page.locator('html')).toHaveAttribute('data-product', product);
+        for (const component of ['button', 'card', 'input']) {
+          await page.goto(`/playground?component=${component}&v=1&preview.product=${product}`);
+          await expect(page.getByTestId('playground-preview')).toHaveAttribute('data-product', product);
+          await expect(page.locator('html')).toHaveAttribute('data-product', 'system-lab');
           await expectNoAxeViolations(page);
         }
       });
@@ -119,7 +101,8 @@ test.describe('theme studio', () => {
 
     await input.fill('#f5d90a');
     await expect(page.getByRole('status').filter({ hasText: 'WCAG' })).toContainText('All 20 brand pairs pass');
-    expect(await background(preview.getByRole('button', { name: 'Publish' }).first())).not.toBe(before);
+    // The button's background transitions, so wait for it to move off the old brand.
+    await expect.poll(() => background(preview.getByRole('button', { name: 'Publish' }).first())).not.toBe(before);
     await expect(page).toHaveURL(/brand=f5d90a/);
 
     await page.getByRole('textbox', { name: 'Product id' }).fill('sunrise');

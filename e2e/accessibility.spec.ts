@@ -65,17 +65,8 @@ test.describe('keyboard and focus', () => {
   test('tab order follows the visual order of the shell', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto('/');
-    const names: string[] = [];
-    for (let index = 0; index < 11; index += 1) {
-      await page.keyboard.press('Tab');
-      names.push(
-        await page.evaluate(() => {
-          const element = document.activeElement as HTMLElement & { labels?: NodeListOf<HTMLLabelElement> };
-          return element.labels?.[0]?.textContent ?? element.textContent?.trim() ?? '';
-        }),
-      );
-    }
-    expect(names).toEqual([
+    // The shell, then the first link in the page introduction.
+    const expected = [
       'Skip to main content',
       'Design System Lab',
       'Overview',
@@ -84,10 +75,20 @@ test.describe('keyboard and focus', () => {
       'Playground',
       'Patterns',
       'Design decisions',
-      'Product',
       'Theme',
-      'Density',
-    ]);
+      'Brian Brady',
+    ];
+    const names: string[] = [];
+    for (let index = 0; index < expected.length; index += 1) {
+      await page.keyboard.press('Tab');
+      names.push(
+        await page.evaluate(() => {
+          const element = document.activeElement as HTMLElement & { labels?: NodeListOf<HTMLLabelElement> };
+          return element.labels?.[0]?.textContent ?? element.textContent?.trim() ?? '';
+        }),
+      );
+    }
+    expect(names).toEqual(expected);
   });
 
   test('the skip link moves focus to the main content', async ({ page }) => {
@@ -194,14 +195,13 @@ test.describe('themes', () => {
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   });
 
-  test('token tables and example traces follow the selected product', async ({ page }) => {
+  test('token tables and example traces show the site’s own mappings', async ({ page }) => {
     await page.goto('/foundations/color');
-    await page.getByRole('combobox', { name: 'Product', exact: true }).selectOption('meadow');
-    const actions = page.getByRole('table', { name: /^Action roles used by Button, for Meadow at \w+ density$/ });
-    await expect(actions.getByRole('row', { name: /^action\.primary\.background\b/ }).getByRole('cell').first()).toHaveText('{brand.meadow.strong}');
+    const actions = page.getByRole('table', { name: 'Action roles used by Button', exact: true });
+    await expect(actions.getByRole('row', { name: /^action\.primary\.background\b/ }).getByRole('cell').first()).toHaveText('{color.neutral.950}');
 
     await page.goto('/components/tabs');
     await page.getByRole('tab', { name: 'Tokens' }).click();
-    await expect(page.getByRole('tabpanel', { name: 'Tokens' })).toContainText('action.primary.background → brand.meadow.strong');
+    await expect(page.getByRole('tabpanel', { name: 'Tokens' })).toContainText('(Design System Lab · light · comfortable)');
   });
 });
