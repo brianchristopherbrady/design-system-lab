@@ -80,6 +80,43 @@ export const operating: Decision = {
   },
   sections: [
     {
+      id: 'checked',
+      title: 'What this project checks, and what it does not',
+      blocks: [
+        {
+          kind: 'table',
+          caption: 'Technical checks in this repository, and outcomes that have not been measured',
+          evidence: 'implemented',
+          columns: ['Evidence', 'Status', 'Where'],
+          rows: [
+            ['Token sources are valid and every alias resolves in all twelve combinations', 'Checked in every build', '`scripts/tokens/pipeline.mjs`'],
+            ['Who may read which token tier', 'Checked by the build and tests', '[Dependency policy](/foundations/tokens#policy)'],
+            ['Stylesheets use only tokens and declare cascade layers', 'Checked by lint', '`scripts/architecture/check-styles.mjs`'],
+            ['Imports respect the layer boundaries', 'Checked by lint', '[Implementation architecture](/#architecture)'],
+            ['Text and control contrast in every product and theme', 'Unit tested', '[Contrast](/foundations/color#contrast)'],
+            ['Keyboard, focus, reflow at 320 pixels and automated accessibility scans', 'Browser tests on the production build; the tests tagged `@employer-path` must pass before the site deploys', '`e2e/`'],
+            ['Documentation agrees with the implementation', 'Unit tested', '`src/test/documentation.test.ts`'],
+            ['Stable components are named in a test and used outside their own page', 'Unit tested', '`src/test/documentation.test.ts`'],
+            ['Accessibility defects found by the October 2026 audit', 'Recorded: eight issues, all fixed and awaiting independent verification', '`docs/accessibility/accessibility-audit.md`'],
+            ['Adoption, overrides, delivery time, defect trends, user research and production use', 'Not measured: no product teams or users', 'None'],
+          ],
+        },
+        {
+          kind: 'visual',
+          evidence: 'implemented',
+          caption: 'The repository files behind the Implemented claims on this page. Each file opens in place.',
+          Visual: RepositoryEvidence,
+        },
+        {
+          kind: 'text',
+          evidence: 'hypothetical',
+          paragraphs: [
+            'Everything below this section is how I would run the system for the patient app and the provider workspace: team practices proposed for the scenario, not processes this repository has.',
+          ],
+        },
+      ],
+    },
+    {
       id: 'ownership',
       title: 'Ownership and contribution',
       blocks: [
@@ -366,7 +403,7 @@ export const operating: Decision = {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'This repository keeps an accessibility defect ledger. Each of its eight issues has a severity, a priority, an owner and acceptance criteria, and its status separates fixed from verified. All eight are fixed and await independent verification; the audit had no screen reader. The audit is listed under [What this project checks](/decisions/operating#checked).',
+            'This repository records its own defects the same way, in an accessibility defect ledger; [Quality](/decisions/quality#findings) describes it, and the audit is listed under [What this project checks](/decisions/operating#checked).',
           ],
         },
       ],
@@ -587,36 +624,6 @@ export const operating: Decision = {
             ['Result', '42 of 127 counted call sites use shared components: 33%'],
             ['Reviewed by', 'The core team and the provider workspace’s representative'],
           ],
-        },
-      ],
-    },
-    {
-      id: 'checked',
-      title: 'What this project checks, and what it does not',
-      blocks: [
-        {
-          kind: 'table',
-          caption: 'Technical checks in this repository, and outcomes that have not been measured',
-          evidence: 'implemented',
-          columns: ['Evidence', 'Status', 'Where'],
-          rows: [
-            ['Token sources are valid and every alias resolves in all twelve combinations', 'Checked in every build', '`scripts/tokens/pipeline.mjs`'],
-            ['Who may read which token tier', 'Checked by the build and tests', '[Dependency policy](/foundations/tokens#policy)'],
-            ['Stylesheets use only tokens and declare cascade layers', 'Checked by lint', '`scripts/architecture/check-styles.mjs`'],
-            ['Imports respect the layer boundaries', 'Checked by lint', '[Implementation architecture](/#architecture)'],
-            ['Text and control contrast in every product and theme', 'Unit tested', '[Contrast](/foundations/color#contrast)'],
-            ['Keyboard, focus, reflow at 320 pixels and automated accessibility scans', 'Browser tests on the production build; the tests tagged `@employer-path` must pass before the site deploys', '`e2e/`'],
-            ['Documentation agrees with the implementation', 'Unit tested', '`src/test/documentation.test.ts`'],
-            ['Stable components are named in a test and used outside their own page', 'Unit tested', '`src/test/documentation.test.ts`'],
-            ['Accessibility defects found by the October 2026 audit', 'Recorded: eight issues, all fixed and awaiting independent verification', '`docs/accessibility/accessibility-audit.md`'],
-            ['Adoption, overrides, delivery time, defect trends, user research and production use', 'Not measured: no product teams or users', 'None'],
-          ],
-        },
-        {
-          kind: 'visual',
-          evidence: 'implemented',
-          caption: 'The repository files behind the Implemented claims on this page. Each file opens in place.',
-          Visual: RepositoryEvidence,
         },
       ],
     },

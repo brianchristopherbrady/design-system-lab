@@ -122,31 +122,6 @@ export const adoption: Decision = {
       ],
     },
     {
-      id: 'approaches',
-      title: 'Choosing an approach',
-      blocks: [
-        {
-          kind: 'table',
-          caption: 'Five ways to make the switch, and when each fits',
-          evidence: 'proposed',
-          stacked: true,
-          columns: ['Approach', 'Choose it when', 'Avoid it when', 'Finished when'],
-          rows: [
-            ['Token migration', 'Styles are hard-coded but the markup and behavior are sound.', 'The component itself is the problem, such as a broken focus model.', 'No raw values remain and the guard rail is strict.'],
-            ['Compatibility wrapper', 'An old component is used in many places and its API can be expressed with the new one.', 'The old API has behavior the new component deliberately lacks, so the wrapper would grow its own logic.', 'No call site imports it and the file is deleted.'],
-            ['Codemod', 'The change is mechanical, repeated and decidable from the code alone.', 'Each call site needs a judgment, such as whether a button navigates.', 'Its report lists no skipped sites, and every changed file was reviewed.'],
-            ['Screen by screen', 'Screens change often, or a composite such as a dialog has to move as a whole.', 'A component appears on almost every screen, so old and new would mix for months.', 'Every screen on the list is done, including the ones no one is working on.'],
-            ['Alongside feature work', 'Teams cannot pause, and features touch the screens that need migrating.', 'Some screens are never touched by features.', 'Someone tracks the remaining screens and schedules the untouched ones.'],
-          ],
-        },
-        {
-          kind: 'text',
-          evidence: 'proposed',
-          paragraphs: ['Approaches combine. The worked example below uses tokens, then a wrapper, then screen-by-screen replacement; a codemod would only be worth writing for its mechanical part.'],
-        },
-      ],
-    },
-    {
       id: 'existing',
       title: '1. The existing control',
       blocks: [
@@ -270,30 +245,6 @@ export const adoption: Decision = {
       ],
     },
     {
-      id: 'codemod',
-      title: 'If a codemod helps',
-      blocks: [
-        {
-          kind: 'text',
-          evidence: 'conceptual',
-          paragraphs: ['No codemod exists in this repository. If the provider workspace wrote one for the mechanical part of step 4, it should be this narrow.'],
-        },
-        {
-          kind: 'table',
-          caption: 'A narrow codemod: what it rewrites, what it leaves, and how it is reviewed',
-          evidence: 'conceptual',
-          stacked: true,
-          columns: ['Part', 'Specification'],
-          rows: [
-            ['Rewrites', '`<PwButton>` with literal props only: `kind="primary"` or `"default"` to `appearance`, `small` to `size="small"`, `busy` to `loading`, and an explicit `type="submit"` where the call site is inside a `<form>` in the same file.'],
-            ['Leaves alone, and lists', 'Spread props, computed `kind`, any `kind="link"`, a `className` or `style`, call sites in files without a form whose parent form is elsewhere, and re-exports under another name.'],
-            ['Review', 'Every changed file is read by the owning team, the product’s tests and screenshot comparison run, and the skipped list becomes part of the migration record.'],
-            ['Never', 'Changes behavior to make a test pass, or edits files outside the product.'],
-          ],
-        },
-      ],
-    },
-    {
       id: 'completion',
       title: 'Ownership and completion',
       blocks: [
@@ -348,6 +299,55 @@ export const adoption: Decision = {
             ['Touching a file with recorded debt', 'Allowed; fixing the debt in the same change is encouraged, not required.'],
             ['A deliberate departure from the system', 'Allowed as a logged [exception](/decisions/operating#exceptions) with an owner and a review date.'],
             ['An exception past its review date', 'Counted as not migrated until it is renewed with a reason or removed.'],
+          ],
+        },
+      ],
+    },
+    {
+      id: 'approaches',
+      title: 'Choosing an approach',
+      blocks: [
+        {
+          kind: 'table',
+          caption: 'Five ways to make the switch, and when each fits',
+          evidence: 'proposed',
+          stacked: true,
+          columns: ['Approach', 'Choose it when', 'Avoid it when', 'Finished when'],
+          rows: [
+            ['Token migration', 'Styles are hard-coded but the markup and behavior are sound.', 'The component itself is the problem, such as a broken focus model.', 'No raw values remain and the guard rail is strict.'],
+            ['Compatibility wrapper', 'An old component is used in many places and its API can be expressed with the new one.', 'The old API has behavior the new component deliberately lacks, so the wrapper would grow its own logic.', 'No call site imports it and the file is deleted.'],
+            ['Codemod', 'The change is mechanical, repeated and decidable from the code alone.', 'Each call site needs a judgment, such as whether a button navigates.', 'Its report lists no skipped sites, and every changed file was reviewed.'],
+            ['Screen by screen', 'Screens change often, or a composite such as a dialog has to move as a whole.', 'A component appears on almost every screen, so old and new would mix for months.', 'Every screen on the list is done, including the ones no one is working on.'],
+            ['Alongside feature work', 'Teams cannot pause, and features touch the screens that need migrating.', 'Some screens are never touched by features.', 'Someone tracks the remaining screens and schedules the untouched ones.'],
+          ],
+        },
+        {
+          kind: 'text',
+          evidence: 'proposed',
+          paragraphs: ['Approaches combine. The worked example above uses tokens, then a wrapper, then screen-by-screen replacement; a codemod would only be worth writing for its mechanical part.'],
+        },
+      ],
+    },
+    {
+      id: 'codemod',
+      title: 'If a codemod helps',
+      blocks: [
+        {
+          kind: 'text',
+          evidence: 'conceptual',
+          paragraphs: ['No codemod exists in this repository. If the provider workspace wrote one for the mechanical part of step 4, it should be this narrow.'],
+        },
+        {
+          kind: 'table',
+          caption: 'A narrow codemod: what it rewrites, what it leaves, and how it is reviewed',
+          evidence: 'conceptual',
+          stacked: true,
+          columns: ['Part', 'Specification'],
+          rows: [
+            ['Rewrites', '`<PwButton>` with literal props only: `kind="primary"` or `"default"` to `appearance`, `small` to `size="small"`, `busy` to `loading`, and an explicit `type="submit"` where the call site is inside a `<form>` in the same file.'],
+            ['Leaves alone, and lists', 'Spread props, computed `kind`, any `kind="link"`, a `className` or `style`, call sites in files without a form whose parent form is elsewhere, and re-exports under another name.'],
+            ['Review', 'Every changed file is read by the owning team, the product’s tests and screenshot comparison run, and the skipped list becomes part of the migration record.'],
+            ['Never', 'Changes behavior to make a test pass, or edits files outside the product.'],
           ],
         },
       ],

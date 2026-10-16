@@ -98,7 +98,7 @@ export const planning: Decision = {
         {
           kind: 'text',
           evidence: 'proposed',
-          paragraphs: ['Five steps, each producing something a team can review. In practice they overlap: a pilot often sends you back to rewrite a requirement.'],
+          paragraphs: ['Five steps, each producing something a team can review; the documents are shown under [What the plan produces](/decisions/planning#outputs). In practice the steps overlap: a pilot often sends you back to rewrite a requirement.'],
         },
         {
           kind: 'steps',
@@ -106,27 +106,22 @@ export const planning: Decision = {
             {
               title: 'Understand what exists',
               text: 'Who uses the products, for which workflows, on which devices. Take an [interface inventory](https://bradfrost.com/blog/post/interface-inventory/): one screenshot of every distinct control, with the versions counted. Ask designers, engineers and product owners where the inconsistencies cost them, and separate product differences from duplication.',
-              output: 'an inventory and a short system brief',
             },
             {
               title: 'Agree principles',
               text: 'Three to five statements that settle the trade-offs the inventory exposed, such as flexibility against consistency.',
-              output: 'principles, each with a worked decision',
             },
             {
               title: 'Write scoped requirements',
               text: 'Turn each principle and finding into a requirement with an acceptance criterion someone could test. Say what is out of scope.',
-              output: 'a requirements table, traced to findings',
             },
             {
               title: 'Prioritize and define a pilot',
               text: 'Weigh each candidate’s frequency, user impact, accessibility risk, duplication and migration effort; decide how much system is enough. Name who owns it, then pilot the first candidate in one real workflow, with rules for continuing, revising or stopping.',
-              output: 'priorities and a pilot plan',
             },
             {
               title: 'Set baselines and measures',
               text: 'Measure today before anything changes, and choose a few measures tied to the problems in the brief.',
-              output: 'a measurement plan',
             },
           ],
         },
@@ -398,7 +393,7 @@ export const planning: Decision = {
         {
           kind: 'text',
           paragraphs: [
-            'The documents below are written for the patient app and the provider workspace to show the level of detail, not real findings. The requirements are shown in full, each beside the closest working example in this repository, followed by a trace from every inventory finding to the plan.',
+            'The documents below are written for the patient app and the provider workspace to show the level of detail, not real findings. The requirements are shown in full, each beside the closest working example in this repository, followed by a trace from every inventory finding to the plan. How one component’s acceptance criteria become a checked contract is worked through for Tabs in [Quality](/decisions/quality#matrix).',
           ],
         },
         {

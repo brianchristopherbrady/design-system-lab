@@ -226,7 +226,7 @@ export const quality: Decision = {
             { label: 'Severity and priority', statements: [{ evidence: 'proposed', text: 'Medium severity: content is hard to discover, not blocked. Priority before stable, because both products have narrow screens.' }] },
             { label: 'Owner', statements: [{ evidence: 'hypothetical', text: 'The core team’s Tabs owner, with the provider workspace’s representative to confirm the fix.' }] },
             { label: 'Accept when', statements: [{ evidence: 'proposed', text: 'At 320 pixels, a visible cue shows that more tabs exist, in both writing directions and in forced colors.' }] },
-            { label: 'Status', statements: [{ evidence: 'hypothetical', text: 'Open. Recorded in the ledger and the acceptance matrix.' }] },
+            { label: 'Status', statements: [{ evidence: 'hypothetical', text: 'Open, in the scenario’s ledger. The cue it asks for is also a real gap here, listed under [What remains unverified](/decisions/quality#unverified).' }] },
           ],
         },
         {
@@ -250,17 +250,22 @@ export const quality: Decision = {
           kind: 'text',
           evidence: 'implemented',
           paragraphs: [
-            'The stable requirements that are checked automatically would already pass for Tabs: it is named in automated tests and used outside its own page. Automation is not what holds it back.',
+            'The stable requirements that are checked automatically would already pass for Tabs: it is named in automated tests and used outside its own page. Automation is not what holds it back. These gaps in this repository do:',
           ],
         },
         {
           kind: 'list',
           items: [
             'The supported-environments row of the matrix: other browsers, two screen-reader pairings, real forced colors and zoom.',
-            'Finding TAB-01, a medium-severity finding, in this example.',
+            'No cue that more tabs are off-screen on a narrow screen.',
             'A decision on manual activation for heavy panels, since adding it later would change the API.',
             'Use in more than one product context, which the beta label says it has not yet had.',
           ],
+        },
+        {
+          kind: 'text',
+          evidence: 'hypothetical',
+          paragraphs: ['In the scenario, finding TAB-01 is that missing cue on a real screen. A recorded finding like it would hold promotion until it is fixed or accepted as a gap.'],
         },
         {
           kind: 'text',
@@ -296,14 +301,10 @@ export const quality: Decision = {
       title: 'When a regression ships',
       blocks: [
         {
-          kind: 'steps',
-          items: [
-            { title: 'Report', text: 'Anyone reports it with the steps, the environment and the version. It goes straight to the [urgent defect path](/decisions/operating#defects) if it blocks a task.' },
-            { title: 'Reproduce and classify', text: 'The owner reproduces it, sets severity, and names the matrix row it breaks.', output: 'a ledger entry linked to the row' },
-            { title: 'Contain', text: 'Products pin the previous version or apply a logged workaround that expires with the fix.' },
-            { title: 'Fix test first', text: 'Write the check that would have caught it, see it fail, then fix the component.', output: 'a new automated check, or a new manual step where automation cannot reach' },
-            { title: 'Release and verify', text: 'A patch release with a note naming affected versions; each product confirms the fix on its own screens.' },
-            { title: 'Update the matrix', text: 'Record the new evidence, and ask why the matrix allowed it: a missing row, or a row marked met too early.' },
+          kind: 'text',
+          evidence: 'proposed',
+          paragraphs: [
+            'Reporting, containment and the patch release follow the [urgent defect path](/decisions/operating#defects) in Operating. Two steps belong to quality: write the check that would have caught the regression and see it fail before fixing the component, then update the acceptance matrix and ask why it allowed the regression, whether a row was missing or marked met too early.',
           ],
         },
       ],

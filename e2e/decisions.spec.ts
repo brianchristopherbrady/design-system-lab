@@ -218,10 +218,10 @@ test.describe('design decisions', () => {
     await page.goto('/decisions/component-apis#options');
     await page.getByRole('combobox', { name: 'Card padding' }).selectOption('extraLarge');
     await expect(page.locator('#options [aria-live="polite"]')).toHaveText('padding="extraLarge" → spacing.extra-large → var(--spacing-extra-large) → 32px in your browser');
-    const summary = page.getByRole('article', { name: 'Access request R-1042' });
-    await summary.getByRole('button', { name: 'Approve' }).click();
-    await expect(summary.getByText('Approved', { exact: true })).toBeVisible();
-    await expect(summary.getByRole('status')).toHaveText('Status changed to Approved.');
+    const summary = page.getByRole('article', { name: 'R-2045 · Jordan L.' });
+    await summary.getByRole('button', { name: 'Confirm' }).click();
+    await expect(summary.getByText('Confirmed', { exact: true })).toBeVisible();
+    await expect(summary.getByRole('status')).toHaveText('Status changed to Confirmed.');
     await page.getByRole('link', { name: 'Loading button in the Playground' }).click();
     await expect(page).toHaveURL(/component=button&v=1&p\.appearance=primary&p\.loading=true/);
     await expect(page.locator('button[data-loading]', { hasText: 'Saving' })).toHaveAttribute('aria-disabled', 'true');

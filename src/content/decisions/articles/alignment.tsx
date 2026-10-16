@@ -56,7 +56,7 @@ export const alignment: Decision = {
       },
       {
         evidence: 'implemented',
-        text: 'This repository has no design-tool library and no synchronization. What it automates runs between token files, component code and this documentation.',
+        text: 'What this repository automates runs between token files, component code and this documentation.',
         example: tokens,
       },
     ],

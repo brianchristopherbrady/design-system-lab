@@ -2,7 +2,8 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Card, Field } from '@/design-system/composites';
 import { Inline, Stack } from '@/design-system/layout';
 import { Badge, Button, Heading, Select, Text, VisuallyHidden } from '@/design-system/primitives';
-import { cssVar, spaceScale, spaceTokenPaths, type Space, type Tone } from '@/design-system/tokens';
+import { cssVar, spaceScale, spaceTokenPaths, type Space } from '@/design-system/tokens';
+import { appointmentRequests, appointmentStatusLabels, appointmentStatusTones, type AppointmentStatus } from '@/domain/scenario';
 
 /** One named Card padding value, traced to its token, its custom property and the value the browser computes. */
 export function PaddingTrace() {
@@ -39,27 +40,21 @@ export function PaddingTrace() {
   );
 }
 
-const statuses = {
-  review: { label: 'In review', tone: 'warning' },
-  approved: { label: 'Approved', tone: 'success' },
-  returned: { label: 'Returned', tone: 'info' },
-} as const satisfies Record<string, { label: string; tone: Tone }>;
-
-type Status = keyof typeof statuses;
+const request = appointmentRequests.find((candidate) => candidate.id === 'R-2045');
 
 /**
- * A record summary composed from Card's header and footer regions. The status badge and the actions
- * are content, so Card needs no status or actions prop.
+ * A provider's request summary composed from Card's header and footer regions. The status badge and
+ * the actions are content, so Card needs no status or actions prop.
  */
-export function RecordSummary() {
-  const [status, setStatus] = useState<Status>('review');
+export function RequestSummary() {
+  const [status, setStatus] = useState<AppointmentStatus>(request?.status ?? 'requested');
   const [announcement, setAnnouncement] = useState('');
   const titleId = useId();
-  const change = (next: Status) => {
+  if (!request) return null;
+  const change = (next: AppointmentStatus) => {
     setStatus(next);
-    setAnnouncement(`Status changed to ${statuses[next].label}.`);
+    setAnnouncement(`Status changed to ${appointmentStatusLabels[next]}.`);
   };
-  const { label, tone } = statuses[status];
 
   return (
     <Card
@@ -68,21 +63,21 @@ export function RecordSummary() {
       header={
         <Inline gap="small" justify="between">
           <Heading level={3} size="small" id={titleId}>
-            Access request R-1042
+            {`${request.id} · ${request.patient}`}
           </Heading>
-          <Badge tone={tone}>{label}</Badge>
+          <Badge tone={appointmentStatusTones[status]}>{appointmentStatusLabels[status]}</Badge>
         </Inline>
       }
       footer={
         <Inline gap="small" justify="end">
-          <Button onClick={() => change('returned')}>Return for changes</Button>
-          <Button appearance="primary" onClick={() => change('approved')}>
-            Approve
+          <Button onClick={() => change('needs-details')}>Ask for details</Button>
+          <Button appearance="primary" onClick={() => change('confirmed')}>
+            Confirm
           </Button>
         </Inline>
       }
     >
-      <Text variant="bodySmall">Read access to the finance records folder, requested for a quarterly audit.</Text>
+      <Text variant="bodySmall">{`${request.reason}. Preferred: ${request.preferredTime}.`}</Text>
       <VisuallyHidden role="status">{announcement}</VisuallyHidden>
     </Card>
   );

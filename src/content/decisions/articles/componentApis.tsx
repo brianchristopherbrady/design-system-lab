@@ -1,5 +1,5 @@
 import { SourceList } from '@/features/docs';
-import { PaddingTrace, RecordSummary } from '../ApiExamples';
+import { PaddingTrace, RequestSummary } from '../ApiExamples';
 import type { Decision } from '../types';
 
 function ApiEvidence() {
@@ -12,7 +12,7 @@ function ApiEvidence() {
         { path: 'src/design-system/tokens/vocabulary.ts', note: 'The shared option names and the token each one resolves to' },
         { path: 'src/content/components/stories.tsx', note: 'Playground controls built from the exported option arrays' },
         { path: 'src/test/playground.test.tsx', note: 'Fails when a control’s options drift from the component API' },
-        { path: 'src/content/decisions/ApiExamples.tsx', note: 'The padding trace and the composed record summary on this page' },
+        { path: 'src/content/decisions/ApiExamples.tsx', note: 'The padding trace and the composed request summary on this page' },
       ]}
     />
   );
@@ -299,17 +299,10 @@ export const componentApis: Decision = {
       title: 'Changing an API without breaking consumers',
       blocks: [
         {
-          kind: 'table',
-          caption: 'Kinds of change, whether they break consumers, and how to ship them',
+          kind: 'text',
           evidence: 'proposed',
-          stacked: true,
-          columns: ['Change', 'Breaks consumers?', 'How to ship it'],
-          rows: [
-            ['Add an optional prop whose default keeps today’s behavior', 'No', 'A minor release.'],
-            ['Add a value to an option list', 'Rarely: code that handles every value exhaustively may need a new case', 'A minor release, noted in the changelog.'],
-            ['Change a default', 'Yes: every instance that leaves the prop unset changes', 'A major release, or a new prop that carries the new default.'],
-            ['Rename a prop or value', 'Yes', 'Accept both, warn on the old name, remove it in a major release ([release note](/decisions/operating#releases)).'],
-            ['Change the token values behind an option', 'Not the API, but the look', 'A release note with before-and-after examples, so products can review screens.'],
+          paragraphs: [
+            'Ship a change by whether it breaks consumers. An optional prop whose default keeps today’s behavior, or a new value in an option list, is a minor release. A changed default, or a renamed prop or value, changes every call site that relies on it: accept both names, warn on the old one and remove it in a major release. New token values behind an option leave the API alone but change the look, so they need before-and-after examples. Versions, deprecation and release notes are covered in [Operating](/decisions/operating#releases).',
           ],
         },
         {
@@ -481,20 +474,20 @@ export const componentApis: Decision = {
         {
           kind: 'text',
           evidence: 'hypothetical',
-          paragraphs: ['The provider workspace needs a record summary that shows the record’s status next to its title, with Approve and Return actions at the end.'],
+          paragraphs: ['The provider workspace needs a request summary that shows the request’s status next to the patient’s name, with Ask for details and Confirm actions at the end.'],
         },
         {
           kind: 'code',
           evidence: 'conceptual',
           language: 'tsx',
           caption: 'Rejected: status and actions as Card props. Card would need a tone mapping, an action model and a layout rule that only the provider workspace uses.',
-          code: '<Card status="in-review" statusTone="warning" actions={[{ label: \'Approve\', onClick: approve }]} />',
+          code: '<Card status="requested" statusTone="info" actions={[{ label: \'Confirm\', onClick: confirm }]} />',
         },
         {
           kind: 'visual',
           evidence: ['implemented', 'hypothetical'],
-          caption: 'Built from Card’s `header` and `footer` regions with Heading, Badge, Inline and Button. Card gains no prop. The record is invented; the components are real. Its source is listed under Worked decisions.',
-          Visual: RecordSummary,
+          caption: 'Built from Card’s `header` and `footer` regions with Heading, Badge, Inline and Button. Card gains no prop. The request is invented; the components are real. Its source is listed under Worked decisions.',
+          Visual: RequestSummary,
         },
         {
           kind: 'text',
