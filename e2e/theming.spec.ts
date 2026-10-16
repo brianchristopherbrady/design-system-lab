@@ -195,7 +195,8 @@ test.describe('theme studio', () => {
 
     await presets.getByRole('button', { name: 'Orion' }).click();
     await expect(result).toContainText('Orion, machined shape');
-    expect(await background(save)).not.toBe(before);
+    // Button transitions its background, so the first read can still be the old color.
+    await expect.poll(() => background(save)).not.toBe(before);
     await page.locator('#studio').getByRole('radio', { name: 'Pill' }).check();
     await expect(save).toHaveCSS('border-top-left-radius', '999px');
     await expect(result).toBeInViewport();
