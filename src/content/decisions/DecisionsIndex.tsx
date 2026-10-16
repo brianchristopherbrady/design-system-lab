@@ -1,7 +1,6 @@
 import { Grid, Stack } from '@/design-system/layout';
 import { Link, Text } from '@/design-system/primitives';
 import { EntryCard, findEntry } from '@/domain/system';
-import { productExampleIds, productExamples } from '@/domain/scenario';
 import { DocSection, Prose } from '@/features/docs';
 import { EvidenceBadge, evidenceLabels } from './Blocks';
 import { decisionTopics, type DecisionTopic } from './topics';
@@ -53,35 +52,13 @@ export function DecisionsIndex() {
           <EvidenceBadge evidence="hypothetical" />
           <Prose>
             <p>
-              These examples follow one fictional healthcare company: a patient app for requesting care and a provider
-              workspace for reviewing requests. Both use the same foundations and shared web components, while their
-              content, layout and workflows reflect different tasks. The examples are implemented here; the company and
-              product context are illustrative.
+              Every decision page applies its choice to one fictional healthcare company with two products: a patient app
+              for requesting care and a provider workspace for reviewing requests. These pages go further, into how that
+              company would plan a system, move onto it and keep it healthy.{' '}
+              <Link href="/decisions/sharing#compositions">Try both product examples</Link>
             </p>
           </Prose>
-          <ul className={styles.products} aria-label="Products in the scenario">
-            {productExampleIds.map((id) => (
-              <li key={id}>
-                <Text as="span" variant="label">
-                  {productExamples[id].name}
-                </Text>
-                <Text as="span" variant="bodySmall">
-                  {productExamples[id].task} {productExamples[id].setting}
-                </Text>
-              </li>
-            ))}
-          </ul>
-          <Text variant="bodySmall" tone="muted">
-            Both are web apps on the same framework with related branding, and each releases on its own schedule.{' '}
-            <EvidenceBadge evidence="implemented" /> <Link href="/decisions/sharing#compositions">Try both examples</Link>
-          </Text>
         </div>
-        <Prose>
-          <p>
-            Every page works its decision through this scenario. These pages go further: how the company would plan a
-            system, migrate onto it and keep it healthy.
-          </p>
-        </Prose>
         <DecisionList topics={team} label="Applying the approach to a product team" />
       </DocSection>
 

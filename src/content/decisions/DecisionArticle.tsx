@@ -1,7 +1,7 @@
 import { Disclosure } from '@/design-system/composites';
 import { Stack } from '@/design-system/layout';
 import { Icon, Link, Text } from '@/design-system/primitives';
-import { DocSection } from '@/features/docs';
+import { DocSection, Prose } from '@/features/docs';
 import { BlockView, EvidenceBadge, RecordFields, Rich, Sources } from './Blocks';
 import type { Decision, DecisionRecord, DecisionSection, ProjectOpening } from './types';
 import styles from './decisions.module.css';
@@ -37,52 +37,42 @@ export const decisionSections = (decision: Decision) =>
     return { id: part.section.id, label: part.section.title };
   });
 
-function OpeningField({ label, text }: { label: string; text: string }) {
+function RunIn({ label, text }: { label: string; text: string }) {
   return (
-    <div>
-      <Text as="dt" variant="caption" tone="muted">
-        {label}
-      </Text>
-      <dd className={styles.statement}>
-        <p>
-          <Rich text={text} />
-        </p>
-      </dd>
-    </div>
+    <p>
+      <strong>{label}.</strong> <Rich text={text} />
+    </p>
   );
 }
 
-/** What this repository chose, why, and something to try, before any scenario material. */
+/** What this repository chose and something to try, then why, before any scenario material. */
 function ProjectView({ project }: { project: ProjectOpening }) {
   return (
     <DocSection id="project" title="In this project">
-      <div className={styles.figure}>
+      <div className={styles.opening}>
         <EvidenceBadge evidence="implemented" />
-        <dl className={styles.decisionRecord}>
-          <OpeningField label="Chosen here" text={project.choice} />
-          <OpeningField label="Constraint" text={project.constraint} />
-          <div>
-            <Text as="dt" variant="caption" tone="muted">
-              Try it
-            </Text>
-            <dd className={styles.statement}>
-              <p>
-                <Rich text={project.tryIt.text} />
-              </p>
-              <ul className={styles.tryLinks}>
-                {project.tryIt.links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className={styles.exampleLink}>
-                      {link.label} <Icon name="arrowRight" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </dd>
-          </div>
-          <OpeningField label="Trade-off" text={project.tradeoff} />
-          <OpeningField label="Evidence" text={project.evidence} />
-        </dl>
+        <Text variant="lead">
+          <Rich text={project.choice} />
+        </Text>
+        <div className={styles.tryIt}>
+          <Text>
+            <strong>Try it.</strong> <Rich text={project.tryIt.text} />
+          </Text>
+          <ul className={styles.tryLinks}>
+            {project.tryIt.links.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={styles.exampleLink}>
+                  {link.label} <Icon name="arrowRight" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Prose>
+          <RunIn label="Constraint" text={project.constraint} />
+          <RunIn label="Trade-off" text={project.tradeoff} />
+          <RunIn label="Evidence" text={project.evidence} />
+        </Prose>
       </div>
     </DocSection>
   );

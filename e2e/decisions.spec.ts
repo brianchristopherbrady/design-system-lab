@@ -32,7 +32,7 @@ test.describe('design decisions', () => {
     for (const { id } of pages.filter((entry) => entry.own)) {
       await page.goto(`/decisions/${id}`);
       const opening = page.locator('#project');
-      await expect(opening.getByText('Chosen here', { exact: true })).toBeVisible();
+      await expect(opening.getByText('Evidence.', { exact: true })).toBeVisible();
       const box = await opening.evaluate((element) => element.getBoundingClientRect().height);
       expect(box, id).toBeLessThanOrEqual(900);
       const order = await page.locator('main h2').evaluateAll((headings) => headings.map((heading) => heading.textContent));

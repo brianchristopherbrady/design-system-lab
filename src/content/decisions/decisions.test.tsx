@@ -230,7 +230,10 @@ describe('design decisions', () => {
       expect(within(card).getByText(entry?.summary ?? '')).toBeInTheDocument();
       expect(within(card).queryByText('Design decision')).toBeNull();
     }
-    expect(within(screen.getByRole('list', { name: 'Products in the scenario' })).getAllByRole('listitem')).toHaveLength(2);
+    const scenario = document.getElementById('scenario');
+    expect(scenario).not.toBeNull();
+    expect(within(scenario as HTMLElement).getByText('Hypothetical')).toBeInTheDocument();
+    expect(within(scenario as HTMLElement).getByRole('link', { name: 'Try both product examples' })).toHaveAttribute('href', '/decisions/sharing#compositions');
     for (const label of ['Implemented', 'Hypothetical', 'Proposed', 'Conceptual']) expect(screen.getAllByText(label).length).toBeGreaterThan(0);
   });
 });

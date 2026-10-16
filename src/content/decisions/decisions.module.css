@@ -82,6 +82,23 @@
     list-style: none;
   }
 
+  /* A page's opening: the choice as a lead, something to try, then the reasoning as run-in paragraphs. */
+  .opening {
+    display: grid;
+    gap: var(--space-md);
+    justify-items: start;
+    min-inline-size: 0;
+  }
+
+  .opening > :not(span) {
+    justify-self: stretch;
+  }
+
+  .tryIt {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
   .badges {
     display: inline-flex;
     flex-wrap: wrap;
@@ -582,26 +599,6 @@
 
   .inlineForm > :first-child {
     justify-self: stretch;
-  }
-
-  /* Overview: the scenario's two products, side by side when they fit. */
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
-    gap: var(--spacing-small);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .products li {
-    display: grid;
-    gap: var(--space-2xs);
-    align-content: start;
-    padding: var(--spacing-small) var(--spacing-medium);
-    border: var(--border-width-thin) solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    background-color: var(--surface-panel);
   }
 
   .legend {
